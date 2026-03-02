@@ -3,191 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ИИ для всех</title>
+  <title>AI-Навигатор | Сравнение и подсказки по ИИ</title>
   
-  <!-- Open Graph для красивых ссылок -->
-  <meta property="og:title" content="ИИ для всех — Просто об искусственном интеллекте">
-  <meta property="og:description" content="Понятные статьи про нейросети, ChatGPT и технологии будущего. Автор: Владимир">
-  <meta property="og:url" content="https://ai-websait.pages.dev/">
+  <!-- SEO -->
+  <meta name="description" content="Понятные статьи про нейросети, ChatGPT и технологии будущего. Сравнение инструментов, подсказки, мои работы.">
+  <meta property="og:title" content="AI-Навигатор — Просто об искусственном интеллекте">
+  <meta property="og:description" content="Сравниваю • Показываю • Объясняю. Автор: Владимир">
+  <meta property="og:url" content="https://aiwebapp.ru">
   <meta property="og:type" content="website">
-<meta name="google-site-verification" content="6PkxDS2fbgvNw5086GYNodWRBrdOxk7mGv9rnlffFoA" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f9f9f9;
-    }
-    header {
-      background: linear-gradient(135deg, #6e8efb, #a777e3);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
-    section { margin-bottom: 2rem; }
-    h2 { color: #555; margin-bottom: 1rem; }
-    p { margin-bottom: 1rem; }
-    .features { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; }
-    .feature-card {
-      background: white;
-      padding: 1.2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      flex: 1 1 250px;
-    }
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      color: #777;
-      font-size: 0.9rem;
-      border-top: 1px solid #eee;
-    }
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #6e8efb;
-      color: white;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s, visibility 0.3s;
-      z-index: 100;
-    }
-    .back-to-top.show { opacity: 1; visibility: visible; }
-    .footer-extra { text-align: center; margin: 2rem 0; font-size: 0.9rem; color: #666; }
-
-    /* Тёмная тема */
-    body.dark-theme { background-color: #121212; color: #e0e0e0; }
-    body.dark-theme header { background: linear-gradient(135deg, #4a69bd, #6a89cc); }
-    body.dark-theme h1, body.dark-theme h2 { color: #bb86fc; }
-    body.dark-theme .feature-card, body.dark-theme footer {
-      background: #1e1e1e;
-      color: #ccc;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
-    body.dark-theme footer { border-top: 1px solid #333; }
-
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 100;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(4px);
-      color: white;
-    }
-    /* === Кнопки переключения языка === */
-.lang-btn {
-  padding: 0.5rem 1.2rem;
-  border: 2px solid #6e8efb;
-  background: white;
-  color: #6e8efb;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.lang-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(110, 142, 251, 0.3);
-}
-
-.lang-btn.active,
-.lang-btn.active:hover {
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 4px 12px rgba(110, 142, 251, 0.4);
-}
-
-/* === Контент с анимацией === */
-.lang-content {
-  animation: slideIn 0.4s ease-out;
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* === Блок со статистикой === */
-.stats-box {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 1.2rem;
-  border-radius: 10px;
-  margin: 1.5rem 0;
-  font-weight: 500;
-  line-height: 1.5;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-}
-
-/* === Адаптив === */
-@media (max-width: 600px) {
-  .lang-btn {
-    flex: 1;
-    min-width: 120px;
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-  }
-}
-
-/* === Тёмная тема === */
-body.dark-theme .lang-btn {
-  background: #1e1e1e;
-  color: #bb86fc;
-  border-color: #bb86fc;
-}
-body.dark-theme .lang-btn:hover {
-  background: #2a2a2a;
-  box-shadow: 0 4px 12px rgba(187, 134, 252, 0.25);
-}
-body.dark-theme .lang-btn.active,
-body.dark-theme .lang-btn.active:hover {
-  background: linear-gradient(135deg, #4a69bd, #6a89cc);
-  color: white;
-  border-color: transparent;
-}
-body.dark-theme .stats-box {
-  background: linear-gradient(135deg, #3a1c71, #2c2c54);
-  box-shadow: 0 4px 12px rgba(187, 134, 252, 0.2);
-}
-  </style> 
-<script src="https://cdn.counter.dev/script.js" data-id="5c32185b-aae0-4759-a9c6-5abb237eb30a" data-utcoffset="3"></script>
+  <meta name="google-site-verification" content="6PkxDS2fbgvNw5086GYNodWRBrdOxk7mGv9rnlffFoA" />
+  
+  <!-- Стили и скрипты -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 </head>
 <body>
 
   <header>
-    <h1>Искусственный Интеллект</h1>
-    <p>Просто, понятно и без лишней сложности</p>
+    <h1>🤖 AI-Навигатор</h1>
+    <p>Сравниваю • Показываю • Объясняю</p>
   </header>
 
   <div class="container">
+    
     <section>
       <h2>Что такое ИИ?</h2>
       <p>Искусственный интеллект (ИИ) — это область компьютерных наук, которая стремится создать системы, способные выполнять задачи, требующие человеческого интеллекта: распознавание речи, принятие решений, обучение и многое другое.</p>
@@ -212,381 +50,76 @@ body.dark-theme .stats-box {
       <p>Нейросеть — это компьютерная система, которая учится решать задачи, глядя на примеры. Она устроена похоже на человеческий мозг: состоит из множества «нейронов», которые передают сигналы друг другу.</p>
       <p>Например, если показать нейросети тысячи фото кошек и собак с надписями «кот» или «собака», она научится отличать их сама — даже на новых, незнакомых ей фотографиях!</p>
       <div style="text-align:center; margin:1.5rem 0;">
-        <img src="https://picsum.photos/600/300?grayscale&blur=2" alt="Схема нейросети" style="width:100%; max-width:600px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+        <img src="https://picsum.photos/600/300?grayscale&blur=2" alt="Визуализация слоёв нейросети" loading="lazy" style="width:100%; max-width:600px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
         <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;">Нейросеть обрабатывает данные слоями — от простого к сложному</p>
       </div>
-      <p>Сегодня нейросети пишут тексты, рисуют картины, управляют автомобилями и даже помогают врачам ставить диагнозы. И всё это — без того, чтобы программист написал для каждой задачи отдельную инструкцию. Они <strong>учатся сами</strong>.</p>
     </section>
 
     <section>
       <h2>Что такое ChatGPT?</h2>
       <p>ChatGPT — это умный чат-бот, созданный компанией OpenAI. Он умеет отвечать на вопросы, писать тексты, объяснять сложные темы простыми словами и даже сочинять стихи!</p>
-      <p>В основе ChatGPT лежит огромная нейросеть, обученная на миллиардах текстов из интернета. Но он не «знает» всё — он <strong>угадывает</strong> наиболее вероятный ответ, основываясь на том, что видел раньше.</p>
       <div style="text-align:center; margin:1.5rem 0;">
-        <img src="https://picsum.photos/600/300?blur=1&grayscale" alt="ChatGPT — умный помощник" style="width:100%; max-width:600px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
-        <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;">ChatGPT — как друг, который много читал и готов помочь</p>
+        <img src="https://picsum.photos/600/300?blur=1&grayscale" alt="ChatGPT — умный помощник" loading="lazy" style="width:100%; max-width:600px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
       </div>
-      <p>Важно помнить: ChatGPT может ошибаться или выдавать вымышленные факты (это называется «галлюцинации»). Поэтому его ответы стоит проверять — особенно в учёбе и работе.</p>
-      <p>Но как инструмент для вдохновения, черновика или объяснения темы — он просто волшебный.</p>
+      <p><strong>Важно:</strong> ChatGPT может ошибаться. Всегда проверяй информацию!</p>
     </section>
 
     <section>
-      <h2>Что такое галлюцинации ИИ?</h2>
-      <p>Галлюцинации ИИ — это когда искусственный интеллект выдаёт информацию, которая звучит правдоподобно, но на самом деле <strong>неверна или вымышленна</strong>.</p>
-      <p>Например, ChatGPT может придумать: несуществующую книгу, фальшивую дату исторического события или несуществующий закон.</p>
-      <div style="text-align:center; margin:1.5rem 0;">
-        <img src="https://picsum.photos/600/300?blur=1&grayscale&random=1" alt="Галлюцинации ИИ" style="width:100%; max-width:600px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
-        <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;">ИИ не врёт — он просто «угадывает» слишком уверенно</p>
-      </div>
-      <p>Почему так происходит? Потому что ИИ не «помнит» факты — он предсказывает, какой текст наиболее вероятен на основе того, что видел в обучающих данных.</p>
-      <p><strong>Важно:</strong> никогда не доверяй ИИ на 100% в учёбе, медицине, юриспруденции или финансах. Всегда проверяй информацию через надёжные источники!</p>
-    </section>
-
-    <section><!-- === СТАТЬЯ: ChatGPT Плюсы и Минусы === -->
-      <h2>ChatGPT: Сильные и слабые стороны</h2>
-      <p>
-        ChatGPT — мощный инструмент, но не волшебная палочка. 
-        Чтобы использовать его эффективно, важно понимать, где он поможет, а где может подвести.
-      </p>
-
-      <h3>✅ Сильные стороны</h3>
-      <div class="features">
-        <div class="feature-card" style="border-left: 4px solid #4CAF50;">
-          <h4>🚀 Скорость</h4>
-          <p>Отвечает за секунды. Экономит часы на рутинных задачах: письма, планы, черновики.</p>
+      <h2>Мои работы с ИИ</h2>
+      <p>Я недавно увлёкся созданием картинок с помощью ИИ. Вот несколько моих любимых работ:</p>
+      
+      <div class="works-grid">
+        <div class="work-card">
+          <img src="https://raw.githubusercontent.com/otpysknik5-ship-it/ai-websait/main/кот%20и%20гитара.jpg" alt="Кот-рокер с гитарой — генерация ИИ" loading="lazy">
+          <p>😼 Котик жжёт на гитаре</p>
         </div>
-        <div class="feature-card" style="border-left: 4px solid #4CAF50;">
-          <h4>📚 Универсальность</h4>
-          <p>Пишет код, стихи, переводит тексты, объясняет квантовую физику простым языком.</p>
-        </div>
-        <div class="feature-card" style="border-left: 4px solid #4CAF50;">
-          <h4>🕒 Доступность 24/7</h4>
-          <p>Не устаёт, не спит, всегда в хорошем настроении. Твой личный помощник в любое время.</p>
+        <div class="work-card">
+          <img src="https://raw.githubusercontent.com/otpysknik5-ship-it/ai-websait/main/кара.jpg" alt="Демон и спутница — генерация ИИ" loading="lazy">
+          <p>👹 Демо-арт с характером</p>
         </div>
       </div>
+    </section>
 
-      <h3>❌ Слабые стороны</h3>
-      <div class="features">
-        <div class="feature-card" style="border-left: 4px solid #f44336;">
-          <h4>⚠️ Галлюцинации</h4>
-          <p>Может уверенно врать. Факты, даты, цитаты — всегда перепроверяй в источниках.</p>
-        </div>
-        <div class="feature-card" style="border-left: 4px solid #f44336;">
-          <h4>📅 Устаревшие данные</h4>
-          <p>Знания ограничены датой обучения. Свежие новости он может не знать (без доступа в интернет).</p>
-        </div>
-        <div class="feature-card" style="border-left: 4px solid #f44336;">
-          <h4>🤖 Нет эмпатии</h4>
-          <p>Он имитирует эмоции, но не чувствует их. Для поддержки живых людей он не подходит.</p>
-        </div>
-      </div>
-
-      <div style="background: #fff3cd; padding: 1rem; border-radius: 8px; margin-top: 1.5rem; border-left: 4px solid #ffc107;">
-        <strong>💡 Совет:</strong> Используй ChatGPT как «второго пилота». Он предлагает варианты — ты принимаешь решения.
+    <section>
+      <h2>Полезные материалы</h2>
+      <div style="background: #f0f0f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3>📚 Статьи</h3>
+        <p>Хочешь узнать больше?</p>
+        <a href="article-1.html" style="display: inline-block; padding: 10px 20px; background: #1a73e8; color: white; text-decoration: none; border-radius: 5px; margin: 5px;">
+          👁️ Глаз ИИ →
+        </a>
+        <a href="article-2.html" style="display: inline-block; padding: 10px 20px; background: #00d9ff; color: #1a1a2e; text-decoration: none; border-radius: 5px; margin: 5px; font-weight: bold;">
+          🎤 Слышит ли ИИ? →
+        </a>
       </div>
     </section>
-    <!-- === КОНЕЦ СТАТЬИ === -->
 
-    <section>
-      <h2>Как за 10 минут создать свой мини-сайт с ИИ</h2>
-      <p>Не нужно знать программирование. Не нужны деньги. Достаточно 10 минут и желания начать.</p>
-      <ol>
-        <li><strong>Зарегистрируйся на GitHub</strong> — бесплатно, за 2 минуты.</li>
-        <li><strong>Создай репозиторий</strong> с названием <code>вашеимя.pages.dev</code>.</li>
-        <li><strong>Добавь файл <code>index.html</code></strong> — даже простой текст заработает.</li>
-        <li><strong>Готово!</strong> Твой сайт жив по адресу: <code>https://вашеимя.pages.dev</code></li>
-      </ol>
-      <div style="text-align:center; margin:1.5rem 0;">
-        <img src="https://picsum.photos/600/300?grayscale&blur=1&random=2" alt="Мини-сайт на GitHub Pages" style="width:100%; max-width:600px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
-        <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;">GitHub Pages — твой бесплатный хостинг</p>
-      </div>
-      <p>А теперь — как заработать?</p>
-      <ul>
-        <li>Сделай сайт-визитку → бери заказы на фрилансе</li>
-        <li>Создай генератор цитат → монетизируй через донаты</li>
-        <li>Опиши свой ИИ-проект → привлеки инвестора или партнёра</li>
-      </ul>
-      <p>Главное — начать. Остальное приложится.</p>
-    </section>
-
-    <section>
-      <h2>Как создать Telegram-бота с ИИ и получать пассивный доход</h2>
-      <p>Представь: каждый день тебе приходят деньги, а ты даже не встаёшь с дивана. Звучит как мечта? Но это реально — с Telegram-ботом и ИИ.</p>
-      <ol>
-        <li>Ты создаёшь бота в Telegram (бесплатно)</li>
-        <li>Подключаешь его к бесплатному ИИ (например, через API или no-code сервис)</li>
-        <li>Люди пишут боту: «Напиши поздравление для мамы»</li>
-        <li>Бот отвечает — мгновенно, красиво, бесплатно (или за 50 ₽)</li>
-        <li>Ты получаешь оплату через Donatello, Boosty или Tinkoff Pay</li>
-      </ol>
-      <div style="text-align:center; margin:1.5rem 0;">
-        <img src="https://picsum.photos/600/300?grayscale&blur=1&random=3" alt="Telegram-бот с ИИ" style="width:100%; max-width:600px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
-        <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;">Бот работает 24/7 — даже пока ты спишь</p>
-      </div>
-      <p><strong>Пример:</strong> бот «Поздравлятор» — за неделю собрал 1200 ₽ на донатах. Люди платят за эмоции. А ИИ их создаёт.</p>
-      <p>Начни с простого: сделай бота, который генерирует цитаты. Выложи в канал — и добавь кнопку: «Поддержать автора». Уже через неделю ты увидишь первые переводы.</p>
-    </section>
-
-    <section>
-      <h2>Почему ИИ не заменит человека?</h2>
-      <p>
-        Потому что ИИ — это зеркало. Он повторяет то, что видел.
-        А человек — создаёт то, чего ещё не было.
-      </p>
-      <p>
-        Ты сейчас делаешь именно это: берёшь технологии — и превращаешь их в нечто своё.
-        Это и есть будущее.
-      </p>
-    </section>
-
-    <section>
-      <h2>А знали ли вы, как зарождался ИИ?</h2>
-      <p>
-        Искусственный интеллект не появился вчера. Его история начинается ещё в 1940-х годах — 
-        когда учёные впервые задумались: «А можно ли научить машину думать?»
-      </p>
-      <p>
-        В 1950 году математик Алан Тьюринг предложил знаменитый «тест Тьюринга»: 
-        если человек не может отличить ответы машины от ответов человека — значит, машина «думает».
-      </p>
-      <p>
-        А в 1956 году на конференции в Дартмуте впервые прозвучало словосочетание 
-        <strong>«искусственный интеллект»</strong>. Тогда учёные верили, что через 20 лет 
-        машины будут играть в шахматы, переводить тексты и решать задачи как люди.
-      </p>
-      <p>
-        Прошло 70 лет. ИИ уже пишет стихи, рисует картины, создаёт видео… 
-        Но до сих пор он не понимает, что такое боль, радость или сомнение.
-      </p>
-      <p>
-        Потому что ИИ — это не мозг. Это зеркало.  
-        Он отражает то, чему его научили люди.
-      </p>
-      <p>
-        И именно поэтому такие проекты, как этот сайт и бот @abu_quotes_bot — важны.  
-        Они показывают: ИИ — не угроза, а инструмент.  
-        А главное — вдохновение.
-      </p>
-    </section>
-    <section>
-  <h2>👁️ ИИ видит то, что не замечают врачи</h2>
-  
-  <!-- Переключатель языка -->
-  <div style="display: flex; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap;">
-    <button class="lang-btn active" onclick="showLang('ru', this)">🇷🇺 Русский</button>
-    <button class="lang-btn" onclick="showLang('en', this)">🇬🇧 English</button>
-  </div>
-  
-  <!-- Русский контент -->
-  <div id="ru" class="lang-content">
-    <h3>Как ИИ спасает зрение миллионам</h3>
-    <p>Каждый год <strong>миллионы людей</strong> теряют зрение из-за диабетической ретинопатии — осложнения диабета, которое повреждает сосуды глаза.</p>
-    
-    <p>Проблема: во многих регионах мира просто <strong>не хватает врачей-офтальмологов</strong>. Люди ждут диагностики месяцами… а болезнь прогрессирует.</p>
-    
-    <p><strong>Решение:</strong> ИИ-система <strong>IDx-DR</strong> анализирует фото сетчатки за 1 минуту и ставит диагноз с точностью до 96%.</p>
-    
-    <div class="stats-box">
-      🎯 <strong>Факты:</strong><br>
-      • Первый ИИ-диагност, одобренный <strong>FDA</strong> (США) без участия врача<br>
-      • Точность: <strong>96%</strong> — как у опытного специалиста<br>
-      • Работает в Индии, Таиланде, США — там, где врачей не хватает
-    </div>
-    
-    <p><em>Источник: FDA, 2018 • Digital Diagnostics / IDx-DR</em></p>
-    
-    <div style="text-align:center; margin:1.5rem 0;">
-      <img src="https://picsum.photos/600/300?grayscale&blur=1&random=eye" 
-           alt="ИИ анализирует снимок сетчатки" 
-           loading="lazy"
-           style="width:100%; max-width:600px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
-      <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;">ИИ находит микроскопические повреждения сосудов, невидимые глазу</p>
-    </div>
-  </div>
-  
-  <!-- English content -->
-  <div id="en" class="lang-content" style="display: none;">
-    <h3>How AI Is Saving Sight for Millions</h3>
-    <p>Every year, <strong>millions of people</strong> lose their vision due to diabetic retinopathy — a diabetes complication that damages blood vessels in the eye.</p>
-    
-    <p>The problem: in many parts of the world, there simply <strong>aren't enough ophthalmologists</strong>. People wait months for diagnosis… while the disease progresses.</p>
-    
-    <p><strong>The solution:</strong> AI system <strong>IDx-DR</strong> analyzes a retinal photo in 1 minute and diagnoses with up to 96% accuracy.</p>
-    
-    <div class="stats-box">
-      🎯 <strong>Key Facts:</strong><br>
-      • First AI diagnostic tool approved by <strong>FDA</strong> (USA) to work without a doctor<br>
-      • Accuracy: <strong>96%</strong> — on par with experienced specialists<br>
-      • Deployed in India, Thailand, USA — where doctors are scarce
-    </div>
-    
-    <p><em>Source: FDA, 2018 • Digital Diagnostics / IDx-DR</em></p>
-    
-    <div style="text-align:center; margin:1.5rem 0;">
-      <img src="https://picsum.photos/600/300?grayscale&blur=1&random=eye2" 
-           alt="AI analyzing retinal scan" 
-           loading="lazy"
-           style="width:100%; max-width:600px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
-      <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;">AI detects microscopic vessel damage invisible to the human eye</p>
-    </div>
-  </div>
-</section>
-
-    <section>
-      <h2>Китайские роботы уже крутят сальто. А вы думали, ИИ — это только чат-боты?</h2>
-      <p>
-        В 2025 году компания <strong>Unitree</strong> представила робота-гуманоида <em>H1</em>, который делает сальто в воздухе — как гимнаст.
-      </p>
-      <p>
-        Не «почти». Не «в лаборатории».  
-        Он стоит на одной ноге, отталкивается — и переворачивается в воздухе, приземляясь на обе ноги.  
-        Без помощи человека. Без проводов. Только аккумулятор и ИИ.
-      </p>
-      <p>
-        Как это работает?  
-        Робот не «знает», как делать сальто. Он учится на тысячах симуляций — где каждая попытка заканчивается падением… или успехом.  
-        ИИ анализирует данные с датчиков в реальном времени — и корректирует движение за миллисекунды.
-      </p>
-      <p>
-        Это не фантастика. Это уже сегодня.
-      </p>
-      <p>
-        А значит — ИИ больше не про «ответы на вопросы».  
-        Он про <strong>движение, баланс, решение в потоке</strong>.  
-        Про то, чтобы не упасть — даже когда мир перевёрнут вверх дном.
-      </p>
-      <p>
-        Так что в следующий раз, когда скажут: «ИИ — это просто алгоритм» — покажи им видео сальто.  
-        И спроси:  
-        <em>«А ты можешь сделать это — с первого раза?»</em>
-      </p>
-      <p><small>«Врата» — ИИ не просто рисует мускулы и рога. Он передаёт напряжение. Как будто вот-вот выйдет.</small></p>
-    </section>
-
-    <section>
-      <h2>Я не так давно увлёкся созданием картинок, видео и ботов с помощью ИИ</h2>
-      <p>
-        Честно — сначала я думал: «Это же просто фильтры, как в Instagram».  
-        Но когда впервые запустил генерацию — и увидел, как ИИ рисует то, о чём я подумал…  
-        Я понял: это не инструмент. Это диалог.
-      </p>
-      <p>
-        Вот несколько моих любимых работ — те, что зажигают на других ресурсах:
-      </p>
-
-      <div style="text-align: center; margin: 2rem 0;">
-        <img 
-        src="https://raw.githubusercontent.com/otpysknik5-ship-it/ai-websait/main/кот%20и%20гитара.jpg"
-        alt="Кот-рокер с гитарой — огонь!"
-        style="max-width: 200px; width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);"
-        />
-        <p style="font-size: 0.95rem; color: #666; margin-top: 1rem; font-style: italic;">
-          Котик жжёт на гитаре — моя генерация в ИИ 😼🎸
-        </p>
-        <div style="text-align: center; margin: 2rem 0;">
-  <img 
-  src="https://raw.githubusercontent.com/otpysknik5-ship-it/ai-websait/main/кара.jpg"
-  alt="на картинке демон и очаровательная спутница, вверху облик могучего - генерация ИИ"
-  style="max-width: 200px; width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);"
-  />
-  <p style="font-size: 0.95rem; color: #666; margin-top: 1rem; font-style: italic;">
-    на картинке демон и очаровательная спутница , вверху облик могучего- генерация ИИ
-  </p>
-</div>
-
-       </div>
-
-      <p>
-        Видео пока не могу показать — платформы их блокируют.  
-        Но скажу одно:  
-        <strong>за ИИ — будущее.</strong>
-      </p>
-      <p>
-        Не потому что он заменит нас.  
-        А потому что он помогает нам увидеть то, что мы не могли выразить словами.
-      </p>
-    </section>  
-
-    <!-- Счётчик и кнопки -->
     <div class="footer-extra">
-      <img src="https://img.shields.io/badge/ИИ%20для%20всех-%F0%9F%A4%96-blue?style=flat&logo=github" alt="ИИ-сайт">
+      <img src="https://img.shields.io/badge/AI%E2%80%90Навигатор-%F0%9F%A4%96-blue?style=flat&logo=github" alt="AI-сайт">
       <br><br>
       <span>✨ Посетители сегодня: </span>
       <img src="https://views.whatilearened.today/views/github/otpysknik5-ship-it/ai-websait.svg?cache=reset" alt="Просмотры сайта" style="height:24px; vertical-align:middle;">
       <br><br>
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fai-websait.pages.dev%2F&text=Смотри%2C%20крутой%20сайт%20про%20ИИ%21" target="_blank" style="display:inline-block; background:#0088cc; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-weight:bold; box-shadow:0 2px 4px rgba(0,0,0,0.2);">📤 Поделиться в Telegram</a>
-      <br><br>
-      <a href="https://t.me/SVIBRO" target="_blank" style="display:inline-block; background:#25D366; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-weight:bold; box-shadow:0 2px 4px rgba(0,0,0,0.2);">💬 Написать автору</a>
+      <a href="https://t.me/share/url?url=https%3A%2F%2Faiwebapp.ru%2F&text=Смотри%2C%20крутой%20сайт%20про%20ИИ%21" target="_blank" class="telegram">📤 Поделиться в Telegram</a>
+      <br>
+      <a href="https://t.me/SVIBRO" target="_blank" class="author">💬 Написать автору</a>
     </div>
-    <!-- Вставь это в нужное место на главной странице -->
-<div style="margin: 20px 0; padding: 20px; background: #f0f0f0; border-radius: 8px;">
-    <h3>📚 Полезные материалы</h3>
-    <p>Хочешь узнать, как ИИ видит мир?</p>
-    <a href="article-1.html" style="display: inline-block; padding: 10px 20px; background: #1a73e8; color: white; text-decoration: none; border-radius: 5px;">
-        Читать статью про "Глаз ИИ" →
-    </a>
-  <a href="article-2.html">🎤 Слышит ли ИИ?</a>
-</div>
 
-    <!-- Подвал v2 -->
     <footer>
-      <p>© 2026 • ИИ для всех</p>
+      <p>© 2026 • AI-Навигатор</p>
       <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem;">
-        📝 Автор: <a href="https://t.me/SVIBRO" style="color: #6e8efb; text-decoration: none;">Владимир</a> • 
-        Сайт: <a href="https://ai-websait.pages.dev/" style="color: #6e8efb; text-decoration: none;">ai-websait.pages.dev</a>
+        📝 Автор: <a href="https://t.me/SVIBRO">Владимир</a> • 
+        Сайт: <a href="https://aiwebapp.ru">aiwebapp.ru</a>
       </p>
     </footer>
   </div>
 
-  <!-- Кнопка "Наверх" -->
+  <!-- Кнопки -->
   <a href="#" class="back-to-top" id="backToTop">↑</a>
+  <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
 
-  <!-- Переключатель темы -->
-  <button class="theme-toggle" id="themeToggle">🌙</button>
-
-  <script>
-    // Кнопка наверх
-    window.addEventListener('scroll', () => {
-      const button = document.getElementById('backToTop');
-      if (window.scrollY > 300) {
-        button.classList.add('show');
-      } else {
-        button.classList.remove('show');
-      }
-    });
-
-    // Тёмная тема
-    const savedTheme = localStorage.getItem('theme');
-    const toggleBtn = document.getElementById('themeToggle');
-    if (savedTheme === 'dark') {
-      document.body.classList.add('dark-theme');
-      toggleBtn.textContent = '☀️';
-    }
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-theme');
-      const isDark = document.body.classList.contains('dark-theme');
-      if (isDark) {
-        localStorage.setItem('theme', 'dark');
-        toggleBtn.textContent = '☀️';
-      } else {
-        localStorage.setItem('theme', 'light');
-        toggleBtn.textContent = '🌙';
-      }
-    });
-function showLang(lang, btn) {
-  document.querySelectorAll('.lang-content').forEach(el => el.style.display = 'none');
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById(lang).style.display = 'block';
-  btn.classList.add('active');
-  localStorage.setItem('site-lang', lang);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('site-lang') || 'ru';
-  const btn = document.querySelector(`.lang-btn[onclick*="'${saved}'"]`);
-  if (btn) showLang(saved, btn);
-});
-</script>
+  <script src="script.js"></script>
+  <script src="https://cdn.counter.dev/script.js" data-id="5c32185b-aae0-4759-a9c6-5abb237eb30a" data-utcoffset="3"></script>
 </body>
 </html>
 
