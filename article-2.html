@@ -1,117 +1,88 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Слышит ли ИИ? | AI Websait</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #eee;
-        }
-        h1 {
-            color: #00d9ff;
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-        }
-        h2 {
-            color: #00d9ff;
-            border-bottom: 2px solid #00d9ff;
-            padding-bottom: 10px;
-            margin-top: 40px;
-        }
-        p {
-            margin: 20px 0;
-            font-size: 1.1em;
-        }
-        .highlight {
-            background: rgba(0, 217, 255, 0.1);
-            border-left: 4px solid #00d9ff;
-            padding: 15px 20px;
-            margin: 25px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .emoji {
-            font-size: 1.3em;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слышит ли ИИ? | AI-Навигатор</title>
+  
+  <meta name="description" content="Как ИИ обрабатывает звук: распознавание речи, музыка, шумы">
+  <meta property="og:title" content="Слышит ли ИИ? | AI-Навигатор">
+  <meta property="og:description" content="От Siri до генерации музыки: как ИИ «слышит» и обрабатывает звук">
+  <meta property="og:url" content="https://aiwebapp.ru/article-2.html">
+  <meta property="og:type" content="article">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 </head>
 <body>
-    <h1>🎤 Слышит ли ИИ?</h1>
-    <p style="text-align: center; color: #888; font-style: italic;">Вот вопрос, который многим может быть интересен</p>
 
-    <h2>🤔 Что значит "слышать" для ИИ?</h2>
+  <div class="container">
+    <a href="index.html" class="back-btn">На главную</a>
+
+    <h1>🎤 Слышит ли ИИ?</h1>
+    <p style="text-align: center; color: #888; font-style: italic; margin-bottom: 2rem;">Вот вопрос, который многим может быть интересен</p>
+
+    <div class="toc">
+      <strong>📋 В этой статье:</strong>
+      <ul>
+        <li><a href="#hear">Что значит «слышать» для ИИ</a></li>
+        <li><a href="#how">Как ИИ обрабатывает звук</a></li>
+        <li><a href="#speech">Распознавание речи</a></li>
+        <li><a href="#music">ИИ и музыка</a></li>
+      </ul>
+    </div>
+
+    <h2 id="hear">🤔 Что значит «слышать» для ИИ?</h2>
     <p>Когда мы говорим о слухе у искусственного интеллекта, важно понимать разницу между <strong>физическим слухом</strong> и <strong>обработкой звука</strong>.</p>
     
     <div class="highlight">
-        <span class="emoji">🔑</span> <strong>Ключевой момент:</strong> У ИИ нет ушей как у людей, но есть способность обрабатывать звуковые сигналы через микрофоны и алгоритмы!
+      <span class="emoji">🔑</span> <strong>Ключевой момент:</strong> У ИИ нет ушей как у людей, но есть способность обрабатывать звуковые сигналы через микрофоны и алгоритмы!
     </div>
 
-    <h2>🎵 Как ИИ "слышит" звук?</h2>
-    <p>Процесс можно разделить на несколько этапов:</p>
+    <h2 id="how">🎵 Как ИИ «слышит» звук?</h2>
     <ol>
-        <li><strong>Захват звука:</strong> Микрофон преобразует звуковые волны в электрические сигналы</li>
-        <li><strong>Оцифровка:</strong> Аналоговый сигнал превращается в цифровой формат</li>
-        <li><strong>Обработка:</strong> Нейросеть анализирует полученные данные</li>
-        <li><strong>Распознавание:</strong> ИИ определяет речь, музыку, шумы и другие звуки</li>
+      <li><strong>Захват звука:</strong> Микрофон преобразует волны в сигналы</li>
+      <li><strong>Оцифровка:</strong> Аналоговый сигнал → цифровой формат</li>
+      <li><strong>Обработка:</strong> Нейросеть анализирует данные</li>
+      <li><strong>Распознавание:</strong> ИИ определяет речь, музыку, шумы</li>
     </ol>
 
-    <h2>🗣️ Распознавание речи</h2>
-    <p>Современные ИИ-системы могут:</p>
+    <h2 id="speech">🗣️ Распознавание речи</h2>
     <ul>
-        <li>✅ Распознавать человеческую речь с точностью до 95-98%</li>
-        <li>✅ Понимать разные акценты и диалекты</li>
-        <li>✅ Различать голоса разных людей</li>
-        <li>✅ Переводить речь в реальном времени</li>
+      <li>✅ Распознаёт речь с точностью 95-98%</li>
+      <li>✅ Понимает акценты и диалекты</li>
+      <li>✅ Различает голоса разных людей</li>
+      <li>✅ Переводит в реальном времени</li>
     </ul>
 
     <div class="highlight">
-        <span class="emoji">📱</span> <strong>Примеры из жизни:</strong> Siri, Alexa, Google Assistant, Алиса — все они "слышат" ваши команды!
+      <span class="emoji">📱</span> <strong>Примеры:</strong> Siri, Alexa, Google Assistant, Алиса
     </div>
 
-    <h2>🎼 ИИ и музыка</h2>
-    <p>Искусственный интеллект не только слышит, но и создаёт музыку:</p>
+    <h2 id="music">🎼 ИИ и музыка</h2>
     <ul>
-        <li>🎹 Генерация мелодий в разных стилях</li>
-        <li>🎸 Разделение инструментов в готовых треках</li>
-        <li>🎤 Восстановление старых записей</li>
-        <li>🎧 Персонализированные плейлисты</li>
-    </ul>
-
-    <h2>🔊 Распознавание звуков окружающей среды</h2>
-    <p>ИИ может识别ть не только речь:</p>
-    <ul>
-        <li>🚨 Сигналы тревоги и сирены</li>
-        <li>🐕 Лай собак, мяуканье кошек</li>
-        <li>🌧️ Звуки природы (дождь, гром, ветер)</li>
-        <li>🚗 Транспортные звуки</li>
-    </ul>
-
-    <h2>🔮 Будущее "слуха" ИИ</h2>
-    <p>Технологии развиваются стремительно:</p>
-    <ul>
-        <li>🎯 Более точное распознавание в шумной среде</li>
-        <li>🌍 Поддержка большего количества языков</li>
-        <li>🧠 Понимание контекста и эмоций в голосе</li>
-        <li>🔐 Распознавание по голосу для безопасности</li>
+      <li>🎹 Генерация мелодий в разных стилях</li>
+      <li>🎸 Разделение инструментов в треках</li>
+      <li>🎤 Восстановление старых записей</li>
+      <li>🎧 Персонализированные плейлисты</li>
     </ul>
 
     <div class="highlight">
-        <span class="emoji">💡</span> <strong>Вывод:</strong> ИИ не "слышит" в человеческом понимании, но обрабатывает звук не хуже, а иногда и лучше нас!
+      <span class="emoji">💡</span> <strong>Вывод:</strong> ИИ не «слышит» как человек, но обрабатывает звук не хуже, а иногда и лучше!
     </div>
 
-    <p style="text-align: center; margin-top: 50px; color: #888;">
-        <em>Следите за новыми статьями на AI Websait! 🚀</em>
-    </p>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="index.html" class="back-btn" style="padding: 15px 30px; font-size: 18px;">Вернуться на главную</a>
+    </div>
 
-    <p style="text-align: center;">
-       <a href="index.html">← Вернуться на главную</a>
-    </p>
+    <footer>
+      <p>© 2026 • AI-Навигатор</p>
+    </footer>
+  </div>
+
+  <a href="#" class="back-to-top" id="backToTop">↑</a>
+  <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
