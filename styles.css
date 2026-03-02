@@ -18,8 +18,9 @@ body {
 }
 
 .container {
-  max-width: 100%;
-  padding: 2rem 5%;
+  max-width: 1400px;  /* Шире! */
+  margin: 0 auto;
+  padding: 2rem 5%;   /* Отступы 5% по краям */
 }
 
 /* ===== ТЁМНАЯ ТЕМА ===== */
