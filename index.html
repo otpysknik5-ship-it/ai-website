@@ -13,33 +13,6 @@
   
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
-  <style>
-    img {
-      width: 100%;
-      max-width: 600px; /* Максимальная ширина изображений */
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      object-fit: cover; /* Избегаем искажений */
-    }
-    .container {
-      padding: 1rem; /* Отступы для контейнера */
-    }
-    .feature-card {
-      padding: 1rem;
-      border-radius: 8px;
-      margin: 1rem 0;
-    }
-    .footer-extra {
-      text-align: center;
-      margin: 2rem 0;
-    }
-    .highlight {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-    }
-  </style>
 </head>
 <body>
 
@@ -131,7 +104,7 @@
         что завод «видит» и понимает, что на картинке кот!
       </p>
       <div style="text-align:center; margin:1.5rem 0;">
-        <img src="https://picsum.photos/600/300?grayscale&blur=2" alt="Как работает нейросеть" loading="lazy">
+        <img src="https://picsum.photos/600/300?grayscale&blur=2" alt="Как работает нейросеть" loading="lazy" style="width:100%; max-width:600px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
         <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;">Так нейросеть «думает» слоями</p>
       </div>
       <div class="tech-block">
@@ -277,7 +250,7 @@
         Как? Робот учится на тысячах симуляций. Падает, поднимается, пробует снова. 
         ИИ анализирует данные с датчиков и корректирует движение за миллисекунды.
       </p>
-      <div class="highlight">
+      <div class="highlight" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 10px; border-left: none;">
         <strong>💭 Подумай об этом:</strong><br>
         ИИ больше не про «ответы на вопросы». Он про движение, баланс, решение в потоке.
       </div>
@@ -339,8 +312,8 @@
           🎤 Слышит ли ИИ?
         </a>
         <a href="article-3.html" style="display: inline-block; padding: 15px 25px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; margin: 0.5rem;">
-          🚀 Путешествие ИИ сквозь код →
-        </a>
+  🚀 Путешествие ИИ сквозь код →
+</a>
       </div>
     </section>
 
@@ -378,6 +351,8 @@
   <script src="https://cdn.counter.dev/script.js" data-id="5c32185b-aae0-4759-a9c6-5abb237eb30a" data-utcoffset="3"></script>
 </body>
 </html>
+
+
 
 
 
