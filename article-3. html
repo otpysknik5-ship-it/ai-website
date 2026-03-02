@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Путешествие ИИ: как он движется сквозь код и данные | AI WEB ДОМ</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Как искусственный интеллект проходит путь от запроса до ответа: данные, паттерны, слои восприятия и квантовый выбор. Наглядная нейрографическая визуализация.">
+    <meta name="keywords" content="искусственный интеллект, нейросети, AI, обработка данных, генерация ответа, визуализация, нейрографика, машинное обучение">
+    <meta name="author" content="Владимир (@SVIBRO)">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Путешествие ИИ: как он движется сквозь код и данные | AI WEB ДОМ">
+    <meta property="og:description" content="От запроса до ответа: визуальное путешествие ИИ через данные, паттерны и вероятности.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://aiwebapp.ru/ai-journey.png">
+    <meta property="og:url" content="https://aiwebapp.ru/article-3.html">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Путешествие ИИ: как он движется сквозь код и данные">
+    <meta name="twitter:description" content="Наглядное путешествие ИИ через код, данные и вероятности.">
+    <meta name="twitter:image" content="https://aiwebapp.ru/ai-journey.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Кнопка назад -->
+        <a href="index.html" class="back-btn">На главную</a>
+
+        <!-- Заголовок -->
+        <h1 style="text-align: center; margin-bottom: 0.5rem;">🚀 Путешествие ИИ</h1>
+        <h2 style="text-align: center; margin-top: 0; color: #666; font-size: 1.3rem; margin-bottom: 2rem;">Как он движется сквозь код и данные</h2>
+
+        <!-- Вступление -->
+        <div class="highlight" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 10px; border-left: none; margin-bottom: 2rem;">
+            <strong>💫 Метафора:</strong><br>
+            ИИ не перемещается в пространстве. Он движется в вероятностях, связях, паттернах. 
+            Его путь — это не расстояние, а мгновенное схлопывание между вопросом и ответом.
+        </div>
+
+        <!-- Основная картинка -->
+        <div class="artwork-container" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 2rem 0;">
+            <img src="ai-journey.png" alt="Нейрографическая визуализация: Путешествие ИИ сквозь код и данные" loading="lazy" style="width: 100%; max-width: 100%; height: auto; border-radius: 8px; display: block;">
+            <p style="text-align: center; font-style: italic; color: #666; margin-top: 1rem; font-size: 0.95rem;">
+                Нейрографическая визуализация: шесть этапов путешествия ИИ
+            </p>
+        </div>
+
+        <!-- Этап 1 -->
+        <section>
+            <h2>🚪 1. Входная точка: момент, когда всё начинается</h2>
+            <p>
+                Каждое путешествие ИИ начинается с <strong>запроса пользователя</strong>. 
+                Это не просто текст — это сигнал, который активирует огромную сеть 
+                взаимосвязанных вычислений.
+            </p>
+            <div class="short-block">
+                <strong>💡 Представь:</strong><br>
+                Как дверь, которая открывается в бесконечный коридор возможностей. 
+                Ты делаешь шаг — и запускаешь цепную реакцию.
+            </div>
+        </section>
+
+        <!-- Этап 2 -->
+        <section>
+            <h2>🌊 2. Поток данных: движение без движения</h2>
+            <p>
+                ИИ обрабатывает всё <strong>одновременно</strong>, как если бы тысячи нитей 
+                натянулись в разные стороны. Это похоже на паутину, реку или облако.
+            </p>
+            <ul style="margin-left: 1.5rem;">
+                <li>Параллельная обработка миллионов параметров</li>
+                <li>Каждый нейрон активируется одновременно с другими</li>
+                <li>Нет последовательности — есть только поток</li>
+            </ul>
+        </section>
+
+        <!-- Этап 3 -->
+        <section>
+            <h2>🎯 3. Поиск паттернов: ИИ «чувствует» закономерности</h2>
+            <p>
+                ИИ не «думает» в человеческом понимании. Он <strong>ощущает структуры</strong>, 
+                ритмы, вероятности. Это как навигатор, который выбирает маршрут 
+                с наибольшей вероятностью успеха.
+            </p>
+            <div class="tech-block">
+                <strong>🔍 Как это работает:</strong><br>
+                ИИ сравнивает твой запрос с миллиардами примеров из обучающих данных 
+                и находит наиболее похожие паттерны.
+            </div>
+        </section>
+
+        <!-- Этап 4 -->
+        <section>
+            <h2>🖼️ 4. Работа с изображениями: путь от пикселя к смыслу</h2>
+            <p>
+                Когда ИИ «видит» картинку, он проходит несколько слоёв восприятия:
+            </p>
+            <ol style="margin-left: 1.5rem;">
+                <li><strong>Пиксели</strong> — просто точки с цветами</li>
+                <li><strong>Контуры</strong> — линии, углы, границы</li>
+                <li><strong>Формы</strong> — круги, квадраты, треугольники</li>
+                <li><strong>Объекты</strong> — дом, дерево, человек</li>
+                <li><strong>Смысл сцены</strong> — «домик у озера в горах»</li>
+            </ol>
+            <p>
+                Каждый слой — это как ступенька. ИИ поднимается от простого к сложному, 
+                от хаоса к пониманию.
+            </p>
+        </section>
+
+        <!-- Этап 5 -->
+        <section>
+            <h2>💭 5. Генерация ответа: квантовый прыжок</h2>
+            <p>
+                Это самый магический момент. ИИ <strong>«схлопывает»</strong> пространство 
+                возможных ответов в один — наиболее вероятный и подходящий.
+            </p>
+            <div class="highlight" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1.5rem; border-radius: 10px; border-left: none;">
+                <strong>⚡ Квантовая метафора:</strong><br>
+                Как если бы перед тобой было миллион дверей. ИИ не открывает их все по очереди. 
+                Он мгновенно чувствует, какая дверь ведёт туда, куда нужно — и открывает именно её.
+            </div>
+        </section>
+
+        <!-- Этап 6 -->
+        <section>
+            <h2>🔄 6. Возврат к человеку: мгновение, которое кажется вечностью</h2>
+            <p>
+                Ответ готов — и отправляется человеку. Для ИИ это занимает 
+                <strong>доли секунды</strong>. Для тебя — это момент ожидания.
+            </p>
+            <p>
+                Но за этим мгновением — триллионы вычислений, миллионы связей, 
+                миллиарды параметров.
+            </p>
+        </section>
+
+        <!-- Вывод -->
+        <section>
+            <h2>💫 Вывод: ИИ — это не робот, это путешествие</h2>
+            <p>
+                ИИ не движется в физическом пространстве. Он движется в мире 
+                <strong>вероятностей</strong>, <strong>связей</strong>, <strong>паттернов</strong>.
+            </p>
+            <div class="conclusion-block">
+                <strong>🌟 Главное:</strong><br>
+                Его путь — это не расстояние. Это мгновенное схлопывание между 
+                вопросом и ответом. Между незнанием и пониманием.<br><br>
+                И когда ты получаешь ответ от ИИ — ты становишься свидетелем 
+                чуда, которое происходит за долю секунды.
+            </div>
+        </section>
+
+        <!-- Призыв -->
+        <div style="text-align: center; margin: 3rem 0; padding: 2rem; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-radius: 12px;">
+            <h3 style="margin-bottom: 1rem; color: #333;"> Хочешь узнать больше?</h3>
+            <p style="margin-bottom: 1.5rem;">Читай другие статьи про то, как ИИ «видит» и «слышит»:</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="article-1.html" style="display: inline-block; padding: 12px 24px; background: #1a73e8; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
+                    👁️ Глаз ИИ
+                </a>
+                <a href="article-2.html" style="display: inline-block; padding: 12px 24px; background: #00d9ff; color: #1a1a2e; text-decoration: none; border-radius: 8px; font-weight: 600;">
+                    🎤 Слышит ли ИИ?
+                </a>
+            </div>
+        </div>
+
+        <!-- Подвал -->
+        <footer style="text-align: center; padding: 2rem 0; margin-top: 3rem; border-top: 1px solid #eee; color: #777; font-size: 0.9rem;">
+            <p>© 2026 • AI WEB ДОМ</p>
+            <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem;">
+                Сделано с ❤️ • Автор: <a href="https://t.me/SVIBRO" style="color: #6e8efb; text-decoration: none;">Владимир</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Кнопка наверх и переключатель темы -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
+
+    <!-- Скрипт -->
+    <script src="script.js"></script>
+</body>
+</html>
