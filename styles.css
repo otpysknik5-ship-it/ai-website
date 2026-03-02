@@ -436,6 +436,22 @@ body.dark-theme .toc a {
   .work-card img {
     height: 250px;
   }
+  .artwork-container img {
+    width: 100%;
+    max-width: 700px;  /* Уменьшил с 800 до 700 */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
+
+/* Для мобильных — ещё меньше */
+@media (max-width: 768px) {
+    .artwork-container img {
+        max-width: 100%;
+    }
+}
+
 
 
