@@ -18,9 +18,9 @@ body {
 }
 
 .container {
-  max-width: 1400px;  /* Шире! */
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem 5%;   /* Отступы 5% по краям */
+  padding: 2rem 5%;
 }
 
 /* ===== ТЁМНАЯ ТЕМА ===== */
@@ -31,12 +31,6 @@ body.dark-theme {
 
 body.dark-theme header {
   background: linear-gradient(135deg, #4a69bd, #6a89cc);
-}
-
-body.dark-theme .container {
-  background: #1e1e1e;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
 body.dark-theme h1,
@@ -71,6 +65,8 @@ body.dark-theme .lang-btn { background: #1e1e1e; color: #bb86fc; border-color: #
 body.dark-theme .lang-btn:hover { background: #2a2a2a; }
 body.dark-theme .lang-btn.active { background: linear-gradient(135deg, #4a69bd, #6a89cc); color: white; border-color: transparent; }
 body.dark-theme .stats-box { background: linear-gradient(135deg, #3a1c71, #2c2c54); box-shadow: 0 4px 12px rgba(187, 134, 252, 0.2); }
+body.dark-theme .toc { background: #2a2a4a; }
+body.dark-theme .toc a { color: #6e8efb; }
 
 /* ===== ШАПКА ===== */
 header {
@@ -151,14 +147,14 @@ body.dark-theme h3 { color: #ccc; }
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
+/* ===== КАРТИНКИ РАБОТ (исправлено) ===== */
 .work-card img {
-  width: 100% !important;
-  height: auto !important;
-  max-height: 500px !important;
-  object-fit: contain !important;
-  display: block !important;
-  margin: 0 auto !important;
-  border-radius: 8px 8px 0 0 !important;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 8px 8px 0 0;
 }
 
 .work-card p {
@@ -404,16 +400,8 @@ footer a:hover {
   text-decoration: underline;
 }
 
-body.dark-theme .toc {
-  background: #2a2a4a;
-}
-
-body.dark-theme .toc a {
-  color: #6e8efb;
-}
-
 /* ===== АДАПТИВ ===== */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   h1 { font-size: 2rem; }
   h2 { font-size: 1.4rem; }
   .container { padding: 1rem; }
@@ -422,38 +410,13 @@ body.dark-theme .toc a {
   header h1 { font-size: 2rem; }
   ol, ul { padding-left: 1.2rem; }
   li { margin-bottom: 0.8rem; }
-}
-/* ===== КАРТИНКИ РАБОТ ===== */
-.work-card img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-  border-radius: 8px 8px 0 0;
+  .work-card img { height: 250px; }
 }
 
-/* Адаптив для телефонов */
 @media (max-width: 600px) {
-  .work-card img {
-    height: 250px;
+  .works-grid {
+    grid-template-columns: 1fr;
   }
-  .artwork-container img {
-    width: 100%;
-    max-width: 500px;  /* Уменьшил с 800 до 500 */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
-
-/* Для мобильных — ещё меньше */
-@media (max-width: 768px) {
-    .artwork-container img {
-        max-width: 100%;
-    }
-}
-
 
 
