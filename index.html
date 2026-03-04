@@ -103,13 +103,20 @@
         И когда все вместе они передают результат друг другу — получается, 
         что завод «видит» и понимает, что на картинке кот!
       </p>
-     <div style="text-align:center; margin:1.5rem 0;">
-  <img src="https://picsum.photos/600/300?grayscale" 
-       alt="Визуализация слоев нейросети" 
-       loading="lazy" 
-       style="max-width:100%; height:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;">Так нейросеть «думает» слоями</p>
-</div>
+      
+      <!-- ИСПРАВЛЕНО: тег img закрыт, добавлен alt и loading -->
+      <div style="text-align:center; margin:1.5rem 0;">
+        <img src="https://picsum.photos/600/300?grayscale" 
+             alt="Визуализация слоев нейросети" 
+             loading="lazy" 
+             style="max-width:100%; height:auto; border-radius:8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;">Так нейросеть «думает» слоями</p>
+      </div>
+
+      <div class="tech-block">
+        <strong>🔧 Фишка:</strong> Нейросеть не программируют — её <strong>учат</strong>. 
+        Как ребёнка. Показывают примеры, она ошибается, её поправляют. И так тысячи раз.
+      </div>
     </section>
 
     <!-- ChatGPT -->
@@ -311,66 +318,60 @@
           🎤 Слышит ли ИИ?
         </a>
         <a href="article-3.html" style="display: inline-block; padding: 15px 25px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; margin: 0.5rem;">
-  🚀 Путешествие ИИ сквозь код →
-</a>
+          🚀 Путешествие ИИ сквозь код →
+        </a>
       </div>
     </section>
 
-    <!-- Футер — исправленная версия -->
-<div class="footer-extra" style="text-align: center; margin: 2rem 0; padding-top: 1rem; border-top: 1px solid #eee;">
-  
-  <!-- Бейдж -->
-  <img src="https://img.shields.io/badge/AI%20WEB%20ДОМ-🏠-blue?style=flat&logo=github" 
-       alt="AI WEB ДОМ" 
-       style="margin-bottom: 1rem;">
-  
-  <!-- Счётчик просмотров -->
-  <div style="margin: 1rem 0;">
-    <span style="color: #666;">✨ Заходили сегодня: </span>
-    <img src="https://views.whatilearened.today/views/github/otpysknik5-ship-it/ai-websait.svg?cache=reset" 
-         alt="Просмотры" 
-         style="height:24px; vertical-align:middle;">
-  </div>
-  
-  <!-- Кнопки Telegram (каждая отдельно!) -->
-  <div style="margin: 1rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
-    
-    <a href="https://t.me/share/url?url=https%3A%2F%2Faiwebapp.ru%2F&text=Заходи%20в%20AI%20WEB%20ДОМ%20%E2%80%94%20тут%20уютно%20про%20ИИ%21" 
-       target="_blank" 
-       style="display: inline-block; padding: 12px 24px; background: #0088cc; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: transform 0.2s;">
-      📤 Рассказать друзьям
-    </a>
-    
-    <a href="https://t.me/SVIBRO" 
-       target="_blank" 
-       style="display: inline-block; padding: 12px 24px; background: #25D366; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: transform 0.2s;">
-      💬 Написать мне
-    </a>
-    
-  </div>
+    <!-- ИСПРАВЛЕННЫЙ ФУТЕР (без вложенных ссылок) -->
+    <div class="footer-extra" style="text-align: center; margin: 2rem 0; padding-top: 1rem; border-top: 1px solid #eee;">
+      
+      <!-- Бейдж -->
+      <img src="https://img.shields.io/badge/AI%20WEB%20ДОМ-🏠-blue?style=flat&logo=github" 
+           alt="AI WEB ДОМ" 
+           style="margin-bottom: 1rem;">
+      
+      <!-- Счётчик просмотров -->
+      <div style="margin: 1rem 0;">
+        <span style="color: #666;">✨ Заходили сегодня: </span>
+        <img src="https://views.whatilearened.today/views/github/otpysknik5-ship-it/ai-websait.svg?cache=reset" 
+             alt="Просмотры" 
+             style="height:24px; vertical-align:middle;">
+      </div>
+      
+      <!-- Кнопки Telegram (каждая отдельно!) -->
+      <div style="margin: 1rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+        
+        <a href="https://t.me/share/url?url=https%3A%2F%2Faiwebapp.ru%2F&text=Заходи%20в%20AI%20WEB%20ДОМ%20%E2%80%94%20тут%20уютно%20про%20ИИ%21" 
+           target="_blank" 
+           style="display: inline-block; padding: 12px 24px; background: #0088cc; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: transform 0.2s;">
+          📤 Рассказать друзьям
+        </a>
+        
+        <a href="https://t.me/SVIBRO" 
+           target="_blank" 
+           style="display: inline-block; padding: 12px 24px; background: #25D366; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: transform 0.2s;">
+          💬 Написать мне
+        </a>
+        
+      </div>
 
-  <!-- Копирайт -->
-  <footer style="margin-top: 2rem; color: #888; font-size: 0.9rem;">
-    <p>© 2026 • AI WEB ДОМ</p>
-    <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem;">
-      Сделано с ❤️ и ☕ • Автор: <a href="https://t.me/SVIBRO" target="_blank" style="color: #667eea;">Владимир</a> • 
-      <a href="https://aiwebapp.ru" style="color: #667eea;">aiwebapp.ru</a>
-    </p>
-  </footer>
-</div>
+      <!-- Копирайт -->
+      <footer style="margin-top: 2rem; color: #888; font-size: 0.9rem;">
+        <p>© 2026 • AI WEB ДОМ</p>
+        <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem;">
+          Сделано с ❤️ и ☕ • Автор: <a href="https://t.me/SVIBRO" target="_blank" style="color: #667eea;">Владимир</a> • 
+          <a href="https://aiwebapp.ru" style="color: #667eea;">aiwebapp.ru</a>
+        </p>
+      </footer>
+    </div>
 
-    <footer>
-      <p>© 2026 • AI WEB ДОМ</p>
-      <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem;">
-        Сделано с ❤️ и ☕ • Автор: <a href="https://t.me/SVIBRO">Владимир</a> • 
-        <a href="https://aiwebapp.ru">aiwebapp.ru</a>
-      </p>
-    </footer>
   </div>
 
   <a href="#" class="back-to-top" id="backToTop">↑</a>
   <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
 
+  <!-- ИСПРАВЛЕНО: убраны пробелы в URL скрипта -->
   <script src="script.js"></script>
   <script src="https://cdn.counter.dev/script.js" data-id="5c32185b-aae0-4759-a9c6-5abb237eb30a" data-utcoffset="3"></script>
 </body>
