@@ -422,35 +422,52 @@ footer a:hover {
   .work-card img { height: 250px; }
 }
 
-@media (max-width: 600px) {
-  .works-grid {
-    grid-template-columns: 1fr;
-  }
-  .eye-figure {
+/* ===== БАЗОВЫЕ СТИЛИ ДЛЯ ФИГУРЫ С ГЛАЗОМ (работает везде) ===== */
+.eye-figure {
   text-align: center;
-  margin: 30px 0;
+  margin: 2rem 0;
+}
+
+.eye-figure img {
+  max-width: 380px;           /* ← твоё "в 3 раза меньше" — подбери под вкус: 320–450px */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 .eye-figure figcaption {
   color: #666;
-  font-size: 0.9rem;
-  margin-top: 10px;
-}
-  .eye-figure img {
-  width: 100%;
-  max-width: 400px; /* ограничение размера */
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
-  .eye-figure img {
-  width: 100%;
-  max-width: 300px; /* уменьши сколько хочешь */
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  font-size: 0.95rem;
+  margin-top: 0.8rem;
+  font-style: italic;
 }
 
+/* Тёмная тема */
+body.dark-theme .eye-figure figcaption {
+  color: #aaa;
+}
+
+body.dark-theme .eye-figure img {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+}
+
+/* Медиа только для мелких экранов (если нужно чуть поджать) */
+@media (max-width: 600px) {
+  .eye-figure {
+    margin: 1.5rem 0;
+  }
+  
+  .eye-figure figcaption {
+    font-size: 0.9rem;
+  }
+  
+  /* Если на мобилке всё равно кажется большой — раскомменти и подкрути */
+  /* .eye-figure img {
+    max-width: 320px;
+  } */
 }
 
 
