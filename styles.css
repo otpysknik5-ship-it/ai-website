@@ -469,5 +469,10 @@ body.dark-theme .eye-figure img {
     max-width: 320px;
   } */
 }
-
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
 
