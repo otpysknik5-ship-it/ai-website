@@ -38,9 +38,7 @@
   <!-- Canonical -->
   <link rel="canonical" href="https://aimihome.ru/article-5.html">
   
-  <style>
-
-}
+<style>
     body {
       margin: 0;
       padding: 0;
@@ -48,6 +46,7 @@
       background: #0f1014;
       color: #f5f5f5;
       line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
     }
     .wrapper {
       max-width: 900px;
@@ -75,23 +74,11 @@
       font-weight: 700;
       line-height: 1.3;
     }
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5em;
-    }
-    h2 {
-      font-size: 1.6rem;
-      margin-top: 2.2em;
-      margin-bottom: 0.6em;
-    }
-    h3 {
-      font-size: 1.25rem;
-      margin-top: 1.8em;
-      margin-bottom: 0.4em;
-    }
-    p {
-      margin: 0 0 1em;
-    }
+    h1 { font-size: 2.2rem; margin-bottom: 0.5em; }
+    h2 { font-size: 1.6rem; margin-top: 2.2em; margin-bottom: 0.6em; }
+    h3 { font-size: 1.25rem; margin-top: 1.8em; margin-bottom: 0.4em; }
+    p { margin: 0 0 1em; }
+    
     .tagline {
       color: #ffdd88;
       font-size: 0.95rem;
@@ -99,9 +86,8 @@
       letter-spacing: 0.12em;
       margin-bottom: 1.2em;
     }
-    .highlight {
-      color: #ffb4f2;
-    }
+    .highlight { color: #ffb4f2; }
+    
     .quote {
       border-left: 3px solid #ffb4f2;
       padding-left: 14px;
@@ -109,13 +95,7 @@
       color: #e3e3e3;
       font-style: italic;
     }
-    .section-label {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #9fa3ff;
-      margin-bottom: 0.4em;
-    }
+    
     .image-block {
       margin: 1.8em 0 2.2em;
       text-align: center;
@@ -129,12 +109,6 @@
       margin-bottom: 0.6em;
     }
     
-    /* Футер с навигацией */
-    .article-footer {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 2px solid #2d3748;
-    }
     .next-article {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       padding: 1.5rem;
@@ -147,69 +121,73 @@
       font-weight: 600;
     }
     
+    /* Светлая тема */
+    body[data-theme="light"] {
+      background: #f5f5f5;
+      color: #0f1014;
+    }
+    body[data-theme="light"] .wrapper {
+      background: #ffffff;
+    }
+    body[data-theme="light"] .back-link {
+      color: #667eea;
+      border-color: #667eea;
+    }
+    body[data-theme="light"] .quote {
+      color: #333;
+    }
+    body[data-theme="light"] .image-block {
+      color: #666;
+    }
+    
+    /* Кнопка наверх */
+    .back-to-top {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: transform 0.3s;
+      font-size: 1.5rem;
+    }
+    .back-to-top:hover {
+      transform: translateY(-5px);
+    }
+    
+    /* Кнопка смены темы */
+    .theme-toggle {
+      position: fixed;
+      bottom: 30px;
+      right: 90px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: transform 0.3s;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+    
     @media (min-width: 768px) {
       h1 { font-size: 2.6rem; }
       .wrapper { padding: 40px 24px 80px; }
     }
-    /* Светлая тема */
-body[data-theme="light"] {
-  background: #f5f5f5;
-  color: #0f1014;
-}
-
-body[data-theme="light"] .wrapper {
-  background: #ffffff;
-}
-
-body[data-theme="light"] .back-link {
-  color: #667eea;
-  border-color: #667eea;
-}
-
-/* Кнопка наверх */
-.back-to-top {
-  display: none;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 50px;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 1000;
-  transition: transform 0.3s;
-}
-
-.back-to-top:hover {
-  transform: translateY(-5px);
-}
-
-/* Кнопка темы */
-.theme-toggle {
-  position: fixed;
-  bottom: 30px;
-  right: 90px;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  border: none;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 1000;
-  transition: transform 0.3s;
-}
-
-.theme-toggle:hover {
-  transform: scale(1.1);
-}
-  </style>
+</style>
 
 </head>
 <body>
@@ -279,12 +257,11 @@ body[data-theme="light"] .back-link {
         <a href="/" style="color: white;">← Вернуться на главную</a>
       </p>
         </div>
-    <!-- JavaScript для кнопок -->
+<!-- JavaScript для кнопок -->
 <script>
   // Кнопка "Наверх"
   const backToTop = document.getElementById('backToTop');
   
-  // Показывать/скрывать кнопку при скролле
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
       backToTop.style.display = 'block';
@@ -293,7 +270,6 @@ body[data-theme="light"] .back-link {
     }
   });
   
-  // Прокрутка наверх при клике
   backToTop.addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -303,10 +279,8 @@ body[data-theme="light"] .back-link {
   const themeToggle = document.getElementById('themeToggle');
   const currentTheme = localStorage.getItem('theme') || 'dark';
   
-  // Установить текущую тему
   document.body.setAttribute('data-theme', currentTheme);
   
-  // Переключение темы
   themeToggle.addEventListener('click', () => {
     const currentTheme = document.body.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
