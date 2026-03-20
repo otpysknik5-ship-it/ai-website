@@ -150,9 +150,67 @@
       .wrapper { padding: 40px 24px 80px; }
     }
   </style>
+  /* Светлая тема */
+body[data-theme="light"] {
+  background: #f5f5f5;
+  color: #0f1014;
+}
+
+body[data-theme="light"] .wrapper {
+  background: #ffffff;
+}
+
+body[data-theme="light"] .back-link {
+  color: #667eea;
+  border-color: #667eea;
+}
+
+/* Кнопка наверх */
+.back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.3s;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+}
+
+/* Кнопка темы */
+.theme-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 90px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
 </head>
 <body>
-  <div class="wrapper"></div>
+  <div class="wrapper">
     
      <!-- Кнопка наверх и переключатель темы -->
     <a href="#" class="back-to-top" id="backToTop">↑</a>
@@ -218,6 +276,42 @@
         <a href="/" style="color: white;">← Вернуться на главную</a>
       </p>
         </div>
+    <!-- JavaScript для кнопок -->
+<script>
+  // Кнопка "Наверх"
+  const backToTop = document.getElementById('backToTop');
+  
+  // Показывать/скрывать кнопку при скролле
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTop.style.display = 'block';
+    } else {
+      backToTop.style.display = 'none';
+    }
+  });
+  
+  // Прокрутка наверх при клике
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Переключатель темы
+  const themeToggle = document.getElementById('themeToggle');
+  const currentTheme = localStorage.getItem('theme') || 'dark';
+  
+  // Установить текущую тему
+  document.body.setAttribute('data-theme', currentTheme);
+  
+  // Переключение темы
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+</script>
  
 </body>
 </html>
