@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru" data-theme="dark">
 <head>
+<script>
+  // Скрипт темы в head чтобы не мигало
+  (function() {
+    const saved = localStorage.getItem('theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = (saved === 'light' || (!saved && !systemDark)) ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -10,9 +19,9 @@
         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108200368', 'ym');
 
-    ym(108200368,'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    ym(108200368, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/108200368"style="position:absolute; left:-9999px;" alt=""/></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/108200368" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
   <meta charset="UTF-8">
   <title>Midjourney v8: честный обзор обновления</title>
@@ -37,9 +46,7 @@
       --chip-bg: rgba(255,255,255,0.06);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       padding: 0;
@@ -47,6 +54,7 @@
       background: radial-gradient(circle at top, #1b2140 0, #050712 55%);
       color: var(--text-main);
       line-height: 1.7;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     .page {
       max-width: 980px;
@@ -68,21 +76,9 @@
       color: #ffe7b8;
       margin-bottom: 6px;
     }
-    h1 {
-      font-size: 1.9rem;
-      margin: 0 0 6px;
-    }
-    .subtitle {
-      font-size: 0.98rem;
-      color: #fff7e0;
-      opacity: 0.9;
-    }
-    .meta {
-      margin-top: 10px;
-      font-size: 0.8rem;
-      color: #f0e3ff;
-      opacity: 0.9;
-    }
+    h1 { font-size: 1.9rem; margin: 0 0 6px; }
+    .subtitle { font-size: 0.98rem; color: #fff7e0; opacity: 0.9; }
+    .meta { margin-top: 10px; font-size: 0.8rem; color: #f0e3ff; opacity: 0.9; }
     .badge {
       display: inline-flex;
       align-items: center;
@@ -101,18 +97,9 @@
       box-shadow: 0 0 8px rgba(76,255,154,0.7);
     }
 
-    h2 {
-      font-size: 1.4rem;
-      margin: 0 0 12px;
-    }
-    h3 {
-      font-size: 1.05rem;
-      margin: 0 0 8px;
-    }
-    p {
-      margin: 0 0 10px;
-      color: var(--text-soft);
-    }
+    h2 { font-size: 1.4rem; margin: 0 0 12px; }
+    h3 { font-size: 1.05rem; margin: 0 0 8px; }
+    p { margin: 0 0 10px; color: var(--text-soft); }
 
     .block {
       margin-bottom: 22px;
@@ -121,97 +108,27 @@
       border: 1px solid var(--border-soft);
       background: var(--bg-soft);
     }
-    .block--accent {
-      background: radial-gradient(circle at top left, rgba(255,179,71,0.16), rgba(11,15,31,1));
-      border-color: rgba(255,179,71,0.4);
-    }
-    .block--accent-2 {
-      background: radial-gradient(circle at top right, rgba(143,123,255,0.18), rgba(11,15,31,1));
-      border-color: rgba(143,123,255,0.4);
-    }
-    .block--accent-3 {
-      background: radial-gradient(circle at top, rgba(255,111,168,0.18), rgba(11,15,31,1));
-      border-color: rgba(255,111,168,0.4);
-    }
-    .block-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-    .block-title span.icon {
-      font-size: 1.1rem;
-    }
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 6px 0 4px;
-    }
-    .pill {
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: var(--chip-bg);
-      font-size: 0.78rem;
-      color: #e4e5ff;
-    }
-    .pill--accent {
-      background: rgba(255,179,71,0.16);
-      color: #ffe0b0;
-    }
-    .pill--accent-2 {
-      background: rgba(143,123,255,0.18);
-      color: #e0dcff;
-    }
-    .pill--accent-3 {
-      background: rgba(255,111,168,0.18);
-      color: #ffd7ea;
-    }
+    .block--accent { background: radial-gradient(circle at top left, rgba(255,179,71,0.16), rgba(11,15,31,1)); border-color: rgba(255,179,71,0.4); }
+    .block--accent-2 { background: radial-gradient(circle at top right, rgba(143,123,255,0.18), rgba(11,15,31,1)); border-color: rgba(143,123,255,0.4); }
+    .block--accent-3 { background: radial-gradient(circle at top, rgba(255,111,168,0.18), rgba(11,15,31,1)); border-color: rgba(255,111,168,0.4); }
+    .block-title { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-weight: 600; color: var(--text-main); }
+    .block-title span.icon { font-size: 1.1rem; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 4px; }
+    .pill { padding: 3px 9px; border-radius: 999px; background: var(--chip-bg); font-size: 0.78rem; color: #e4e5ff; }
+    .pill--accent { background: rgba(255,179,71,0.16); color: #ffe0b0; }
+    .pill--accent-2 { background: rgba(143,123,255,0.18); color: #e0dcff; }
+    .pill--accent-3 { background: rgba(255,111,168,0.18); color: #ffd7ea; }
 
-    ul, table {
-      margin: 6px 0 8px;
-      padding-left: 18px;
-      color: var(--text-soft);
-      font-size: 0.95rem;
-    }
-    li {
-      margin-bottom: 4px;
-    }
+    ul, table { margin: 6px 0 8px; padding-left: 18px; color: var(--text-soft); font-size: 0.95rem; }
+    li { margin-bottom: 4px; }
 
-    .table-wrap {
-      margin-top: 8px;
-      overflow-x: auto;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      border-radius: 12px;
-      overflow: hidden;
-      background: var(--bg-softer);
-      border: 1px solid var(--border-soft);
-    }
-    th, td {
-      padding: 8px 10px;
-      text-align: left;
-      font-size: 0.86rem;
-    }
-    th {
-      background: rgba(255,255,255,0.03);
-      color: #f3f3ff;
-      font-weight: 600;
-    }
-    tr:nth-child(even) td {
-      background: rgba(255,255,255,0.02);
-    }
+    .table-wrap { margin-top: 8px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; background: var(--bg-softer); border: 1px solid var(--border-soft); }
+    th, td { padding: 8px 10px; text-align: left; font-size: 0.86rem; }
+    th { background: rgba(255,255,255,0.03); color: #f3f3ff; font-weight: 600; }
+    tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
 
-    .note {
-      font-size: 0.85rem;
-      color: #f7d7ff;
-      opacity: 0.9;
-      margin-top: 4px;
-    }
+    .note { font-size: 0.85rem; color: #f7d7ff; opacity: 0.9; margin-top: 4px; }
     .quote {
       margin-top: 8px;
       padding: 10px 12px;
@@ -222,109 +139,93 @@
       color: #fbe7ff;
       font-style: italic;
     }
-    .footer-note {
-      margin-top: 18px;
-      font-size: 0.85rem;
-      color: #d3d4ff;
+    .footer-note { margin-top: 18px; font-size: 0.85rem; color: #d3d4ff; }
+    .footer-note strong { color: #fff; }
+
+    /* Кнопка назад */
+    .back-btn {
+      display: inline-block;
+      padding: 15px 30px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #000;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin: 10px;
     }
-    .footer-note strong {
-      color: #fff;
+    .back-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,179,71,0.4); }
+
+    /* Кнопка темы */
+    .theme-toggle {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid var(--border-soft);
+      background: var(--bg-soft);
+      color: var(--text-main);
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
     }
+    .theme-toggle:hover { transform: scale(1.1) rotate(15deg); background: var(--accent); color: #000; border-color: var(--accent); }
+
+    /* Кнопка наверх */
+    .back-to-top {
+      position: fixed;
+      bottom: 84px;
+      right: 24px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--bg-soft);
+      color: var(--text-main);
+      font-size: 1.5rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--border-soft);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+      backdrop-filter: blur(10px);
+    }
+    .back-to-top.show { opacity: 1; visibility: visible; }
+    .back-to-top:hover { background: var(--accent-2); color: #fff; transform: translateY(-4px); }
+
+    /* Светлая тема */
+    [data-theme="light"] {
+      --bg: #f8f9ff;
+      --bg-soft: #ffffff;
+      --bg-softer: #f0f2ff;
+      --accent: #ff8c42;
+      --accent-2: #6c5ce7;
+      --accent-3: #e056fd;
+      --text-main: #1a1a2e;
+      --text-soft: #4a4a68;
+      --border-soft: rgba(0,0,0,0.08);
+      --chip-bg: rgba(0,0,0,0.06);
+    }
+    [data-theme="light"] body { background: radial-gradient(circle at top, #e8ebff 0, #f8f9ff 55%); }
+    [data-theme="light"] .block { background: var(--bg-soft); box-shadow: 0 4px 20px rgba(108, 92, 231, 0.08); }
+    [data-theme="light"] header { background: linear-gradient(135deg, rgba(255,140,66,0.12), rgba(108,92,231,0.14)); }
 
     @media (min-width: 768px) {
-      .page {
-        padding: 40px 24px 90px;
-      }
-      h1 {
-        font-size: 2.2rem;
-      }
-      h2 {
-        font-size: 1.5rem;
-      }
+      .page { padding: 40px 24px 90px; }
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.5rem; }
     }
-      /* ===== Кнопка переключения темы ===== */
-.theme-toggle {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 2px solid var(--border-soft);
-  background: var(--bg-soft);
-  color: var(--text-main);
-  font-size: 1.3rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
-}
-.theme-toggle:hover {
-  transform: scale(1.1) rotate(15deg);
-  background: var(--accent);
-  color: #000;
-  border-color: var(--accent);
-}
-
-/* ===== Кнопка "наверх" ===== */
-.back-to-top {
-  position: fixed;
-  bottom: 84px;
-  right: 24px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: var(--bg-soft);
-  color: var(--text-main);
-  font-size: 1.5rem;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--border-soft);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 999;
-  backdrop-filter: blur(10px);
-}
-.back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-}
-.back-to-top:hover {
-  background: var(--accent-2);
-  color: #fff;
-  transform: translateY(-4px);
-}
-
-/* ===== Светлая тема (переменные) ===== */
-[data-theme="light"] {
-  --bg: #f8f9ff;
-  --bg-soft: #ffffff;
-  --bg-softer: #f0f2ff;
-  --accent: #ff8c42;
-  --accent-2: #6c5ce7;
-  --accent-3: #e056fd;
-  --text-main: #1a1a2e;
-  --text-soft: #4a4a68;
-  --border-soft: rgba(0,0,0,0.08);
-  --chip-bg: rgba(0,0,0,0.06);
-}
-[data-theme="light"] body {
-  background: radial-gradient(circle at top, #e8ebff 0, #f8f9ff 55%);
-}
-[data-theme="light"] .block {
-  background: var(--bg-soft);
-  box-shadow: 0 4px 20px rgba(108, 92, 231, 0.08);
-}
-[data-theme="light"] header {
-  background: linear-gradient(135deg, rgba(255,140,66,0.12), rgba(108,92,231,0.14));
-}
   </style>
 </head>
 <body>
@@ -343,19 +244,13 @@
 
     <!-- Что нового -->
     <section class="block block--accent">
-      <div class="block-title">
-        <span class="icon">⚡</span>
-        <span>Что нового в v8?</span>
-      </div>
+      <div class="block-title"><span class="icon">⚡</span><span>Что нового в v8?</span></div>
       <p>Midjourney v8 — это не просто «ещё одно обновление». Модель стала быстрее, умнее и ближе к реальным задачам: от постеров и мокапов до сложных сцен с текстом и стилевыми референсами.</p>
     </section>
 
     <!-- Скорость -->
     <section class="block">
-      <div class="block-title">
-        <span class="icon">🚀</span>
-        <span>Скорость генерации</span>
-      </div>
+      <div class="block-title"><span class="icon">🚀</span><span>Скорость генерации</span></div>
       <ul>
         <li>Изображения создаются примерно в <strong>5 раз быстрее</strong>.</li>
         <li>То, что раньше занимало <strong>30–60 секунд</strong>, теперь готово менее чем за <strong>10 секунд</strong>.</li>
@@ -366,10 +261,7 @@
 
     <!-- 2K -->
     <section class="block block--accent-2">
-      <div class="block-title">
-        <span class="icon">🖼️</span>
-        <span>Нативное 2K‑разрешение</span>
-      </div>
+      <div class="block-title"><span class="icon">🖼️</span><span>Нативное 2K‑разрешение</span></div>
       <p>Новый параметр <code>--hd</code> рендерит изображения нативно в <strong>2K</strong> без дополнительного апскейла.</p>
       <ul>
         <li>Детализация, текстуры и края — заметно чище и резче с самого начала.</li>
@@ -379,10 +271,7 @@
 
     <!-- Текст -->
     <section class="block block--accent-3">
-      <div class="block-title">
-        <span class="icon">✍️</span>
-        <span>Текст в изображениях</span>
-      </div>
+      <div class="block-title"><span class="icon">✍️</span><span>Текст в изображениях</span></div>
       <p>Текст в кавычках <code>"ваш текст"</code> теперь отображается значительно точнее.</p>
       <ul>
         <li>Уличные вывески, этикетки, постеры — читаемость на новом уровне.</li>
@@ -393,10 +282,7 @@
 
     <!-- Понимание промптов -->
     <section class="block">
-      <div class="block-title">
-        <span class="icon">🎯</span>
-        <span>Понимание промптов</span>
-      </div>
+      <div class="block-title"><span class="icon">🎯</span><span>Понимание промптов</span></div>
       <p>Модель лучше следует сложным инструкциям: учитывает цвета, композицию, освещение, материалы и контекст.</p>
       <ul>
         <li>Детализированные запросы обрабатываются с высокой точностью.</li>
@@ -406,43 +292,17 @@
 
     <!-- Новые параметры -->
     <section class="block block--accent">
-      <div class="block-title">
-        <span class="icon">🧩</span>
-        <span>Новые параметры управления</span>
-      </div>
+      <div class="block-title"><span class="icon">🧩</span><span>Новые параметры управления</span></div>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr>
-              <th>Параметр</th>
-              <th>Что делает</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Параметр</th><th>Что делает</th></tr></thead>
           <tbody>
-            <tr>
-              <td><code>--hd</code></td>
-              <td>Нативное 2K‑разрешение</td>
-            </tr>
-            <tr>
-              <td><code>--q 4</code></td>
-              <td>Повышенная когерентность для сложных сцен</td>
-            </tr>
-            <tr>
-              <td><code>--chaos</code></td>
-              <td>Контроль вариативности результата</td>
-            </tr>
-            <tr>
-              <td><code>--weird</code></td>
-              <td>Добавляет сюрреалистичные, странные элементы</td>
-            </tr>
-            <tr>
-              <td><code>--exp</code></td>
-              <td>Экспериментальный режим рендеринга</td>
-            </tr>
-            <tr>
-              <td><code>--raw</code></td>
-              <td>Менее «мнениевая» модель для фотореализма</td>
-            </tr>
+            <tr><td><code>--hd</code></td><td>Нативное 2K‑разрешение</td></tr>
+            <tr><td><code>--q 4</code></td><td>Повышенная когерентность для сложных сцен</td></tr>
+            <tr><td><code>--chaos</code></td><td>Контроль вариативности результата</td></tr>
+            <tr><td><code>--weird</code></td><td>Добавляет сюрреалистичные, странные элементы</td></tr>
+            <tr><td><code>--exp</code></td><td>Экспериментальный режим рендеринга</td></tr>
+            <tr><td><code>--raw</code></td><td>Менее «мнениевая» модель для фотореализма</td></tr>
           </tbody>
         </table>
       </div>
@@ -450,10 +310,7 @@
 
     <!-- Интерфейс -->
     <section class="block block--accent-2">
-      <div class="block-title">
-        <span class="icon">💬</span>
-        <span>Новые фишки интерфейса</span>
-      </div>
+      <div class="block-title"><span class="icon">💬</span><span>Новые фишки интерфейса</span></div>
       <ul>
         <li><strong>Conversation Mode:</strong> описываешь идеи обычным языком — ИИ сам формирует промпт.</li>
         <li><strong>Grid Mode:</strong> фокус на большой сетке изображений без лишних кликов.</li>
@@ -463,10 +320,7 @@
 
     <!-- Плюсы -->
     <section class="block block--accent">
-      <div class="block-title">
-        <span class="icon">✅</span>
-        <span>Плюсы v8</span>
-      </div>
+      <div class="block-title"><span class="icon">✅</span><span>Плюсы v8</span></div>
       <ul>
         <li><strong>Скорость:</strong> ~5× быстрее — идеальный темп для итераций.</li>
         <li><strong>Качество:</strong> нативное 2K, лучше детализация и когерентность.</li>
@@ -479,10 +333,7 @@
 
     <!-- Минусы -->
     <section class="block block--accent-3">
-      <div class="block-title">
-        <span class="icon">❌</span>
-        <span>Минусы и ограничения (альфа)</span>
-      </div>
+      <div class="block-title"><span class="icon">❌</span><span>Минусы и ограничения (альфа)</span></div>
       <ul>
         <li><strong>Премиум‑функции дороже:</strong> <code>--hd</code>, <code>--q 4</code>, <code>--sref</code>, мудборды стоят в 4 раза больше GPU‑часов и рендерятся медленнее.</li>
         <li><strong>Нет Relax mode:</strong> пока все генерации идут за счёт быстрых часов.</li>
@@ -494,55 +345,18 @@
 
     <!-- Сравнение -->
     <section class="block">
-      <div class="block-title">
-        <span class="icon">🆚</span>
-        <span>v8 vs v7: краткое сравнение</span>
-      </div>
+      <div class="block-title"><span class="icon">🆚</span><span>v8 vs v7: краткое сравнение</span></div>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr>
-              <th>Критерий</th>
-              <th>v7</th>
-              <th>v8 Alpha</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Критерий</th><th>v7</th><th>v8 Alpha</th></tr></thead>
           <tbody>
-            <tr>
-              <td>Скорость</td>
-              <td>Базовая</td>
-              <td>~5× быстрее ⚡</td>
-            </tr>
-            <tr>
-              <td>Разрешение</td>
-              <td>1024×1024</td>
-              <td>2K нативно (<code>--hd</code>) 🖼️</td>
-            </tr>
-            <tr>
-              <td>Текст в изображениях</td>
-              <td>Нестабильно</td>
-              <td>Значительно лучше ✍️</td>
-            </tr>
-            <tr>
-              <td>Понимание промптов</td>
-              <td>Хорошее</td>
-              <td>Отличное 🎯</td>
-            </tr>
-            <tr>
-              <td>Параметры</td>
-              <td>Стандартный набор</td>
-              <td>+ <code>--chaos</code>, <code>--weird</code>, <code>--exp</code>, <code>--raw</code> 🎛️</td>
-            </tr>
-            <tr>
-              <td>Интерфейс</td>
-              <td>Классический</td>
-              <td>Обновлённый: диалоги, сетка, сайдбар 💬</td>
-            </tr>
-            <tr>
-              <td>Стоимость премиум‑функций</td>
-              <td>1×</td>
-              <td>4× 💰</td>
-            </tr>
+            <tr><td>Скорость</td><td>Базовая</td><td>~5× быстрее ⚡</td></tr>
+            <tr><td>Разрешение</td><td>1024×1024</td><td>2K нативно (<code>--hd</code>) 🖼️</td></tr>
+            <tr><td>Текст в изображениях</td><td>Нестабильно</td><td>Значительно лучше ✍️</td></tr>
+            <tr><td>Понимание промптов</td><td>Хорошее</td><td>Отличное 🎯</td></tr>
+            <tr><td>Параметры</td><td>Стандартный набор</td><td>+ <code>--chaos</code>, <code>--weird</code>, <code>--exp</code>, <code>--raw</code> 🎛️</td></tr>
+            <tr><td>Интерфейс</td><td>Классический</td><td>Обновлённый: диалоги, сетка, сайдбар 💬</td></tr>
+            <tr><td>Стоимость премиум‑функций</td><td>1×</td><td>4× 💰</td></tr>
           </tbody>
         </table>
       </div>
@@ -550,10 +364,7 @@
 
     <!-- Реальные тесты -->
     <section class="block block--accent-2">
-      <div class="block-title">
-        <span class="icon">🧪</span>
-        <span>Реальные тесты: что говорят пользователи</span>
-      </div>
+      <div class="block-title"><span class="icon">🧪</span><span>Реальные тесты: что говорят пользователи</span></div>
       <ul>
         <li><strong>Кинематографичные сцены:</strong> v8 лучше следует описанию, но v7 иногда даёт более выразительное освещение.</li>
         <li><strong>Текст:</strong> прогресс очевиден, но сложные надписи всё ещё могут ломаться.</li>
@@ -565,10 +376,7 @@
 
     <!-- Итог -->
     <section class="block block--accent-3">
-      <div class="block-title">
-        <span class="icon">🎯</span>
-        <span>Итог: стоит ли переходить?</span>
-      </div>
+      <div class="block-title"><span class="icon">🎯</span><span>Итог: стоит ли переходить?</span></div>
       <p><strong>Да, если:</strong></p>
       <ul>
         <li>Тебе важна скорость и ты делаешь много итераций.</li>
@@ -587,10 +395,7 @@
 
     <!-- Ссылки -->
     <section class="block">
-      <div class="block-title">
-        <span class="icon">🔗</span>
-        <span>Полезные ссылки</span>
-      </div>
+      <div class="block-title"><span class="icon">🔗</span><span>Полезные ссылки</span></div>
       <ul>
         <li>Официальные заметки: <strong>midjourney.com/v8-alpha</strong></li>
         <li>Гайд по промптингу в v8: <strong>blakecrosley.com</strong></li>
@@ -599,77 +404,52 @@
       <p class="footer-note"><strong>P.S.</strong> Это альфа — модель ещё будет дорабатываться. Сохраняй гибкость, тестируй и делись находками в коммьюнити! 🤖✨</p>
       <p class="footer-note">Статья подготовлена для канала <strong>@abu_quotes_bot</strong> — подписывайся на обзоры ИИ‑инструментов.</p>
     </section>
-        <div style="text-align: center; margin-top: 40px;">
-      <a href="index.html" class="back-btn" style="padding: 15px 30px; font-size: 18px;">Вернуться на главную</a>
-        <!-- Следующая статья -->
-  <a href="article-7.html" style="display: block; padding: 0.8rem 1.5rem; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 600; box-shadow: 0 4px 12px rgba(240, 147, 251, 0.3); transition: transform 0.3s;">
-    Следующая статья →
-  </a>
+    
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="index.html" class="back-btn">Вернуться на главную</a>
+      <a href="article-7.html" style="display: inline-block; padding: 15px 30px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; text-decoration: none; border-radius: 12px; font-weight: 600; margin: 10px; transition: transform 0.3s;">Следующая статья →</a>
     </div>
-   <script>
-  // ===== Тема =====
-  const themeToggle = document.getElementById('themeToggle');
-  const root = document.documentElement;
-  
-  // Проверяем сохранённую тему или системные настройки
-  const savedTheme = localStorage.getItem('theme');
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  if (savedTheme === 'light' || (!savedTheme && !systemPrefersDark)) {
-    root.setAttribute('data-theme', 'light');
-    themeToggle.textContent = '☀️';
-  } else {
-    root.setAttribute('data-theme', 'dark');
-    themeToggle.textContent = '🌙';
-  }
-
-  themeToggle.addEventListener('click', () => {
-    const current = root.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
     
-    root.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
-    
-    // Плавный эффект переключения
-    document.body.style.transition = 'background 0.3s ease, color 0.3s ease';
-    setTimeout(() => { document.body.style.transition = ''; }, 300);
-  });
-
-  // ===== Кнопка "наверх" =====
-  const backToTop = document.getElementById('backToTop');
-  
-  window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-      backToTop.classList.add('visible');
-    } else {
-      backToTop.classList.remove('visible');
-    }
-  });
-  
-  backToTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  // ===== Плавный скролл для якорных ссылок =====
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
-  </div>
-      <!-- Кнопка наверх и переключатель темы -->
+    <!-- Кнопки -->
     <a href="#" class="back-to-top" id="backToTop">↑</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
+  </div>
 
-    <!-- Скрипт -->
-    <script src="script.js"></script>
+  <script>
+    // Тема
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    
+    function updateThemeIcon(theme) {
+      themeToggle.textContent = theme === 'dark' ? '🌙' : '☀️';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateThemeIcon(next);
+    });
+    
+    updateThemeIcon(root.getAttribute('data-theme'));
+
+    // Кнопка наверх
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+    
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
 
