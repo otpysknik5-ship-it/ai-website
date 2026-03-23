@@ -529,6 +529,40 @@
       <p class="footer-note"><strong>P.S.</strong> Это альфа — модель ещё будет дорабатываться. Сохраняй гибкость, тестируй и делись находками в коммьюнити! 🤖✨</p>
       <p class="footer-note">Статья подготовлена для канала <strong>@abu_quotes_bot</strong> — подписывайся на обзоры ИИ‑инструментов.</p>
     </section>
+    <!-- JavaScript для кнопок -->
+<script>
+  // Кнопка "Наверх"
+  const backToTop = document.getElementById('backToTop');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTop.style.display = 'block';
+    } else {
+      backToTop.style.display = 'none';
+    }
+  });
+  
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Переключатель темы
+  const themeToggle = document.getElementById('themeToggle');
+  const currentTheme = localStorage.getItem('theme') || 'dark';
+  
+  document.body.setAttribute('data-theme', currentTheme);
+  
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+</script>
+ 
+</body>
   </div>
 </body>
 </html>
