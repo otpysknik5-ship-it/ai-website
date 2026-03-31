@@ -259,22 +259,27 @@
 <button id="themeToggle" title="Переключить тему" style="position: fixed; bottom: 95px; right: 30px; width: 52px; height: 52px; background: #333; color: white; border: none; border-radius: 50%; font-size: 24px; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.4); z-index: 1000;">🌙</button>
 
 <script>
+document.addEventListener('DOMContentLoaded', () => {
     // Переключатель темы
     const themeToggle = document.getElementById('themeToggle');
     const root = document.documentElement;
 
     function updateThemeIcon() {
         const isDark = root.getAttribute('data-theme') === 'dark';
-        themeToggle.textContent = isDark ? '☀️' : '🌙';
+        if (themeToggle) {
+            themeToggle.textContent = isDark ? '☀️' : '🌙';
+        }
     }
 
-    themeToggle.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') || 'light';
-        const next = current === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-        updateThemeIcon();
-    });
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme') || 'light';
+            const next = current === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateThemeIcon();
+        });
+    }
 
     // Загрузка темы
     if (localStorage.getItem('theme') === 'dark') {
@@ -284,13 +289,17 @@
 
     // Кнопка "Наверх"
     const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        backToTop.style.display = (window.pageYOffset > 400) ? 'flex' : 'none';
-    });
+    
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            backToTop.style.display = (window.pageYOffset > 400) ? 'flex' : 'none';
+        });
 
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+});
 </script>
 </body>
 </html>
