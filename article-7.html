@@ -253,13 +253,10 @@
     <p>Статья написана для канала @abu_quotes_bot — подписывайтесь на обзоры ИИ-инструментов! 🚀</p>
 </div>
 
-<!-- Кнопка "Вернуться на главную" -->
-<div style="text-align: center; margin: 50px 0 40px 0;">
-    <a href="index.html" style="background: #555; color: white; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: 600; margin: 10px;">← Вернуться на главную</a>
-     <a href="article-8.html" style="display: block; padding: 0.8rem 1.5rem; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 600; box-shadow: 0 4px 12px rgba(240, 147, 251, 0.3); transition: transform 0.3s;">
-    следующая статья
-     </a>
-</div>
+<!-- Кнопки: Наверх и Переключатель темы -->
+<button id="backToTop" title="Наверх" style="position: fixed; bottom: 30px; right: 30px; width: 52px; height: 52px; background: #FF7F00; color: white; border: none; border-radius: 50%; font-size: 26px; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(255,127,0,0.5); z-index: 1000;">↑</button>
+
+<button id="themeToggle" title="Переключить тему" style="position: fixed; bottom: 95px; right: 30px; width: 52px; height: 52px; background: #333; color: white; border: none; border-radius: 50%; font-size: 24px; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.4); z-index: 1000;">🌙</button>
 
 <script>
     // Переключатель темы
@@ -278,7 +275,8 @@
         localStorage.setItem('theme', next);
         updateThemeIcon();
     });
-  // Загрузка темы
+
+    // Загрузка темы
     if (localStorage.getItem('theme') === 'dark') {
         root.setAttribute('data-theme', 'dark');
     }
@@ -289,9 +287,13 @@
     window.addEventListener('scroll', () => {
         backToTop.style.display = (window.pageYOffset > 400) ? 'flex' : 'none';
     });
-  backToTop.addEventListener('click', () => {
+
+    backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 </script>
+
+</body>
+</html>
 </body>
 </html>
