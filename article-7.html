@@ -278,8 +278,7 @@
         localStorage.setItem('theme', next);
         updateThemeIcon();
     });
-
-    // Загрузка темы
+  // Загрузка темы
     if (localStorage.getItem('theme') === 'dark') {
         root.setAttribute('data-theme', 'dark');
     }
@@ -290,8 +289,7 @@
     window.addEventListener('scroll', () => {
         backToTop.style.display = (window.pageYOffset > 400) ? 'flex' : 'none';
     });
-
-    backToTop.addEventListener('click', () => {
+  backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 </script>
