@@ -28,7 +28,43 @@
   <!-- Общие стили сайта -->
   <link rel="stylesheet" href="/styles.css">
 
-  <style>
+   <style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --card-bg: #f5f7fa;
+    --accent: #667eea;
+    --accent2: #764ba2;
+    --border: #e0e0e0;
+  }
+
+  body.dark {
+    --bg: #1b1b1d;
+    --text: #e6e6e6;
+    --card-bg: #26262a;
+    --accent: #7b8cff;
+    --accent2: #9a6bff;
+    --border: #444;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .feature-card,
+  .short-block,
+  .tech-block,
+  .myth-block {
+    background: var(--card-bg);
+    border-left: 5px solid var(--accent);
+    padding: 1.2rem 1.4rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    transition: 0.3s;
+  }
+
     /* Локальные улучшения под статью */
     .article-container {
       max-width: 900px;
