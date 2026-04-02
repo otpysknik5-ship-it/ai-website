@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Yandex.Metrika counter -->
+  <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -13,12 +13,10 @@
     ym(108200368, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/108200368" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-  <meta charset="UTF-8">
+<!-- /Yandex.Metrika counter -->  
+  <meta charset="UTF-8" />
   <title>HeyGen — путь к лидерству в AI‑видео</title>
-
-  <!-- Подключаем твой основной стиль -->
-  <link rel="stylesheet" href="/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -26,6 +24,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
   <link rel="canonical" href="https://aimihome.ru/article-7.html">
+
+  <!-- Общие стили сайта -->
+  <link rel="stylesheet" href="/styles.css">
 
   <style>
     /* Локальные улучшения под статью */
@@ -37,12 +38,71 @@
 
     .article-title {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-size: 2rem;
       font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .article-banner {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      padding: 1.8rem 1.6rem;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .article-banner-text {
+      max-width: 520px;
+    }
+
+    .article-banner-text h2 {
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.4rem;
+    }
+
+    .article-banner-text p {
+      margin: 0.2rem 0;
+    }
+
+    .article-banner-tag {
+      display: inline-block;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.15);
+      font-size: 0.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .article-banner-badge {
+      background: rgba(0,0,0,0.15);
+      padding: 0.6rem 0.9rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+    }
+
+    .article-banner-badge strong {
+      font-weight: 700;
+    }
+
+    .article-banner-side {
+      min-width: 180px;
+      text-align: right;
+      font-size: 0.9rem;
+      opacity: 0.95;
+    }
+
+    .article-banner-side span {
+      display: block;
     }
 
     .timeline-item {
@@ -58,13 +118,27 @@
       margin-top: 0;
       color: var(--accent);
     }
+
+    .article-section-title {
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .note-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.8;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
   </style>
 </head>
 
 <body>
 
 <!-- Кнопки темы и наверх (как на главной) -->
-<button class="theme-toggle" id="themeToggle">🌙</button>
+<button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
 <a href="#" class="back-to-top" id="backToTop">↑</a>
 
 <div class="article-container">
@@ -73,13 +147,29 @@
     HeyGen: как китайско‑американский стартап из гаража стал лидером AI‑видео в 2026 году
   </h1>
 
+  <!-- Баннер статьи -->
+  <section class="article-banner">
+    <div class="article-banner-text">
+      <span class="article-banner-tag">история сервиса • AI‑видео</span>
+      <h2>От гаража в Шэньчжэне до Fast Company</h2>
+      <p>Как команда интроверта‑инженера и продуктового дизайнера превратила «ненависть к камере» в индустрию AI‑аватаров.</p>
+      <p class="article-banner-badge">
+        <strong>В этой статье:</strong> основатели, переезд в США, взрывной рост, конкуренты и что будет дальше.
+      </p>
+    </div>
+    <div class="article-banner-side">
+      <span>📍 HeyGen, 2020–2026</span>
+      <span>🎬 AI‑аватары и видео</span>
+      <span>✍️ Личный взгляд из 2026</span>
+    </div>
+  </section>
+
   <!-- Введение -->
   <section class="feature-card">
     <h2>Введение</h2>
-    <p>В 2026 году большинство людей уже не удивляются, когда видят идеально говорящего аватара...</p>
-    <p>Одной из компаний, которая сильнее всего подтолкнула эту революцию, стала HeyGen...</p>
-    <p>Сегодня у платформы десятки миллионов пользователей, я в их числе, миллионы долларов ARR и репутация одного из самых реалистичных генераторов АЙ-аватаров. Но не просто было дойти. Начинали с стартапа.</p>
-    <p>В Шеньчжебене стартанули и до квартиры в Лос-Анджелесе через ребрендинги и сложные вопросы геополитики.</p> 
+    <p>В 2026 году большинство людей уже не удивляются, когда видят идеально говорящего аватара. Но ещё 5–6 лет назад идея «написал текст — получил реалистичное видео с собой» казалась фантастикой.</p>
+    <p>Одной из компаний, которая сильнее всего подтолкнула эту революцию, стала HeyGen. Сегодня у платформы десятки миллионов пользователей (я в их числе), миллионы долларов ARR и репутация одного из самых реалистичных генераторов AI‑аватаров.</p>
+    <p>Но путь к этому был непростым. Начинали как маленький стартап в Шэньчжэне, прошли через переезд, ребрендинги и сложные вопросы геополитики — и только потом оказались в Лос‑Анджелесе.</p>
   </section>
 
   <!-- Основатели -->
@@ -87,63 +177,64 @@
     <h2>Кто создал HeyGen и откуда они взялись</h2>
     <p>HeyGen основали в декабре 2020 года два человека:</p>
     <ul>
-      <li><strong>Joshua Xu (CEO)</strong> — бывший инженер Snapchat...</li>
-      <li><strong>Wayne Liang</strong> — специалист по продукту и дизайну...</li>
-      <p>Оба учились в Tongji University в Шанхае, а потом  переехали в США. JOshua-интроверт, который сам не любит быть на камере, и именно это стало одноц из главных мотиваций: Э Большинство людей ненавидят сниматься, но любят видео</p>
-        
+      <li><strong>Joshua Xu (CEO)</strong> — бывший инженер и data scientist в Snapchat. Работал над рекламными алгоритмами, рекомендательными системами и AI‑камерой.</li>
+      <li><strong>Wayne Liang</strong> — специалист по продукту и дизайну, до этого занимался продуктовым дизайном, в том числе в Smule.</li>
     </ul>
+    <p>Оба учились в Tongji University в Шанхае, а потом переехали в США. Joshua — интроверт, который сам не любит быть на камере, и именно это стало одной из главных мотиваций: <strong>«Большинство людей ненавидят сниматься, но любят видео».</strong></p>
   </section>
 
   <!-- Страна -->
   <section class="feature-card">
     <h2>Страна происхождения и база</h2>
-    <p>Изначально компания стартовала в Шэньчжэне...</p>
+    <p>Изначально компания стартовала в Шэньчжэне (Китай) под названием Surreal. Позже основатели перенесли операции в Лос‑Анджелес, чтобы получить доступ к мощным чипам для обучения моделей и работать с крупными американскими клиентами.</p>
+    <p>Штаб‑квартира — Лос‑Анджелес (12130 Millennium Drive, Suite 300). Есть офисы в Сан‑Франциско и Пало‑Альто. В 2023 году полностью закрыли китайскую юридическую сущность и заменили китайских инвесторов на американских.</p>
   </section>
 
   <!-- Идея -->
   <section class="feature-card">
     <h2>Как они пришли к идее</h2>
-    <p>Joshua, работая в Snapchat над AI для камеры, увидел огромную проблемусоздавать качественное видео очень дорого, долго и страшно для большинства людей. Он понял что generative AI может это изменить.</p>
-    <p>В 2020 они с Wayne уволились и запустили стартап с простой миссией: сделать визуальное сторителлинг доступным каждому</p>  
+    <p>Работая в Snapchat над AI для камеры, Joshua увидел огромную проблему: создавать качественное видео очень дорого, долго и страшно для большинства людей. Он понял, что generative AI может это изменить.</p>
+    <p>В 2020 году они с Wayne уволились и запустили стартап с простой миссией: <strong>сделать визуальный сторителлинг доступным каждому.</strong></p>
   </section>
 
   <!-- Хронология -->
   <section>
-    <h2>Хронология развития</h2>
+    <h2 class="article-section-title">Хронология развития</h2>
 
     <div class="timeline-item">
       <h3>2020 — Основание</h3>
-      <p>Декабрь 2020: запуск компании под названием Surreal. В 2022 году основатели полностью перенесли операции в Лос-Анджелес(США), что бы получить доступ к мощным чипам для обучения моделей и работать с крупными американским клиентами</p>
-      <p>Штаб -квартира-- Лос-Анджелес.(12130 Millennium Drive? Suitle 300). Есть офисы в Сан-Франциско и Пало-Альто. В 2023 полность закрыли китайскую сущность и поменяли китайских инвесторов на американских</p>  
+      <p>Декабрь 2020: запуск компании под названием <strong>Surreal</strong>. Изначально фокус — генерация изображений и видео для enterprise‑клиентов.</p>
+      <p>В 2022 году основатели полностью перенесли операции в Лос‑Анджелес (США), чтобы получить доступ к мощным GPU для обучения моделей и работать с крупными американскими клиентами.</p>
     </div>
-      
+
     <div class="timeline-item">
       <h3>2021</h3>
-      <p>Seed‑раунд от Sequoia China -( сейчас HongShan) и ZhenFund. К марту 2021 у них уже около 10миллионов - фото-и видео заказов.</p>
+      <p>Seed‑раунд от Sequoia China (сейчас HongShan) и ZhenFund. К марту 2021 года у них уже около <strong>10 миллионов фото‑ и видео‑заказов</strong>.</p>
     </div>
 
     <div class="timeline-item">
       <h3>2022 — Переезд в США</h3>
       <ul>
         <li>Переезд в Лос‑Анджелес</li>
-        <li>Запуск HeyGen</li>
-        <li>Ребрендинг в Movio</li>
+        <li>Запуск приложения HeyGen</li>
+        <li>Промежуточный ребрендинг в Movio</li>
       </ul>
     </div>
 
     <div class="timeline-item">
       <h3>2023 — Ребрендинг в HeyGen</h3>
       <ul>
-        <li>Апрель 2023: окончательный ребрендинг</li>
-        <li>Ноябрь 2023: $5.6 млн от Conviction. Китайские инвесторы полностью уходят, их место занимает американский фонд. К этому моменту в компании работает около 25 человек.</li>
+        <li>Апрель 2023: окончательный ребрендинг в HeyGen</li>
+        <li>Ноябрь 2023: $5.6 млн от Conviction. Китайские инвесторы полностью уходят, их место занимает американский фонд.</li>
+        <li>К этому моменту в компании работает около 25 человек.</li>
       </ul>
     </div>
 
     <div class="timeline-item">
       <h3>2024 — Взрывной рост</h3>
       <ul>
-        <li>Series A на $60 млн</li>
-        <li>Запуск Avatar IV</li>
+        <li>Крупный раунд Series A на $60 млн</li>
+        <li>Запуск Avatar IV — одной из самых реалистичных моделей того времени</li>
       </ul>
     </div>
 
@@ -151,7 +242,8 @@
       <h3>2025–2026 — Зрелость</h3>
       <ul>
         <li>Рост ARR до $95–100 млн</li>
-        <li>31+ млн пользователей</li>
+        <li>Более 31 млн пользователей</li>
+        <li>HeyGen закрепляется как один из лидеров рынка AI‑видео</li>
       </ul>
     </div>
   </section>
@@ -160,8 +252,8 @@
   <section class="feature-card">
     <h2>Громкие события и вирусные моменты</h2>
     <ul>
-      <li><strong>Челленджи на SXSW</strong> — люди не могли отличить аватаров от реальных людей.</li>
-      <li><strong>Март 2026: HeyGen назван одной из Vjst Innovative Companies 2026.</strong> — важный шаг.</li>
+      <li><strong>Челленджи на SXSW</strong> — люди не могли отличить аватаров от реальных людей. Это стало мощным маркетинговым моментом и демонстрацией реализма технологии.</li>
+      <li><strong>Март 2026:</strong> HeyGen назван одной из <em>Most Innovative Companies 2026</em> по версии Fast Company — важный шаг в признании на глобальном уровне.</li>
     </ul>
   </section>
 
@@ -169,23 +261,48 @@
   <section class="feature-card">
     <h2>Главные конкуренты</h2>
     <ul>
-      <li><strong>Synthesia</strong> сильный игрок для корпоративного обучения и внутренних коммуникаций, но HeyGen выразительнее и быстрее.</li>
-      <li><strong>D‑ID</strong> уступает в полнотелых аватарах и редакторе</li>
-      <li><strong>DeepBrain AI</strong> ориентирован на broadcast-качество часто сравнивают в реализме.</li>
+      <li><strong>Synthesia</strong> — сильный игрок для корпоративного обучения и внутренних коммуникаций, но многие считают, что HeyGen выразительнее и быстрее.</li>
+      <li><strong>D‑ID</strong> — хорош для быстрых социальных видео из фото, но уступает в полнотелых аватарах и возможностях редактора.</li>
+      <li><strong>DeepBrain AI</strong> — ориентирован на broadcast‑качество, часто сравнивают по реализму с HeyGen.</li>
     </ul>
   </section>
 
   <!-- Вывод -->
   <section class="short-block">
     <h2>Вывод</h2>
-    <p>HeyGen прошёл путь от гаража до мирового лидера сотнями миллионов долларов оценки и признанием Fast Company.</p>
+    <p>HeyGen прошёл путь от гаража до мирового лидера, получил сотни миллионов долларов оценки и признание Fast Company. Главное, что они сделали — превратили «ненависть к камере» в возможность: теперь любой может создавать качественное видео просто текстом.</p>
   </section>
-    <!-- Примечание-->
-    <section class="short-block">
-     <h2>Друзья в следующей статье</h2>
-    <p>Приготовил аватар, прикольно получилось можно сказать похож и есть видео, по нему уж там вопрос задам, и выложу сгенерированных котов с песней , ну эти просто приколисты</p>
-    <p>Быстро писать не получается, HTML , но постараюсь там поподробнее изложить как зарегался в HeyGen и как всё потом происходило</p>
-        <p><strong>До встречи</strong></p>
+
+  <!-- Примечание / тизер следующей статьи -->
+  <section class="short-block">
+    <span class="note-label">дальше будет практика</span>
+    <h2>Что будет в следующей статье</h2>
+    <p>В следующем материале я покажу, как это выглядит уже из России в 2026 году: мой первый аватар, сравнение с реальным видео и тесты на других нейросетях.</p>
+    <p>Приготовил аватар — получилось прикольно, можно сказать, похож. Есть видео, по нему уже там вопрос задам. И, конечно, выложу сгенерированных котов с песней — эти ребята просто приколисты.</p>
+    <p>Быстро писать не получается — всё‑таки HTML — но постараюсь поподробнее изложить, как я регистрировался в HeyGen и как всё потом происходило.</p>
+    <p><strong>До встречи!</strong></p>
+  </section>
+    
+<!-- Навигация между страницами -->
+<section class="feature-card" style="text-align:center; margin-top:2rem;">
+
+  <a href="/index.html"
+     style="display:inline-block; padding:12px 22px; margin:0.4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color:white; text-decoration:none; border-radius:10px;
+            font-weight:600; transition:0.2s;">
+    🏠 На главную
+  </a>
+
+  <a href="/article-8.html"
+     style="display:inline-block; padding:12px 22px; margin:0.4rem;
+            background: linear-gradient(135deg, #00d9ff, #0099ff);
+            color:#1a1a2e; text-decoration:none; border-radius:10px;
+            font-weight:600; transition:0.2s;">
+    👉 Следующая статья
+  </a>
+
+</section>
 
 </div>
 
@@ -209,4 +326,5 @@
 
 </body>
 </html>
+
 
