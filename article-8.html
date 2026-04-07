@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark">
+<html lang="ru" 
 <head>
       <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -288,6 +288,52 @@
                 padding: 15px;
             }
         }
+          /* === ФИКС ДЛЯ СВЕТЛОЙ ТЕМЫ === */
+body[data-theme="light"] .article-header h1 {
+    color: #1a1a2e !important; /* Тёмный заголовок на градиенте */
+}
+
+body[data-theme="light"] h2 {
+    color: #1a1a2e !important;
+    border-bottom-color: #ccc;
+}
+
+body[data-theme="light"] .purple-block,
+body[data-theme="light"] .blue-block,
+body[data-theme="light"] .green-block,
+body[data-theme="light"] .red-block {
+    color: #fff !important; /* Белый текст на цветных блоках — ОК */
+}
+
+body[data-theme="light"] .neon-block {
+    background: #f8f9fa;
+    color: #00aa55 !important;
+    border-color: #00aa55;
+}
+
+body[data-theme="light"] .card-block {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.1);
+    color: #222 !important;
+}
+
+body[data-theme="light"] .icon-block {
+    background: rgba(255,127,0,0.15);
+    color: #222 !important;
+}
+
+body[data-theme="light"] .shadow-block {
+    background: rgba(255,127,0,0.08);
+    color: #222 !important;
+}
+
+/* Ссылки в светлой теме */
+body[data-theme="light"] a {
+    color: #0066cc;
+}
+body[data-theme="light"] a:hover {
+    color: #004499;
+}
     </style>
 </head>
 <body>
@@ -503,26 +549,23 @@
         <button id="themeToggle" class="floating-btn" title="Переключить тему">🌙</button>
         <button id="backToTop" class="floating-btn" title="Наверх">↑</button>
     </div>
-
-<!-- JAVASCRIPT: Тема + Кнопка наверх -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-
     // === Переключение темы ===
-    const html = document.documentElement;
+    const body = document.body; // 👈 Меняем html на body
     const themeToggle = document.getElementById('themeToggle');
 
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    html.setAttribute('data-theme', savedTheme);
+    body.setAttribute('data-theme', savedTheme); // 👈 Тут тоже body
 
     if (themeToggle) {
         themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
         themeToggle.addEventListener('click', function() {
-            const current = html.getAttribute('data-theme');
+            const current = body.getAttribute('data-theme');
             const newTheme = current === 'dark' ? 'light' : 'dark';
 
-            html.setAttribute('data-theme', newTheme);
+            body.setAttribute('data-theme', newTheme); // 👈 И тут body
             localStorage.setItem('theme', newTheme);
             themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
         });
@@ -530,17 +573,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // === Кнопка "Наверх" ===
     const backToTop = document.getElementById('backToTop');
-
     if (backToTop) {
         window.addEventListener('scroll', function() {
             backToTop.style.display = (window.pageYOffset > 400) ? 'flex' : 'none';
         });
-
         backToTop.addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 });
-</script>
+</script>     
 </body>
 </html>
