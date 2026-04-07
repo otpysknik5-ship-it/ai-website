@@ -504,46 +504,30 @@
         <button id="backToTop" class="floating-btn" title="Наверх">↑</button>
     </div>
 
- <!-- JAVASCRIPT: Переключение темы + кнопка наверх -->
+<!-- Переключение темы -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-
-    const themeToggle = document.getElementById('themeToggle');
-    const backToTop = document.getElementById('backToTop');
     const html = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
 
-    // Загрузка сохранённой темы
+    // Загружаем сохранённую тему
     const savedTheme = localStorage.getItem('theme') || 'dark';
     html.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
 
-    // Переключение темы
+    // Обновляем иконку на кнопке
+    if (themeToggle) {
+        themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    }
+
+    // При клике переключаем
     if (themeToggle) {
         themeToggle.addEventListener('click', function() {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const current = html.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
 
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-    }
-
-    // Обновление иконки (солнце / луна)
-    function updateThemeIcon(theme) {
-        if (themeToggle) {
-            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
-        }
-    }
-
-    // Кнопка "Наверх"
-    if (backToTop) {
-        window.addEventListener('scroll', function() {
-            backToTop.style.display = (window.pageYOffset > 400) ? 'flex' : 'none';
-        });
-
-        backToTop.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
         });
     }
 });
