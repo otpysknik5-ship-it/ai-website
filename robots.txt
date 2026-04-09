@@ -1,32 +1,25 @@
-# robots.txt для aimihome.ru
-# Блокируем ИИ-ботов для защиты контента
+# robots.txt для aimihome.ru — AI-тематика
+
+User-agent: *
+Allow: /
+
+# Разрешаем основным поисковикам
+User-agent: Yandex
+Allow: /
+User-agent: Googlebot
+Allow: /
+
+# Блокируем агрессивные AI-боты, которые обучаются на контенте
 User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
 Disallow: /
 
 User-agent: ClaudeBot
 Disallow: /
 
-User-agent: Bytespider
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: oai-gecko
-Disallow: /
-
-# Разрешаем поисковикам (Google, Яндекс и др.)
-User-agent: Googlebot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Yandex
-Allow: /
-
-# Блокируем все остальные боты (опционально)
-User-agent: *
+User-agent: Amazonbot
 Disallow: /
 
 # Sitemap
