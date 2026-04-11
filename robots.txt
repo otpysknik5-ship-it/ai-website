@@ -11,5 +11,5 @@ Disallow: /xmlrpc.php
 Sitemap: https://aimihome.ru/sitemap.xml
 
 # Указать хост (опционально)
-Host: https://aimihome.ru
+
 
