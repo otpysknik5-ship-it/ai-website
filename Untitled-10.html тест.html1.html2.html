@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шедеврум 2026: от щедрого ИИ до платного сервиса</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Честный обзор Шедеврума в 2026 году. Как менялся российский ИИ для генерации картинок, почему стал платным и стоит ли им пользоваться сейчас.">
+    <meta property="og:title" content="Шедеврум 2026: эволюция российского ИИ">
+    <meta property="og:description" content="От бесплатного чуда к платной подписке. Личный опыт, сравнение с конкурентами и примеры генераций.">
+    <meta property="og:image" content="https://aimihome.ru/ai-journey.png"> 
+    <meta property="og:url" content="https://aimihome.ru/article-shedevrum.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <style>
+        /* --- CSS ПЕРЕМЕННЫЕ (ТЕМЫ) --- */
+        :root {
+            --bg-color: #f4f4f9;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --accent-color: #6c5ce7;
+            --accent-hover: #5b4bc4;
+            --border-color: #e0e0e0;
+            --code-bg: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --accent-color: #bb86fc;
+            --accent-hover: #9965f4;
+            --border-color: #333333;
+            --code-bg: #2d2d2d;
+            --shadow: 0 4px 6px rgba(0,0,0,0.5);
+        }
+
+        /* --- БАЗОВЫЕ СТИЛИ --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* --- КНОПКИ --- */
+        .theme-toggle, .back-to-top {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 24px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s, background-color 0.3s;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover, .back-to-top:hover {
+            background-color: var(--accent-hover);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle {
+            top: 20px;
+            right: 20px;
+        }
+
+        .back-to-top {
+            bottom: 30px;
+            right: 30px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.2s, background-color 0.3s;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* --- КОНТЕНТ --- */
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* --- БЛОКИ (КАРТОЧКИ) --- */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--accent-color), #a29bfe);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .highlight-box p {
+            color: white;
+            margin: 0;
+        }
+
+        /* --- ТАБЛИЦА --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* --- КНОПКА CTA --- */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        /* --- КОД / ПРИМЕРЫ --- */
+        pre {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* Адаптив для мобильных */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .theme-toggle, .back-to-top { width: 45px; height: 45px; font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Кнопка смены темы -->
+    <button class="theme-toggle" id="themeToggle" title="Переключить тему">🌓</button>
+
+    <main>
+        <h1>Шедеврум 2026: как начинался самый щедрый ИИ и почему он стал платным</h1>
+
+        <!-- Вступление -->
+        <div class="card">
+            <p><strong>Привет, бро!</strong> 👋</p>
+            <p>Когда в конце 2024 года Яндекс выпустил <em>Шедеврум</em>, это был настоящий взрыв в русскоязычном интернете. Все только и говорили: «Наконец-то нормальный бесплатный ИИ для генерации картинок!», «Русский Midjourney», «Можно генерировать сколько угодно».</p>
+            <p>Я тоже сразу зашёл попробовать. И честно скажу — первые впечатления были очень сильными. Картинки выходили яркие, атмосферные, а главное — промпты на русском языке работали действительно хорошо. Тогда казалось, что появился настоящий конкурент западным сервисам.</p>
+            <p>Сегодня, в 2026 году, давай спокойно и подробно разберёмся: как Шедеврум начинался, как менялся со временем и стоит ли им пользоваться сейчас.</p>
+        </div>
+
+        <!-- Кто стоит за Шедеврумом -->
+        <h2>Кто стоит за Шедеврумом</h2>
+        <div class="card">
+            <p>Шедеврум — это полностью проект Яндекса. Он создан на базе их собственной генеративной модели <strong>YandexART</strong>.</p>
+            <p>Сразу уточню, чтобы не было путаницы: Шедеврум не имеет отношения к нейросети <em>Kandinsky</em>. Kandinsky — это разработка Сбера, совершенно другой проект. Хотя оба сервиса российские и появились примерно в одно время, они развиваются независимо друг от друга.</p>
+            <p>Яндекс поставил перед собой амбициозную задачу — сделать мощный инструмент генерации изображений, который хорошо понимает русский язык и может составить конкуренцию Midjourney, Leonardo.AI, Flux и DALL·E.</p>
+        </div>
+
+        <!-- Золотой период -->
+        <h2>Золотой период: «Бесплатно и почти без ограничений»</h2>
+        <div class="card">
+            <p>Первые несколько месяцев после запуска Шедеврум реально был одним из самых щедрых ИИ на рынке:</p>
+            <ul>
+                <li>✅ Генерация  полностью бесплатная</li>
+                <li>✅ Качество изображений оказалось на очень достойном уровне</li>
+                <li>✅ Особенно хорошо он понимает сложные промпты на русском языке</li>
+                <li>✅ Цензура была заметно мягче, чем у американских и европейских сервисов</li>
+                <li>✅ Интерфейс сделали простой и удобный — зашёл, написал промпт и получил результат</li>
+            </ul>
+            <div class="highlight-box">
+                <p>💬 Многие пользователи тогда писали в отзывах: «Наконец-то появился ИИ, которым можно пользоваться каждый день практически без ограничения генерации картинок, может и есть ограничения но я то такого не доходил,это в мобильном приложении». И это действительно было так и так осталось.</p>
+            </div>
+        </div>
+
+        <!-- Платный тариф -->
+        <h2>Как появился платный тариф</h2>
+        <div class="card">
+            <p>Со временем, как и у большинства современных ИИ, у Шедеврума появилась монетизация. Через год Шедеврум апгрейдился, можно так сказать. Добавилась генерация видео, улучшенные функции. Сейчас подписка работает следующим образом:</p>
+            <p><strong>Шедеврум Про</strong> — первые 7 дней полностью бесплатно. После пробного периода — <strong>100 рублей в месяц</strong>, но только если у тебя уже есть подписка Яндекс Плюс.</p>
+            
+            <h3>Что даёт платная версия?</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Параметр</th>
+                        <th>Бесплатно</th>
+                        <th>Шедеврум Про</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Генераций в день</td>
+                        <td>много</td>
+                        <td>Неограниченно (или очень много)</td>
+                    </tr>
+                    <tr>
+                        <td>Скорость</td>
+                        <td>Обычная очередь</td>
+                        <td>Приоритетная</td>
+                    </tr>
+                    <tr>
+                        <td>Доступ к видео</td>
+                        <td>Ограничено</td>
+                        <td>Полностью</td>
+                    </tr>
+                    <tr>
+                        <td>Цена</td>
+                        <td>0 ₽</td>
+                        <td>100 ₽/мес (с Яндекс Плюс)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Качество в 2026 -->
+        <h2>Как изменилось качество к 2026 году</h2>
+        <div class="card">
+            <p>Я продолжаю пользоваться Шедеврумом и сейчас. Разница с первыми месяцами есть, но она не такая катастрофическая, как иногда пишут в комментариях.</p>
+            
+            <h3>Плюсы Шедеврума в 2026 году:</h3>
+            <ul>
+                <li>🎨 Картинки до сих пор получаются яркие, сочные и детализированные</li>
+                <li>🇷 Хорошо работает с русским языком (это одно из главных преимуществ перед многими западными ИИ)</li>
+                <li>🚀 Отлично справляется с фантастическими, мультяшными и стилизованными работами</li>
+                <li>🛡️ Стабильное качество даже при сложных промптах</li>
+            </ul>
+
+            <p><strong>Вот свежий пример, который я недавно сгенерировал:</strong></p>
+            <p><em>«Розовый крокодил в шляпе»</em></p>
+            <p>Смотрится живо и с характером. Кстати, важный момент: будьте готовы, что ваши промпты и готовые картинки могут использовать другие люди. Там нет жёсткого запрета на плагиат. У меня вот этого розового крокодила уже растащили по разным каналам. Красавчика можете увидеть у меня в Telegram-боте.</p>
+        </div>
+
+        <!-- Видео и анимация -->
+        <h2>Видео и анимация</h2>
+        <div class="card">
+            <p>С видео у Шедеврума пока всё скромнее. Сейчас он умеет делать:</p>
+            <ul>
+                <li>⏱️ Таймлапсы (вращение объекта, зум)</li>
+                <li>✨ Оживление статичных картинок</li>
+            </ul>
+            <p>Полноценное длинное видео ещё заметно отстаёт от лидеров рынка, но короткие анимации и оживление уже получаются вполне достойно, особенно на платной подписке.</p>
+        </div>
+
+        <!-- Личный опыт и другие нейросети -->
+        <h2>Личный опыт и другие нейросети</h2>
+        <div class="card">
+            <p>А в остальном — всё просто: зарегистрировался и творишь. Никакого сложного английского интерфейса, как в HeyGen при создании аватара. Я в HeyGen, если честно, сначала вообще не понял, что от меня требуется, но в итоге аватар получился с первого раза. Теперь он стоит у моего Telegram-бота и говорит на русском.</p>
+            
+            <p>Ещё одна нейросеть, которую я хорошо помню — <strong>PIKA</strong>. Это была, наверное, была сеть до Шедеврума, где я активно пробовал свои силы. На тот момент мне она очень нравилась. Первая версия (V1) была бесплатная. Я мог сидеть там по полдня и генерировать короткие видео по 3 секунды. Картинки тогда казались очень достойными.</p>
+            <p>Сейчас, когда появилось много других инструментов и возможность сравнивать, понимаю, что качество было среднее. Но тогда это был настоящий вау-эффект. К сожалению, сейчас в PIKA нормальное видео без денег уже почти не сделаешь. Всё перешло на платную модель. Грустно наблюдать, как один за другим хорошие инструменты уходят в платный сегмент.</p>
+            <p>“Pika Labs — американский сервис для генерации видео по тексту. Начался как бесплатный, но сейчас требует подписку от $8/мес.”</p>
+            <p> В Телеграм выложу видео от PIKA, делать из них 15ти секундное вмдео, та ещё заморочка, но ничего делал было прикольно, сечас даже не знаю полное видео осталось, но короткие точно в Телеграм- боте выложу.</p>
+            <p>HeyGen — инструмент для создания AI-аватаров и озвучки. Отлично работает с русским языком, когда пишешь промт, но интерфейс английски сложный для новичков.”</p>
+            <p>Аватар стоит у меня в телеге русский вариант, английский поставил в Инстаграм</p>
+        </div>
+
+        <!-- Как начать работать -->
+        <h2>Как начать работать с Шедеврумом?</h2>
+        <div class="card">
+            <ol>
+                <li>Зайди на <a href="https://shedevrum.yandex.ru" target="_blank" style="color: var(--accent-color);">официальный сайт</a></li>
+                <li>Авторизуйся через Яндекс ID (или создай аккаунт)</li>
+                <li>Напиши промпт на русском — например: «космонавт играет на гитаре на Марсе»</li>
+                <li>промпт лучше писать подробно, какую картинку ты хочешь увидеть, свет , тень, гримасы.</li>
+                <li>Получи результат за 10–30 секунд. иногда 5минут, зависит от загруженности ресурса</li>
+                <li>Сохрани или поделись в соцсетях</li>
+            </ol>
+        </div>
+
+        <!-- Итог и CTA -->
+        <h2>Итог</h2>
+        <div class="card">
+            <p>Шедеврум прошёл типичный путь современных ИИ-сервисов: от максимально щедрого бесплатного этапа к сбалансированной модели с бесплатной и платной версиями.</p>
+            <p>Картинки у него до сих пор получаются хорошие, особенно если тебе нравится яркий, выразительный и атмосферный стиль. Для многих пользователей бесплатной версии всё ещё хватает, а за 100 рублей в месяц можно получить уже заметно более комфортный опыт.</p>
+            
+            <div class="highlight-box center-text">
+                <p>🤖 <strong>Хочешь увидеть генерацию розового крокодила?</strong><br>Заходи в мой Telegram-бот <a href="https://t.me/citadel_test_quote_bot" target="_blank" style="color: white; text-decoration: underline;">@citadel_test_quote_bot</a> — там он ждёт тебя!</p>
+            </div>
+
+            <p style="margin-top: 30px;"><strong>А как у тебя обстоят дела с Шедеврумом, бро?</strong></p>
+            <ul>
+                <li>Пробовал его в самом начале и сейчас?</li>
+                <li>Какое качество тебе нравится больше — тогда или сейчас?</li>
+                <li>Продолжаешь пользоваться бесплатной версией или уже перешёл на Про?</li>
+            </ul>
+            <p>Пиши в комментариях свои мысли, примеры генераций и впечатления. Будет интересно почитать и обсудить!</p>
+            
+            <div class="center-text">
+                <a href="/" class="cta-button">Вернуться на главную 🏠</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="back-to-top" id="backToTop" title="Наверх">⬆️</button>
+
+    <script>
+        // --- СКРИПТ ПЕРЕКЛЮЧЕНИЯ ТЕМЫ ---
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Проверка сохранённой темы
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️'; // Иконка солнца для тёмной темы
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌓'; // Иконка луны для светлой
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '️';
+            }
+        });
+
+        // --- СКРИПТ КНОПКИ "НАВЕРХ" ---
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        };
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
