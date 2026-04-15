@@ -1,586 +1,308 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark">
+<html lang="ru">
 <head>
-
-<script>
-  // Скрипт темы в head чтобы не мигало
-  (function() {
-    const saved = localStorage.getItem('theme');
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = (saved === 'light' || (!saved && !systemDark)) ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', theme);
-  })();
-</script>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108200368', 'ym');
-
-    ym(108200368, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/108200368" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-  <meta charset="UTF-8">
-  <title>Midjourney v8: честный обзор обновления</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Честный обзор Midjourney v8: скорость, качество, текст, новые параметры и стоит ли переходить.">
-  
-<!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png">  
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <!-- Canonical -->
-  <link rel="canonical" href="https://aimihome.ru/article-6.html">
-
-  <style>
-    :root {
-      --bg: #071205;
-      --bg-soft: #0b0f1f;
-      --bg-softer: #111629;
-      --accent: #ffb347;
-      --accent-2: #8f7bff;
-      --accent-3: #ff6fa8;
-      --text-main: #f5f5f7;
-      --text-soft: #c5c7d8;
-      --border-soft: rgba(255,255,255,0.06);
-      --chip-bg: rgba(255,255,255,0.06);
-    }
-
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1b2140 0, #050712 55%);
-      color: var(--text-main);
-      line-height: 1.7;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-    .page {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 32px 16px 72px;
-    }
-    header {
-      margin-bottom: 28px;
-      padding: 18px 18px 20px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(255,179,71,0.16), rgba(143,123,255,0.18));
-      border: 1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(16px);
-    }
-    .eyebrow {
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #ffe7b8;
-      margin-bottom: 6px;
-    }
-    h1 { font-size: 1.9rem; margin: 0 0 6px; }
-    .subtitle { font-size: 0.98rem; color: #fff7e0; opacity: 0.9; }
-    .meta { margin-top: 10px; font-size: 0.8rem; color: #f0e3ff; opacity: 0.9; }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(5,7,18,0.4);
-      border: 1px solid rgba(255,255,255,0.18);
-      font-size: 0.75rem;
-    }
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #4cff9a;
-      box-shadow: 0 0 8px rgba(76,255,154,0.7);
-    }
-
-    h2 { font-size: 1.4rem; margin: 0 0 12px; }
-    h3 { font-size: 1.05rem; margin: 0 0 8px; }
-    p { margin: 0 0 10px; color: var(--text-soft); }
-
-    .block {
-      margin-bottom: 22px;
-      padding: 18px 18px 16px;
-      border-radius: 18px;
-      border: 1px solid var(--border-soft);
-      background: var(--bg-soft);
-    }
-    .block--accent { background: radial-gradient(circle at top left, rgba(255,179,71,0.16), rgba(11,15,31,1)); border-color: rgba(255,179,71,0.4); }
-    .block--accent-2 { background: radial-gradient(circle at top right, rgba(143,123,255,0.18), rgba(11,15,31,1)); border-color: rgba(143,123,255,0.4); }
-    .block--accent-3 { background: radial-gradient(circle at top, rgba(255,111,168,0.18), rgba(11,15,31,1)); border-color: rgba(255,111,168,0.4); }
-    .block-title { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-weight: 600; color: var(--text-main); }
-    .block-title span.icon { font-size: 1.1rem; }
-    .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 4px; }
-    .pill { padding: 3px 9px; border-radius: 999px; background: var(--chip-bg); font-size: 0.78rem; color: #e4e5ff; }
-    .pill--accent { background: rgba(255,179,71,0.16); color: #ffe0b0; }
-    .pill--accent-2 { background: rgba(143,123,255,0.18); color: #e0dcff; }
-    .pill--accent-3 { background: rgba(255,111,168,0.18); color: #ffd7ea; }
-
-    ul, table { margin: 6px 0 8px; padding-left: 18px; color: var(--text-soft); font-size: 0.95rem; }
-    li { margin-bottom: 4px; }
-
-    .table-wrap { margin-top: 8px; overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; background: var(--bg-softer); border: 1px solid var(--border-soft); }
-    th, td { padding: 8px 10px; text-align: left; font-size: 0.86rem; }
-    th { background: rgba(255,255,255,0.03); color: #f3f3ff; font-weight: 600; }
-    tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
-
-    .note { font-size: 0.85rem; color: #f7d7ff; opacity: 0.9; margin-top: 4px; }
-    .quote {
-      margin-top: 8px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.03);
-      border-left: 3px solid var(--accent-3);
-      font-size: 0.9rem;
-      color: #fbe7ff;
-      font-style: italic;
-    }
-    .footer-note { margin-top: 18px; font-size: 0.85rem; color: #d3d4ff; }
-    .footer-note strong { color: #fff; }
-
-    /* Кнопка назад */
-    .back-btn {
-      display: inline-block;
-      padding: 15px 30px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #000;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: transform 0.2s, box-shadow 0.2s;
-      margin: 10px;
-    }
-    .back-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,179,71,0.4); }
-
-    /* Кнопка темы */
-    .theme-toggle {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 2px solid var(--border-soft);
-      background: var(--bg-soft);
-      color: var(--text-main);
-      font-size: 1.3rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-    }
-    .theme-toggle:hover { transform: scale(1.1) rotate(15deg); background: var(--accent); color: #000; border-color: var(--accent); }
-
-    /* Кнопка наверх */
-    .back-to-top {
-      position: fixed;
-      bottom: 84px;
-      right: 24px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--bg-soft);
-      color: var(--text-main);
-      font-size: 1.5rem;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid var(--border-soft);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 999;
-      backdrop-filter: blur(10px);
-    }
-    .back-to-top.show { opacity: 1; visibility: visible; }
-    .back-to-top:hover { background: var(--accent-2); color: #fff; transform: translateY(-4px); }
-
-    /* Светлая тема */
-    [data-theme="light"] {
-      --bg: #f8f9ff;
-      --bg-soft: #ffffff;
-      --bg-softer: #f0f2ff;
-      --accent: #ff8c42;
-      --accent-2: #6c5ce7;
-      --accent-3: #e056fd;
-      --text-main: #1a1a2e;
-      --text-soft: #4a4a68;
-      --border-soft: rgba(0,0,0,0.08);
-      --chip-bg: rgba(0,0,0,0.06);
-    }
-    [data-theme="light"] body { background: radial-gradient(circle at top, #e8ebff 0, #f8f9ff 55%); }
-    [data-theme="light"] .block { background: var(--bg-soft); box-shadow: 0 4px 20px rgba(108, 92, 231, 0.08); }
-    [data-theme="light"] header { background: linear-gradient(135deg, rgba(255,140,66,0.12), rgba(108,92,231,0.14)); }
-
-    @media (min-width: 768px) {
-      .page { padding: 40px 24px 90px; }
-      h1 { font-size: 2.2rem; }
-      h2 { font-size: 1.5rem; }
-    }
-    <style>
-    body {
-        color: #222;
-        background: #fff;
-    }
-    p, li {
-        color: #222;
-    }
-    .highlight-box, .info-box {
-        color: #222;
-    }
-    strong {
-        color: #111;
-    }
-</style>
-  <style>
-    body {
-        color: #222 !important;
-        background: #ffffff !important;
-    }
-    
-    p, li, blockquote, .image-caption {
-        color: #222 !important;
-        line-height: 1.65;
-    }
-    
-    h1, h2, h3, h4, strong {
-        color: #111 !important;
-    }
-    
-    .highlight-box, .info-box {
-        color: #222 !important;
-        background: #f8f9fa !important;
-    }
-    
-    a {
-        color: #0066cc !important;
-    }
-    
-    /* Улучшаем контраст для блоков */
-    .highlight-box {
-        border-left: 6px solid #007bff;
-        background: #f0f8ff !important;
-    }
-    /* === СРОЧНЫЙ ФИКС КОНТРАСТА ДЛЯ СТАТЬИ === */
-body {
-    color: #222 !important;
-}
-
-p, li, blockquote, .image-caption, td {
-    color: #222 !important;
-    line-height: 1.7;
-}
-
-h1, h2, h3, h4, strong, b {
-    color: #0f0f0f !important;
-}
-
-.highlight-box, .info-box {
-    color: #222 !important;
-    background: #f8f9fa !important;
-}
-
-a {
-    color: #0066cc !important;
-}
-
-/* Если есть тёмная тема — немного смягчаем */
-[data-theme="dark"] {
-    color: #e0e0e0 !important;
-}
-
-[data-theme="dark"] p, [data-theme="dark"] li {
-    color: #e0e0e0 !important;
-}
-
-[data-theme="dark"] .highlight-box,
-[data-theme="dark"] .info-box {
-    background: #2a2a2a !important;
-    color: #e0e0e0 !important;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midjourney 2026: нейросеть, которая рисует как Айвазовский 🎨</title>
+    <meta name="description" content="Полный разбор Midjourney в апреле 2026: V7, Niji 7, V8.1, технология диффузии, бизнес, конкуренты, споры с художниками и пошаговая инструкция.">
+    <link rel="stylesheet" href="styles.css">
+    <meta property="og:title" content="Midjourney 2026: нейросеть, которая рисует лучше Айвазовского">
+    <meta property="og:description" content="Как ИИ создаёт шедевры из текста? Полный разбор V7, V8.1, бизнеса и философии Midjourney">
+    <meta property="og:image" content="wot.jpg">
 </head>
 <body>
-  <div class="page">
+
+    <a href="/" class="back-btn">← На главную</a>
+
     <header>
-      <div class="eyebrow">Обзор · Midjourney v8 · Альфа</div>
-      <h1>🎨 Midjourney v8: честный обзор обновления</h1>
-      <div class="subtitle">Альфа-версия уже доступна. Стоит ли переходить? Разбираемся по‑честному и по делу.</div>
-      <div class="meta">
-        <span class="badge">
-          <span class="badge-dot"></span>
-          v8 Alpha · быстрый разбор  
-        </span>
-      </div>
+        <h1>🎨 Midjourney 2026: нейросеть, которая рисует как Айвазовский</h1>
+        <p>Полный разбор технологии, бизнеса и философии на апрель 2026</p>
     </header>
 
-    <!-- Что нового -->
-    <section class="block block--accent">
-      <div class="block-title"><span class="icon">⚡</span><span>Что нового в v8?</span></div>
-      <p>Midjourney v8 — это не просто «ещё одно обновление». Модель стала быстрее, умнее и ближе к реальным задачам: от постеров и мокапов до сложных сцен с текстом и стилевыми референсами.</p>
-    </section>
-        <section>
-        <h2>🔥 Горячее обновление: V8.1 Alpha вышла 14 апреля 2026!</h2>
-        
-        <div style="background: #fff3cd; border-left: 6px solid #f39c12; padding: 22px 25px; margin: 30px 0; border-radius: 8px; color: #222;">
-            <p style="margin:0 0 12px 0; font-weight: bold; font-size: 1.1em;">
-                Дождались! Midjourney выпустили V8.1 Alpha
+    <div class="hero-image">
+        <img src="wot.jpg" alt="Морской шторм в стиле Айвазовского созданный ИИ">
+        <p class="image-caption">🎨 Картина создана Midjourney V7 по запросу: "шторм на море в стиле Айвазовского"</p>
+    </div>
+
+    <section>
+        <div class="intro-block">
+            <p class="lead">
+                <strong>Представь:</strong> ты пишешь <em>"шторм на море в стиле Айвазовского"</em> — и через минуту получаешь картину, которую не отличить от настоящей. 
+                Это не магия. Это <strong>Midjourney</strong>.
             </p>
-            
-            <p style="margin:8px 0;">
-                Наши <strong>культовые эстетики</strong> вернулись с нативным рендерингом 2K HD — 
-                в <strong>3 раза быстрее</strong> и в <strong>3 раза дешевле</strong>, чем V8.
-            </p>
-            
-            <p style="margin:8px 0;">
-                Режим V8.1 1K в полном качестве теперь работает быстрее, чем черновик V7.
-            </p>
-            
-            <p style="margin:8px 0;">
-                Промпты для изображений вернулись. Новый «Describe» запущен — и вам очень понравятся обновлённые moodboards и srefs.
-            </p>
-            
-            <p style="margin:15px 0 0 0; color: #d35400; font-weight: bold;">
-                Больше скоро <3
+            <p>
+                В этой статье мы разберём <strong>всё до мелочей</strong>: кто создал эту нейросеть, как она работает на уровне кода, сколько зарабатывает, кто конкуренты, почему маленькая команда делает продукт лучше гигантов, и что произошло с выходом V8.1.
             </p>
         </div>
-
-        <p style="color:#222;">
-            Это важный релиз. Многие в сообществе были недовольны, что V8 Alpha потеряла характерный «миджорниевский» стиль и стала слишком стерильной. 
-            V8.1 быстро вернула душу Midjourney, при этом сильно ускорив и удешевив генерацию. Команда явно очень внимательно слушает фидбек.
-        </p>
     </section>
 
-    <!-- Скорость -->
-    <section class="block">
-      <div class="block-title"><span class="icon">🚀</span><span>Скорость генерации</span></div>
-      <ul>
-        <li>Изображения создаются примерно в <strong>5 раз быстрее</strong>.</li>
-        <li>То, что раньше занимало <strong>30–60 секунд</strong>, теперь готово менее чем за <strong>10 секунд</strong>.</li>
-        <li>Веб‑интерфейс полностью переработан под новый темп работы.</li>
-      </ul>
-      <p class="note">Итерации, тесты и вариации теперь ощущаются как живой диалог, а не ожидание рендера.</p>
+    <section>
+        <h2>👤 Кто создал Midjourney? Знакомься: Дэвид Хольц</h2>
+        
+        <div class="info-box">
+            <h3>📋 Основная информация:</h3>
+            <ul>
+                <li><strong>Имя:</strong> Дэвид Хольц (David Holz)</li>
+                <li><strong>Возраст:</strong> около 47 лет</li>
+                <li><strong>Образование:</strong> PhD по прикладной математике (University of North Carolina)</li>
+                <li><strong>Локация:</strong> Сан-Франциско, США 🇺🇸</li>
+                <li><strong>Команда:</strong> ~100–160 человек</li>
+                <li><strong>Пользователей:</strong> 20+ миллионов</li>
+            </ul>
+        </div>
+
+        <h3>🎓 Предыстория: от Leap Motion к ИИ</h3>
+        <p>До Midjourney Дэвид создал компанию Leap Motion — технологию распознавания жестов рук. Представь: ты машешь руками перед компьютером, а он понимает каждое движение! Это было в 2010 году, за 10 лет до того, как управление жестами стало мейнстримом.</p>
+
+        <p><strong>Почему он ушёл из Leap Motion?</strong> Дэвид понял: будущее не в том, чтобы заставлять машины понимать наши руки, а в том, чтобы машины понимали наше <em>воображение</em>.</p>
+
+        <div class="highlight-box">
+            <blockquote>
+                "Я хочу создать инструменты, которые расширяют человеческое воображение, а не заменяют его. 
+                Midjourney — это не про то, чтобы ИИ рисовал вместо художника. Это про то, чтобы дать каждому 
+                возможность визуализировать свои идеи."
+            </blockquote>
+            <cite>— Дэвид Хольц, основатель Midjourney</cite>
+        </div>
+
+        <h3>🚀 Уникальная философия: никаких инвесторов!</h3>
+        <p>Вот что отличает Midjourney от всех остальных: <strong>Дэвид запретил внешние инвестиции</strong>!</p>
+        <p>Венчурные капиталисты предлагали миллионы, но Хольц отказался. Почему? Он хочет сохранить полную независимость. Никакого давления от инвесторов, никаких требований "расти любой ценой".</p>
+
+        <div class="highlight-box">
+            <strong>💡 Факт:</strong> Midjourney — прибыльная компания с первого года существования. Они живут на деньги подписчиков, а не на деньги инвесторов. Это редкость в мире стартапов!
+        </div>
     </section>
 
-    <!-- 2K -->
-    <section class="block block--accent-2">
-      <div class="block-title"><span class="icon">🖼️</span><span>Нативное 2K‑разрешение</span></div>
-      <p>Новый параметр <code>--hd</code> рендерит изображения нативно в <strong>2K</strong> без дополнительного апскейла.</p>
-      <ul>
-        <li>Детализация, текстуры и края — заметно чище и резче с самого начала.</li>
-        <li>Меньше артефактов, больше «готовых к использованию» кадров.</li>
-      </ul>
+    <section>
+        <h2>💰 Как Midjourney зарабатывает деньги?</h2>
+        <p>Всё просто: <strong>подписка</strong>. Никакой рекламы, никаких скрытых платежей, никакой продажи данных пользователей.</p>
+
+        <div class="features">
+            <div class="feature-card">
+                <h4>🥉 Basic</h4>
+                <div class="price">$10<span>/мес</span></div>
+                <ul>
+                    <li>✅ 3.3 часа быстрого GPU</li>
+                    <li>✅ Неограниченные медленные генерации</li>
+                    <li>✅ Коммерческая лицензия</li>
+                </ul>
+            </div>
+
+            <div class="feature-card popular">
+                <div class="popular-badge">Популярный</div>
+                <h4>🥈 Standard</h4>
+                <div class="price">$30<span>/мес</span></div>
+                <ul>
+                    <li>✅ 15 часов быстрого GPU</li>
+                    <li>✅ Режим Relax (безлимит)</li>
+                    <li>✅ Stealth</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h4>🥇 Pro</h4>
+                <div class="price">$60<span>/мес</span></div>
+                <ul>
+                    <li>✅ 30 часов быстрого GPU</li>
+                    <li>✅ Полный Stealth</li>
+                    <li>✅ Stealth видео</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h4>💎 Mega</h4>
+                <div class="price">$120<span>/мес</span></div>
+                <ul>
+                    <li>✅ 60 часов быстрого GPU</li>
+                    <li>✅ Всё для профессионалов</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <p><strong>Оценки на апрель 2026:</strong></p>
+            <ul>
+                <li>👥 20+ миллионов пользователей</li>
+                <li>💵 ~$500 млн выручки в 2025 году</li>
+                <li>📊 Прибыль остаётся высокой</li>
+            </ul>
+        </div>
     </section>
 
-    <!-- Текст -->
-    <section class="block block--accent-3">
-      <div class="block-title"><span class="icon">✍️</span><span>Текст в изображениях</span></div>
-      <p>Текст в кавычках <code>"ваш текст"</code> теперь отображается значительно точнее.</p>
-      <ul>
-        <li>Уличные вывески, этикетки, постеры — читаемость на новом уровне.</li>
-        <li>Подходит для постеров, обложек, мокапов и комиксов.</li>
-      </ul>
-      <p class="note">Важно: это всё ещё альфа — ошибки в сложных надписях встречаются, но прогресс огромный.</p>
+    <section>
+        <h2>🔥 Горячее обновление: V8.1 Alpha вышла 14 апреля 2026!</h2>
+        
+        <div class="highlight-box" style="background:#fff3cd; border-left:6px solid #f39c12; padding:20px; margin:25px 0;">
+            <p><strong>Дождались!</strong></p>
+            <p>Midjourney выпустили <strong>V8.1 Alpha</strong>.</p>
+            <p>Наши культовые эстетики вернулись с нативным рендерингом 2K HD — в 3 раза быстрее и в 3 раза дешевле, чем V8.</p>
+            <p>Режим V8.1 1K в полном качестве теперь быстрее, чем черновик V7.</p>
+            <p>Промпты для изображений вернулись. Новый «Describe» запущен — и вам очень понравятся обновлённые moodboards и srefs.</p>
+            <p style="color:#d35400; margin-top:10px;"><strong>Больше скоро <3</strong></p>
+        </div>
+
+        <p>Это важный релиз. Многие в сообществе были недовольны, что V8 Alpha потеряла характерный «миджорниевский» стиль и стала слишком стерильной. V8.1 быстро вернула душу Midjourney, при этом сильно ускорив и удешевив генерацию. Команда явно очень внимательно слушает фидбек.</p>
     </section>
 
-    <!-- Понимание промптов -->
-    <section class="block">
-      <div class="block-title"><span class="icon">🎯</span><span>Понимание промптов</span></div>
-      <p>Модель лучше следует сложным инструкциям: учитывает цвета, композицию, освещение, материалы и контекст.</p>
-      <ul>
-        <li>Детализированные запросы обрабатываются с высокой точностью.</li>
-        <li>Сложные сцены с несколькими объектами и условиями стали предсказуемее.</li>
-      </ul>
+    <section>
+        <h2>⚙️ Как работает Midjourney? Технология простыми словами</h2>
+        <p>Сейчас разберём всё до винтика. Не бойся технических терминов — объясню на пальцах!</p>
+
+        <h3>🎨 Часть 1: Диффузионные модели (Diffusion Models)</h3>
+        <p>Представь процесс создания картины:</p>
+        <div class="step-by-step">
+            <div class="step"><strong>Шаг 1:</strong> Берёшь готовую фотографию моря</div>
+            <div class="step"><strong>Шаг 2:</strong> Постепенно добавляешь "шум" (зернистость)</div>
+            <div class="step"><strong>Шаг 3:</strong> Через 1000 шагов получается полный белый шум (как старый телевизор)</div>
+        </div>
+        <p><strong>А теперь наоборот:</strong> ИИ учится из этого шума <em>восстанавливать</em> картинку. Он смотрит на хаос пикселей и постепенно "проявляет" изображение, как фотограф в тёмной комнате.</p>
+
+        <div class="highlight-box">
+            <strong>🎯 Аналогия:</strong> Представь скульптора. Он видит статую внутри глыбы мрамора и просто убирает всё лишнее. Midjourney видит картину внутри шума и "убирает" лишний шум, пока не останется шедевр.
+        </div>
+
+        <h3>🧠 Часть 2: CLIP — мост между текстом и картинкой</h3>
+        <p><strong>CLIP</strong> — нейросеть от OpenAI, которая понимает связь между словами и изображениями. Она обучалась на 400 миллионах пар "текст + картинка".</p>
+
+        <h3>⚡ Часть 3: Latent Diffusion — скорость без потери качества</h3>
+        <p>Если работать с каждым пикселем напрямую — это очень медленно. Midjourney работает в сжатом пространстве (latent space). Вместо миллиона пикселей — всего 16 тысяч чисел. Это как ZIP-архив для смысла изображения — в десятки раз быстрее!</p>
     </section>
 
-    <!-- Новые параметры -->
-    <section class="block block--accent">
-      <div class="block-title"><span class="icon">🧩</span><span>Новые параметры управления</span></div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Параметр</th><th>Что делает</th></tr></thead>
-          <tbody>
-            <tr><td><code>--hd</code></td><td>Нативное 2K‑разрешение</td></tr>
-            <tr><td><code>--q 4</code></td><td>Повышенная когерентность для сложных сцен</td></tr>
-            <tr><td><code>--chaos</code></td><td>Контроль вариативности результата</td></tr>
-            <tr><td><code>--weird</code></td><td>Добавляет сюрреалистичные, странные элементы</td></tr>
-            <tr><td><code>--exp</code></td><td>Экспериментальный режим рендеринга</td></tr>
-            <tr><td><code>--raw</code></td><td>Менее «мнениевая» модель для фотореализма</td></tr>
-          </tbody>
+    <section>
+        <h2>📈 Эволюция Midjourney: от v1 до V8.1</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2022–2023</div>
+                <h4>v1 → v5</h4>
+                <p>Сырые версии → первые шедевры и понимание сложных промптов</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2024</div>
+                <h4>v6 → v6.1</h4>
+                <p>Фотореализм, текст в картинках, прорыв в детализации</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Апрель 2025</div>
+                <h4>V7</h4>
+                <p>Дефолтная версия: Draft Mode, Omni Reference, лучшая coherentность</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Январь 2026</div>
+                <h4>Niji 7</h4>
+                <p>Огромный скачок в аниме-стиле</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Март 2026</div>
+                <h4>V8 Alpha</h4>
+                <p>Новая модель, но потеряла часть "души"</p>
+            </div>
+            <div class="timeline-item current">
+                <div class="timeline-date">14 апреля 2026</div>
+                <h4>V8.1 Alpha</h4>
+                <p>Возвращение культовой эстетики + 3× быстрее и дешевле</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>⚔️ Конкуренты: битва гигантов ИИ-арта</h2>
+        <table style="width:100%; border-collapse:collapse; margin:30px 0;">
+            <thead>
+                <tr style="background:#f0f0f0;">
+                    <th>Нейросеть</th>
+                    <th>Качество</th>
+                    <th>Текст</th>
+                    <th>Скорость</th>
+                    <th>Цена</th>
+                    <th>Плюсы / Минусы</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background:#e6f3ff;">
+                    <td><strong>Midjourney V8.1</strong></td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                    <td>⭐⭐⭐⭐☆</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                    <td>$10–120</td>
+                    <td>Лучшая художественность и coherentность / Платно</td>
+                </tr>
+                <tr>
+                    <td>DALL·E 3 / GPT-4o</td>
+                    <td>⭐⭐⭐⭐</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                    <td>⭐⭐⭐</td>
+                    <td>$20+</td>
+                    <td>Точное следование промпту / Меньше художественности</td>
+                </tr>
+                <tr>
+                    <td>Flux / Grok Image</td>
+                    <td>⭐⭐⭐⭐☆</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                    <td>⭐⭐⭐⭐</td>
+                    <td>Бесплатно/дешево</td>
+                    <td>Скорость и текст / Качество зависит от версии</td>
+                </tr>
+                <tr>
+                    <td>Ideogram 3.0</td>
+                    <td>⭐⭐⭐⭐</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                    <td>⭐⭐⭐⭐</td>
+                    <td>Бесплатно/платно</td>
+                    <td>Лучший текст 2026 / Меньше художественности</td>
+                </tr>
+            </tbody>
         </table>
-      </div>
     </section>
 
-    <!-- Интерфейс -->
-    <section class="block block--accent-2">
-      <div class="block-title"><span class="icon">💬</span><span>Новые фишки интерфейса</span></div>
-      <ul>
-        <li><strong>Conversation Mode:</strong> описываешь идеи обычным языком — ИИ сам формирует промпт.</li>
-        <li><strong>Grid Mode:</strong> фокус на большой сетке изображений без лишних кликов.</li>
-        <li>Настройки вынесены в боковую панель и не перекрывают рабочий процесс.</li>
-      </ul>
+    <section>
+        <h2>🔥 Философия и споры: ИИ vs Художники</h2>
+        <h3>❌ За что критикуют:</h3>
+        <div class="cons-list">
+            <p><strong>1. Авторское право</strong></p>
+            <p>Midjourney обучалась на миллиардах картинок из интернета, включая работы художников без их разрешения. Пример: Грег Рутковски увидел, что его стиль используют тысячи раз.</p>
+            <p><strong>2. Художники теряют работу</strong></p>
+            <p>Заказчики выбирают ИИ вместо людей. Зачем платить $500 художнику, если Midjourney сделает за $10?</p>
+            <p><strong>3. Deepfakes и мошенничество</strong></p>
+            <p>Можно создавать фейковые изображения политиков и событий.</p>
+        </div>
+
+        <h3>✅ За что хвалят:</h3>
+        <div class="pros-list">
+            <p><strong>1. Демократизация искусства</strong></p>
+            <p>Теперь каждый может творить. Не нужно 10 лет учиться рисовать.</p>
+            <p><strong>2. Инструмент для профи</strong></p>
+            <p>Художники используют Midjourney для быстрых скетчей, поиска композиции и референсов.</p>
+        </div>
+
+        <div class="highlight-box">
+            <blockquote>
+                "Когда появилась фотография, живописцы боялись, что останутся без работы. Но вместо этого родились новые стили. ИИ — это следующий шаг."
+            </blockquote>
+        </div>
     </section>
 
-    <!-- Плюсы -->
-    <section class="block block--accent">
-      <div class="block-title"><span class="icon">✅</span><span>Плюсы v8</span></div>
-      <ul>
-        <li><strong>Скорость:</strong> ~5× быстрее — идеальный темп для итераций.</li>
-        <li><strong>Качество:</strong> нативное 2K, лучше детализация и когерентность.</li>
-        <li><strong>Текст:</strong> наконец-то можно генерировать читаемые надписи.</li>
-        <li><strong>Стилизация:</strong> улучшенная работа с <code>--sref</code>, мудбордами и персонализацией.</li>
-        <li><strong>Совместимость:</strong> профили, srefs и moodboards из v7 работают.</li>
-        <li><strong>Контроль:</strong> больше параметров для тонкой настройки результата.</li>
-      </ul>
+    <section>
+        <h2>🚀 Как попробовать Midjourney? Пошаговая инструкция</h2>
+        <ol>
+            <li>Зайди на <a href="https://midjourney.com">midjourney.com</a> → Log in</li>
+            <li>Выбери тариф (Basic $10 для начала)</li>
+            <li>На сайте или в Discord напиши промпт</li>
+            <li>Для скорости используй --draft или --v 8.1</li>
+        </ol>
+        <p><strong>Пример промпта:</strong></p>
+        <pre><code>dramatic stormy sea in style of Aivazovsky, golden sunset, hyper-detailed, masterpiece --ar 16:9 --v 8.1</code></pre>
     </section>
 
-    <!-- Минусы -->
-    <section class="block block--accent-3">
-      <div class="block-title"><span class="icon">❌</span><span>Минусы и ограничения (альфа)</span></div>
-      <ul>
-        <li><strong>Премиум‑функции дороже:</strong> <code>--hd</code>, <code>--q 4</code>, <code>--sref</code>, мудборды стоят в 4 раза больше GPU‑часов и рендерятся медленнее.</li>
-        <li><strong>Нет Relax mode:</strong> пока все генерации идут за счёт быстрых часов.</li>
-        <li><strong>Промпты нужно адаптировать:</strong> v8 — принципиально новая модель, старые запросы могут давать неожиданные результаты.</li>
-        <li><strong>Стиль по умолчанию:</strong> часть пользователей отмечает, что v7 давал более сочные цвета и «кинематографичность», а v8 иногда выглядит «плосковато».</li>
-        <li><strong>Закрытая экосистема:</strong> по‑прежнему нет публичного API.</li>
-      </ul>
+    <section>
+        <h2>🎯 Вывод</h2>
+        <p>Midjourney в 2026 году — это уже не просто генератор картинок, а мощный творческий инструмент. V8.1 вернула душу проекта и сделала генерацию быстрее и дешевле. Будущее уже здесь, и оно выглядит красиво, как морской закат от Айвазовского 🌅</p>
     </section>
 
-    <!-- Сравнение -->
-    <section class="block">
-      <div class="block-title"><span class="icon">🆚</span><span>v8 vs v7: краткое сравнение</span></div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Критерий</th><th>v7</th><th>v8 Alpha</th></tr></thead>
-          <tbody>
-            <tr><td>Скорость</td><td>Базовая</td><td>~5× быстрее ⚡</td></tr>
-            <tr><td>Разрешение</td><td>1024×1024</td><td>2K нативно (<code>--hd</code>) 🖼️</td></tr>
-            <tr><td>Текст в изображениях</td><td>Нестабильно</td><td>Значительно лучше ✍️</td></tr>
-            <tr><td>Понимание промптов</td><td>Хорошее</td><td>Отличное 🎯</td></tr>
-            <tr><td>Параметры</td><td>Стандартный набор</td><td>+ <code>--chaos</code>, <code>--weird</code>, <code>--exp</code>, <code>--raw</code> 🎛️</td></tr>
-            <tr><td>Интерфейс</td><td>Классический</td><td>Обновлённый: диалоги, сетка, сайдбар 💬</td></tr>
-            <tr><td>Стоимость премиум‑функций</td><td>1×</td><td>4× 💰</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <footer>
+        <p>© 2026 АЙ ВЕБ ДОМ | aiwebapp.ru</p>
+    </footer>
 
-    <!-- Реальные тесты -->
-    <section class="block block--accent-2">
-      <div class="block-title"><span class="icon">🧪</span><span>Реальные тесты: что говорят пользователи</span></div>
-      <ul>
-        <li><strong>Кинематографичные сцены:</strong> v8 лучше следует описанию, но v7 иногда даёт более выразительное освещение.</li>
-        <li><strong>Текст:</strong> прогресс очевиден, но сложные надписи всё ещё могут ломаться.</li>
-        <li><strong>Реализм:</strong> в логике сцен и мелких деталях v8 не всегда превосходит v7.</li>
-        <li><strong>Стилизация:</strong> с <code>--sref</code> и персонализацией v8 раскрывается намного сильнее.</li>
-      </ul>
-      <div class="quote">💡 Совет: для фотореализма сразу пробуй <code>--raw</code>, а для креатива — поднимай <code>--stylize</code> до 1000 и используй мудборды.</div>
-    </section>
-
-    <!-- Итог -->
-    <section class="block block--accent-3">
-      <div class="block-title"><span class="icon">🎯</span><span>Итог: стоит ли переходить?</span></div>
-      <p><strong>Да, если:</strong></p>
-      <ul>
-        <li>Тебе важна скорость и ты делаешь много итераций.</li>
-        <li>Нужен текст в изображениях (постеры, мокапы, комиксы).</li>
-        <li>Работаешь со стилевыми референсами и персонализацией.</li>
-        <li>Готов экспериментировать с новыми параметрами.</li>
-      </ul>
-      <p><strong>Пока подожди, если:</strong></p>
-      <ul>
-        <li>Ты на бюджетном тарифе (премиум‑фичи дорогие).</li>
-        <li>Тебе критически важен Relax mode.</li>
-        <li>Ты доволен стилем v7 и не хочешь переучивать промпты.</li>
-      </ul>
-      <div class="quote">«V8 — не просто "лучший v7". Это новый творческий цикл: персонализация вместо чистого промптинга, нативное 2K, диалоговый режим и новая модель затрат»</div>
-    </section>
-
-    <!-- Ссылки -->
-    <section class="block">
-      <div class="block-title"><span class="icon">🔗</span><span>Полезные ссылки</span></div>
-      <ul>
-        <li>Официальные заметки: <strong>midjourney.com/v8-alpha</strong></li>
-        <li>Гайд по промптингу в v8: <strong>blakecrosley.com</strong></li>
-        <li>Честный обзор с примерами: <strong>curiousrefuge.com</strong></li>
-      </ul>
-      <p class="footer-note"><strong>P.S.</strong> Это альфа — модель ещё будет дорабатываться. Сохраняй гибкость, тестируй и делись находками в коммьюнити! 🤖✨</p>
-      <p class="footer-note">Статья подготовлена для канала <strong>citadel_test_quote_bot</strong> — подписывайся на обзоры ИИ‑инструментов, ссылки открываются в боте.</p>
-       <a href="https://t.me/citadel_test_quote_bot" target="_blank" rel="noopener">Открыть бота в Telegram</a>
-      <p>Следующая статья будет про Heygen, эксперементировал, создал аватар, интересно, затягивает.</p>
-    </section>
-    
-    <div style="text-align: center; margin-top: 40px;">
-     <a href="https://aimihome.ru/" class="back-btn" style="padding: 15px 30px; font-size: 18px;">Вернуться на главную</a>
-      </div>
-    
-    <!-- Кнопки -->
-    <a href="#" class="back-to-top" id="backToTop">↑</a>
-    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
-    <section class="feature-card" style="text-align:center; margin-top:2rem;">
-
-  <a href="/article-7.html"
-     style="display:inline-block; padding:12px 22px; margin:0.4rem;
-            background: linear-gradient(135deg, #00d9ff, #0099ff);
-            color:#1a1a2e; text-decoration:none; border-radius:10px;
-            font-weight:600; transition:0.2s;">
-    👉 Следующая статья: История HeyGen
-  </a>
-
-</section>
-
-  </div>
-
-  <script>
-    // Тема
-    const themeToggle = document.getElementById('themeToggle');
-    const root = document.documentElement;
-    
-    function updateThemeIcon(theme) {
-      themeToggle.textContent = theme === 'dark' ? '🌙' : '☀️';
-    }
-    
-    themeToggle.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      updateThemeIcon(next);
-    });
-    
-    updateThemeIcon(root.getAttribute('data-theme'));
-
-    // Кнопка наверх
-    const backToTop = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTop.classList.add('show');
-      } else {
-        backToTop.classList.remove('show');
-      }
-    });
-    
-    backToTop.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
 </body>
 </html>
 
