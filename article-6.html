@@ -345,6 +345,21 @@ body[data-theme="light"] .timeline-content {
     line-height: 1.2 !important;
     font-size: 0.9rem !important;
 }
+  /* Красный цвет только в тёмной теме */
+body[data-theme="dark"] .timeline-content,
+body[data-theme="dark"] .timeline-content h4,
+body[data-theme="dark"] .timeline-content p,
+body[data-theme="dark"] .timeline-date {
+    color: #ff6b6b;
+}
+
+/* В светлой теме — нормальный цвет */
+body[data-theme="light"] .timeline-content,
+body[data-theme="light"] .timeline-content h4,
+body[data-theme="light"] .timeline-content p,
+body[data-theme="light"] .timeline-date {
+    color: #1a1a2e;
+}       
 
 /* ТАБЛИЦЫ */
 table {
