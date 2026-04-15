@@ -346,14 +346,6 @@ body[data-theme="light"] .timeline-content {
     font-size: 0.9rem !important;
 }
 
-/* КРАСНЫЙ ТЕКСТ В ТАЙМЛАЙНЕ */
-.timeline-content,
-.timeline-content h4,
-.timeline-content p,
-.timeline-date {
-    color: #ff3b3b !important;
-}
-
 /* ТАБЛИЦЫ */
 table {
     width: 100%;
@@ -768,16 +760,16 @@ footer {
     document.addEventListener('DOMContentLoaded', function() {
         const themeToggle = document.getElementById('themeToggle');
         const backToTop = document.getElementById('backToTop');
-        const html = document.documentElement;
+        const body = document.documentElement;
         
         const savedTheme = localStorage.getItem('theme') || 'dark';
-        html.setAttribute('data-theme', savedTheme);
+        body.setAttribute('data-theme', savedTheme);
         updateThemeIcon(savedTheme);
         
         themeToggle.addEventListener('click', function() {
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
+            body.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateThemeIcon(newTheme);
         });
