@@ -1,33 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru" data-theme="dark">
-<head>  <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108200368', 'ym');
-
-    ym(108200368, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/108200368" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Midjourney 2026: нейросеть, которая рисует как Айвазовский 🎨</title>
     <meta name="description" content="Полный разбор Midjourney в апреле 2026: V7, Niji 7, V8.1, технология диффузии, бизнес, конкуренты, споры с художниками и пошаговая инструкция.">
-      <link rel="stylesheet" href="styles.css">
-<!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-  <link rel="canonical" href="https://aimihome.ru/article-6.html">
     
     <style>
-        /* === БАЗОВЫЕ СТИЛИ === */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
@@ -39,19 +18,16 @@
             transition: all 0.3s ease;
         }
         
-        /* === ТЁМНАЯ ТЕМА === */
         body[data-theme="dark"] {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: #e0e0e0;
         }
         
-        /* === СВЕТЛАЯ ТЕМА === */
         body[data-theme="light"] {
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
             color: #222;
         }
         
-        /* === КНОПКА НАЗАД === */
         .back-btn {
             display: inline-block;
             padding: 10px 20px;
@@ -70,7 +46,6 @@
             text-decoration: none;
         }
         
-        /* === ЗАГОЛОВОК === */
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -93,7 +68,6 @@
             opacity: 0.95;
         }
         
-        /* === ГЕРОЙ-ИЗОБРАЖЕНИЕ === */
         .hero-image {
             margin: 30px 0;
             border-radius: 16px;
@@ -105,11 +79,6 @@
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.3s;
-        }
-        
-        .hero-image img:hover {
-            transform: scale(1.02);
         }
         
         .image-caption {
@@ -120,7 +89,6 @@
             font-size: 0.95em;
         }
         
-        /* === БЛОКИ КОНТЕНТА === */
         .intro-block {
             background: linear-gradient(135deg, rgba(255,127,0,0.15) 0%, rgba(255,69,0,0.1) 100%);
             border: 2px solid rgba(255,127,0,0.3);
@@ -145,7 +113,6 @@
         
         body[data-theme="light"] .info-box {
             background: #f8f9ff;
-            border-left-color: #667eea;
         }
         
         .info-box ul {
@@ -166,7 +133,6 @@
             border-bottom: none;
         }
         
-        /* === ВЫДЕЛЕННЫЕ БЛОКИ === */
         .highlight-box {
             background: linear-gradient(135deg, rgba(102,126,234,0.2) 0%, rgba(118,75,162,0.15) 100%);
             border-left: 4px solid #764ba2;
@@ -190,7 +156,6 @@
             opacity: 0.9;
         }
         
-        /* === КАРТОЧКИ ТАРИФОВ === */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -261,7 +226,6 @@
             font-size: 0.95em;
         }
         
-        /* === ШАГИ === */
         .step-by-step {
             margin: 20px 0;
         }
@@ -274,156 +238,263 @@
             border-left: 3px solid #FF7F00;
         }
         
- /* === УЛУЧШЕННЫЙ ТАЙМЛАЙН === */
-.timeline {
-    position: relative;
-    padding: 30px 0;
-    margin: 40px 0;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 35px;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: linear-gradient(180deg, 
-        #667eea 0%, 
-        #764ba2 20%, 
-        #f093fb 40%, 
-        #4facfe 60%, 
-        #43e97b 80%, 
-        #FF7F00 100%);
-    border-radius: 4px;
-    box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
-}
-
-.timeline-item {
-    position: relative;
-    padding: 25px 0 25px 90px;
-    margin: 30px 0;
-    transition: transform 0.3s;
-}
-
-.timeline-item:hover {
-    transform: translateX(10px);
-}
-
-.timeline-marker {
-    position: absolute;
-    left: 15px;
-    top: 25px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 4px solid;
-    border-color: inherit;
-    z-index: 10;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.timeline-item:hover .timeline-marker {
-    transform: scale(1.15);
-    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
-}
-
-.timeline-content {
-    background: rgba(255,255,255,0.05);
-    border-radius: 16px;
-    padding: 25px 30px;
-    border: 2px solid rgba(255,255,255,0.1);
-    transition: all 0.3s;
-    backdrop-filter: blur(10px);
-}
-
-body[data-theme="light"] .timeline-content {
-    background: rgba(255,255,255,0.9);
-    border-color: rgba(102, 126, 234, 0.2);
-}
-
-.timeline-item:hover .timeline-content {
-    border-color: rgba(255,255,255,0.3);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    transform: translateY(-3px);
-}
-
-.timeline-item.current .timeline-content {
-    background: linear-gradient(135deg, rgba(255,127,0,0.2) 0%, rgba(255,69,0,0.15) 100%);
-    border-color: #FF7F00;
-    box-shadow: 0 8px 30px rgba(255,127,0,0.3);
-}
-
-.timeline-date {
-    font-size: 0.9em;
-    opacity: 0.8;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #667eea;
-}
-
-.timeline-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #FF7F00, #FF4500);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    font-weight: 700;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 15px rgba(255,127,0,0.4);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-.timeline-content h4 {
-    font-size: 1.4em;
-    margin: 8px 0 12px 0;
-    color: #fff;
-    font-weight: 700;
-}
-
-body[data-theme="light"] .timeline-content h4 {
-    color: #1a1a2e;
-}
-
-.timeline-content p {
-    margin: 0;
-    line-height: 1.6;
-    opacity: 0.95;
-}
-
-@media (max-width: 600px) {
-    .timeline::before { left: 25px; }
-    .timeline-item { padding-left: 70px; }
-    .timeline-marker { left: 5px; width: 36px; height: 36px; }
-    .timeline-content { padding: 20px; }
-}
+        /* ТАЙМЛАЙН - ИСПРАВЛЕННЫЙ */
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 35px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea, #764ba2, #f093fb, #4facfe, #43e97b, #FF7F00);
+            border-radius: 4px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 25px 0 25px 90px;
+            margin: 30px 0;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 4px solid;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .timeline-content {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 25px 30px;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+        
+        body[data-theme="light"] .timeline-content {
+            background: rgba(255,255,255,0.9);
+            border-color: rgba(102, 126, 234, 0.2);
+        }
+        
+        .timeline-item.current .timeline-content {
+            background: linear-gradient(135deg, rgba(255,127,0,0.2) 0%, rgba(255,69,0,0.15) 100%);
+            border-color: #FF7F00;
+            box-shadow: 0 8px 30px rgba(255,127,0,0.3);
+        }
+        
+        .timeline-date {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .timeline-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF7F00, #FF4500);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content h4 {
+            font-size: 1.4em;
+            margin: 8px 0 12px 0;
+            color: #fff;
+            font-weight: 700;
+        }
+        
+        body[data-theme="light"] .timeline-content h4 {
+            color: #1a1a2e;
+        }
+        
+        .timeline-content p {
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        body[data-theme="light"] td {
+            border-bottom-color: #eee;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:nth-child(even) {
+            background: rgba(255,255,255,0.03);
+        }
+        
+        .cons-list, .pros-list {
+            margin: 20px 0;
+        }
+        
+        .cons-list p strong {
+            color: #f5576c;
+        }
+        
+        .pros-list p strong {
+            color: #38ef7d;
+        }
+        
+        pre {
+            background: #0d1117;
+            color: #c9d1d9;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        
+        a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin: 40px 0 25px 0;
+            padding-bottom: 12px;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, #667eea, #764ba2) 1;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin: 30px 0 15px 0;
+            color: #FF7F00;
+        }
+        
+        body[data-theme="light"] h3 {
+            color: #d97706;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 2px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+        }
+        
+        /* КНОПКИ */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+        }
+        
+        .floating-btn {
+            width: 52px;
+            height: 52px;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        #themeToggle {
+            background: #333;
+            color: white;
+        }
+        
+        #backToTop {
+            background: #FF7F00;
+            color: white;
+            display: none;
+        }
+        
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.6rem; }
+            h2 { font-size: 1.4rem; }
+            .features { grid-template-columns: 1fr; }
+            body { padding: 15px; }
+            .timeline::before { left: 25px; }
+            .timeline-item { padding-left: 70px; }
+            .timeline-marker { left: 5px; width: 36px; height: 36px; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- КНОПКА НАЗАД -->
     <a href="/" class="back-btn">← На главную</a>
 
-    <!-- ЗАГОЛОВОК -->
     <header>
         <h1>🎨 Midjourney 2026: нейросеть, которая рисует как Айвазовский</h1>
         <p>Полный разбор технологии, бизнеса и философии на апрель 2026</p>
     </header>
 
-    <!-- ГЕРОЙ-ИЗОБРАЖЕНИЕ -->
     <div class="hero-image">
         <img src="wot.jpg" alt="Морской шторм в стиле Айвазовского созданный ИИ" onerror="this.src='https://via.placeholder.com/800x400/667eea/ffffff?text=Midjourney+Art'">
         <p class="image-caption">🎨 Картина создана Midjourney V7 по запросу: "шторм на море в стиле Айвазовского"</p>
     </div>
 
-    <!-- ОСНОВНОЙ КОНТЕНТ -->
     <main>
         
         <section>
@@ -447,7 +518,7 @@ body[data-theme="light"] .timeline-content h4 {
                     <li><strong>Имя:</strong> Дэвид Хольц (David Holz)</li>
                     <li><strong>Возраст:</strong> около 47 лет</li>
                     <li><strong>Образование:</strong> PhD по прикладной математике (University of North Carolina)</li>
-                    <li><strong>Локация:</strong> Сан-Франциско, США 🇺🇸</li>
+                    <li><strong>Локация:</strong> Сан-Франциско, США 🇺</li>
                     <li><strong>Команда:</strong> ~100–160 человек</li>
                     <li><strong>Пользователей:</strong> 20+ миллионов</li>
                 </ul>
@@ -571,66 +642,66 @@ body[data-theme="light"] .timeline-content h4 {
             <p>Если работать с каждым пикселем напрямую — это очень медленно. Midjourney работает в сжатом пространстве (latent space). Вместо миллиона пикселей — всего 16 тысяч чисел. Это как ZIP-архив для смысла изображения — в десятки раз быстрее!</p>
         </section>
 
-      <section>
-    <h2>📈 Эволюция Midjourney: от v1 до V8.1</h2>
-    
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-marker" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
-            <div class="timeline-content">
-                <div class="timeline-date">2022–2023</div>
-                <h4>v1 → v5</h4>
-                <p>Сырые версии → первые шедевры и понимание сложных промптов</p>
-            </div>
-        </div>
+        <section>
+            <h2>📈 Эволюция Midjourney: от v1 до V8.1</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022–2023</div>
+                        <h4>v1 → v5</h4>
+                        <p>Сырые версии → первые шедевры и понимание сложных промптов</p>
+                    </div>
+                </div>
 
-        <div class="timeline-item">
-            <div class="timeline-marker" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
-            <div class="timeline-content">
-                <div class="timeline-date">2024</div>
-                <h4>v6 → v6.1</h4>
-                <p>Фотореализм, текст в картинках, прорыв в детализации</p>
-            </div>
-        </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024</div>
+                        <h4>v6 → v6.1</h4>
+                        <p>Фотореализм, текст в картинках, прорыв в детализации</p>
+                    </div>
+                </div>
 
-        <div class="timeline-item">
-            <div class="timeline-marker" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
-            <div class="timeline-content">
-                <div class="timeline-date">Апрель 2025</div>
-                <h4>V7</h4>
-                <p>Дефолтная версия: Draft Mode, Omni Reference, лучшая coherentность</p>
-            </div>
-        </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Апрель 2025</div>
+                        <h4>V7</h4>
+                        <p>Дефолтная версия: Draft Mode, Omni Reference, лучшая coherentность</p>
+                    </div>
+                </div>
 
-        <div class="timeline-item">
-            <div class="timeline-marker" style="background: linear-gradient(135deg, #43e97b, #38f9d7);"></div>
-            <div class="timeline-content">
-                <div class="timeline-date">Январь 2026</div>
-                <h4>Niji 7</h4>
-                <p>Огромный скачок в аниме-стиле</p>
-            </div>
-        </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker" style="background: linear-gradient(135deg, #43e97b, #38f9d7);"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Январь 2026</div>
+                        <h4>Niji 7</h4>
+                        <p>Огромный скачок в аниме-стиле</p>
+                    </div>
+                </div>
 
-        <div class="timeline-item">
-            <div class="timeline-marker" style="background: linear-gradient(135deg, #fa709a, #fee140);"></div>
-            <div class="timeline-content">
-                <div class="timeline-date">Март 2026</div>
-                <h4>V8 Alpha</h4>
-                <p>Новая модель, но потеряла часть "души"</p>
-            </div>
-        </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker" style="background: linear-gradient(135deg, #fa709a, #fee140);"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Март 2026</div>
+                        <h4>V8 Alpha</h4>
+                        <p>Новая модель, но потеряла часть "души"</p>
+                    </div>
+                </div>
 
-        <div class="timeline-item current">
-            <div class="timeline-marker" style="background: linear-gradient(135deg, #FF7F00, #FF4500); box-shadow: 0 0 30px rgba(255,127,0,0.6);"></div>
-            <div class="timeline-content">
-                <div class="timeline-badge">🔥 СЕЙЧАС</div>
-                <div class="timeline-date">14 апреля 2026</div>
-                <h4>V8.1 Alpha</h4>
-                <p>Возвращение культовой эстетики + 3× быстрее и дешевле</p>
+                <div class="timeline-item current">
+                    <div class="timeline-marker" style="background: linear-gradient(135deg, #FF7F00, #FF4500);"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge">🔥 СЕЙЧАС</div>
+                        <div class="timeline-date">14 апреля 2026</div>
+                        <h4>V8.1 Alpha</h4>
+                        <p>Возвращение культовой эстетики + 3× быстрее и дешевле</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
         <section>
             <h2>⚔️ Конкуренты: битва гигантов ИИ-арта</h2>
@@ -728,18 +799,16 @@ body[data-theme="light"] .timeline-content h4 {
 
     </main>
 
-    <!-- FOOTER -->
     <footer>
         <p>© 2026 АЙ ВЕБ ДОМ | aiwebapp.ru</p>
     </footer>
 
-    <!-- ФИКСИРОВАННЫЕ КНОПКИ -->
+    <!-- КНОПКИ -->
     <div class="floating-buttons">
         <button id="themeToggle" class="floating-btn" title="Переключить тему">🌙</button>
         <button id="backToTop" class="floating-btn" title="Наверх">↑</button>
     </div>
 
-    <!-- JAVASCRIPT -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const themeToggle = document.getElementById('themeToggle');
