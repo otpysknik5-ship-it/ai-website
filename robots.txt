@@ -1,22 +1,23 @@
 User-agent: *
 Allow: /
 
-# Запреты для всех ботов
+# Запрещаем служебные папки и файлы WordPress
 Disallow: /cdn-cgi/
 Disallow: /wp-admin/
 Disallow: /xmlrpc.php
-# Добавь сюда другие папки, если нужно, например:
+# Можно добавить ещё для безопасности:
 # Disallow: /wp-includes/
 # Disallow: /wp-content/plugins/
-# Disallow: /cgi-bin/
+# Disallow: /wp-content/cache/
 
-# Специально для Яндекса (можно добавить отдельно)
+# Специально для Яндекса (более точные правила)
 User-agent: Yandex
 Allow: /
 Disallow: /cdn-cgi/
 Disallow: /wp-admin/
 Disallow: /xmlrpc.php
 
+# Карта сайта
 Sitemap: https://aimihome.ru/sitemap.xml
 
 
