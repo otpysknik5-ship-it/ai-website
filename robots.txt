@@ -1,15 +1,22 @@
-# Разрешить всем ботам сканировать сайт
 User-agent: *
 Allow: /
 
-# Запретить доступ к служебным папкам (если есть)
+# Запреты для всех ботов
+Disallow: /cdn-cgi/
+Disallow: /wp-admin/
+Disallow: /xmlrpc.php
+# Добавь сюда другие папки, если нужно, например:
+# Disallow: /wp-includes/
+# Disallow: /wp-content/plugins/
+# Disallow: /cgi-bin/
+
+# Специально для Яндекса (можно добавить отдельно)
+User-agent: Yandex
+Allow: /
 Disallow: /cdn-cgi/
 Disallow: /wp-admin/
 Disallow: /xmlrpc.php
 
-# Указать путь к карте сайта (если есть)
 Sitemap: https://aimihome.ru/sitemap.xml
-
-# Указать хост (опционально)
 
 
