@@ -1,7 +1,4 @@
-User-agent: Yandex
-Allow: /
-
 User-agent: *
 Allow: /
 
-Sitemap: https://aimihome.ru/sitemap.xml
+
