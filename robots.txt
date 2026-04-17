@@ -1,12 +1,14 @@
 User-agent: *
 Allow: /
 
-# Закрываем типичные служебные папки GitHub Pages / Jekyll / Hugo (на всякий случай)
+# Закрываем служебные папки GitHub
 Disallow: /.git/
 Disallow: /.github/
-Disallow: /_site/
-Disallow: /assets/cache/
-Disallow: /search/
+
+# Папки ниже можно убрать, если их реально нет на сайте
+# Disallow: /_site/
+# Disallow: /assets/cache/
+# Disallow: /search/
 
 Sitemap: https://aimihome.ru/sitemap.xml
 
