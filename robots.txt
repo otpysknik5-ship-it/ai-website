@@ -1,14 +1,6 @@
 User-agent: *
 Allow: /
-
-# Закрываем служебные папки GitHub
 Disallow: /.git/
 Disallow: /.github/
-
-# Папки ниже можно убрать, если их реально нет на сайте
-# Disallow: /_site/
-# Disallow: /assets/cache/
-# Disallow: /search/
-
 Sitemap: https://aimihome.ru/sitemap.xml
 
