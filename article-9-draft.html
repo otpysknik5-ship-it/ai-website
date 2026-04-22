@@ -344,6 +344,31 @@ aitoolsdevpro.com</p>
     margin: 20px 0;
     border-left: 5px solid #ef4444;
   }
+    /* === ИСПРАВЛЕНИЕ: Перекрашиваем весь текст в белый === */
+  body.dark-mode p, 
+  body.dark-mode div, 
+  body.dark-mode span, 
+  body.dark-mode h1, 
+  body.dark-mode h2, 
+  body.dark-mode h3, 
+  body.dark-mode li,
+  body.dark-mode blockquote,
+  body.dark-mode strong,
+  body.dark-mode em {
+    color: #e2e8f0 !important; /* Светло-серый текст */
+  }
+
+  /* Ссылки делаем голубыми, чтобы видно было */
+  body.dark-mode a {
+    color: #60a5fa !important;
+  }
+
+  /* А вот цитаты и блоки делаем чуть светлее фона */
+  body.dark-mode blockquote, 
+  body.dark-mode .block-info {
+    background-color: #1e293b !important;
+    border-color: #475569 !important;
+  }
 </style>
 
 <!-- Кнопка переключения темы -->
