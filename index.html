@@ -89,13 +89,15 @@
         line-height: 1.2;
     }
 
-    .subtitle {
-        font-size: 1.2rem;
-        margin-top: 0.5rem;
-        color: var(--text-main);
-        font-style: italic;
-        opacity: 0.9;
-        animation: breathe 3s infinite ease-in-out;
+  .subtitle {
+    font-size: 1.4rem;          /* Было 1.2rem → стало покрупнее */
+    margin-top: 0.5rem;
+    color: #ff8c42;             /* Тёплый оранжевый (можно заменить на #ff9f1c или #ffb347) */
+    font-style: italic;
+    opacity: 0.95;
+    animation: breathe 3s infinite ease-in-out;
+    text-shadow: 0 0 8px rgba(255, 140, 66, 0.3); /* Лёгкое свечение под цвет текста */
+}
     }
 
     /* Анимация "дыхания" для слогана */
