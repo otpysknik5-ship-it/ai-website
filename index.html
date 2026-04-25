@@ -78,29 +78,37 @@
         transition: all 0.3s ease;
     }
 
-    .main-title {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin: 0;
-        color: var(--brand-primary);
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        text-shadow: 0 0 15px var(--glow-color);
-        line-height: 1.2;
-    }
-
-  .subtitle {
-    font-size: 1.4rem;          /* Было 1.2rem → стало покрупнее */
+ /* Стили для слогана "Нейросети тут живут" */
+.subtitle {
+    font-size: 1.5rem;          /* Покрупнее (было 1.2rem) */
     margin-top: 0.5rem;
-    color: #ffb347;             /* Тёплый оранжевый (можно заменить на #ff9f1c или #ffb347) */
+    font-weight: 600;           /* Чуть жирнее для акцента */
     font-style: italic;
-    opacity: 0.95;
+    
+    /* Тёплый оранжевый цвет */
+    color: #ff9f43;             /* Светлая тема: мягкий оранжевый */
+    
+    opacity: 1;
     animation: breathe 3s infinite ease-in-out;
-    text-shadow: 0 0 8px rgba(255, 140, 66, 0.3); /* Лёгкое свечение под цвет текста */
+    
+    /* Лёгкое свечение под цвет текста */
+    text-shadow: 0 0 10px rgba(255, 159, 67, 0.4);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-    }
 
-    /* Анимация "дыхания" для слогана */
+/* Адаптация для ТЁМНОЙ темы */
+[data-theme="dark"] .subtitle {
+    color: #ffb166;             /* Тёмная тема: более яркий, золотисто-оранжевый */
+    text-shadow: 0 0 15px rgba(255, 177, 102, 0.6); /* Свечение сильнее в темноте */
+}
+
+/* Анимация дыхания (оставляем как была) */
+@keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.02); opacity: 1; }
+}
+    
+  /* Анимация "дыхания" для слогана */
     @keyframes breathe {
         0%, 100% { transform: scale(1); opacity: 0.8; }
         50% { transform: scale(1.03); opacity: 1; }
