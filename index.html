@@ -78,42 +78,37 @@
         transition: all 0.3s ease;
     }
 
- /* Стили для слогана "Нейросети тут живут" */
+/* Стили для слогана "Нейросети тут живут" - СОЧНЫЙ ВАРИАНТ */
 .subtitle {
-    font-size: 1.5rem;          /* Покрупнее (было 1.2rem) */
+    font-size: 1.6rem;          /* Ещё крупнее для акцента */
     margin-top: 0.5rem;
-    font-weight: 600;           /* Чуть жирнее для акцента */
+    font-weight: 700;           /* Жирный шрифт для мощности */
     font-style: italic;
     
-    /* Тёплый оранжевый цвет */
-    color: #ff9f43;             /* Светлая тема: мягкий оранжевый */
+    /* СВЕТЛАЯ ТЕМА: Яркий мандариновый */
+    color: #ff6b00;             /* Насыщенный оранжевый */
     
     opacity: 1;
-    animation: breathe 3s infinite ease-in-out;
+    animation: breathe 2.5s infinite ease-in-out; /* Чуть быстрее пульсация */
     
-    /* Лёгкое свечение под цвет текста */
-    text-shadow: 0 0 10px rgba(255, 159, 67, 0.4);
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    /* Мощное свечение */
+    text-shadow: 0 0 12px rgba(255, 107, 0, 0.6);
+    transition: all 0.3s ease;
 }
 
-/* Адаптация для ТЁМНОЙ темы */
+/* ТЁМНАЯ ТЕМА: Неоновый оранжевый */
 [data-theme="dark"] .subtitle {
-    color: #ffb166;             /* Тёмная тема: более яркий, золотисто-оранжевый */
-    text-shadow: 0 0 15px rgba(255, 177, 102, 0.6); /* Свечение сильнее в темноте */
+    color: #ff8c00;             /* Чуть светлее для контраста на чёрном */
+    text-shadow: 
+        0 0 10px rgba(255, 140, 0, 0.8),   /* Внутреннее свечение */
+        0 0 20px rgba(255, 69, 0, 0.4);    /* Внешний ореол */
 }
 
-/* Анимация дыхания (оставляем как была) */
+/* Анимация "дыхания" */
 @keyframes breathe {
-    0%, 100% { transform: scale(1); opacity: 0.9; }
-    50% { transform: scale(1.02); opacity: 1; }
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 1; } /* Чуть заметнее увеличение */
 }
-    
-  /* Анимация "дыхания" для слогана */
-    @keyframes breathe {
-        0%, 100% { transform: scale(1); opacity: 0.8; }
-        50% { transform: scale(1.03); opacity: 1; }
-    }
-
     /* Адаптив для мобильных */
     @media (max-width: 600px) {
         .main-title { font-size: 1.8rem; }
