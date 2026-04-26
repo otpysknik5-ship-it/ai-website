@@ -708,5 +708,36 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+    <!-- 🔐 Защита от копирования: запрет правого клика, выделения, перетаскивания -->
+<script>
+    // Запрет контекстного меню (правый клик)
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+    // Запрет выделения текста
+    document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+    // Запрет перетаскивания изображений (чтобы не утащили арт drag-and-drop)
+    document.addEventListener('dragstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    // Запрет горячих клавиш Ctrl+C / Ctrl+U (просмотр исходного кода)
+    document.addEventListener('keydown', function(e) {
+        // Блокируем Ctrl+C, Ctrl+X, Ctrl+U, F12 (инструменты разработчика)
+        if ((e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'u')) || e.key === 'F12') {
+            e.preventDefault();
+            return false;
+        }
+    });
+</script>
 </body>
 </html>
