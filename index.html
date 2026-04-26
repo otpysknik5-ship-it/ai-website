@@ -78,36 +78,21 @@
         transition: all 0.3s ease;
     }
 
-/* Стили для слогана "Нейросети тут живут" - СОЧНЫЙ ВАРИАНТ */
-.subtitle {
-    font-size: 1.6rem;          /* Ещё крупнее для акцента */
-    margin-top: 0.5rem;
-    font-weight: 700;           /* Жирный шрифт для мощности */
-    font-style: italic;
-    
-    /* СВЕТЛАЯ ТЕМА: Яркий мандариновый */
-    color: #ff6b00;             /* Насыщенный оранжевый */
-    
-    opacity: 1;
-    animation: breathe 2.5s infinite ease-in-out; /* Чуть быстрее пульсация */
-    
-    /* Мощное свечение */
-    text-shadow: 0 0 12px rgba(255, 107, 0, 0.6);
-    transition: all 0.3s ease;
+/* Текст дисклеймера */
+.disclaimer-text {
+    font-size: 0.85rem;
+    color: #aaa; /* Серый цвет, чтобы не отвлекал от главного */
+    margin: 10px auto 20px auto;
+    max-width: 600px;
+    line-height: 1.4;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 0;
 }
 
-/* ТЁМНАЯ ТЕМА: Неоновый оранжевый */
-[data-theme="dark"] .subtitle {
-    color: #ff8c00;             /* Чуть светлее для контраста на чёрном */
-    text-shadow: 
-        0 0 10px rgba(255, 140, 0, 0.8),   /* Внутреннее свечение */
-        0 0 20px rgba(255, 69, 0, 0.4);    /* Внешний ореол */
-}
-
-/* Анимация "дыхания" */
-@keyframes breathe {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.05); opacity: 1; } /* Чуть заметнее увеличение */
+/* Для тёмной темы можно сделать чуть светлее, если нужно */
+[data-theme="dark"] .disclaimer-text {
+    color: #ccc;
 }
     /* Адаптив для мобильных */
     @media (max-width: 600px) {
