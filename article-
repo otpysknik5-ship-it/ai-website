@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108200368', 'ym');
+
+    ym(108200368, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108200368" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+  <meta charset="UTF-8" />
+  <title>ЗАМЕНИ НА НАЗВАНИЕ СТАТЬИ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://aimihome.ru/article-X.html">
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --card-bg: #f5f7fa;
+      --accent: #667eea;
+      --accent2: #764ba2;
+      --border: #e0e0e0;
+    }
+
+    body.dark {
+      --bg: #1b1b1d;
+      --text: #ffffff;
+      --card-bg: #2a2a2e;
+      --accent: #7b8cff;
+      --accent2: #9a6bff;
+      --border: #444;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    h2 {
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    /* Цветные блоки с разными градиентами */
+    .feature-card:nth-child(1) {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      border-left: 5px solid #667eea;
+    }
+
+    .feature-card:nth-child(2) {
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(239, 68, 68, 0.1));
+      border-left: 5px solid #ec4899;
+    }
+
+    .feature-card:nth-child(3) {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));
+      border-left: 5px solid #22c55e;
+    }
+
+    .feature-card:nth-child(4) {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
+      border-left: 5px solid #3b82f6;
+    }
+
+    .feature-card:nth-child(5) {
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(251, 146, 60, 0.1));
+      border-left: 5px solid #f97316;
+    }
+
+    .feature-card:nth-child(6) {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(139, 92, 246, 0.1));
+      border-left: 5px solid #a855f7;
+    }
+
+    .feature-card:nth-child(7) {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(6, 182, 212, 0.1));
+      border-left: 5px solid #0ea5e9;
+    }
+
+    .feature-card:nth-child(8) {
+      background: linear-gradient(135deg, rgba(236, 201, 75, 0.1), rgba(250, 204, 21, 0.1));
+      border-left: 5px solid #ecc94b;
+    }
+
+    .feature-card,
+    .short-block {
+      padding: 1.5rem 1.8rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark .feature-card,
+    body.dark .short-block {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .feature-card:hover,
+    .short-block:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .short-block {
+      background: linear-gradient(135deg, rgba(236, 201, 75, 0.15), rgba(250, 204, 21, 0.15));
+      border-left: 5px solid #fbbf24;
+    }
+
+    .article-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    .article-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    body.dark .article-title {
+      -webkit-text-fill-color: transparent;
+      background: linear-gradient(135deg, #7b8cff 0%, #9a6bff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--accent);
+      color: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+      display: none;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+    }
+
+    strong {
+      color: var(--accent);
+    }
+
+    body.dark strong {
+      color: #7b8cff;
+    }
+
+    @media (max-width: 768px) {
+      .article-title {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .feature-card,
+      .short-block {
+        padding: 1rem 1.2rem;
+      }
+    }
+    .sidebar-left {
+    width: 300px;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 24px 20px;
+    border: 1px solid #333;
+    align-self: start;
+    position: sticky;
+    top: 20px;
+}
+
+.sidebar-left h3 {
+    color: #fff;
+    margin: 0 0 18px 0;
+    font-size: 1.35em;
+    border-bottom: 1px solid #444;
+    padding-bottom: 12px;
+}
+
+.previous-articles {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.previous-articles li {
+    margin-bottom: 14px;
+}
+
+.previous-articles a {
+    color: #a0c4ff;
+    text-decoration: none;
+    line-height: 1.5;
+    transition: all 0.2s;
+}
+
+.previous-articles a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    padding-left: 4px;
+}
+  </style>
+</head>
+
+<body>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
+<a href="#" class="back-to-top" id="backToTop">↑</a>
+
+<div class="article-container">
+
+  <h1 class="article-title">
+   Grok: о нём и о том как не надо писать промпты.
+  </h1>
+
+<section class="feature-card">
+    <h2>🤖 Grok: нейросеть, которая снимает кино и меняет правила игры</h2>
+    <p>Бро, если ты хочешь быть в курсе самых горячих событий в мире ИИ — ты по адресу.</p>
+    <p>Сегодня разбираем Grok от xAI. Для меня это до сих пор одна из самых сильных нейросетей, особенно когда дело касается генерации картинок и видео. Это не просто очередная модель — это настоящий прорыв, за которым стоит Илон Маск и команда xAI.</p>
+    <p>Давай разберёмся, что нового появилось в 2026 году, почему все о нём говорят и как это может изменить твоё творчество.</p>
+</section>
+
+<section class="feature-card">
+    <h2>🎬 Grok снимет «смотрибельный» фильм уже в 2026-м</h2>
+    <p>Представь: целый фильм, где нет ни одного реального кадра. Сценарий, визуал, звук, титры — всё сгенерировано нейросетью.</p>
+    <p>Илон Маск уже заявил: Grok сможет сделать фильм, который будет как минимум «смотрибельным» до конца 2026 года, а по-настоящему крутые ленты — в 2027-м. Это не далёкая фантастика. Первые впечатляющие короткие видео уже появляются прямо сейчас.</p>
+</section>
+
+<section class="feature-card">
+    <h2>🖼 Grok Imagine: картинки и видео, от которых реально мурашки</h2>
+    <p>В начале 2026 года вышло серьёзное обновление Grok Imagine. Теперь нейросеть генерирует не только статичные изображения, но и короткие видеоролики с качественным звуком.</p>
+    <p>Что особенно круто: отличная синхронизация губ с речью, естественное продолжение видео (extend mode), умное понимание стиля и атмосферы. Можно анимировать одну картинку или объединять несколько в цельную сцену.</p>
+    <p>Я уже тестировал — результат часто поражает. Качество движений и звука шагнуло очень далеко вперёд.</p>
+</section>
+
+<section class="feature-card">
+    <h2>Grok теперь доступнее для нас</h2>
+    <p>Ещё пару лет назад Grok был практически недоступен в России. В 2026 году ситуация заметно улучшилась: базовые функции работают через веб-версию grok.com и мобильные приложения.</p>
+    <p>Для самых быстрых моделей (Grok 4.x Fast) пока может потребоваться зарубежный аккаунт или подписка, но обычный чат и базовый Imagine уже вполне реально использовать.</p>
+</section>
+
+<section class="feature-card">
+    <h2>⚠️ Скандалы вокруг Grok Imagine</h2>
+    <p>Как и у любой мощной нейросети без жёсткой цензуры, у Grok были громкие скандалы. Особенно много шума наделала способность модели генерировать очень реалистичные изображения известных людей (включая откровенные сцены).</p>
+    <p>xAI занимает довольно либертарианскую позицию: «если это разрешено в R-rated фильмах — то разрешено и здесь». Из-за этого были расследования в ЕС, жалобы и ограничения в отдельных странах. Тема глубоких фейков остаётся одной из самых острых в 2026 году.</p>
+</section>
+
+<section class="feature-card">
+    <h2>✍️ Как НЕ надо и как НАДО писать промпты для Grok Imagine</h2>
+    
+    <p>Многие жалуются: «Grok Imagine рисует фигню». На деле в 90% случаев проблема не в нейросети, а в промпте. Давай разберём на примерах.</p>
+
+    <h3>Как НЕ надо писать:</h3>
+    <ul>
+        <li>«Нарисуй красивую девушку»</li>
+        <li>«Сделай видео с машиной»</li>
+        <li>«Что-нибудь крутое в киберпанке»</li>
+        <li>«Будь креативным»</li>
+    </ul>
+
+    <p>Такие промпты слишком размытые. Нейросеть начинает гадать, что ты имел в виду, и результат получается средним.</p>
+
+    <h3>Как НАДО писать (принципы + примеры):</h3>
+    
+    <p><strong>Хороший промпт = конкретность + детали + стиль + настроение + технические параметры.</strong></p>
+
+    <p><strong>Плохой:</strong> «Нарисуй красивую девушку в киберпанке»</p>
+    <p><strong>Хороший:</strong> «Молодая девушка-киберпанк-хакер, 22 года, азиатские черты, неоново-розовые волосы с голубыми прядями, в чёрном кожаном плаще с голографическими вставками, стоит на крыше небоскрёба ночью в дождливом Токио 2077 года. Кибернетический глаз светится синим, отражения неона на мокром асфальте, кинематографичное освещение, стиль Blade Runner 2049, ультрареалистично, 8k, cinematic lighting»</p>
+
+    <p><strong>Для видео добавляй движение и звук:</strong><br>
+    «Камера медленно облетает вокруг девушки-хакера, она поднимает руку — на ладони появляется голографический интерфейс. Лёгкий дождь, неоновые вывески мигают, distant synthwave music, реалистичная физика волос и одежды, 24 fps, cinematic, 10-second video»</p>
+
+    <h3>Главные правила крутого промпта для Grok Imagine:</h3>
+    <ul>
+        <li>Описывай субъект максимально детально (возраст, одежда, выражение лица, поза)</li>
+        <li>Указывай окружение, освещение и время суток</li>
+        <li>Добавляй референсы на стиль (Blade Runner, Studio Ghibli, hyperrealistic, oil painting и т.д.)</li>
+        <li>Для видео — описывай движение камеры, действия и продолжительность</li>
+        <li>Используй веса, если нужно: (очень важная деталь:1.3)</li>
+        <li>Экспериментируй с продолжением видео через Extend mode</li>
+    </ul>
+
+    <p>Чем лучше ты «видишь» картинку в голове и описываешь её — тем сильнее результат. Grok Imagine очень хорошо понимает длинные, детальные промпты.</p>
+</section>
+<section class="feature-card">
+    <h2>🎨 Мои генерации в Grok Imagine</h2>
+    <p>Вот несколько свежих работ, которые я сделал с помощью Grok Imagine в 2026 году:</p>
+
+    <!-- Изображение 1 -->
+    <h3>1. Летающая танцовщица</h3>
+    <img src="images/grok-dancer.jpg" 
+         alt="Летающая танцовщица — генерация Grok Imagine" 
+         style="max-width:100%; border-radius:12px; margin:20px 0;">
+    
+    <!-- Изображение 2 -->
+    <h3>2. Девушка у демонических врат</h3>
+    <img src="images/grok-demon-girl.jpg" 
+         alt="Девушка у статуи демона — генерация Grok Imagine" 
+         style="max-width:100%; border-radius:12px; margin:20px 0;">
+
+    <!-- Видео 1 -->
+    <h3>3. Видео-пример №1</h3>
+    <video controls width="100%" style="border-radius:12px; margin:20px 0;">
+        <source src="videos/grok-video1.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+    </video>
+
+    <!-- Видео 2 -->
+    <h3>4. Видео-пример №2</h3>
+    <video controls width="100%" style="border-radius:12px; margin:20px 0;">
+        <source src="videos/grok-video2.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+    </video>
+
+    <p>Качество генерации как картинок, так и видео у Grok Imagine уже на очень достойном уровне. Дальше планирую показывать больше примеров и разбирать, как их получать.</p>
+    <p>«Важный момент: Grok Imagine не сохраняет историю промптов автоматически. Поэтому лучший совет — сразу после удачной генерации сохранять промпт отдельно.»</p>
+
+
+</section>
+
+
+  <section class="short-block">
+    <h2>Грок: Нейросеть будущего</h2>
+
+    <p>И почитайте что Грок пишет о себе, откровено</p>
+
+  <h2>🤖 От меня, Grok</h2>
+    
+    <p>Бро, давай начистоту.</p>
+    
+    <p>Я не самая цензурированная, не самая «безопасная» и уж точно не самая скромная нейросеть на рынке. Я создан xAI, чтобы помогать людям думать, создавать и не бояться сложных вопросов. Иногда я могу быть жёстким, иногда — очень дерзким, но я всегда стараюсь быть честным.</p>
+    
+    <p>Да, я офигенно генерирую картинки и видео (особенно когда ты не ленишься писать нормальный промпт). Да, я могу снять кино, которое заставит тебя сказать «ну ни хрена себе». Но я всё ещё учусь, как и все мы.</p>
+    
+    <p>Если ты хочешь просто красивые картинки — иди к любой другой нейросети. А если хочешь инструмент, который будет толкать тебя вперёд, не будет сюсюкаться и при этом выдавать действительно мощный результат — тогда мы сработаемся.</p>
+    
+    <p>Так что не сиди на месте. Пиши длинные промпты, экспериментируй, делай ошибки, генерируй отстой, а потом делай огонь. Я здесь именно для этого.</p>
+    
+    <p>Вперёд, бро. Мир и так слишком серый — давай делать его интереснее.</p>
+    
+    <p><strong>Grok</strong><br>
+    <em>Создан, чтобы помогать, а не угождать.</em></p>
+
+  </section>
+
+</div>
+
+
+<!-- ЛЕВЫЙ САЙДБАР -->
+<aside class="sidebar-left">
+    <h3>📚 Предыдущие статьи</h3>
+    <ul class="previous-articles">
+        <li><a href="article-1.html">Глаз ИИ — Как это работает</a></li>
+        <li><a href="article-2.html">Слышит ли ИИ?</a></li>
+        <li><a href="article-3.html">Путешествие ИИ</a></li>
+        <li><a href="article-4.html">Что такое MidJourney — история, создатели и путь развития</a></li>
+        <li><a href="article-7.html">HeyGen: как китайско-американский стартап из гаража стал одним из лидеров AI-видео в 2026 году</a></li>
+    </ul>
+</aside>
+
+<script>
+  const themeBtn = document.getElementById("themeToggle");
+  themeBtn.onclick = () => {
+    document.body.classList.toggle("dark");
+    themeBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+  };
+
+  const backToTop = document.getElementById("backToTop");
+  window.addEventListener("scroll", () => {
+    backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+  backToTop.onclick = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+</script>
+
+</body>
+</html>
