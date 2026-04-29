@@ -475,4 +475,69 @@ body.dark-theme .eye-figure img {
     padding: 0 20px;
     box-sizing: border-box;
 }
+/* =========================================
+   КНОПКИ-ССЫЛКИ АЙ ВЕБ ДОМ
+   ========================================= */
+
+/* Базовая кнопка */
+.ai-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    margin: 10px 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Вариант 1: Фиолетовая (Основная) */
+.ai-btn.primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white !important;
+    border: none;
+}
+
+.ai-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(118, 75, 162, 0.4);
+}
+
+/* Вариант 2: Оранжевая (Акцентная, твой бренд) */
+.ai-btn.accent {
+    background: linear-gradient(135deg, #ffaa00 0%, #ff7e00 100%);
+    color: white !important;
+    border: none;
+}
+
+.ai-btn.accent:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 170, 0, 0.4);
+}
+
+/* Вариант 3: Прозрачная с обводкой (Внешние ссылки) */
+.ai-btn.outline {
+    background: transparent;
+    border: 2px solid #667eea;
+    color: #667eea !important;
+}
+
+body.dark .ai-btn.outline {
+    border-color: #7b8cff;
+    color: #7b8cff !important;
+}
+
+.ai-btn.outline:hover {
+    background: #667eea;
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+body.dark .ai-btn.outline:hover {
+    background: #7b8cff;
+    border-color: #7b8cff;
+}
 
