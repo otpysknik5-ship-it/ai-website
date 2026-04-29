@@ -527,8 +527,8 @@ body.dark-theme .eye-figure img {
 
 /* ИСПРАВЛЕНО: Используем .dark-theme вместо .dark */
 body.dark-theme .ai-btn.outline {
-    border-color: #bb86fc; /* Твой фиолетовый из темы */
-    color: #bb86fc !important;
+    border-color: #2ecc71; /* Твой фиолетовый из темы */
+    color: #2ecc71 !important;
 }
 
 .ai-btn.outline:hover {
@@ -538,8 +538,8 @@ body.dark-theme .ai-btn.outline {
 }
 
 body.dark-theme .ai-btn.outline:hover {
-    background: #bb86fc;
-    border-color: #bb86fc;
+    background: #2ecc71;
+    border-color: #2ecc71;
     color: #121212 !important; /* Темный текст на светлой кнопке для контраста */
 }
 /* =========================================
