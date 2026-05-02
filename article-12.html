@@ -226,21 +226,28 @@
         padding: 1rem 1.2rem;
       }
     }
-    /* ПРИНУДИТЕЛЬНЫЙ КОНТРАСТ ДЛЯ БЕЛЫХ БЛОКОВ */
-/* Если у блока белый фон, делаем текст темным независимо от темы */
-[style*="background-color: white"], 
-[style*="background-color:#ffffff"],
-.white-bg-block, 
-.article-content-wrapper { /* Добавь сюда класс твоего основного контейнера статьи, если он есть */
-    color: #333333 !important;
+ /* Жёсткая фиксация цвета текста внутри карточек */
+.feature-card p, 
+.feature-card li, 
+.feature-card h2, 
+.feature-card h3, 
+.feature-card blockquote {
+    color: var(--text) !important; /* Берёт цвет из переменной темы */
 }
 
-/* То же самое для ссылок и заголовков внутри таких блоков */
-[style*="background-color: white"] h2,
-[style*="background-color: white"] h3,
-[style*="background-color: white"] p,
-[style*="background-color: white"] a {
-    color: inherit; /* Наследуют черный цвет родителя */
+/* Если вдруг фон карточки станет белым (например, по ошибке), текст станет чёрным */
+.feature-card[style*="background-color: white"],
+.feature-card.white-bg {
+    color: #333 !important;
+}
+
+/* Стили для цитаты (blockquote), чтобы она выделялась */
+.feature-card blockquote {
+    border-left: 4px solid var(--accent);
+    padding-left: 15px;
+    margin: 20px 0;
+    font-style: italic;
+    opacity: 0.9;
 }
   </style>
 </head>
