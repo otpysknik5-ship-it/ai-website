@@ -341,6 +341,103 @@ body.dark .feature-card .accent,
 body.dark .short-block .accent {
     color: inherit !important; /* Наследует цвет родителя */
 }
+    /* === АДАПТАЦИЯ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА === */
+@media (max-width: 768px) {
+
+    /* Основной контейнер статьи — уменьшаем отступы */
+    .article-container {
+        padding: 1rem !important;
+    }
+
+    /* Заголовки — чуть меньше, но всё ещё крупные */
+    h1, h2, h3 {
+        font-size: 1.4rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    /* Параграфы — крупнее шрифт для удобства чтения пальцем */
+    p, li, blockquote {
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Карточки — полная ширина, меньше внутренних отступов */
+    .feature-card,
+    .short-block {
+        padding: 1.2rem 1rem !important;
+        margin: 1rem 0 !important;
+        border-radius: 10px !important;
+    }
+
+    /* Кнопки навигации — на всю ширину, друг под другом */
+    .nav-buttons {
+        flex-direction: column !important;
+        gap: 15px !important;
+        padding: 20px 10px !important;
+    }
+
+    .btn {
+        width: 100% !important;
+        min-width: auto !important;
+        font-size: 1.1rem !important;
+        padding: 14px 20px !important;
+    }
+
+    /* Переключатель темы — чуть меньше, чтобы не мешал */
+    .theme-toggle {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 1.2rem !important;
+        top: 15px !important;
+        right: 15px !important;
+    }
+
+    /* Кнопка "наверх" — тоже чуть меньше */
+    .back-to-top {
+        width: 40px !important;
+        height: 40px !important;
+        bottom: 20px !important;
+        right: 20px !important;
+        font-size: 1rem !important;
+    }
+
+    /* Списки — увеличиваем отступ между пунктами */
+    ul, ol {
+        padding-left: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Цитаты — чуть компактнее */
+    blockquote {
+        padding: 1rem 1rem 1rem 1.5rem !important;
+        font-size: 1.05rem !important;
+    }
+
+    /* Горизонтальные линии — чуть тоньше */
+    hr {
+        margin: 1.5rem 0 !important;
+        border: none;
+        border-top: 1px solid var(--border);
+    }
+
+    /* Если есть изображения — делаем их адаптивными */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 1rem auto !important;
+    }
+
+    /* Таблицы — если вдруг есть — скролл по горизонтали */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+    }
+}
   </style>
 </head>
 
