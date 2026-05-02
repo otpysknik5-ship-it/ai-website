@@ -249,6 +249,39 @@
     font-style: italic;
     opacity: 0.9;
 }
+  /* Принудительно делаем текст видимым внутри белых блоков */
+.feature-card {
+    /* Если фон блока светлый/белый, текст должен быть тёмным */
+    color: #333333 !important;
+}
+
+/* Заголовки внутри блоков */
+.feature-card h2, 
+.feature-card h3 {
+    color: #000000 !important;
+}
+
+/* Ссылки внутри блоков */
+.feature-card a {
+    color: #d35400 !important; /* Тёмно-оранжевый */
+}
+
+/* Цитаты */
+.feature-card blockquote {
+    color: #555555 !important;
+    border-left-color: #ff8c00 !important;
+}
+
+/* Списки */
+.feature-card ul li,
+.feature-card ol li {
+    color: #333333 !important;
+}
+
+/* Жирный текст */
+.feature-card strong {
+    color: #ff8c00 !important; /* Оранжевый акцент */
+}  
   </style>
 </head>
 
