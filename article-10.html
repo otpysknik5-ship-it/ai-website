@@ -261,6 +261,55 @@
         text-align: center;
         font-weight: bold;
     }
+             /* Стили для кнопки "Читать далее" внизу статьи */
+.cta-button-next {
+    display: inline-block;
+    padding: 15px 40px;       /* Крупная, удобная для пальца */
+    
+    /* Градиент: от солнечного жёлтого к рыжему оранжевому */
+    background: linear-gradient(90deg, #ffaa00 0%, #ff6b00 100%);
+    color: #ffffff;           /* Белый текст */
+    
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;      /* Овальная форма */
+    
+    box-shadow: 0 5px 20px rgba(255, 107, 0, 0.5);
+    transition: all 0.3s ease;
+    
+    position: relative;
+}
+
+/* Эффект при наведении */
+.cta-button-next:hover {
+    transform: translateY(-5px) scale(1.05); /* Всплывает и увеличивается */
+    box-shadow: 0 8px 25px rgba(255, 107, 0, 0.7);
+    background: linear-gradient(90deg, #ffb74d 0%, #ff8c00 100%);
+}
+
+/* Анимация стрелки внутри кнопки */
+.cta-button-next::after {
+    content: '👉';
+    display: inline-block;
+    margin-left: 10px;
+    animation: point-right 1.5s infinite;
+}
+
+@keyframes point-right {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(8px); } /* Стрелка двигается активнее */
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 600px) {
+    .cta-button-next {
+        width: 90%;           /* На телефоне кнопка почти во всю ширину */
+        padding: 15px 20px;
+        font-size: 1.1rem;
+    }
+ 
 </style>
            <!-- OpenGraph / Social Media Meta Tags -->
 <meta property="og:type" content="website">
