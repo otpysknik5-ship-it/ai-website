@@ -282,24 +282,27 @@
 .feature-card strong {
     color: #ff8c00 !important; /* Оранжевый акцент */
 } 
-   /* === ФИКС ДЛЯ БЕЛЫХ БЛОКОВ В ТЁМНОЙ ТЕМЕ === */
+/* === ФИКС ДЛЯ БЕЛЫХ БЛОКОВ В ТЁМНОЙ ТЕМЕ — УЛУЧШЕННАЯ ВЕРСИЯ === */
 
-/* Если блок имеет класс feature-card И находится в тёмной теме */
+/* Основной текст внутри белых блоков — тёмный */
 body.dark .feature-card,
 body.dark .short-block {
-    /* Принудительно делаем текст тёмным */
     color: #333333 !important;
 }
 
-/* Заголовки внутри блоков */
+/* Заголовки — чёрные */
+body.dark .feature-card h1,
 body.dark .feature-card h2,
 body.dark .feature-card h3,
+body.dark .feature-card h4,
+body.dark .short-block h1,
 body.dark .short-block h2,
-body.dark .short-block h3 {
+body.dark .short-block h3,
+body.dark .short-block h4 {
     color: #000000 !important;
 }
 
-/* Списки */
+/* Списки — тёмно-серые */
 body.dark .feature-card ul li,
 body.dark .feature-card ol li,
 body.dark .short-block ul li,
@@ -307,30 +310,37 @@ body.dark .short-block ol li {
     color: #444444 !important;
 }
 
-/* Цитаты */
+/* Цитаты — серые с оранжевой линией */
 body.dark .feature-card blockquote,
 body.dark .short-block blockquote {
     color: #555555 !important;
     border-left-color: #ff8c00 !important;
 }
 
-/* Жирный текст */
+/* Жирный текст — оранжевый (акцент) */
 body.dark .feature-card strong,
 body.dark .short-block strong {
     color: #ff8c00 !important;
 }
 
-/* Ссылки */
+/* Ссылки — тёмно-оранжевые */
 body.dark .feature-card a,
 body.dark .short-block a {
     color: #d35400 !important;
+    text-decoration: underline;
 }
 
-/* Обычные параграфы внутри блоков */
+/* Параграфы — тёмно-серые */
 body.dark .feature-card p,
 body.dark .short-block p {
     color: #333333 !important;
-} 
+}
+
+/* Если внутри есть span с классом accent — оставляем как есть (не перебиваем) */
+body.dark .feature-card .accent,
+body.dark .short-block .accent {
+    color: inherit !important; /* Наследует цвет родителя */
+}
   </style>
 </head>
 
