@@ -226,6 +226,22 @@
         padding: 1rem 1.2rem;
       }
     }
+    /* ПРИНУДИТЕЛЬНЫЙ КОНТРАСТ ДЛЯ БЕЛЫХ БЛОКОВ */
+/* Если у блока белый фон, делаем текст темным независимо от темы */
+[style*="background-color: white"], 
+[style*="background-color:#ffffff"],
+.white-bg-block, 
+.article-content-wrapper { /* Добавь сюда класс твоего основного контейнера статьи, если он есть */
+    color: #333333 !important;
+}
+
+/* То же самое для ссылок и заголовков внутри таких блоков */
+[style*="background-color: white"] h2,
+[style*="background-color: white"] h3,
+[style*="background-color: white"] p,
+[style*="background-color: white"] a {
+    color: inherit; /* Наследуют черный цвет родителя */
+}
   </style>
 </head>
 
