@@ -233,6 +233,53 @@
         ты по адресу!
       </p>
     </section>
+      <!-- Блок новостей -->
+<section style="margin-top: 40px; padding: 20px; background: #f9f9fb; border-radius: 12px;">
+    <h2 style="text-align: center; color: #4a4a6a;">📰 Свежие новости про ИИ</h2>
+    <div id="news-feed" style="max-width: 800px; margin: 0 auto;"></div>
+</section>
+
+<script>
+    const RSS_URL = 'https://neuro-ai.ru/feed/'; 
+    const API = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}&count=5`;
+
+    fetch(API)
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById('news-feed');
+            if (!data.items || data.items.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#888;">Новости временно недоступны.</p>';
+                return;
+            }
+
+            data.items.forEach(item => {
+                // Чистим описание от HTML-тегов и обрезаем
+                let desc = (item.description || '').replace(/<[^>]*>/g, '').slice(0, 120);
+                if ((item.description || '').length > 120) desc += '...';
+
+                // Форматируем дату
+                const date = new Date(item.pubDate).toLocaleDateString('ru-RU', {
+                    day: 'numeric', month: 'long', year: 'numeric'
+                });
+
+                container.innerHTML += `
+                    <article style="margin-bottom: 20px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                        <h3 style="margin: 0 0 8px; font-size: 1.1em;">
+                            <a href="${item.link}" target="_blank" rel="noopener" style="text-decoration: none; color: #6c5ce7;">
+                                ${item.title}
+                            </a>
+                        </h3>
+                        <p style="margin: 0 0 8px; color: #555; font-size: 0.95em;">${desc}</p>
+                        <small style="color: #999; font-size: 0.85em;">📅 ${date} • Источник: neuro-ai.ru</small>
+                    </article>
+                `;
+            });
+        })
+        .catch(err => {
+            console.error(err);
+            document.getElementById('news-feed').innerHTML = '<p style="text-align:center; color:#e74c3c;">Ошибка загрузки новостей.</p>';
+        });
+</script>
 
     <!-- Примеры применения -->
     <section>
