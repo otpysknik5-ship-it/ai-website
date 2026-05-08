@@ -233,54 +233,61 @@
         ты по адресу!
       </p>
     </section>
-      <!-- Блок новостей -->
+    <!-- Блок: Горячие новости (Ручной выбор) -->
 <section style="margin-top: 40px; padding: 20px; background: #f9f9fb; border-radius: 12px;">
-    <h2 style="text-align: center; color: #4a4a6a;">📰 Свежие новости про ИИ</h2>
-    <div id="news-feed" style="max-width: 800px; margin: 0 auto;"></div>
+    <h2 style="text-align: center; color: #4a4a6a; margin-bottom: 25px;"> Выбор редакции: Топ-3 за неделю</h2>
+    
+    <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+        
+        <!-- Новость 1 -->
+        <article style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 4px solid #6c5ce7;">
+            <h3 style="margin: 0 0 5px; font-size: 1.1em;">
+                <a href="https://neuro-ai.ru/нейросеть-для-кодинга/" target="_blank" style="text-decoration: none; color: #333;">
+                    Новая нейросеть пишет код лучше Junior-разработчика
+                </a>
+            </h3>
+            <p style="margin: 5px 0 0; color: #666; font-size: 0.95em;">
+                Краткое описание своими словами: Например, "Devon AI" теперь может сама исправлять баги и деплоить проекты. Революция в IT?
+            </p>
+            <small style="display: block; margin-top: 8px; color: #999;">Источник: neuro-ai.ru</small>
+        </article>
+
+        <!-- Новость 2 -->
+        <article style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 4px solid #6c5ce7;">
+            <h3 style="margin: 0 0 5px; font-size: 1.1em;">
+                <a href="https://neuro-ai.ru/midjourney-v6-update/" target="_blank" style="text-decoration: none; color: #333;">
+                    Midjourney v6.1: Фотореализм вышел на новый уровень
+                </a>
+            </h3>
+            <p style="margin: 5px 0 0; color: #666; font-size: 0.95em;">
+                Краткое описание: Теперь ИИ понимает сложные тексты на картинках и делает меньше ошибок в пальцах рук.
+            </p>
+            <small style="display: block; margin-top: 8px; color: #999;">Источник: vc.ru / habr</small>
+        </article>
+
+        <!-- Новость 3 -->
+        <article style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 4px solid #6c5ce7;">
+            <h3 style="margin: 0 0 5px; font-size: 1.1em;">
+                <a href="https://neuro-ai.ru/apple-intelligence-russia/" target="_blank" style="text-decoration: none; color: #333;">
+                    Apple Intelligence: Когда ждать в России и что умеет?
+                </a>
+            </h3>
+            <p style="margin: 5px 0 0; color: #666; font-size: 0.95em;">
+                Краткое описание: Siri стала умнее, умеет писать письма за тебя и искать фото по смыслу. Но есть нюансы с языком.
+            </p>
+            <small style="display: block; margin-top: 8px; color: #999;">Источник: appleinsider.ru</small>
+        </article>
+
+    </div>
+    
+    <!-- Кнопка "Ещё новости" -->
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://neuro-ai.ru/" target="_blank" 
+           style="display: inline-block; padding: 10px 20px; background: #fff; border: 1px solid #6c5ce7; color: #6c5ce7; border-radius: 6px; text-decoration: none; font-weight: bold; transition: 0.3s;">
+           Смотреть все новости →
+        </a>
+    </div>
 </section>
-
-<script>
-    const RSS_URL = 'https://neuro-ai.ru/feed/'; 
-    const API = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}&count=5`;
-
-    fetch(API)
-        .then(res => res.json())
-        .then(data => {
-            const container = document.getElementById('news-feed');
-            if (!data.items || data.items.length === 0) {
-                container.innerHTML = '<p style="text-align:center; color:#888;">Новости временно недоступны.</p>';
-                return;
-            }
-
-            data.items.forEach(item => {
-                // Чистим описание от HTML-тегов и обрезаем
-                let desc = (item.description || '').replace(/<[^>]*>/g, '').slice(0, 120);
-                if ((item.description || '').length > 120) desc += '...';
-
-                // Форматируем дату
-                const date = new Date(item.pubDate).toLocaleDateString('ru-RU', {
-                    day: 'numeric', month: 'long', year: 'numeric'
-                });
-
-                container.innerHTML += `
-                    <article style="margin-bottom: 20px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-                        <h3 style="margin: 0 0 8px; font-size: 1.1em;">
-                            <a href="${item.link}" target="_blank" rel="noopener" style="text-decoration: none; color: #6c5ce7;">
-                                ${item.title}
-                            </a>
-                        </h3>
-                        <p style="margin: 0 0 8px; color: #555; font-size: 0.95em;">${desc}</p>
-                        <small style="color: #999; font-size: 0.85em;">📅 ${date} • Источник: neuro-ai.ru</small>
-                    </article>
-                `;
-            });
-        })
-        .catch(err => {
-            console.error(err);
-            document.getElementById('news-feed').innerHTML = '<p style="text-align:center; color:#e74c3c;">Ошибка загрузки новостей.</p>';
-        });
-</script>
-
     <!-- Примеры применения -->
     <section>
       <h2>🎯 Где ИИ помогает прямо сейчас</h2>
