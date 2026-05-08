@@ -656,3 +656,23 @@ body.dark-theme .news-title {
 body.dark-theme .news-text {
     color: #ccc;
 }
+ /* Этот стиль переопределит инлайн-цвета только в тёмной теме */
+    body.dark-theme .news-block {
+        background: #1e1e1e !important;
+        border-color: #333 !important;
+    }
+    body.dark-theme .news-block div[style*="background: #fff"] {
+        background: #2d2d2d !important;
+        box-shadow: none !important;
+    }
+    body.dark-theme .news-block span[style*="background: #dfe6e9"] {
+        background: #333 !important;
+        color: #ccc !important;
+    }
+    body.dark-theme .news-block code {
+        background: rgba(187, 134, 252, 0.15) !important;
+        color: #bb86fc !important;
+    }
+    body.dark-theme .news-block h2 {
+        border-bottom-color: #333 !important;
+    }
