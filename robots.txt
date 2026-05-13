@@ -1,6 +1,13 @@
+# Правила для всех роботов (Яндекс, Google и др.)
 User-agent: *
 Allow: /
-Disallow: /.git/
-Disallow: /.github/
-Sitemap: https://aimihome.ru/sitemap.xml
+Disallow: /private/  # Если есть папка, которую не надо показывать
+Disallow: /tmp/      # Временные файлы
 
+# Отдельные правила для Яндекса (если нужны)
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1       # Небольшая пауза, чтобы не грузить сервер
+
+# Ссылка на карту сайта
+Sitemap: https://aimihome.ru/sitemap.xml
