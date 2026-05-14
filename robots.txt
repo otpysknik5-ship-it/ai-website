@@ -1,13 +1,12 @@
-# Правила для всех роботов (Яндекс, Google и др.)
 User-agent: *
 Allow: /
-Disallow: /private/  # Если есть папка, которую не надо показывать
-Disallow: /tmp/      # Временные файлы
+Disallow: /private/
+Disallow: /tmp/
 
-# Отдельные правила для Яндекса (если нужны)
 User-agent: Yandex
 Allow: /
-Crawl-delay: 1       # Небольшая пауза, чтобы не грузить сервер
+Disallow: /private/
+Disallow: /tmp/
+Crawl-delay: 1
 
-# Ссылка на карту сайта
 Sitemap: https://aimihome.ru/sitemap.xml
