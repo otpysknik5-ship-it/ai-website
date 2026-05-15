@@ -1,0 +1,46 @@
+name: IndexNow Auto-Submit
+
+on:
+  push:
+    paths:
+      - '*.html'
+    branches:
+      - main
+      - master
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Send to IndexNow
+        run: |
+          KEY="0b8d5e908095487fb52407a23afe130f"
+          BASE="https://aimihome.ru"
+          
+          # Получаем список изменённых HTML файлов
+          FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.html$' || true)
+          
+          if [ -z "$FILES" ]; then
+            echo "No HTML files changed"
+            exit 0
+          fi
+          
+          echo "📤 Отправляем в IndexNow:"
+          for file in $FILES; do
+            if [ "$file" != "index.html" ]; then
+              URL="${BASE}/${file}"
+            else
+              URL="${BASE}/"
+            fi
+            
+            echo "  → $URL"
+            curl -s "https://api.indexnow.org/IndexNow?url=${URL}&key=${KEY}"
+            
+            # Пауза чтобы не спамить API
+            sleep 1
+          done
+          
+          echo "✅ Готово!"
