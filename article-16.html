@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Я потратил 5 часов на AI-агентов. Почему я вернулся к ручному коду | АЙ ВЕБ ДОМ</title>
     <link rel="stylesheet" href="/styles.css">
+    <style>
+:root{--bg:#0a0a0a;--text:#e0e0e0;--card:#111;--border:#222}
+[data-theme="light"]{--bg:#f5f5f5;--text:#1a1a1a;--card:#fff;--border:#ddd}
+body{background:var(--bg);color:var(--text);transition:all 0.3s}
+a{color:#667eea}
+[data-theme="light"] a{color:#4a5fd4}
+</style>
     
     <!-- Open Graph -->
     <meta property="og:title" content="Я потратил 5 часов на AI-агентов. Почему я вернулся к ручному коду">
@@ -19,6 +26,11 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
 <body>
+    
+    <!-- Кнопка переключения темы -->
+<button class="theme-toggle" onclick="toggleTheme()" title="Переключить тему" style="position:fixed;top:20px;right:20px;background:#1a1a1a;border:1px solid #333;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:1000;transition:all 0.3s;">
+  <span id="theme-icon" style="font-size:24px;">☀️</span>
+</button>
     
     <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -127,7 +139,7 @@ error: Microsoft Visual C++ 14.0 is required...</code></pre>
                 <img src="/mj-card.png" alt="Midjourney AI" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
                 <h4 style="color: #ff6bff; margin: 0 0 10px;">Midjourney (Визуал + Видео)</h4>
                 <p style="color: #aaa; font-size: 0.9em; margin-bottom: 15px;">Делает отличные картинки и видео. Незаменим для обложек и визуального контента.</p>
-                <a href="ТВОЯ_РЕФЕРАЛЬНАЯ_ССЫЛКА_НА_MIDJOURNEY" target="_blank" style="display: inline-block; background: #ff6bff; color: #000; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">🎨 Попробовать Midjourney</a>
+                <a href="https://bothub.chat/?invitedBy=9hrXGbTCTq1_smgBB1nzW" target="_blank" rel="noopener sponsored" style="display:inline-block;background:linear-gradient(90deg,#7b68ee,#9370db);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">" target="_blank" style="display: inline-block; background: #ff6bff; color: #000; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">🎨 Попробовать Midjourney</a>
             </div>
         </div>
     </div>
@@ -218,14 +230,45 @@ GPT Image 2 в ChatGPT
 
     
  
- <!-- Навигация -->
-    <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-        <a href="/article-15.html" style="text-decoration: none; color: #667eea; font-weight: 500;">← Предыдущая статья</a>
-        <a href="/index.html" style="text-decoration: none; color: #667eea; font-weight: 500;"> На главную</a>
-        <a href="/article-17.html" style="text-decoration: none; color: #667eea; font-weight: 500;">Следующая статья →</a>
-    </div>
+  <!-- Футер -->
+<footer style="margin-top:60px;padding:40px 20px;background:#111;border-top:1px solid #222;border-radius:12px;text-align:center;">
+  <h3 style="color:#667eea;margin-bottom:15px;">🤖 Присоединяйся к сообществу</h3>
+  <p style="color:#888;margin-bottom:25px;">Обсуждаем ИИ, делимся промптами, помогаем друг другу.</p>
+  
+  <a href="https://t.me/citadel_test_quote_bot" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#0088cc,#0099e6);color:white;padding:15px 30px;border-radius:8px;text-decoration:none;font-weight:bold;margin:20px 0;">
+    📬 @citadel_test_quote_bot
+  </a>
+  
+  <div style="margin-top:30px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+    <a href="/index.html" style="color:#667eea;text-decoration:none;">🏠 Главная</a>
+    <a href="/article-15.html" style="color:#667eea;text-decoration:none;">← Предыдущая</a>
+    <a href="/article-17.html" style="color:#667eea;text-decoration:none;">Следующая →</a>
+  </div>
+  
+  <p style="margin-top:30px;color:#666;font-size:0.9em;">&copy; 2026 АЙ ВЕБ ДОМ НЕЙРОСЕТЬ</p>
+</footer>
 
 </article>
+    <script>
+function toggleTheme(){
+  const html=document.documentElement;
+  const icon=document.getElementById('theme-icon');
+  if(html.getAttribute('data-theme')==='light'){
+    html.setAttribute('data-theme','dark');
+    icon.textContent='☀️';
+    localStorage.setItem('theme','dark');
+  }else{
+    html.setAttribute('data-theme','light');
+    icon.textContent='🌙';
+    localStorage.setItem('theme','light');
+  }
+}
+document.addEventListener('DOMContentLoaded',function(){
+  const t=localStorage.getItem('theme')||'dark';
+  document.documentElement.setAttribute('data-theme',t);
+  document.getElementById('theme-icon').textContent=t==='light'?'🌙':'☀️';
+});
+</script>
 
 </body>
 </html>
