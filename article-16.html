@@ -1,5 +1,6 @@
+```html
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark"> <!-- Default to dark theme, JS will manage -->
+<html lang="ru"> <!-- data-theme removed, managed by JS on body -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,326 +8,684 @@
     <link rel="stylesheet" href="/styles.css"> <!-- Keep existing external stylesheet -->
     
     <style>
-        /* CSS Variables for theming */
-        :root {
-            --bg: #f4f4f4; /* Light mode background */
-            --text: #1a1a1a; /* Light mode text */
-            --card-bg: #fff; /* Light mode card background */
-            --border: #ddd; /* Light mode border */
-            --code-bg: #e0e0e0; /* Light mode code background */
-            --code-text: #333; /* Light mode code text */
-            --link-color: #007bff; /* Light mode link color */
-            --blockquote-bg: #f5f7fa; /* Light mode blockquote background */
-            --blockquote-border: #667eea; /* Blockquote border */
-            --table-header-bg: #eee; /* Light mode table header */
-            --table-row-border: #ccc; /* Light mode table row border */
-            --footer-bg: #eee;
-            --footer-text: #777;
-        }
+/* ===== ОБЩИЕ СТИЛИ ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        html[data-theme='dark'] {
-            --bg: #1a1a1a;
-            --text: #e0e0e0;
-            --card-bg: #2a2a2a;
-            --border: #444;
-            --code-bg: #1e1e1e;
-            --code-text: #d4d4d4;
-            --link-color: #93b0ff; /* Dark mode link color */
-            --blockquote-bg: #222;
-            --blockquote-border: #93b0ff;
-            --table-header-bg: #333;
-            --table-row-border: #444;
-            --footer-bg: #111;
-            --footer-text: #aaa;
-        }
+html {
+  scroll-behavior: smooth;
+}
 
-        /* Global styles using variables */
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background: var(--bg);
-            color: var(--text);
-            transition: background 0.3s, color 0.3s;
-            margin: 0;
-            padding: 0;
-        }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s, color 0.3s;
+}
 
-        h1, h2, h3, h4 {
-            color: var(--text);
-            transition: color 0.3s;
-        }
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 5%;
+}
 
-        a {
-            color: var(--link-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+/* ===== ТЁМНАЯ ТЕМА ===== */
+body.dark-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
 
-        /* Article layout */
-        article {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 40px;
-            margin-bottom: 40px;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-        html[data-theme='dark'] article {
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        }
+body.dark-theme header {
+  background: linear-gradient(135deg, #4a69bd, #6a89cc);
+}
 
-        /* Theme Toggle Button */
-        .theme-toggle {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            font-size: 24px;
-            transition: background 0.3s, border-color 0.3s;
-        }
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3 {
+  color: #bb86fc;
+}
 
-        /* Navigation Buttons */
-        .nav-buttons {
-            text-align: center;
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
-        .nav-buttons a {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 0 10px;
-            background-color: var(--link-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .nav-buttons a:hover {
-            background-color: var(--blockquote-border); /* Use a darker variant of link color */
-        }
+body.dark-theme .feature-card,
+body.dark-theme .work-card {
+  background: #1e1e1e;
+  color: #ccc;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
 
-        /* Footer */
-        footer {
-            margin-top: 60px;
-            padding: 40px 20px;
-            background: var(--footer-bg);
-            border-top: 1px solid var(--border);
-            border-radius: 12px;
-            text-align: center;
-            transition: background 0.3s, border-top-color 0.3s;
-            color: var(--footer-text);
-        }
-        footer h3 {
-            color: var(--link-color); /* Footer heading should match link color */
-        }
-        footer p {
-            color: var(--footer-text);
-        }
-        footer a {
-            color: var(--link-color);
-        }
+body.dark-theme footer {
+  border-top: 1px solid #333;
+  color: #888;
+}
 
-        /* Highlighted Blocks (Colored Blocks) */
-        .highlight-block {
-            padding: 25px;
-            border-radius: 12px;
-            margin: 30px 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            color: white; /* Default text color for bright blocks */
-        }
-        .highlight-block h3 {
-            color: white; /* Headings inside bright blocks */
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-        .highlight-block p {
-            color: rgba(255, 255, 255, 0.9); /* Slightly desaturated white for paragraphs */
-        }
+body.dark-theme .info-block { background: #2a2a4a; border-left-color: #6e8efb; }
+body.dark-theme .short-block { background: #2a3a5a; border-left-color: #4a69bd; }
+body.dark-theme .tech-block { background: #2a4a3a; border-left-color: #22c55e; }
+body.dark-theme .tools-block { background: #4a3a2a; border-left-color: #f59e0b; }
+body.dark-theme .conclusion-block { background: #3a2a4a; border-left-color: #a855f7; }
+body.dark-theme .myth-block { background: #4a2a2a; border-left-color: #ef4444; }
+body.dark-theme .highlight { background: rgba(0, 217, 255, 0.15); border-left-color: #00d9ff; }
+body.dark-theme th { background: #2a2a2a; }
+body.dark-theme td,
+body.dark-theme th { border-color: #444; }
+body.dark-theme .lang-btn { background: #1e1e1e; color: #bb86fc; border-color: #bb86fc; }
+body.dark-theme .lang-btn:hover { background: #2a2a2a; }
+body.dark-theme .lang-btn.active { background: linear-gradient(135deg, #4a69bd, #6a89cc); color: white; border-color: transparent; }
+body.dark-theme .stats-box { background: linear-gradient(135deg, #3a1c71, #2c2c54); box-shadow: 0 4px 12px rgba(187, 134, 252, 0.2); }
+body.dark-theme .toc { background: #2a2a4a; }
+body.dark-theme .toc a { color: #6e8efb; }
 
-        /* Specific bright gradients */
-        .highlight-block-info {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%); /* Vibrant Green */
-        }
-        .highlight-block-warning {
-            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%); /* Vibrant Orange */
-            color: #333; /* Darker text for light backgrounds */
-        }
-        .highlight-block-warning h3,
-        .highlight-block-warning p {
-            color: #333;
-        }
-        .highlight-block-primary {
-            background: linear-gradient(135deg, #007bff 0%, #6610f2 100%); /* Vibrant Blue-Purple */
-        }
+/* ===== ШАПКА ===== */
+header {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-radius: 0 0 12px 12px;
+}
 
-        /* Code blocks */
-        pre {
-            background: var(--code-bg);
-            color: var(--code-text);
-            padding: 15px;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 20px 0;
-            border: 1px solid var(--border);
-        }
-        blockquote {
-            border-left: 4px solid var(--blockquote-border);
-            padding: 15px;
-            background: var(--blockquote-bg);
-            border-radius: 6px;
-            margin: 20px 0;
-            transition: background 0.3s, border-color 0.3s;
-        }
-        blockquote em {
-            color: var(--text);
-        }
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: white !important;
+}
 
-        /* Table styles */
-        .table-container {
-            overflow-x: auto; /* Make table scrollable on small screens */
-            margin: 20px 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 0;
-            color: var(--text);
-            transition: background 0.3s, color 0.3s;
-        }
-        table th,
-        table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid var(--table-row-border);
-        }
-        table th {
-            background: var(--table-header-bg);
-            color: var(--text);
-            transition: background 0.3s, color 0.3s;
-        }
-        table tr:last-child td {
-            border-bottom: none;
-        }
+header p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
 
-        /* Qwen and Midjourney cards */
-        .tool-cards-container {
-            background: linear-gradient(135deg, #1e1e2f 0%, #2a2a40 100%);
-            padding: 25px;
-            border-radius: 16px;
-            margin: 30px 0;
-            border: 1px solid #333;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-        }
-        .tool-cards-container h3 {
-            color: #fff;
-        }
-        .tool-cards-container p {
-            color: #ccc;
-        }
-        .tool-cards {
-            display: grid; /* Use grid for better layout control */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
-            gap: 20px;
-            justify-content: center;
-        }
-        .tool-card {
-            background: #151520;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #2a2a35;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        .tool-card img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-        .tool-card h4 {
-            color: #00d4ff; /* Qwen color */
-            margin: 0 0 10px;
-        }
-        .tool-card.midjourney h4 {
-            color: #ff6bff; /* Midjourney color */
-        }
-        .tool-card p {
-            color: #aaa;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-        }
-        .tool-card a {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            color: #000; /* Default button text color */
-        }
-        .tool-card .qwen-btn {
-            background: #00d4ff;
-        }
-        .tool-card .midjourney-btn {
-            background: #ff6bff;
-            color: #fff; /* White text for Midjourney button */
-        }
+/* ===== ЗАГОЛОВКИ ===== */
+h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+h2 { color: #555; margin: 2rem 0 1rem; }
+h3 { color: #666; margin: 1.5rem 0 0.8rem; }
+p { margin-bottom: 1rem; }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            article {
-                padding: 15px;
-                margin-top: 20px;
-                margin-bottom: 20px;
-            }
-            .nav-buttons a {
-                margin: 5px;
-            }
-            .theme-toggle {
-                top: 10px;
-                right: 10px;
-                font-size: 1.2em;
-                width: 40px;
-                height: 40px;
-            }
-        }
-        @media (max-width: 480px) {
-            .nav-buttons a {
-                display: block;
-                margin: 10px auto;
-            }
-            .highlight-block {
-                padding: 15px;
-                margin: 15px 0;
-            }
-            /* Adjustments for blocks on small smartphones */
-            .tool-cards-container {
-                padding: 15px; /* Reduce padding for smaller screens */
-                margin: 20px 0; /* Adjust margin */
-            }
-            .tool-cards {
-                gap: 10px; /* Reduce gap between cards */
-            }
-            .tool-card {
-                padding: 15px; /* Reduce padding inside each card */
-            }
-        }
+body.dark-theme h2 { color: #bb86fc; }
+body.dark-theme h3 { color: #ccc; }
+
+/* ===== КНОПКИ ===== */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white !important;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(110, 142, 251, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 1.5rem;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(110, 142, 251, 0.5);
+}
+
+.back-btn::before {
+  content: "←";
+  font-size: 1.2rem;
+}
+
+/* ===== КАРТОЧКИ ===== */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.feature-card,
+.work-card {
+  background: white;
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  flex: 1 1 250px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover,
+.work-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* ===== КАРТИНКИ РАБОТ (ИСПРАВЛЕНО) ===== */
+.work-card img {
+  width: 100%;
+  height: auto;           /* ← Авто-высота, не обрезает! */
+  max-height: 500px;      /* ← Максимум, но не обязательно */
+  object-fit: contain;    /* ← Показывает всю картинку целиком */
+  object-position: center;
+  display: block;
+  border-radius: 8px 8px 0 0;
+  background: #f5f5f5;    /* ← Фон, если картинка меньше */
+}
+
+/* Адаптив для телефонов */
+@media (max-width: 768px) {
+  .work-card img {
+    max-height: 300px;    /* ← На телефоне поменьше */
+  }
+}
+
+.work-card p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+  font-style: italic;
+}
+
+body.dark-theme .work-card p { color: #aaa; }
+
+/* ===== ГАЛЕРЕЯ ===== */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* ===== ТАБЛИЦЫ ===== */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  margin: 0;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.table-wrapper th {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+body.dark-theme .table-wrapper th { background: #2a2a2a; }
+
+/* ===== ИНФО-БЛОКИ ===== */
+.info-block, .short-block, .tech-block,
+.tools-block, .conclusion-block, .myth-block, .highlight {
+  padding: 15px 20px;
+  border-radius: 0 8px 8px 0;
+  margin: 25px 0;
+  transition: transform 0.2s;
+}
+
+.info-block:hover, .short-block:hover, .tech-block:hover {
+  transform: translateY(-2px);
+}
+
+.info-block { background: #eef6ff; border-left: 5px solid #3b82f6; }
+.short-block { background: #e8f0fe; border-left: 5px solid #1a73e8; }
+.tech-block { background: #e7f7ed; border-left: 5px solid #22c55e; }
+.tools-block { background: #fff4e5; border-left: 5px solid #f59e0b; }
+.conclusion-block { background: #f5e8ff; border-left: 5px solid #a855f7; }
+.myth-block { background: #ffe5e5; border-left: 5px solid #ef4444; }
+.highlight { background: rgba(0, 217, 255, 0.1); border-left: 4px solid #00d9ff; }
+
+/* ===== СТАТИСТИКА ===== */
+.stats-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.2rem;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  font-weight: 500;
+  line-height: 1.5;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* ===== ЯЗЫКОВЫЕ КНОПКИ ===== */
+.lang-switcher {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.lang-btn {
+  padding: 0.5rem 1.2rem;
+  border: 2px solid #6e8efb;
+  background: white;
+  color: #6e8efb;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.lang-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(110, 142, 251, 0.3);
+}
+
+.lang-btn.active,
+.lang-btn.active:hover {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(110, 142, 251, 0.4);
+}
+
+.lang-content {
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== КНОПКА НАВЕРХ ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #6e8efb;
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 100;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ ===== */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: background 0.3s;
+}
+
+.theme-toggle:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ===== ПОДВАЛ ===== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #777;
+  font-size: 0.9rem;
+  border-top: 1px solid #eee;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: #6e8efb;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===== ФУТЕР ЭКСТРА ===== */
+.footer-extra {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.footer-extra a {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.footer-extra a:hover {
+  transform: translateY(-2px);
+}
+
+.footer-extra .telegram { background: #0088cc; color: white; }
+.footer-extra .author { background: #25D366; color: white; }
+
+/* ===== ОГЛАВЛЕНИЕ ===== */
+.toc {
+  background: #f0f4ff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.toc ul {
+  margin: 0.5rem 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.toc a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.4rem; }
+  .container { padding: 1rem; }
+  .feature-card, .work-card { flex: 1 1 100%; }
+  .lang-btn { flex: 1; min-width: 120px; font-size: 0.9rem; padding: 0.4rem 0.8rem; }
+  header h1 { font-size: 2rem; }
+  ol, ul { padding-left: 1.2rem; }
+  li { margin-bottom: 0.8rem; }
+  .work-card img { height: 250px; }
+}
+
+/* ===== БАЗОВЫЕ СТИЛИ ДЛЯ ФИГУРЫ С ГЛАЗОМ (работает везде) ===== */
+.eye-figure {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.eye-figure img {
+  max-width: 380px;           /* ← твоё "в 3 раза меньше" — подбери под вкус: 320–450px */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.eye-figure figcaption {
+  color: #666;
+  font-size: 0.95rem;
+  margin-top: 0.8rem;
+  font-style: italic;
+}
+
+/* Тёмная тема */
+body.dark-theme .eye-figure figcaption {
+  color: #aaa;
+}
+
+body.dark-theme .eye-figure img {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+}
+
+/* Медиа только для мелких экранов (если нужно чуть поджать) */
+@media (max-width: 600px) {
+  .eye-figure {
+    margin: 1.5rem 0;
+  }
+  
+  .eye-figure figcaption {
+    font-size: 0.9rem;
+  }
+  
+  /* Если на мобилке всё равно кажется большой — раскомменти и подкрути */
+  /* .eye-figure img {
+    max-width: 320px;
+  } */
+}
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+/* =========================================
+   КНОПКИ-ССЫЛКИ АЙ ВЕБ ДОМ
+   ========================================= */
+
+/* Базовая кнопка */
+.ai-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    margin: 10px 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Вариант 1: Фиолетовая (Основная) */
+.ai-btn.primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white !important;
+    border: none;
+}
+
+.ai-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(118, 75, 162, 0.4);
+}
+
+/* Вариант 2: Оранжевая (Акцентная) */
+.ai-btn.accent {
+    background: linear-gradient(135deg, #ffaa00 0%, #ff7e00 100%);
+    color: white !important;
+    border: none;
+}
+
+.ai-btn.accent:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 170, 0, 0.4);
+}
+
+/* Вариант 3: Прозрачная с обводкой */
+.ai-btn.outline {
+    background: transparent;
+    border: 2px solid #667eea;
+    color: #667eea !important;
+}
+
+body.dark-theme .ai-btn.outline {
+    border-color: #bb86fc;
+    color: #bb86fc !important;
+}
+
+.ai-btn.outline:hover {
+    background: #667eea;
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+body.dark-theme .ai-btn.outline:hover {
+    background: #bb86fc;
+    border-color: #bb86fc;
+    color: #121212 !important;
+}
+/* =========================================
+   БЛОК НОВОСТЕЙ / АПДЕЙТОВ (Дополнение к стилям АЙ ВЕБ ДОМ)
+   ========================================= */
+
+.news-update-card {
+    background: var(--card-bg, #ffffff); /* Если есть переменная, иначе белый */
+    border-left: 5px solid #ff4b4b; /* Красный акцент для срочности */
+    border-radius: 12px;
+    padding: 20px 25px;
+    margin: 30px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Легкий фон для новости, чтобы выделялся на белом/сером фоне */
+.news-update-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 75, 75, 0.03), transparent);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Эффект при наведении */
+.news-update-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 75, 75, 0.15);
+}
+
+/* Контент внутри должен быть выше фона */
+.news-update-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Шапка новости (бейдж + дата) */
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Яркий бейдж "СРОЧНО" */
+.news-badge {
+    background: linear-gradient(135deg, #ff4b4b, #ff9068);
+    color: white;
+    font-weight: 800;
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(255, 75, 75, 0.3);
+}
+
+/* Варианты бейджей */
+.news-badge.green { background: linear-gradient(135deg, #2ecc71, #26a69a); box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3); }
+.news-badge.blue { background: linear-gradient(135deg, #3498db, #2980b9); box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3); }
+.news-badge.purple { background: linear-gradient(135deg, #9b59b6, #8e44ad); box-shadow: 0 2px 8px rgba(155, 89, 182, 0.3); }
+
+/* Дата новости */
+.news-date {
+    color: #888;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Заголовок новости */
+.news-title {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Текст новости */
+.news-text {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* =========================================
+   АДАПТАЦИЯ ПОД ТЕМНУЮ ТЕМУ (.dark-theme)
+   ========================================= */
+
+body.dark-theme .news-update-card {
+    background: #1e1e1e; /* Темный фон карточки */
+    border-left-color: #ff6b6b;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-theme .news-update-card::before {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.05), transparent);
+}
+
+body.dark-theme .news-date {
+    color: #aaa;
+}
+
+body.dark-theme .news-title {
+    color: #e0e0e0;
+}
+
+body.dark-theme .news-text {
+    color: #ccc;
+}
+ /* Этот стиль переопределит инлайн-цвета только в тёмной теме */
+    body.dark-theme .news-block {
+        background: #1e1e1e !important;
+        border-color: #333 !important;
+    }
+    body.dark-theme .news-block div[style*="background: #fff"] {
+        background: #2d2d2d !important;
+        box-shadow: none !important;
+    }
+    body.dark-theme .news-block span[style*="background: #dfe6e9"] {
+        background: #333 !important;
+        color: #ccc !important;
+    }
+    body.dark-theme .news-block code {
+        background: rgba(187, 134, 252, 0.15) !important;
+        color: #bb86fc !important;
+    }
+    body.dark-theme .news-block h2 {
+        border-bottom-color: #333 !important;
+    }
     </style>
     
     <!-- Open Graph -->
@@ -349,7 +708,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
-<body>
+<body id="body-element"> <!-- Added id for JS manipulation -->
     
     <!-- Кнопка переключения темы -->
     <button class="theme-toggle" id="theme-toggle" title="Переключить тему">
@@ -430,7 +789,7 @@ error: Microsoft Visual C++ 14.0 is required...</code></pre>
         <p><strong>Через 10 секунд</strong> я получил чистый, валидный HTML. Без ошибок. Без настройки окружения. Без головной боли. Скажу честно , вот режет он статьи, выходят они не совсем те что хотелось, вот тут может быть Грок был бы и порасторопней, попробовать можно тут </p>
         <p>Тогда до меня дошло: <strong>агенты — это не замена автору. Это инфраструктура для сложных пайплайнов.</strong> Для разовой статьи они избыточны.</p>
 
-        <div class="tool-cards-container">
+        <div class="news-update-card"> <!-- Class changed from tool-cards-container to news-update-card -->
             <h3> Инструменты, которые реально экономят время</h3>
             <p>Я протестировал десятки сервисов. Эти два дают лучший результат для контента и визуала:</p>
             
@@ -565,34 +924,35 @@ GPT Image 2 в ChatGPT
     
     <script>
         function toggleTheme(){
-          const html=document.documentElement;
-          const icon=document.getElementById('theme-icon');
-          if(html.getAttribute('data-theme')==='light'){
-            html.setAttribute('data-theme','dark');
-            icon.textContent='☀️';
-            localStorage.setItem('theme','dark');
-          }else{
-            html.setAttribute('data-theme','light');
-            icon.textContent='🌙';
+          const bodyElement = document.getElementById('body-element');
+          const icon = document.getElementById('theme-icon');
+          if(bodyElement.classList.contains('dark-theme')){
+            bodyElement.classList.remove('dark-theme');
+            icon.textContent = '🌙'; // Moon icon for light theme
             localStorage.setItem('theme','light');
+          }else{
+            bodyElement.classList.add('dark-theme');
+            icon.textContent = '☀️'; // Sun icon for dark theme
+            localStorage.setItem('theme','dark');
           }
         }
 
         document.addEventListener('DOMContentLoaded',function(){
           const savedTheme = localStorage.getItem('theme');
-          const html = document.documentElement;
+          const bodyElement = document.getElementById('body-element');
           const icon = document.getElementById('theme-icon');
 
-          if (savedTheme) {
-            html.setAttribute('data-theme', savedTheme);
-            icon.textContent = savedTheme === 'light' ? '🌙' : '☀️';
-          } else {
-            // Default to dark theme if no preference is saved
-            html.setAttribute('data-theme', 'dark');
+          if (savedTheme === 'light') {
+            bodyElement.classList.remove('dark-theme');
+            icon.textContent = '🌙';
+          } else { // Default to dark theme if no preference or saved as dark
+            bodyElement.classList.add('dark-theme');
             icon.textContent = '☀️';
-            localStorage.setItem('theme', 'dark');
+            localStorage.setItem('theme', 'dark'); // Ensure consistency
           }
+          document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
         });
     </script>
 </body>
 </html>
+```
