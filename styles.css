@@ -676,3 +676,137 @@ body.dark-theme .news-text {
     body.dark-theme .news-block h2 {
         border-bottom-color: #333 !important;
     }
+/* =========================================
+   ВИРУСНЫЕ КАРТОЧКИ (АЙ ВЕБ ДОМ STYLE 🔥)
+   ========================================= */
+
+.info-block,
+.short-block,
+.tech-block,
+.tools-block,
+.conclusion-block,
+.myth-block,
+.highlight {
+    position: relative;
+    padding: 20px 22px;
+    border-radius: 14px;
+    margin: 30px 0;
+    color: white;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    border: none;
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
+
+/* ✨ ХОВЕР ЭФФЕКТ */
+.info-block:hover,
+.short-block:hover,
+.tech-block:hover,
+.tools-block:hover,
+.conclusion-block:hover,
+.myth-block:hover,
+.highlight:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* ✨ ГЛОУ ЭФФЕКТ */
+.info-block::before,
+.short-block::before,
+.tech-block::before,
+.tools-block::before,
+.conclusion-block::before,
+.myth-block::before,
+.highlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.15), transparent 60%);
+    pointer-events: none;
+}
+
+/* =========================================
+   ЦВЕТА (КАК У ДЗЕНА)
+   ========================================= */
+
+/* 🔵 ФАКТ / ИНФО */
+.info-block {
+    background: linear-gradient(135deg, #2563eb, #1e3a8a);
+}
+.info-block::after {
+    content: "💡";
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+/* 🔹 БЫСТРО */
+.short-block {
+    background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+}
+.short-block::after {
+    content: "⚡";
+    position: absolute;
+    top: 14px;
+    right: 16px;
+}
+
+/* 🟢 ТЕХ */
+.tech-block {
+    background: linear-gradient(135deg, #10b981, #065f46);
+}
+.tech-block::after {
+    content: "🧠";
+    position: absolute;
+    top: 14px;
+    right: 16px;
+}
+
+/* 🟠 ИНСТРУМЕНТЫ */
+.tools-block {
+    background: linear-gradient(135deg, #f59e0b, #92400e);
+}
+.tools-block::after {
+    content: "🛠️";
+    position: absolute;
+    top: 14px;
+    right: 16px;
+}
+
+/* 🟣 ВЫВОД */
+.conclusion-block {
+    background: linear-gradient(135deg, #8b5cf6, #5b21b6);
+}
+.conclusion-block::after {
+    content: "📌";
+    position: absolute;
+    top: 14px;
+    right: 16px;
+}
+
+/* 🔴 МИФ / ОШИБКА */
+.myth-block {
+    background: linear-gradient(135deg, #ef4444, #7f1d1d);
+}
+.myth-block::after {
+    content: "⚠️";
+    position: absolute;
+    top: 14px;
+    right: 16px;
+}
+
+/* 🌈 ХАЙЛАЙТ */
+.highlight {
+    background: linear-gradient(135deg, #06b6d4, #0f172a);
+}
+.highlight::after {
+    content: "🔥";
+    position: absolute;
+    top: 14px;
+    right: 16px;
+}
