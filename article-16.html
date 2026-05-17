@@ -4,114 +4,74 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Статья | АЙ ВЕБ ДОМ</title>
+<title>Я потратил 5 часов на AI-агентов</title>
 
 <style>
 
 /* ===== БАЗА ===== */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  color: #222;
-  transition: 0.3s;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #e5e7eb;
 }
 
-body.dark {
-  background: #121212;
-  color: #e0e0e0;
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
 }
 
-article {
-  max-width: 860px;
-  margin: 40px auto;
-  padding: 25px;
-  background: white;
-  border-radius: 12px;
+/* ===== ЗАГОЛОВОК ===== */
+h1 {
+    font-size: 28px;
 }
 
-body.dark article {
-  background: #1e1e1e;
+p {
+    line-height: 1.6;
 }
 
-/* ===== ЗАГОЛОВКИ ===== */
-h1 { font-size: 28px; }
-h2 { margin-top: 30px; }
-h3 { margin-top: 20px; }
-
-/* ===== КОД ===== */
-pre {
-  background: #111;
-  color: #0f0;
-  padding: 15px;
-  border-radius: 8px;
-  overflow-x: auto;
-}
-
-body.dark pre {
-  background: #000;
-}
-
-/* ===== КНОПКА ТЕМЫ ===== */
-.theme-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-/* ===== КРАСИВЫЕ БЛОКИ ===== */
+/* ===== ВИРУСНЫЕ БЛОКИ ===== */
 .block {
-  padding: 20px;
-  border-radius: 12px;
-  margin: 25px 0;
-  color: white;
+    position: relative;
+    padding: 20px;
+    border-radius: 14px;
+    margin: 25px 0;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: 0.3s;
 }
 
-.blue { background: linear-gradient(135deg, #3b82f6, #6366f1); }
-.green { background: linear-gradient(135deg, #22c55e, #00e676); }
-.orange { background: linear-gradient(135deg, #ff9800, #ff5722); }
-.purple { background: linear-gradient(135deg, #a855f7, #7c4dff); }
-.red { background: linear-gradient(135deg, #ef4444, #ff6b6b); }
-
-/* фикс текста */
-.block * { color: inherit; }
-
-/* ===== ТАБЛИЦА ===== */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+.block:hover {
+    transform: translateY(-5px);
 }
 
-td, th {
-  border: 1px solid #ccc;
-  padding: 10px;
+/* ЦВЕТА */
+.info { background: linear-gradient(135deg, #2563eb, #1e3a8a); }
+.tech { background: linear-gradient(135deg, #10b981, #065f46); }
+.warn { background: linear-gradient(135deg, #ef4444, #7f1d1d); }
+.final { background: linear-gradient(135deg, #8b5cf6, #5b21b6); }
+
+/* ИКОНКИ */
+.block::after {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 18px;
 }
 
-body.dark td, body.dark th {
-  border-color: #444;
-}
+.info::after { content: "💡"; }
+.tech::after { content: "🧠"; }
+.warn::after { content: "⚠️"; }
+.final::after { content: "📌"; }
 
-/* ===== КНОПКИ ===== */
-.nav {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.nav a {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 5px;
-  background: #667eea;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
+/* КОД */
+pre {
+    background: black;
+    padding: 15px;
+    border-radius: 10px;
+    color: #00ff88;
+    overflow-x: auto;
 }
 
 </style>
@@ -119,36 +79,36 @@ body.dark td, body.dark th {
 
 <body>
 
-<button class="theme-btn" onclick="toggleTheme()">🌙</button>
+<div class="container">
 
+<h1>Я потратил 5 часов на настройку AI-агентов</h1>
 
-<!-- 🔥 ВСТАВЬ СЮДА СВОЮ СТАТЬЮ БЕЗ ИЗМЕНЕНИЙ -->
-
-<article>
-        <h1>Я потратил 5 часов на настройку AI-агентов. Вот почему я вернулся к ручному написанию статей</h1>
+<p>Всё началось с привычного хайпа. Везде трубят: <em>«Создай команду из нейросетей!»</em>, <em>«Агенты пишут код, анализируют данные и работают 24/7!»</em>. 
+  Забудь про копирайтеров и верстальщиков. Звучит как магия.
+   Как будущее, которое наступило, тем более мечта была давно, что бы кто то работал за тебя. Я поверил.</p>
         
-        <p style="font-style: italic; margin-bottom: 30px;"> Johnn | 16 мая 2026 | ~9 мин чтения</p>
+<div class="block info">
+<p>У меня есть сайт <a href="https://aimihome.ru">aimihome.ru</a>, где я публикую гайды и обзоры по ИИ. И я подумал: <strong>«Зачем мне вручную верстать каждую статью в HTML, если можно нанять цифровых сотрудников?»
+     И мне уже говорили- ИИ напишет статью , только выставлять успевай.</strong></p>
+    <p>План казался железнобетонным, просто вот загорелось , начинай. Кстати кто только начинает, далее будут два промпта, пробуйте, что получится у вас.</p>
+  <p>Спойлер: это был ещё один из самых выматывающих вечеров в познании нейросетей. Но именно он помог мне понять, где ИИ реально помогает, а где только создаёт иллюзию прогресса.</p>
 
-        <p>Всё началось с привычного хайпа. Везде трубят: <em>«Создай команду из нейросетей!»</em>, <em>«Агенты пишут код, анализируют данные и работают 24/7!»</em>. Забудь про копирайтеров и верстальщиков. Звучит как магия.
-            Как будущее, которое наступило, тем более мечта была давно, что бы кто то работал за тебя. Я поверил.</p>
-        
-        <p>У меня есть сайт <a href="https://aimihome.ru">aimihome.ru</a>, где я публикую гайды и обзоры по ИИ. И я подумал: <strong>«Зачем мне вручную верстать каждую статью в HTML, если можно нанять цифровых сотрудников?»
-            И мне уже говорили- ИИ напишет статью , только выставлять успевай.</strong></p>
-            <p>План казался железнобетонным, просто вот загорелось , начинай. Кстати кто только начинает, далее будут два промпта, пробуйте, что получится у вас.</p>
-        
-        <p>Спойлер: это был ещё один из самых выматывающих вечеров в познании нейросетей. Но именно он помог мне понять, где ИИ реально помогает, а где только создаёт иллюзию прогресса.</p>
+</div>
+ <h2>🛠 Задумка: «Пусть нейросети работают за меня»</h2>
 
-        <h2>🛠 Задумка: «Пусть нейросети работают за меня»</h2>
-        <p>План был простым:</p>
-        <ol>
-            <li>Установить <strong>CrewAI</strong> (фреймворк для создания команд агентов).</li>
+<p>План был простой, а значит гениальный</p>
+
+<ul>
+ <li>Установить <strong>CrewAI</strong> (фреймворк для создания команд агентов).</li>
             <li>Подключить быстрый LLM через <strong>Groq</strong> (Llama 3, летает мгновенно).</li>
             <li>Настроить двух агентов: <em>Исследователь</em> (собирает факты) и <em>HTML-верстальщик</em> (превращает текст в готовый код для сайта).</li>
             <li>Запустить скрипт,- агенты "общаются" между собой- получить статью, залить на GitHub. PROFIT.</li>
-        </ol>
-        <p>Звучало логично, идеально. На практике всё пошло не по плану.</p>
+</ul>
 
-        <h2>🔥 Реальность: Python 3.14, красные ошибки и PATH</h2>
+<div class="block tech">
+<p>Звучало логично, идеально. На практике всё пошло не по плану.</p>
+</div>
+    <h2>🔥 Реальность: Python 3.14, красные ошибки и PATH</h2>
         <p>Первый удар прилетел сразу, ещё до запуска агентов. Я скачал самую свежую версию Python — <strong>3.14.5</strong>. Думал, «новее = лучше». Глупец. Ошибка- номер один.</p>
         <p>Библиотеки вроде <code>numpy</code> и <code>pydantic</code> просто не имели скомпилированных колёс под эту версию. Терминал VS Code начал плевать красными трейсбеками:</p>
         <pre><code>ERROR: pip's dependency resolver does not currently take into account all the packages...
@@ -156,7 +116,7 @@ Failed to build numpy
 error: Microsoft Visual C++ 14.0 is required...</code></pre>
         <p>Час ушёл не на создание "команды мечты" на борьбу с установкой, чисткой <code>PATH</code>, переустановкой и перезагрузками. В итоге я понял: для AI-инструментов пока лучше брать <strong>Python 3.11 или 3.12</strong>. Стабильность важнее новизны.</p>
 
-        <h2> Коллаб, ключи и танцы с CrewAI</h2>
+ <h2> Коллаб, ключи и танцы с CrewAI</h2>
         <p>Локально ничего не завелось. Перешёл в <strong>Google Colab</strong> — там Python 3.10 и всё работает из коробки. Установил библиотеки, получил API-ключ от Groq, прописал в коде...</p>
         <p>И тут начались «танцы»:</p>
         <ul>
@@ -166,7 +126,7 @@ error: Microsoft Visual C++ 14.0 is required...</code></pre>
         </ul>
         <p>Я потратил больше времени на дебаг скрипта, чем заняло бы написание статьи с нуля.</p>
 
-        <h2>🎭 Иллюзия «Красивого текста»</h2>
+<h2>🎭 Иллюзия «Красивого текста»</h2>
         <p>Пока я возился  с кодом, я параллельно тестировал разные нейросети для написания текстов. И тут я понял одну важную вещь про «ИИ-писателей» о которой редко говорят в рекламных статьях.</p>
         
         <p><strong>Первое впечатление:</strong> Ты читаешь, и глаза разбегаются. «Вау, как красиво зачитается!», «Какие обороты!». Кажется, что кто-то гениальный за тебя сочинил шедевр. Может, это и подойдёт, если тебе просто нужно успокоить совесть: «Смотри, у меня есть свой ИИ-писатель, я крут».</p>
@@ -219,10 +179,17 @@ error: Microsoft Visual C++ 14.0 is required...</code></pre>
 
 
 
-    </code></pre>
-        <p style="text-align: center; font-size: 0.9em;">— Эстетический путеводитель по путешествиям в Корее (Johnn)</p>
 
-        <h2> Апдейт: заглянул к агентам сегодня</h2>
+<pre>
+ERROR: pip dependency resolver...
+Failed to build numpy
+</pre>
+
+<div class="block warn">
+90% времени ушло не на AI, а на установку, ошибки и дебаг.
+</div>
+
+ <h2> Апдейт: заглянул к агентам сегодня</h2>
         <p>После публикации черновика я решил не бросать агентов на полпути. Зашёл сегодня перепроверить результаты, дал им новые задачи и посмотрел, чему они научились.</p>
         <p>Честно? <strong>Накосячили.</strong> Исследователь перепутал даты, а верстальщик вставил CSS прямо в HTML, забыв про внешний файл стилей. Когда я им указал на ошибки, они «извинились» (выдали стандартный ответ про оптимизацию) и поправили код. Но результат всё равно получился громоздким и требовал ручной шлифовки.</p>
         <p>Именно тогда я окончательно убедился: <strong>то, что вы читаете сейчас — написано мной с помощью Qwen.</strong> Это быстрее, точнее и даёт тот самый «человеческий» ритм, которого агентам пока не хватает. Они хороши для черновиков, но финальный штрих всегда за человеком.</p>
@@ -295,18 +262,6 @@ GPT Image 2 в ChatGPT
 
 
 - Портрет молодой восточноазиатской женщины ( Johnn)</code></pre>
-<div class="nav">
-<a href="#">← Назад</a>
-<a href="#">Далее →</a>
-</div>
 
-</article>
-
-<script>
-function toggleTheme() {
-  document.body.classList.toggle("dark");
-}
-</script>
-
-</body>
+    </body>
 </html>
