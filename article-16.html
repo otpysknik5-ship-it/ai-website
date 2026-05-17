@@ -3,37 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Я потратил 5 часов на настройку AI-агентов. Вот почему я вернулся к ручному написанию статей</title>
+    <title>Я потратил 5 часов на настройку AI-агентов</title>
     <style>
+        :root {
+            --bg-light: #f4f4f4;
+            --bg-dark: #121212;
+            --text-light: #333;
+            --text-dark: #e0e0e0;
+            --accent-orange: #ff6600;
+            --accent-green: #00cc66;
+            --accent-blue: #0099ff;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px;
-            background: #f4f4f4;
-            color: #333;
+            background: var(--bg-light);
+            color: var(--text-light);
             transition: background 0.3s, color 0.3s;
         }
-        .dark {
-            background: #121212;
-            color: #e0e0e0;
+        body.dark {
+            background: var(--bg-dark);
+            color: var(--text-dark);
         }
+
         .container {
             max-width: 900px;
             margin: auto;
         }
         h1, h2 {
-            color: #ff6600;
+            color: var(--accent-orange);
             text-align: center;
         }
+
         .block {
             padding: 25px;
             margin: 25px 0;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .block-1 { background: #ffe6e6; border-left: 5px solid #ff6600; }
-        .block-2 { background: #e6ffe6; border-left: 5px solid #00cc66; }
-        .block-3 { background: #e6f2ff; border-left: 5px solid #0099ff; }
+        .block-1 { background: #ffe6e6; border-left: 5px solid var(--accent-orange); }
+        .block-2 { background: #e6ffe6; border-left: 5px solid var(--accent-green); }
+        .block-3 { background: #e6f2ff; border-left: 5px solid var(--accent-blue); }
+
+        body.dark .block-1 { background: #4a0000; }
+        body.dark .block-2 { background: #001f00; }
+        body.dark .block-3 { background: #000f1f; }
 
         .theme-switcher {
             text-align: center;
@@ -44,7 +60,7 @@
             font-size: 16px;
             border-radius: 8px;
             cursor: pointer;
-            background: #ff6600;
+            background: var(--accent-orange);
             color: white;
             border: none;
             transition: background 0.3s;
@@ -54,7 +70,7 @@
         }
 
         pre, code {
-            background: #f0f0f0;
+            background: rgba(0,0,0,0.05);
             padding: 8px 12px;
             border-radius: 6px;
             font-family: monospace;
@@ -65,13 +81,13 @@
         }
 
         .prompts h3 {
-            color: #ff6600;
+            color: var(--accent-orange);
         }
 
         .prompts pre {
-            background: #f9f9f9;
+            background: rgba(0,0,0,0.05);
             padding: 15px;
-            border-left: 4px solid #ff6600;
+            border-left: 4px solid var(--accent-orange);
         }
 
         footer {
@@ -87,116 +103,23 @@
         <h1>🌟 Я потратил 5 часов на настройку AI-агентов. Вот почему я вернулся к ручному написанию статей</h1>
 
         <div class="block block-1">
-            <h2>Johnn | 16 мая 2026 | ~9 мин чтения</h2>
+          <h2>Johnn | 16 мая 2026 | ~9 мин чтения</h2>
+          <!-- Здесь вставь полный текст статьи -->
+          <p>Всё началось с привычного хайпа... (и так далее, весь твой текст)</p>
+          <!-- ... -->
+          <!-- Вставь весь текст статьи сюда -->
+          <!-- В конце статьи вставь полный бонус-промпт в блок .prompts -->
+          <div class="prompts">
+              <h3>Бонус-промпт (полный):</h3>
+              <pre><code>Эстетический путеводитель по путешествиям в Корее... (весь промпт)</code></pre>
+          </div>
+        </div>
+    </div>
 
-<p>Всё началось с привычного хайпа. Везде трубят: «Создай команду из нейросетей!», «Агенты пишут код, анализируют данные и работают 24/7!». Забудь про копирайтеров и верстальщиков. Звучит как магия. Как будущее, которое наступило, тем более мечта была давно, что бы кто то работал за тебя. Я поверил.</p>
+    <div class="theme-switcher">
+      <button onclick="document.body.classList.toggle('dark');">Переключить тему (светлая/тёмная)</button>
+    </div>
 
-<p>У меня есть сайт <a href="https://aimihome.ru" target="_blank">aimihome.ru</a>, где я публикую гайды и обзоры по ИИ. И я подумал: «Зачем мне вручную верстать каждую статью в HTML, если можно нанять цифровых сотрудников?» И мне уже говорили — ИИ напишет статью, только выставлять успевай.</p>
-
-<p>План казался железнобетонным, просто вот загорелось, начинай. Кстати кто только начинает, далее будут два промпта, пробуйте, что получится у вас.</p>
-
-<p>Спойлер: это был ещё один из самых выматывающих вечеров в познании нейросетей. Но именно он помог мне понять, где ИИ реально помогает, а где только создаёт иллюзию прогресса.</p>
-
-<h2>🛠 Задумка: «Пусть нейросети работают за меня»</h2>
-<p>План был простым:</p>
-<ul>
-    <li>Установить CrewAI (фреймворк для создания команд агентов).</li>
-    <li>Подключить быстрый LLM через Groq (Llama 3, летает мгновенно).</li>
-    <li>Настроить двух агентов: Исследователь (собирает факты) и HTML-верстальщик (превращает текст в готовый код для сайта).</li>
-    <li>Запустить скрипт — агенты "общаются" между собой — получить статью, залить на GitHub. PROFIT.</li>
-</ul>
-<p>Звучало логично, идеально. На практике всё пошло не по плану.</p>
-
-<h2>🔥 Реальность: Python 3.14, красные ошибки и PATH</h2>
-<p>Первый удар прилетел сразу, ещё до запуска агентов. Я скачал самую свежую версию Python — 3.14.5. Думал, «новее = лучше». Глупец. Ошибка — номер один.</p>
-
-<pre><code>ERROR: pip's dependency resolver does not currently take into account all the packages...
-Failed to build numpy
-error: Microsoft Visual C++ 14.0 is required...
-</code></pre>
-
-<p>Час ушёл не на создание "команды мечты", а на борьбу с установкой, чисткой PATH, переустановкой и перезагрузками. В итоге я понял: для AI-инструментов пока лучше брать Python 3.11 или 3.12. Стабильность важнее новизны.</p>
-
-<h2>Коллаб, ключи и танцы с CrewAI</h2>
-<p>Локально ничего не завелось. Перешёл в Google Colab — там Python 3.10 и всё работает из коробки. Установил библиотеки, получил API-ключ от Groq, прописал в коде...</p>
-
-<p>И тут начались «танцы»:</p>
-<ul>
-    <li>Агенты отказывались видеть модель: ValidationError: Input should be a valid string.</li>
-    <li>Gemini (встроенный помощник Colab) генерировал код, но в нём постоянно терялись кавычки или ломалась структура задач.</li>
-    <li>Когда всё наконец запустилось, агенты «общались» между собой, строили планы, но на выходе давали HTML-код, который нужно было править вручную.</li>
-</ul>
-
-<p>Я потратил больше времени на дебаг скрипта, чем заняло бы написание статьи с нуля.</p>
-
-<h2>🎭 Иллюзия «Красивого текста»</h2>
-<p>Пока я возился с кодом, я параллельно тестировал разные нейросети для написания текстов. И тут я понял одну важную вещь про «ИИ-писателей», о которой редко говорят в рекламных статьях.</p>
-
-<p>Первое впечатление — ты читаешь, и глаза разбегаются. «Вау, как красиво зачитается!», «Какие обороты!». Кажется, что кто-то гениальный за тебя сочинил шедевр. Может, это и подойдёт, если тебе просто нужно успокоить совесть.</p>
-
-<p>Второе и третье чтение — а потом садишься внимательно перечитывать... И понимаешь: писала машина. Текст сухой, механический, без души. Словарный запас вроде богатый, а смысла — ноль. Ты сидишь и правишь каждую фразу, чтобы она звучала по-человечески. В итоге — если хочешь, чтобы было хорошо — сделай сам.</p>
-
-<h2>💡 Момент истины</h2>
-<p>В какой-то момент я просто открыл чат с Qwen и написал:</p>
-
-<pre><code>Напиши готовую HTML-статью про то как я создавал агентов для моего сайта aimihome.ru. Используй <link rel="stylesheet" href="/styles.css">, оберни контент в <article>, добавь заголовки, списки и кнопки навигации. Выдай только код.
-</code></pre>
-
-<p>Через 10 секунд я получил чистый, валидный HTML. Без ошибок. Без настройки окружения. Без головной боли.</p>
-
-<h2>🎨 Инструменты, которые реально экономят время</h2>
-<ul>
-    <li><strong>Qwen AI</strong> — пишет статьи и чистый код без ошибок.</li>
-    <li><strong>Midjourney AI</strong> — делает отличные картинки и видео для обложек.</li>
-</ul>
-
-<div class="prompts">
-    <h3>Бонус-промпт для Midjourney / DALL-E:</h3>
-    <pre><code>Эстетический путеводитель по путешествиям в Корее... (см. ниже полный промпт)
-</code></pre>
-</div>
-
-<h2>Апдейт: заглянул к агентам сегодня</h2>
-<p>После публикации черновика я решил не бросать агентов на полпути... Честно? Накосячили. Исследователь перепутал даты, а верстальщик вставил CSS прямо в HTML... Но результат всё равно получился громоздким и требовал ручной шлифовки.</p>
-
-<h2>Итог</h2>
-<table style="width:100%; border-collapse:collapse; margin-top:25px;">
-    <tr style="border-bottom:1px solid #ccc;">
-        <th style="padding-right:30px;">Задача</th><th style="padding-right:30px;">Лучший инструмент</th>
-    </tr>
-    <tr style="border-bottom:1px solid #ccc;">
-        <td style="padding-right:30px;">Написать статью / HTML-код</td><td style="padding-right:30px;">Человек + Qwen / Gemini</td>
-    </tr>
-    <tr style="border-bottom:1px solid #ccc;">
-        <td style="padding-right:30px;">Создать обложки / Видео</td><td style="padding-right:30px;">Midjourney / Sora / Kling</td>
-    </tr>
-    <tr style="border-bottom:1px solid #ccc;">
-        <td style="padding-right:30px;">Многошаговые процессы</td><td style="padding-right:30px;">CrewAI / LangGraph (для профи)</td>
-    </tr>
-</table>
-
-<h2>Что дальше?</h2>
-<p>Я оставляю агентов для серьёзных задач... А для сайта выбираю связку: моя голова + умный промпт + ручной контроль.</p>
-
-<div class="prompts">
-    <h3>Бонус-промпт (полный):</h3>
-    <pre><code>Эстетический путеводитель по путешествиям в Корее... (вставь полный текст промпта здесь)
-</code></pre>
-</div>
-
-</div><!-- /block-1 -->
-
-<div class="theme-switcher">
-    <button onclick="toggleTheme()">Переключить тему (светлая/тёмная)</button>
-</div>
-
-<footer>© Johnn | aimihome.ru | Все права защищены | Сделано с душой и Qwen AI 🤖✨</footer>
-
-<script>
-function toggleTheme() {
-    document.body.classList.toggle('light');
-    document.body.classList.toggle('dark');
-}
-</script>
+    <footer>© Johnn | aimihome.ru | Все права защищены | Сделано с душой и Qwen AI 🤖✨</footer>
 </body>
 </html>
