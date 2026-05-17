@@ -1,698 +1,134 @@
-<!DOCTYPE html>
-<html lang="ru" data-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Я потратил 5 часов на AI-агентов. Почему я вернулся к ручному коду | АЙ ВЕБ ДОМ</title>
-    <link rel="stylesheet" href="/styles.css">
-    
-    <style>
-        /* CSS Variables for theming */
-        :root {
-            --bg: #f4f4f4;
-            --text: #1a1a1a;
-            --card-bg: #fff;
-            --border: #ddd;
-            --code-bg: #e0e0e0;
-            --code-text: #333;
-            --link-color: #007bff;
-            --blockquote-bg: #f5f7fa;
-            --blockquote-border: #667eea;
-            --table-header-bg: #eee;
-            --table-row-border: #ccc;
-            --footer-bg: #eee;
-            --footer-text: #777;
-        }
+<article>
 
-        html[data-theme='dark'] {
-            --bg: #1a1a1a;
-            --text: #e0e0e0;
-            --card-bg: #2a2a2a;
-            --border: #444;
-            --code-bg: #1e1e1e;
-            --code-text: #d4d4d4;
-            --link-color: #93b0ff;
-            --blockquote-bg: #222;
-            --blockquote-border: #93b0ff;
-            --table-header-bg: #333;
-            --table-row-border: #444;
-            --footer-bg: #111;
-            --footer-text: #aaa;
-        }
+<h1>Я потратил 5 часов на настройку AI-агентов. Вот почему я вернулся к ручному написанию статей</h1>
+<p><strong>Johnn | 16 мая 2026 | ~9 мин чтения</strong></p>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            line-height: 1.8;
-            background: var(--bg);
-            color: var(--text);
-            transition: background 0.3s, color 0.3s;
-            margin: 0;
-            padding: 0;
-            letter-spacing: 0.3px;
-        }
+<p>Всё началось с привычного хайпа. Везде трубят: «Создай команду из нейросетей!», «Агенты пишут код, анализируют данные и работают 24/7!». Забудь про копирайтеров и верстальщиков. Звучит как магия. Как будущее, которое наступило, тем более мечта была давно, что бы кто то работал за тебя. Я поверил.</p>
 
-        h1, h2, h3, h4 {
-            color: var(--text);
-            transition: color 0.3s;
-        }
+<p>У меня есть сайт aimihome.ru, где я публикую гайды и обзоры по ИИ. И я подумал: «Зачем мне вручную верстать каждую статью в HTML, если можно нанять цифровых сотрудников?» И мне уже говорили — ИИ напишет статью, только выставлять успевай.</p>
 
-        a {
-            color: var(--link-color);
-            text-decoration: none;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s;
-        }
+<p>План казался железнобетонным, просто вот загорелось, начинай. Кстати кто только начинает, далее будут два промпта, пробуйте, что получится у вас.</p>
 
-        a:hover {
-            border-bottom-color: var(--link-color);
-        }
+<p>Спойлер: это был ещё один из самых выматывающих вечеров в познании нейросетей. Но именно он помог мне понять, где ИИ реально помогает, а где только создаёт иллюзию прогресса.</p>
 
-        /* Article layout - ОПТИМИЗИРОВАНА ШИРИНА 680px */
-        article {
-            max-width: 720px;
-            padding: 18px 12px;
-    margin: 0 auto 16px;  /* Top: 0, Bottom: 20px */
-}
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-            margin-bottom: 20px;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
+<section class="info-block">
+<h2>🛠 Задумка: «Пусть нейросети работают за меня»</h2>
+<p>План был простым:</p>
+<ul>
+<li>Установить CrewAI (фреймворк для создания команд агентов).</li>
+<li>Подключить быстрый LLM через Groq (Llama 3, летает мгновенно).</li>
+<li>Настроить двух агентов: Исследователь (собирает факты) и HTML-верстальщик (превращает текст в готовый код для сайта).</li>
+<li>Запустить скрипт, агенты «общаются» между собой — получить статью, залить на GitHub. PROFIT.</li>
+</ul>
+<p>Звучало логично, идеально. На практике всё пошло не по плану.</p>
+</section>
 
-        html[data-theme='dark'] article {
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
+<section class="myth-block">
+<h2>🔥 Реальность: Python 3.14, красные ошибки и PATH</h2>
+<p>Первый удар прилетел сразу, ещё до запуска агентов. Я скачал самую свежую версию Python — 3.14.5. Думал, «новее = лучше». Глупец. Ошибка номер один.</p>
 
-        /* Theme Toggle Button */
-        .theme-toggle {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            font-size: 24px;
-            transition: all 0.3s;
-            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
-            color: white;
-        }
+<p>Библиотеки вроде numpy и pydantic просто не имели скомпилированных колёс под эту версию. Терминал VS Code начал плевать красными трейсбеками:</p>
 
-        .theme-toggle:hover {
-            transform: scale(1.1) rotate(20deg);
-            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.6);
-        }
-
-        /* Article Meta */
-        .article-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            align-items: center;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #f3f4f6, #f9fafb);
-            border-radius: 12px;
-            margin: 2rem 0 3rem;
-            font-size: 0.95rem;
-        }
-
-        html[data-theme='dark'] .article-meta {
-            background: linear-gradient(135deg, #1f2937, #111827);
-            color: #e5e7eb;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Colored Blocks - 5 типов */
-        .block-info, .block-tip, .block-warning, .block-success, .block-important {
-            padding: 24px 28px;
-            border-radius: 16px;
-            margin: 32px 0;
-            border-left: 6px solid;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            animation: slideInBlock 0.5s ease-out;
-        }
-
-        .block-info {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
-            border-left-color: #3b82f6;
-        }
-
-        .block-tip {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(0, 230, 118, 0.08) 100%);
-            border-left-color: #22c55e;
-        }
-
-        .block-warning {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(255, 87, 34, 0.08) 100%);
-            border-left-color: #f59e0b;
-        }
-
-        .block-success {
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(124, 77, 255, 0.08) 100%);
-            border-left-color: #a855f7;
-        }
-
-        .block-important {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(255, 107, 107, 0.08) 100%);
-            border-left-color: #ef4444;
-        }
-
-        .block-info:hover, .block-tip:hover, .block-warning:hover, .block-success:hover, .block-important:hover {
-            transform: translateX(4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-        }
-
-        .block-info strong { color: #1e40af; }
-        .block-tip strong { color: #15803d; }
-        .block-warning strong { color: #b45309; }
-        .block-success strong { color: #6d28d9; }
-        .block-important strong { color: #991b1b; }
-
-        html[data-theme='dark'] .block-info {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%);
-        }
-        html[data-theme='dark'] .block-tip {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(0, 230, 118, 0.15) 100%);
-        }
-        html[data-theme='dark'] .block-warning {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(255, 87, 34, 0.15) 100%);
-        }
-        html[data-theme='dark'] .block-success {
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(124, 77, 255, 0.15) 100%);
-        }
-        html[data-theme='dark'] .block-important {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(255, 107, 107, 0.15) 100%);
-        }
-
-        @keyframes slideInBlock {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Headings */
-        h1 {
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
-
-        h2 {
-            font-size: clamp(1.4rem, 4vw, 2rem);
-            margin: 3rem 0 1.5rem;
-            font-weight: 700;
-            padding-bottom: 0.8rem;
-            border-bottom: 3px solid #667eea;
-        }
-
-        html[data-theme='dark'] h2 {
-            border-bottom-color: #bb86fc;
-        }
-
-        h3 {
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            margin: 2rem 0 1rem;
-            font-weight: 600;
-        }
-
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        thead {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-        }
-
-        th, td {
-            padding: 16px;
-            text-align: left;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        tbody tr:hover {
-            background: #f3f4f6;
-        }
-
-        html[data-theme='dark'] tbody tr:hover {
-            background: #2d3748;
-        }
-
-        /* Code blocks */
-        pre {
-            background: var(--code-bg);
-            color: var(--code-text);
-            padding: 15px;
-            border-radius: 12px;
-            overflow-x: auto;
-            margin: 20px 0;
-            border: 1px solid var(--border);
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-            line-height: 1.5;
-        }
-
-        blockquote {
-            border-left: 4px solid var(--blockquote-border);
-            padding: 15px 20px;
-            background: var(--blockquote-bg);
-            border-radius: 6px;
-            margin: 20px 0;
-            transition: background 0.3s, border-color 0.3s;
-            font-style: italic;
-        }
-
-        blockquote em {
-            color: var(--text);
-        }
-
-        /* CTA Button */
-        .cta-button {
-            display: inline-block;
-            padding: 16px 32px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            margin: 2rem 0;
-            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.6);
-            text-decoration: none;
-            color: white;
-        }
-
-        /* Navigation Buttons */
-        .nav-buttons {
-            display: flex;
-            gap: 1rem;
-            margin: 3rem 0;
-            flex-wrap: wrap;
-        }
-
-        .nav-buttons a {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 60px;
-            padding: 40px 20px;
-            background: var(--footer-bg);
-            border-top: 1px solid var(--border);
-            border-radius: 12px;
-            text-align: center;
-            transition: background 0.3s, border-top-color 0.3s;
-            color: var(--footer-text);
-        }
-
-        footer h3 {
-            color: var(--text);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        footer p {
-            color: var(--footer-text);
-            margin: 0.5rem 0;
-        }
-
-        footer a {
-            display: inline-block;
-            margin: 1rem 0.5rem;
-            padding: 12px 24px;
-            background: #0088cc;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        footer a:hover {
-            transform: translateY(-2px);
-            background: #0066aa;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            article {
-                padding: 20px 16px;
-                margin-top: 30px;
-                margin-bottom: 30px;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            h2 {
-                font-size: 1.2rem;
-                margin: 2rem 0 1rem;
-            }
-
-            .block-info, .block-tip, .block-warning, .block-success, .block-important {
-                padding: 20px 22px;
-                margin: 24px 0;
-            }
-
-            .article-meta {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.8rem;
-                padding: 1.2rem;
-            }
-
-            .nav-buttons {
-                flex-direction: column;
-            }
-
-            .nav-buttons a {
-                width: 100%;
-                min-width: unset;
-            }
-
-            .theme-toggle {
-                width: 45px;
-                height: 45px;
-                top: 15px;
-                right: 15px;
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                font-size: 15px;
-            }
-
-            article {
-                padding: 16px 12px;
-                border-radius: 8px;
-            }
-
-            h1 {
-                font-size: 1.3rem;
-                margin-bottom: 1rem;
-            }
-
-            h2 {
-                font-size: 1.1rem;
-            }
-
-            .cta-button {
-                width: 100%;
-                padding: 14px 24px;
-            }
-
-            table {
-                font-size: 0.9rem;
-            }
-
-            th, td {
-                padding: 12px 8px;
-            }
-        }
-    </style>
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Я потратил 5 часов на AI-агентов. Почему я вернулся к ручному коду">
-    <meta property="og:description" content="Честный разбор: CrewAI, Python 3.14, конфликты библиотек и почему простой промпт в Qwen оказался лучше">
-    <meta property="og:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
-    <meta property="og:url" content="https://aimihome.ru/article-16.html">
-    <meta property="og:site_name" content="АЙ ВЕБ ДОМ">
-    <meta property="og:locale" content="ru_RU">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Я потратил 5 часов на AI-агентов. Почему я вернулся к ручному коду 💪">
-    <meta name="twitter:description" content="Честный разбор: CrewAI, Python 3.14, конфликты библиотек и почему простой промпт в Qwen оказался лучше">
-    <meta name="twitter:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
-
-    <link rel="canonical" href="https://aimihome.ru/article-16.html" />
-    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-    <!-- Schema.org разметка -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Я потратил 5 часов на AI-агентов. Почему я вернулся к ручному коду",
-        "description": "Честный разбор: CrewAI, Python 3.14, конфликты библиотек и почему простой промпт в Qwen оказался лучше",
-        "image": "https://aimihome.ru/ai-web-dom-og.jpg",
-        "author": {
-            "@type": "Person",
-            "name": "Johnn"
-        },
-        "datePublished": "2026-05-16",
-        "dateModified": "2026-05-17"
-    }
-    </script>
-</head>
-<body>
-    
-    <!-- Кнопка переключения темы -->
-    <button class="theme-toggle" id="theme-toggle" title="Переключить тему" aria-label="Переключить светлую/тёмную тему">
-        <span id="theme-icon">☀️</span>
-    </button>
-    
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108200368', 'ym');
-        ym(108200368, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer"});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/108200368" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-    <article>
-        <header>
-            <h1>Я потратил 5 часов на настройку AI-агентов. Вот почему я вернулся к ручному написанию статей</h1>
-            
-            <div class="article-meta">
-                <div class="meta-item">
-                    <span>👤 <strong>Johnn</strong></span>
-                </div>
-                <div class="meta-item">
-                    <span>📅 <strong>16 мая 2026</strong></span>
-                </div>
-                <div class="meta-item">
-                    <span>⏱️ <strong>~9 мин чтения</strong></span>
-                </div>
-            </div>
-        </header>
-
-        <section>
-            <p>Всё началось с привычного хайпа. Везде трубят: <em>«Создай команду из нейросетей!»</em>, <em>«Агенты пишут контент»</em>. Как будущее, которое наступило. Тем более мечта была давно — чтобы кто-то работал за тебя. Я поверил.</p>
-            
-            <p>У меня есть сайт <a href="https://aimihome.ru">aimihome.ru</a>, где я публикую гайды и обзоры по ИИ. И я подумал: <strong>«Зачем мне писать, если ИИ может за меня?»</strong> Спойлер: это был ещё один из самых выматывающих вечеров в познании нейросетей.</p>
-
-            <div class="block-info">
-                <strong>💡 О чём эта статья?</strong>
-                Я расскажу, как я пытался создать команду AI-агентов для автоматизации контента, почему это провалилось, и почему обычный промпт в Qwen оказался эффективнее.
-            </div>
-
-            <h2>🛠 Задумка: «Пусть нейросети работают за меня»</h2>
-            
-            <p>План был простым:</p>
-            <ol>
-                <li>Установить <strong>CrewAI</strong> (фреймворк для создания команд агентов)</li>
-                <li>Подключить быстрый LLM через <strong>Groq</strong> (Llama 3, летает мгновенно)</li>
-                <li>Настроить двух агентов: <em>Исследователь</em> (собирает факты) и <em>HTML-верстальщик</em> (превращает текст в красивую статью)</li>
-                <li>Запустить скрипт, агенты «общаются» между собой, получить статью, залить на GitHub. PROFIT</li>
-            </ol>
-
-            <p>Звучало логично. Идеально. На практике всё пошло не по плану.</p>
-
-            <h2>🔥 Реальность: Python 3.14, красные ошибки и PATH</h2>
-            
-            <p>Первый удар прилетел сразу, ещё до запуска агентов. Я скачал самую свежую версию Python — <strong>3.14.5</strong>. Думал, что это хорошо. Оказалось — нет.</p>
-
-            <p>Библиотеки вроде <code>numpy</code> и <code>pydantic</code> просто не имели скомпилированных колёс под эту версию. Начались ошибки:</p>
-
-            <pre><code>ERROR: pip's dependency resolver does not currently take into account all the packages...
+<pre>
+ERROR: pip's dependency resolver does not currently take into account all the packages...
 Failed to build numpy
-error: Microsoft Visual C++ 14.0 is required...</code></pre>
+error: Microsoft Visual C++ 14.0 is required...
+</pre>
 
-            <p>Час ушёл не на создание «команды мечты», а на борьбу с установкой, чисткой PATH, переустановкой и переводом на Python 3.10.</p>
+<p>Час ушёл не на создание «команды мечты», а на борьбу с установкой, чисткой PATH, переустановкой и перезагрузками. В итоге я понял: для AI-инструментов пока лучше брать Python 3.11 или 3.12. Стабильность важнее новизны.</p>
+</section>
 
-            <div class="block-warning">
-                <strong>⚠️ Совет от опыта</strong>
-                Всегда проверяй совместимость библиотек перед установкой новой версии Python. Лучше немного отстать, чем потом головоломку разгадывать.
-            </div>
+<section class="tech-block">
+<h2>Коллаб, ключи и танцы с CrewAI</h2>
+<p>Локально ничего не завелось. Перешёл в Google Colab — там Python 3.10 и всё работает из коробки. Установил библиотеки, получил API-ключ от Groq, прописал в коде...</p>
 
-            <h2>🤝 Google Colab, ключи и танцы с CrewAI</h2>
-            
-            <p>Локально ничего не завелось. Перешёл в <strong>Google Colab</strong> — там Python 3.10 и всё работает из коробки.</p>
+<p>И тут начались «танцы»:</p>
+<ul>
+<li>Агенты отказывались видеть модель: ValidationError: Input should be a valid string.</li>
+<li>Gemini генерировал код, но в нём постоянно терялись кавычки или ломалась структура задач.</li>
+<li>Когда всё наконец запустилось, агенты «общались» между собой, строили планы, но на выходе давали HTML-код, который нужно было править вручную.</li>
+</ul>
 
-            <p>И тут начались «танцы»:</p>
-            <ul>
-                <li>Агенты отказывались видеть модель: <code>ValidationError: Input should be a valid string</code></li>
-                <li>Gemini генерировал код, но в нём постоянно терялись кавычки или ломалась структура JSON</li>
-                <li>Когда всё наконец запустилось, агенты «общались» между собой, строили планы, но выдавали HTML-каш (27% брака)</li>
-            </ul>
+<p>Я потратил больше времени на дебаг скрипта, чем заняло бы написание статьи с нуля.</p>
+</section>
 
-            <p>Я потратил больше времени на дебаг скрипта, чем заняло бы написание статьи с нуля.</p>
+<section class="highlight">
+<h2>🎭 Иллюзия «Красивого текста»</h2>
+<p>Пока я возился с кодом, я параллельно тестировал разные нейросети для написания текстов. И тут я понял одну важную вещь про «ИИ-писателей».</p>
 
-            <h2>🎭 Иллюзия «Красивого текста»</h2>
-            
-            <p>Пока я возился с кодом, я параллельно тестировал разные нейросети для написания текстов. И тут я понял что-то важное.</p>
+<p>Первое впечатление: красиво, гладко, эффектно. Второе — читаешь внимательнее и понимаешь: писала машина. Текст сухой, механический, без души. В итоге: если хочешь, чтобы было хорошо — сделай сам.</p>
 
-            <div class="block-success">
-                <strong>✨ Ключевое наблюдение</strong>
-                ИИ может писать красиво, но не обязательно правдиво. Первое впечатление обманчиво.
-            </div>
+<p>А с агентами — что. Сидят они там, лыбятся, как два молодца из ларца. Мол, «Извини, братан, что получилось криво, мы старались». А результат — тот ещё.</p>
+</section>
 
-            <p><strong>Первое впечатление:</strong> Ты читаешь, и глаза разбегаются. «Вау, как красиво зачитается!» Слова подобраны, структура идеальна.</p>
+<section class="info-block">
+<h2>💡 Момент истины: когда простой промпт победил «команду»</h2>
+<p>В какой-то момент я просто открыл чат с Qwen и написал:</p>
 
-            <p><strong>Второе и третье чтение:</strong> А потом садишься внимательно перечитывать... и понимаешь: <strong>это говно</strong>. Противоречия, фактические ошибки, непонятные переходы.</p>
+<pre>
+«Напиши готовую HTML-статью про то как я создавал агентов для моего сайта aimihome.ru...»
+</pre>
 
-            <p>Агенты просто копировали этот паттерн — красиво писали, но без смысла.</p>
+<p>Через 10 секунд я получил чистый HTML. Без ошибок. Без настройки окружения. Без головной боли.</p>
 
-            <h2>💡 Момент истины: простой промпт победил систему</h2>
-            
-            <p>В какой-то момент я просто открыл чат с <strong>Qwen</strong> и написал:</p>
+<p>Тогда до меня дошло: агенты — это не замена автору. Это инфраструктура для сложных пайплайнов. Для разовой статьи они избыточны.</p>
+</section>
 
-            <blockquote>
-                <em>«Напиши готовую HTML-статью про то, как я создавал агентов для моего сайта aimihome.ru. Используй внешний CSS, вставь заголовок, мету для SEO, темную тему переключатель. Текст должен быть честным и интересным.»</em>
-            </blockquote>
+<section class="tools-block">
+<h2>Инструменты, которые реально экономят время</h2>
 
-            <p><strong>Через 10 секунд</strong> я получил чистый, валидный HTML. Без ошибок. Без настройки окружения. Без головной боли.</p>
+<h3>Qwen AI</h3>
+<p>Пишет сногсшибательные статьи и чистый код без единой ошибки. Идеально для вёрстки и текстов.</p>
 
-            <p>Тогда до меня дошло: <strong>агенты — это не замена автору. Это инфраструктура для сложных пайплайнов.</strong> Для простых задач они избыточны.</p>
+<h3>Midjourney AI</h3>
+<p>Делает отличные картинки и видео. Незаменим для обложек и визуального контента.</p>
+</section>
 
-            <div class="block-tip">
-                <strong>💡 Лайфхак</strong>
-                Иногда нужно просто спросить: «Может быть, я усложняю?» Часто ответ — да.
-            </div>
+<section class="info-block">
+<h2>🎁 Бонус: Пример промпта, который реально работает</h2>
+<p>Вот пример эстетического промпта для генерации изображений. Попробуйте — результат вас удивит.</p>
 
-            <h2>🎯 Инструменты, которые реально экономят время</h2>
-            
-            <p>После экспериментов я вывел формулу:</p>
+<pre>
+Мечтательный, нарисованный вручную travel-постер Сеула...
+</pre>
+</section>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Задача</th>
-                        <th>Инструмент</th>
-                        <th>Время</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Написать статью/код</td>
-                        <td>Человек + Qwen/Gemini</td>
-                        <td>30 мин</td>
-                    </tr>
-                    <tr>
-                        <td>Создать обложку/видео</td>
-                        <td>Midjourney/Sora</td>
-                        <td>15 мин</td>
-                    </tr>
-                    <tr>
-                        <td>Автономные процессы</td>
-                        <td>CrewAI/LangGraph</td>
-                        <td>2+ часа</td>
-                    </tr>
-                </tbody>
-            </table>
+<section class="myth-block">
+<h2>Апдейт: заглянул к агентам сегодня</h2>
+<p>После публикации черновика я решил не бросать агентов. Дал им новые задачи — и снова ошибки. Верстальщик вставил CSS прямо в HTML. Исследователь перепутал даты.</p>
 
-            <div class="block-important">
-                <strong>🔴 Вывод</strong>
-                <strong>Агенты не плохие. Они просто не для всего.</strong> Пытаться заменить ими написание контента — как покупать экскаватор, чтобы вскопать огород.
-            </div>
+<p>Именно тогда я окончательно убедился: то, что вы читаете сейчас — написано мной с помощью Qwen.</p>
+</section>
 
-            <h2>🏁 Что я буду делать дальше</h2>
-            
-            <p>Оставляю агентов для серьёзных задач, где нужна автономность и мультишаговые процессы.</p>
+<section class="highlight">
+<h2>Бонус-трек: как счётчик Яндекса сломал фавиконку</h2>
+<p>Во вкладке браузера вместо моей иконки отображался логотип Яндекса. Причина — старый сниппет ИКС. Удалил строку 43 в index.html — всё починилось.</p>
+</section>
 
-            <p>Для <strong>АЙ ВЕБ ДОМ</strong> выбираю стратегию: <strong>Я (идеи) + LLM (реализация) + 15 минут редактирования.</strong></p>
+<section class="conclusion-block">
+<h2>✅ Итог: зачем мне агенты, если есть я + LLM?</h2>
+<p>После эксперимента я чётко разделил инструменты:</p>
 
-            <p>Это работает. Попробуй сам.</p>
+<table>
+<tr><th>Задача</th><th>Лучший инструмент</th></tr>
+<tr><td>Написать статью / HTML-код</td><td>Человек + Qwen / Gemini</td></tr>
+<tr><td>Создать обложки / Видео</td><td>Midjourney / Sora / Kling</td></tr>
+<tr><td>Многошаговые процессы</td><td>CrewAI / LangGraph</td></tr>
+</table>
 
-            <a href="https://t.me/citadel_test_quote_bot" class="cta-button">📬 Присоединиться к сообществу →</a>
-        </section>
+<p>Агенты не плохие. Они просто не для всего. Пытаться заменить ими написание контента — как покупать экскаватор, чтобы посадить цветок в горшок.</p>
+</section>
 
-        <!-- Navigation -->
-        <nav class="nav-buttons">
-            <a href="/article-15.html" class="cta-button">← Предыдущая статья (15)</a>
-            <a href="/article-17.html" class="cta-button">Следующая статья (17) →</a>
-        </nav>
-    </article>
+<section class="info-block">
+<h2>🏁 Что дальше?</h2>
+<p>Если хотите, в следующих статьях разберём:</p>
+<ul>
+<li>Как добавить кнопки «Предыдущая / Следующая статья»</li>
+<li>Как сделать тёмную тему, которая сохраняется между страницами</li>
+<li>Как быстро генерировать обложки через бесплатные ИИ</li>
+</ul>
 
-    <!-- Footer -->
-    <footer>
-        <h3>🤖 Присоединяйся к сообществу</h3>
-        <p>Обсуждаем ИИ, делимся промптами, помогаем друг другу</p>
-        <a href="https://t.me/citadel_test_quote_bot" target="_blank">📬 @citadel_test_quote_bot</a>
-        <p style="margin-top: 2rem; font-size: 0.85rem;">© 2026 АЙ ВЕБ ДОМ НЕЙРОСЕТЬ</p>
-    </footer>
+<p>Пишите в комментариях: пробовали агентов? Стоило ли оно того?</p>
+</section>
 
-    <!-- Theme Toggle Script -->
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const htmlElement = document.documentElement;
-
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        htmlElement.setAttribute('data-theme', savedTheme);
-        themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlElement.setAttribute('data-theme', newTheme);
-            themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            localStorage.setItem('theme', newTheme);
-        });
-
-        // Detect system preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            if (!localStorage.getItem('theme')) {
-                htmlElement.setAttribute('data-theme', 'dark');
-                themeIcon.textContent = '☀️';
-            }
-        }
-    </script>
-</body>
-</html>
+</article>
