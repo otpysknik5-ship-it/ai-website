@@ -1,98 +1,92 @@
 <!DOCTYPE html>
-<html lang="ru"
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Я потратил 5 часов на AI-агентов. Почему я вернулся к ручному коду | АЙ ВЕБ ДОМ</title>
-    <link rel="stylesheet" href="/styles.css"> <!-- Keep existing external stylesheet -->
-    
-    <style>
-      /* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-html {
-  scroll-behavior: smooth;
-}
+<title>Статья | АЙ ВЕБ ДОМ</title>
+
+<style>
 
 /* ===== БАЗА ===== */
 body {
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #f9f9f9;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #222;
   transition: 0.3s;
 }
 
-.container {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* ===== ТЁМНАЯ ТЕМА ===== */
-body.dark-theme {
+body.dark {
   background: #121212;
   color: #e0e0e0;
 }
 
-/* ===== ЗАГОЛОВКИ ===== */
-h1 { font-size: 2.3rem; margin-bottom: 1rem; }
-h2 { margin: 2rem 0 1rem; color: #555; }
-h3 { margin: 1.5rem 0 0.8rem; color: #666; }
-
-body.dark-theme h2 { color: #bb86fc; }
-body.dark-theme h3 { color: #ccc; }
-
-/* ===== ШАПКА ===== */
-header {
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  color: white;
-  padding: 2rem;
-  text-align: center;
-  border-radius: 0 0 12px 12px;
-}
-
-/* ===== КНОПКА ТЕМЫ ===== */
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(0,0,0,0.2);
-  border: none;
-  font-size: 20px;
-  color: white;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-/* ===== КАРТОЧКИ ===== */
-.feature-card, .work-card {
+article {
+  max-width: 860px;
+  margin: 40px auto;
+  padding: 25px;
   background: white;
-  padding: 1.2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: 0.2s;
+  border-radius: 12px;
 }
 
-.feature-card:hover {
-  transform: translateY(-3px);
-}
-
-body.dark-theme .feature-card {
+body.dark article {
   background: #1e1e1e;
 }
 
-/* ===== ТАБЛИЦЫ ===== */
+/* ===== ЗАГОЛОВКИ ===== */
+h1 { font-size: 28px; }
+h2 { margin-top: 30px; }
+h3 { margin-top: 20px; }
+
+/* ===== КОД ===== */
+pre {
+  background: #111;
+  color: #0f0;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+body.dark pre {
+  background: #000;
+}
+
+/* ===== КНОПКА ТЕМЫ ===== */
+.theme-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* ===== КРАСИВЫЕ БЛОКИ ===== */
+.block {
+  padding: 20px;
+  border-radius: 12px;
+  margin: 25px 0;
+  color: white;
+}
+
+.blue { background: linear-gradient(135deg, #3b82f6, #6366f1); }
+.green { background: linear-gradient(135deg, #22c55e, #00e676); }
+.orange { background: linear-gradient(135deg, #ff9800, #ff5722); }
+.purple { background: linear-gradient(135deg, #a855f7, #7c4dff); }
+.red { background: linear-gradient(135deg, #ef4444, #ff6b6b); }
+
+/* фикс текста */
+.block * { color: inherit; }
+
+/* ===== ТАБЛИЦА ===== */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
+  margin-top: 20px;
 }
 
 td, th {
@@ -100,160 +94,37 @@ td, th {
   padding: 10px;
 }
 
-body.dark-theme td,
-body.dark-theme th {
+body.dark td, body.dark th {
   border-color: #444;
 }
 
-/* =========================================
-   🔥 КРАСИВЫЕ БЛОКИ (НОВАЯ ВЕРСИЯ)
-   ========================================= */
-
-.info-block,
-.short-block,
-.tech-block,
-.tools-block,
-.conclusion-block,
-.myth-block {
-  padding: 20px;
-  border-radius: 12px;
-  margin: 30px 0;
-  color: white;
-  font-weight: 500;
-}
-
-/* Градиенты */
-.info-block {
-  background: linear-gradient(135deg, #3b82f6, #6366f1);
-}
-
-.short-block {
-  background: linear-gradient(135deg, #1a73e8, #00c6ff);
-}
-
-.tech-block {
-  background: linear-gradient(135deg, #22c55e, #00e676);
-}
-
-.tools-block {
-  background: linear-gradient(135deg, #f59e0b, #ff5722);
-}
-
-.conclusion-block {
-  background: linear-gradient(135deg, #a855f7, #7c4dff);
-}
-
-.myth-block {
-  background: linear-gradient(135deg, #ef4444, #ff6b6b);
-}
-
-/* фикс текста */
-.info-block *,
-.short-block *,
-.tech-block *,
-.tools-block *,
-.conclusion-block *,
-.myth-block * {
-  color: inherit !important;
-}
-
 /* ===== КНОПКИ ===== */
-.ai-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 50px;
-  font-weight: 700;
-  text-decoration: none;
-  margin: 10px 5px;
-  transition: 0.3s;
-}
-
-.ai-btn.primary {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-}
-
-.ai-btn.accent {
-  background: linear-gradient(135deg, #ffaa00, #ff7e00);
-  color: white;
-}
-
-/* ===== FOOTER ===== */
-footer {
+.nav {
   text-align: center;
-  padding: 2rem;
-  color: #777;
-  border-top: 1px solid #eee;
+  margin-top: 40px;
 }
 
-body.dark-theme footer {
-  border-color: #333;
+.nav a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background: #667eea;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
 }
 
-/* ===== АНИМАЦИЯ ===== */
-.info-block,
-.short-block,
-.tech-block,
-.tools-block,
-.conclusion-block,
-.myth-block {
-  animation: fadeUp 0.6s ease;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-    </style>
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Я потратил 5 часов на AI-агентов. Почему я вернулся к ручному коду">
-    <meta property="og:description" content="Честный разбор: CrewAI, Python 3.14, конфликты библиотек и почему простой промпт в Qwen оказался эффективнее «умной команды».">
-    <meta property="og:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
-    <meta property="og:url" content="https://aimihome.ru/article-16.html">
-    <meta property="og:site_name" content="АЙ ВЕБ ДОМ">
-    <meta property="og:locale" content="ru_RU">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Я потратил 5 часов на AI-агентов. Почему я вернулся к ручному коду 💪">
-    <meta name="twitter:description" content="Честный разбор: CrewAI, Python 3.14, конфликты библиотек и почему простой промпт в Qwen оказался эффективнее «умной команды». 🤖">
-    <meta name="twitter:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
-
-    <link rel="canonical" href="https://aimihome.ru/article-16.html" />
-    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</style>
 </head>
+
 <body>
-    
-    <!-- Кнопка переключения темы -->
-    <button class="theme-toggle" id="theme-toggle" title="Переключить тему">
-      <span id="theme-icon">☀️</span>
-    </button>
-    
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108200368', 'ym');
 
-        ym(108200368, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/108200368" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
+<button class="theme-btn" onclick="toggleTheme()">🌙</button>
 
-    <article>
+
+<!-- 🔥 ВСТАВЬ СЮДА СВОЮ СТАТЬЮ БЕЗ ИЗМЕНЕНИЙ -->
+
+<article>
         <h1>Я потратил 5 часов на настройку AI-агентов. Вот почему я вернулся к ручному написанию статей</h1>
         
         <p style="font-style: italic; margin-bottom: 30px;"> Johnn | 16 мая 2026 | ~9 мин чтения</p>
@@ -424,69 +295,18 @@ GPT Image 2 в ChatGPT
 
 
 - Портрет молодой восточноазиатской женщины ( Johnn)</code></pre>
+<div class="nav">
+<a href="#">← Назад</a>
+<a href="#">Далее →</a>
+</div>
 
-    
-     <!-- Футер -->
-    <footer>
-      <h3 style="margin-bottom:15px;">🤖 Присоединяйся к сообществу</h3>
-      <p style="margin-bottom:25px;">Обсуждаем ИИ, делимся промптами, помогаем друг другу.</p>
-      
-      <a href="https://t.me/citadel_test_quote_bot" target="_blank" class="nav-buttons-telegram">
-        📬 @citadel_test_quote_bot
-      </a>
-      
-      <div class="nav-buttons">
-        <a href="/index.html">🏠 Главная</a>
-        <a href="/article-15.html">← Предыдущая</a>
-        <a href="/article-17.html">Следующая →</a>
-      </div>
-      
-      <p style="margin-top:30px;font-size:0.9em;">&copy; 2026 АЙ ВЕБ ДОМ НЕЙРОСЕТЬ</p>
-    </footer>
+</article>
 
-    </article>
-    
-    <script>
-        function toggleTheme(){
-          const html=document.documentElement;
-          const icon=document.getElementById('theme-icon');
-          if(html.getAttribute('data-theme')==='light'){
-            html.setAttribute('data-theme','dark');
-            icon.textContent='☀️';
-            localStorage.setItem('theme','dark');
-          }else{
-            html.setAttribute('data-theme','light');
-            icon.textContent='🌙';
-            localStorage.setItem('theme','light');
-          }
-        }
+<script>
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+}
+</script>
 
-   document.addEventListener('DOMContentLoaded', function () {
-  const body = document.body;
-  const icon = document.getElementById('theme-icon');
-  const toggleBtn = document.getElementById('theme-toggle');
-
-  const savedTheme = localStorage.getItem('theme') || 'dark';
-
-  if (savedTheme === 'dark') {
-    body.classList.add('dark-theme');
-    icon.textContent = '☀️';
-  } else {
-    icon.textContent = '🌙';
-  }
-
-  toggleBtn.addEventListener('click', function () {
-    body.classList.toggle('dark-theme');
-
-    if (body.classList.contains('dark-theme')) {
-      localStorage.setItem('theme', 'dark');
-      icon.textContent = '☀️';
-    } else {
-      localStorage.setItem('theme', 'light');
-      icon.textContent = '🌙';
-    }
-  });
-});
 </body>
-    </html>
-
+</html>
