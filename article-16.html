@@ -278,6 +278,27 @@
     background-color: #FF6600;
     margin-top: 10px;
 }
+   /* Контейнеры для картинок */
+.image-container {
+    display: flex;
+    justify-content: center; /* Центруем картинки */
+    margin: 20px 0; /* Небольшой отступ сверху и снизу */
+}
+
+/* Сами изображения */
+.image-container img {
+    max-width: 200px; /* Максимум 400px шириной */
+    height: auto; /* Сохраняем пропорции */
+    border-radius: 8px; /* Мягкие углы */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Лёгкая тень */
+}
+
+/* Адаптивность под мобильные устройства */
+@media (max-width: 600px) {
+    .image-container img {
+        max-width: 100%; /* На мобилках растянуть на всю ширину */
+    }
+}     
     </style>
 </head>
 <body>
