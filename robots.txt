@@ -1,15 +1,11 @@
-# Блокировка нежелательных папок
 User-agent: *
 Allow: /
 Disallow: /private/
 Disallow: /admin/
 Disallow: /temp/
-Disallow: /*.php$
 Disallow: /cgi-bin/
 
-# Разрешаем индексацию изображений (если хочешь, чтобы картинки были в поиске)
 User-agent: Googlebot-Image
 Allow: /
 
-# Указываем карту сайта
 Sitemap: https://aimihome.ru/sitemap.xml
