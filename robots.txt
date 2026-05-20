@@ -1,11 +1,12 @@
 User-agent: *
 Allow: /
 Disallow: /private/
-Disallow: /admin/
-Disallow: /temp/
-Disallow: /cgi-bin/
+Disallow: /tmp/
 
-User-agent: Googlebot-Image
+User-agent: Yandex
 Allow: /
+Disallow: /private/
+Disallow: /tmp/
+Crawl-delay: 1
 
 Sitemap: https://aimihome.ru/sitemap.xml
