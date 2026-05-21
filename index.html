@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO -->
+  <title>АЙ ВЕБ ДОМ — Нейросети и цифровые идеи</title>
+  <meta name="description" content="Главная страница проекта АЙ ВЕБ ДОМ. Разделы про нейросети, гайды и креатив. Заходи, тут интересно!">
+  
+  <!-- Верификации -->
+  <meta name="yandex-verification" content="42d2f187c4d916e5" />
+  <meta name="msvalidate.01" content="1FFD743C1A6F156092591A4210E851EA" />
+  
+     <!-- === SEO ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === -->
+  <title>АЙ ВЕБ ДОМ | Нейросети, ИИ-арт и гайды для своих</title>
+  <meta name="description" content="Уютный цифровой дом про искусственный интеллект. Честные обзоры нейросетей, ИИ-арт (коты и демоны), видео и гайды без воды. Заходи, тут интересно!">
+  <meta name="keywords" content="нейросети, искусственный интеллект, ИИ арт, midjourney, heygen, обучение ии, aimihome, ай веб дом, генерация картинок">
+  <meta name="author" content="Абу">
+  <link rel="canonical" href="https://aimihome.ru/">
+
+  <!-- === СОЦСЕТИ (Open Graph & Twitter) === -->
+  <!-- Чтобы ссылка красиво смотрелась в Telegram, VK, WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aimihome.ru/">
+  <meta property="og:title" content="АЙ ВЕБ ДОМ 🏠 | Нейросети тут живут">
+  <meta property="og:description" content="Заходи в мой цифровой дом. Тут ИИ рисует демонов, пишет код и помогает в жизни. Без сложной теории, только практика.">
+  <meta property="og:image" content="https://aimihome.ru/ai-web-dom-og.jpg"> <!-- Ссылка на красивую картинку-превью -->
+  <meta property="og:site_name" content="АЙ ВЕБ ДОМ">
+  <meta property="og:locale" content="ru_RU">
+
+  <!-- Для Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="АЙ ВЕБ ДОМ 🏠 | Нейросети тут живут">
+  <meta name="twitter:description" content="Обзоры нейросетей, гайды, генерация картинок. Заходи, читай, предлагай своё! 🤖">
+  <meta name="twitter:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png">  
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- Стили -->
+<link rel="stylesheet" href="/styles.css">
+
+  <style>
+    :root {
+      --bg: #f3f6fb;
+      --hero-bg: linear-gradient(135deg, #eef4ff 0%, #f8f2ff 50%, #eefcf6 100%);
+      --text: #132033;
+      --muted: #5a6b84;
+      --white: #ffffff;
+      --shadow: 0 14px 34px rgba(22, 32, 58, 0.12);
+      --border: rgba(255,255,255,0.35);
+      --header-text: #0f172a;
+      
+      /* Цвета карточек */
+      --card-red: linear-gradient(135deg, #ff4d4d 0%, #c9184a 100%);
+      --card-blue: linear-gradient(135deg, #3a86ff 0%, #4361ee 100%);
+      --card-green: linear-gradient(135deg, #06d6a0 0%, #1b9aaa 100%);
+      
+      --glass: rgba(255,255,255,0.45);
+      --link-color: #4361ee;
+      --item-bg: #ffffff;
+      --item-hover: #f0f4ff;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #09111d;
+      --hero-bg: linear-gradient(180deg, #0a1220 0%, #0d1526 100%);
+      --text: #eaf1ff;
+      --muted: #aab6cf;
+      --white: #ffffff;
+      --shadow: 0 16px 36px rgba(0, 0, 0, 0.38);
+      --border: rgba(255,255,255,0.08);
+      --header-text: #f4f7ff;
+      --glass: rgba(255,255,255,0.04);
+      
+      --card-red: linear-gradient(135deg, #ff4d6d 0%, #a4133c 100%);
+      --card-blue: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+      --card-green: linear-gradient(135deg, #06d6a0 0%, #118ab2 100%);
+      
+      --link-color: #4cc9f0;
+      --item-bg: rgba(255,255,255,0.05);
+      --item-hover: rgba(255,255,255,0.1);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s ease, color 0.3s ease;
+      line-height: 1.6;
+    }
+
+    .page { min-height: 100vh; background: var(--hero-bg); }
+
+    .topbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 20px 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--border);
+      background: var(--glass);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 16px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      font-weight: 700;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover { transform: scale(1.05); }
+
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 34px 20px 28px;
+      text-align: center;
+    }
+
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      border-radius: 24px;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    .logo-wrap img {
+      width: 96px;
+      height: 96px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+
+    .site-title {
+      margin: 0;
+      font-size: 44px;
+      line-height: 1.08;
+      text-transform: uppercase;
+      color: var(--header-text);
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 14px auto 0;
+      font-size: 18px;
+      color: var(--muted);
+    }
+
+    .content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 26px 20px 60px;
+    }
+
+    /* Стили карточек меню */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-bottom: 4rem;
+    }
+
+    .card {
+      border-radius: 24px;
+      padding: 26px;
+      min-height: 250px;
+      color: var(--white);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: translateY(0);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 44px rgba(0,0,0,0.18);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 140px;
+      height: 140px;
+      background: rgba(255,255,255,0.16);
+      border-radius: 50%;
+    }
+
+    .card.red { background: var(--card-red); }
+    .card.blue { background: var(--card-blue); }
+    .card.green { background: var(--card-green); }
+
+    .card-badge {
+      display: inline-block;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(6px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-title {
+      margin: 18px 0 12px;
+      font-size: 24px;
+      line-height: 1.2;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-text {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.92);
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-link {
+      margin-top: 20px;
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Блок списка статей */
+    .articles-list-section {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .articles-list-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--header-text);
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Стиль для каждой статьи в списке */
+    .article-item a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 15px 20px;
+      background: var(--item-bg);
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      height: 100%;
+    }
+
+    [data-theme="dark"] .article-item a {
+      box-shadow: none;
+      border: 1px solid var(--border);
+    }
+
+    .article-item a:hover {
+      transform: translateY(-3px);
+      background: var(--item-hover);
+      border-color: var(--link-color);
+      color: var(--link-color);
+    }
+
+    .footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .site-title { font-size: 34px; }
+      .articles-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+     <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108200368', 'ym');
+
+    ym(108200368, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108200368" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+  <div class="page">
+    <div class="topbar">
+      <button class="theme-toggle" id="themeToggle" type="button">🌙 Тёмная тема</button>
+    </div>
+
+    <header class="hero">
+      <div class="logo-wrap">
+        <img src="logo.png" alt="aimihome-АЙ ВЕБ ДОМ">
+      </div>
+      <h1 class="site-title">aimihome - АЙ ВЕБ ДОМ</h1>
+      <p class="subtitle">Нейросети тут живут 🤖</p>
+    </header>
+
+    <main class="content">
+      
+      <!-- БЛОК С ТРЕМЯ ГЛАВНЫМИ КАРТОЧКАМИ -->
+      <section class="grid">
+        
+        <!-- Карточка 1: Ведет на главную статью (ту, что с видео) -->
+        <a href="main-article.html" class="card red">
+          <div>
+            <span class="card-badge">ГЛАВНОЕ</span>
+            <h2 class="card-title">Нейросети для жизни</h2>
+            <p class="card-text">Видео "Демон великолепен", игра "Кот или Демон", новости и мои личные находки. Начни отсюда!</p>
+          </div>
+          <span class="card-link">Читать статью →</span>
+        </a>
+
+        <!-- Карточка 2: Заглушка -->
+        <a href="#" class="card blue">
+          <div>
+            <span class="card-badge">ПОПУЛЯРНО</span>
+            <h2 class="card-title">Гайды и инструкции</h2>
+            <p class="card-text">Пошаговые объяснения без лишней воды: как запускать проекты и настраивать ИИ.</p>
+          </div>
+          <span class="card-link">Смотреть гайды →</span>
+        </a>
+
+        <!-- Карточка 3: Заглушка -->
+        <a href="#" class="card green">
+          <div>
+            <span class="card-badge">ИДЕИ</span>
+            <h2 class="card-title">Креатив и вдохновение</h2>
+            <p class="card-text">Свежие идеи для сайтов, визуала и контента, чтобы проект выглядел ярко.</p>
+          </div>
+          <span class="card-link">Посмотреть идеи →</span>
+        </a>
+
+      </section>
+
+      <!-- БЛОК СО СПИСКОМ ВСЕХ СТАТЕЙ -->
+      <section class="articles-list-section">
+        <h2 class="articles-list-title">📚 Библиотека статей</h2>
+        <div class="articles-grid">
+          
+          <!-- Статья 1 -->
+          <div class="article-item">
+            <a href="article-1.html">
+              👁️ Глаз ИИ — как он видит
+            </a>
+          </div>
+
+          <!-- Статья 2 -->
+          <div class="article-item">
+            <a href="article-2.html">
+               Слышит ли ИИ?
+            </a>
+          </div>
+
+          <!-- Статья 3 -->
+          <div class="article-item">
+            <a href="article-3.html">
+               Путешествие ИИ сквозь код
+            </a>
+          </div>
+
+          <!-- Статья 4 -->
+          <div class="article-item">
+            <a href="article-4.html">
+              Что такое Midjourney — история и развитие
+            </a>
+          </div>
+
+          <!-- Статья 5 -->
+          <div class="article-item">
+            <a href="article-5.html">
+              Когда искусство начинает дышать | Мои работы 2026
+            </a>
+          </div>
+
+          <!-- Статья 6 -->
+          <div class="article-item">
+            <a href="article-6.html">
+              Midjourney v8: честный обзор обновления
+            </a>
+          </div>
+
+          <!-- Статья 7 -->
+          <div class="article-item">
+            <a href="article-7.html">
+               История HeyGen — путь к лидерству
+            </a>
+          </div>
+
+          <!-- Статья 8 -->
+          <div class="article-item">
+            <a href="article-8.html">
+              🚀 HeyGen и горячая новость
+            </a>
+          </div>
+
+          <!-- Статья 9 -->
+          <div class="article-item">
+            <a href="article-9.html">
+              🚀 Генерация видео, картинок в ИИ: обзор Flow, Leonardo, Qwen
+            </a>
+          </div>
+
+          <!-- Статья 10 -->
+          <div class="article-item">
+            <a href="article-10.html">
+              🤔 Шедеврум 2026: от щедрого и доплатного сервиса
+            </a>
+          </div>
+
+          <!-- Статья 11 -->
+          <div class="article-item">
+            <a href="article-11.html">
+              💪 Grok: о нём и о том как не надо писать промпты
+            </a>
+          </div>
+
+          <!-- Статья 12 -->
+          <div class="article-item">
+            <a href="article-12.html">
+               Gemini + CapCut: Как заработать с ИИ в 2026 г. Партнёры для видео
+            </a>
+          </div>
+
+          <!-- Статья 13 -->
+          <div class="article-item">
+            <a href="article-13.html">
+              Бесплатные ИИ в России 2026 — как обойтись без подписки?
+            </a>
+          </div>
+
+          <!-- Статья 14 -->
+          <div class="article-item">
+            <a href="article-14.html">
+              🤖 Bothub (BotHub): нейроплатформа, Caps и один вход к куче моделей
+            </a>
+          </div>
+
+          <!-- Статья 15 -->
+          <div class="article-item">
+            <a href="article-15.html">
+              🤖 Chad AI: что сказать друзьям — просто, доступно, по делу
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      aimihome-АЙ ВЕБ ДОМ © 2026 — яркий сайт о нейросетях и цифровых решениях
+    </footer>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+
+    function setTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      toggle.textContent = theme === 'dark' ? '☀️ Светлая тема' : '🌙 Тёмная тема';
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else {
+      setTheme('light');
+    }
+
+    toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') || 'light';
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
