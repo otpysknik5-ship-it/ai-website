@@ -44,7 +44,7 @@
 <!-- Стили -->
 <link rel="stylesheet" href="/styles.css">
 
-  <style>
+ <style>
     :root {
       --bg: #f3f6fb;
       --hero-bg: linear-gradient(135deg, #eef4ff 0%, #f8f2ff 50%, #eefcf6 100%);
@@ -90,7 +90,7 @@
       color: var(--text);
       transition: background 0.3s ease, color 0.3s ease;
       line-height: 1.5;
-      font-size: 0.95rem; /* 👈 БАЗОВЫЙ РАЗМЕР ТЕКСТА ЧУТЬ МЕНЬШЕ */
+      font-size: 0.95rem;
     }
 
     .page { min-height: 100vh; background: var(--hero-bg); }
@@ -98,7 +98,7 @@
     .topbar {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 12px 20px 0; /* 👈 УМЕНЬШИЛ ОТСТУП СВЕРХУ */
+      padding: 12px 20px 0;
       display: flex;
       justify-content: flex-end;
     }
@@ -108,7 +108,7 @@
       background: var(--glass);
       color: var(--text);
       border-radius: 999px;
-      padding: 8px 14px; /* 👈 КНОПКА ТЕМЫ ЧУТЬ МЕНЬШЕ */
+      padding: 8px 14px;
       cursor: pointer;
       box-shadow: var(--shadow);
       font-weight: 700;
@@ -119,10 +119,11 @@
     
     .theme-toggle:hover { transform: scale(1.05); }
 
+    /* === КОМПАКТНЫЙ БАННЕР === */
     .hero {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 1.5rem; /* 👈 БАННЕР КОРОЧЕ */
+      padding: 1.5rem 1rem 1rem;
       text-align: center;
     }
 
@@ -130,56 +131,81 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 10px; /* 👈 ЛОГОТИП ЧУТЬ МЕНЬШЕ */
-      border-radius: 20px;
+      padding: 8px;
+      border-radius: 16px;
       background: var(--glass);
       border: 1px solid var(--border);
       backdrop-filter: blur(10px);
       box-shadow: var(--shadow);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .logo-wrap img {
-      width: 72px; /* 👈 ЛОГОТИП МЕНЬШЕ */
-      height: 72px;
+      width: 60px;
+      height: 60px;
       object-fit: cover;
-      border-radius: 14px;
+      border-radius: 12px;
       display: block;
     }
 
     .site-title {
       margin: 0;
-      font-size: 2.8rem; /* 👈 ЗАГОЛОВОК МЕНЬШЕ */
+      font-size: 2.2rem;
       line-height: 1.1;
       text-transform: uppercase;
       color: var(--header-text);
+      margin-bottom: 0.5rem;
     }
 
     .subtitle {
-      max-width: 760px;
-      margin: 8px auto 0;
-      font-size: 1.1rem; /* 👈 ПОДЗАГОЛОВОК МЕНЬШЕ */
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1rem;
       color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* Ссылка на партнёра внутри подзаголовка */
+    .inline-partner-link {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: linear-gradient(90deg, #ff6b00 0%, #ffaa00 100%);
+      border-radius: 20px;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(255, 107, 0, 0.3);
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+      margin-left: 8px;
+    }
+
+    .inline-partner-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 107, 0, 0.5);
+      background: linear-gradient(90deg, #ff8c00 0%, #ffb74d 100%);
+      border-color: #fff;
     }
 
     .content {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px 20px 40px; /* 👈 МЕНЬШЕ ОТСТУПОВ */
+      padding: 20px 20px 40px;
     }
 
     /* Карточки меню */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px; /* 👈 МЕНЬШЕ ПРОМЕЖУТКИ МЕЖДУ КАРТОЧКАМИ */
+      gap: 18px;
       margin-bottom: 3rem;
     }
 
     .card {
-      border-radius: 20px; /* 👈 МЕНЬШЕ СКРУГЛЕНИЕ */
-      padding: 20px; /* 👈 МЕНЬШЕ ВНУТРЕННИЙ ОТСТУП */
-      min-height: 220px; /* 👈 МЕНЬШЕ ВЫСОТА */
+      border-radius: 20px;
+      padding: 20px;
+      min-height: 220px;
       color: var(--white);
       box-shadow: var(--shadow);
       position: relative;
@@ -194,7 +220,7 @@
     }
 
     .card:hover {
-      transform: translateY(-4px); /* 👈 МЕНЬШЕ ВСПЛЫТИЕ */
+      transform: translateY(-4px);
       box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     }
 
@@ -216,11 +242,11 @@
     .card-badge {
       display: inline-block;
       width: fit-content;
-      padding: 6px 10px; /* 👈 БЕЙДЖ МЕНЬШЕ */
+      padding: 6px 10px;
       border-radius: 999px;
       background: rgba(255,255,255,0.18);
       color: #fff;
-      font-size: 12px; /* 👈 ШРИФТ БЕЙДЖА МЕНЬШЕ */
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.3px;
       backdrop-filter: blur(6px);
@@ -229,8 +255,8 @@
     }
 
     .card-title {
-      margin: 10px 0 8px; /* 👈 МЕНЬШЕ ОТСТУПЫ */
-      font-size: 1.3rem; /* 👈 ЗАГОЛОВОК КАРТОЧКИ МЕНЬШЕ */
+      margin: 10px 0 8px;
+      font-size: 1.3rem;
       line-height: 1.2;
       position: relative;
       z-index: 1;
@@ -238,7 +264,7 @@
 
     .card-text {
       margin: 0;
-      font-size: 0.9rem; /* 👈 ТЕКСТ КАРТОЧКИ МЕНЬШЕ */
+      font-size: 0.9rem;
       line-height: 1.5;
       color: rgba(255,255,255,0.92);
       position: relative;
@@ -253,7 +279,7 @@
 
     .card ul li {
         margin-bottom: 6px;
-        font-size: 0.85rem; /* 👈 СПИСОК ВНУТРИ КАРТОЧКИ МЕНЬШЕ */
+        font-size: 0.85rem;
     }
 
     .card ul li a {
@@ -268,64 +294,28 @@
     }
 
     .card-link {
-      margin-top: 12px; /* 👈 МЕНЬШЕ ОТСТУП */
+      margin-top: 12px;
       display: inline-block;
       color: #fff;
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.9rem; /* 👈 ССЫЛКА "ЧИТАТЬ ДАЛЕЕ" МЕНЬШЕ */
+      font-size: 0.9rem;
       position: relative;
       z-index: 1;
-    }
-
-    /* Кнопка "Начать с главной статьи" */
-    .hero-cta-button {
-        display: inline-block;
-        padding: 14px 35px; /* 👈 МЕНЬШЕ РАЗМЕР */
-        font-size: 1.1rem; /* 👈 МЕНЬШЕ ШРИФТ */
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #ffffff;
-        background: linear-gradient(90deg, #ff6b00 0%, #ffaa00 100%);
-        border-radius: 40px; /* 👈 ЧУТЬ МЕНЬШЕ СКРУГЛЕНИЕ */
-        box-shadow: 0 6px 20px rgba(255, 107, 0, 0.3);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        text-decoration: none;
-    }
-
-    .hero-cta-button:hover {
-        transform: translateY(-3px) scale(1.03); /* 👈 МЕНЬШЕ ЭФФЕКТ */
-        box-shadow: 0 8px 25px rgba(255, 107, 0, 0.5);
-        background: linear-gradient(90deg, #ff8c00 0%, #ffb74d 100%);
-    }
-
-    .hero-cta-button::after {
-        content: '→';
-        display: inline-block;
-        margin-left: 10px;
-        animation: bounce-right 1.5s infinite;
-    }
-
-    @keyframes bounce-right {
-        0%, 100% { transform: translateX(0); }
-        50% { transform: translateX(8px); }
     }
 
     /* Блок списка статей */
     .articles-list-section {
       background: var(--glass);
       border: 1px solid var(--border);
-      border-radius: 20px; /* 👈 МЕНЬШЕ СКРУГЛЕНИЕ */
-      padding: 1.5rem; /* 👈 МЕНЬШЕ ВНУТРЕННИЙ ОТСТУП */
+      border-radius: 20px;
+      padding: 1.5rem;
       backdrop-filter: blur(10px);
     }
 
     .articles-list-title {
       text-align: center;
-      font-size: 1.6rem; /* 👈 ЗАГОЛОВОК БИБЛИОТЕКИ МЕНЬШЕ */
+      font-size: 1.6rem;
       margin-bottom: 1.5rem;
       color: var(--header-text);
     }
@@ -333,20 +323,20 @@
     .articles-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.2rem; /* 👈 МЕНЬШЕ ПРОМЕЖУТКИ */
+      gap: 1.2rem;
     }
 
     .article-item a {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 12px 16px; /* 👈 МЕНЬШЕ ВНУТРЕННИЙ ОТСТУП */
+      padding: 12px 16px;
       background: var(--item-bg);
       color: var(--text);
       text-decoration: none;
-      border-radius: 10px; /* 👈 МЕНЬШЕ СКРУГЛЕНИЕ */
+      border-radius: 10px;
       font-weight: 600;
-      font-size: 0.95rem; /* 👈 ШРИФТ ССЫЛКИ МЕНЬШЕ */
+      font-size: 0.95rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       transition: all 0.2s ease;
       border: 1px solid transparent;
@@ -359,7 +349,7 @@
     }
 
     .article-item a:hover {
-      transform: translateY(-2px); /* 👈 МЕНЬШЕ ВСПЛЫТИЕ */
+      transform: translateY(-2px);
       background: var(--item-hover);
       border-color: var(--link-color);
       color: var(--link-color);
@@ -368,10 +358,10 @@
     .footer {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 30px 20px; /* 👈 МЕНЬШЕ ОТСТУПЫ */
+      padding: 30px 20px;
       text-align: center;
       color: var(--muted);
-      font-size: 13px; /* 👈 ФУТЕР МЕНЬШЕ */
+      font-size: 13px;
       border-top: 1px solid var(--border);
       margin-top: 30px;
     }
@@ -383,16 +373,21 @@
           gap: 15px;
       }
       .site-title { 
-          font-size: 2.2rem !important; 
+          font-size: 1.8rem !important; 
       }
       .subtitle {
-          font-size: 1rem !important;
+          font-size: 0.9rem !important;
+          padding: 0 10px;
       }
-      .hero-cta-button {
-          padding: 12px 25px !important;
-          font-size: 1rem !important;
-          width: 95% !important;
-          max-width: 400px;
+      .inline-partner-link {
+          font-size: 0.8rem;
+          padding: 2px 8px;
+          margin-left: 0;
+          display: block;
+          margin-top: 8px;
+          width: fit-content;
+          margin-left: auto;
+          margin-right: auto;
       }
       .card {
           padding: 16px !important;
@@ -411,16 +406,11 @@
       .articles-list-title {
           font-size: 1.4rem !important;
       }
-    
- /* Адаптив для мобильных */
-@media (max-width: 600px) {
-    .partner-btn {
-        padding: 12px 25px;
-        font-size: 1rem;
-        width: 90%;
-        max-width: 350px;
+      .logo-wrap img {
+          width: 50px !important;
+          height: 50px !important;
+      }
     }
-}
 </style>
 </head>
 <body>
@@ -444,18 +434,21 @@
       <button class="theme-toggle" id="themeToggle" type="button">🌙 Тёмная тема</button>
     </div>
 
-    <header class="hero">
-      <div class="logo-wrap">
-        <img src="logo.png" alt="aimihome-АЙ ВЕБ ДОМ">
-      </div>
-    <h1 class="site-title">
-Как Я ПРОБУЮ зарабатывать с ИИ, даже с нуля
-</h1>
-
-<p class="subtitle">
-Проверенные гайды, нейросети, генерация видео и картинок — без воды и сложных терминов
-</p>
-    </header>
+  <header class="hero" style="padding: 1.5rem 1rem 1rem;">
+    <div class="logo-wrap" style="padding: 8px; margin-bottom: 10px;">
+        <img src="logo.png" alt="aimihome-АЙ ВЕБ ДОМ" style="width: 60px; height: 60px; border-radius: 12px;">
+    </div>
+    <h1 class="site-title" style="font-size: 2.2rem; line-height: 1.1; margin-bottom: 0.5rem;">
+        КАК ЗАРАБАТЫВАТЬ С ИИ, ДАЖЕ ЕСЛИ ТЫ С НУЛЯ
+    </h1>
+    <p class="subtitle" style="font-size: 1rem; max-width: 600px; margin: 0 auto;">
+        Проверенные гайды, нейросети, генерация видео и картинок — без воды и сложных терминов  
+        <span style="margin-left: 8px;">
+            👉 <a href="https://syntx.ai/welcome/BCEmL6aO" target="_blank" class="inline-partner-link">Попробовать Syntx.ai</a>
+        </span>
+    </p>
+</header>
+    
 <!-- Красивая кнопка "Начать" по центру -->
 <div style="text-align: center; margin: 30px 0 40px;">
     <a href="main-article.html" class="hero-cta-button">
