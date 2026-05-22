@@ -334,6 +334,52 @@
   font-weight: bold;
   text-decoration: none;
 }
+   /* Красивая кнопка CTA */
+.hero-cta-button {
+    display: inline-block;
+    padding: 18px 50px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    background: linear-gradient(90deg, #ff6b00 0%, #ffaa00 100%);
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(255, 107, 0, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Эффект при наведении */
+.hero-cta-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(255, 107, 0, 0.6);
+    background: linear-gradient(90deg, #ff8c00 0%, #ffb74d 100%);
+}
+
+/* Анимация стрелки */
+.hero-cta-button::after {
+    content: '→';
+    display: inline-block;
+    margin-left: 10px;
+    animation: bounce-right 1.5s infinite;
+}
+
+@keyframes bounce-right {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(8px); }
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 600px) {
+    .hero-cta-button {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        width: 90%;
+        max-width: 400px;
+    }
+} 
   </style>
 </head>
 <body>
@@ -369,8 +415,11 @@
 Проверенные гайды, нейросети, генерация видео и картинок — без воды и сложных терминов
 </p>
     </header>
-<div style="text-align: right; margin-top: 20px; margin-bottom: 30px;">
-    <a href="main-article.html" class="cta-button-next">👉 Начать с главной статьи</a>
+<!-- Красивая кнопка "Начать" по центру -->
+<div style="text-align: center; margin: 30px 0 40px;">
+    <a href="main-article.html" class="hero-cta-button">
+        👉 Начать с главной статьи
+    </a>
 </div>
 
     <main class="content">
