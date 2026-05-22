@@ -835,5 +835,36 @@ body.dark-theme .feature-card {
     border-left-color: #bb86fc;
     box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
+/* Красная кнопка "Назад" */
+.back-btn-red {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: #d63031; /* Яркий красный */
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(214, 48, 49, 0.4);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 2px solid transparent;
+}
+
+.back-btn-red:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(214, 48, 49, 0.6);
+    background: #ff7675; /* Светлее при наведении */
+    border-color: #fff;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 600px) {
+    .back-btn-red {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        width: 90%;
+        max-width: 300px;
+    }
+}
 
 
