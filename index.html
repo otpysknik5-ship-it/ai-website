@@ -411,63 +411,8 @@
       .articles-list-title {
           font-size: 1.4rem !important;
       }
-    }
-    /* Анимация появления блока при скролле */
-.partner-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.partner-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Кнопка партнёра с пульсацией */
-.partner-btn {
-    display: inline-block;
-    padding: 14px 40px;
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: #ffffff;
-    background: linear-gradient(90deg, #ff6b00 0%, #ffaa00 100%);
-    border-radius: 50px;
-    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-}
-
-.partner-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(255, 107, 0, 0.6);
-    background: linear-gradient(90deg, #ff8c00 0%, #ffb74d 100%);
-    border-color: #fff;
-}
-
-/* Пульсирующее свечение вокруг кнопки */
-.partner-btn::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-    animation: pulse-glow 2s infinite;
-    z-index: -1;
-}
-
-@keyframes pulse-glow {
-    0% { transform: scale(0.8); opacity: 0.5; }
-    50% { transform: scale(1.1); opacity: 0.8; }
-    100% { transform: scale(0.8); opacity: 0.5; }
-}
-
-/* Адаптив для мобильных */
+    
+ /* Адаптив для мобильных */
 @media (max-width: 600px) {
     .partner-btn {
         padding: 12px 25px;
@@ -744,20 +689,6 @@
     });
   </script>
   <script>
-    // Анимация появления блока партнёра при скролле
-    document.addEventListener('DOMContentLoaded', function() {
-        const partnerBlock = document.getElementById('partner-block');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        observer.observe(partnerBlock);
-    });
-</script>
+  
 </body>
 </html>
