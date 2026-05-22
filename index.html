@@ -411,6 +411,37 @@
           height: 50px !important;
       }
     }
+   /* Кнопка "Начать с главной статьи" */
+.start-main-btn {
+    display: inline-block;
+    padding: 14px 40px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); /* Фиолетово-синий градиент */
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 2px solid transparent;
+}
+
+.start-main-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(90deg, #764ba2 0%, #667eea 100%);
+    border-color: #fff;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 600px) {
+    .start-main-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+        width: 90%;
+        max-width: 350px;
+    }
+}
 </style>
 </head>
 <body>
@@ -450,8 +481,8 @@
 </header>
     
 <!-- Красивая кнопка "Начать" по центру -->
-<div style="text-align: center; margin: 30px 0 40px;">
-    <a href="main-article.html" class="hero-cta-button">
+<div style="text-align: center; margin: 25px 0 35px;">
+    <a href="main-article.html" class="start-main-btn">
         👉 Начать с главной статьи
     </a>
 </div>
