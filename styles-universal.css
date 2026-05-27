@@ -1,0 +1,393 @@
+/* ========================================
+   АЙ ВЕБ ДОМ — УНИВЕРСАЛЬНЫЙ СТИЛЬ
+   Версия 1.0
+   Работает со светлой и тёмной темой
+   ======================================== */
+
+/* ---------- ПЕРЕМЕННЫЕ (светлая тема по умолчанию) ---------- */
+:root {
+    --bg-primary: #f5f7fc;
+    --bg-secondary: #ffffff;
+    --bg-card: #f0f4f8;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --text-light: #777777;
+    --border: #e0e0e0;
+    --accent: #667eea;
+    --accent-hover: #5a67d8;
+    --accent2: #764ba2;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+    
+    /* Градиенты (цветные блоки) */
+    --gradient-highlight: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-conclusion: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    --gradient-call: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    --gradient-ad: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* ---------- ТЁМНАЯ ТЕМА (переопределяем переменные) ---------- */
+body.dark {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-card: #1e293b;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-light: #94a3b8;
+    --border: #334155;
+    --accent: #7b8cff;
+    --accent-hover: #9a6bff;
+    --shadow: rgba(0, 0, 0, 0.3);
+    
+    /* Цветные блоки в тёмной теме — остаются цветными, но адаптированы */
+    --gradient-highlight: linear-gradient(135deg, #4c1d95 0%, #7e22ce 100%);
+    --gradient-conclusion: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    --gradient-call: linear-gradient(135deg, #1e1b4b 0%, #2e1065 100%);
+    --gradient-ad: linear-gradient(135deg, #4c1d95 0%, #7e22ce 100%);
+}
+
+/* ---------- БАЗОВЫЕ СТИЛИ ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* ---------- ЗАГОЛОВКИ (адаптируются под тему) ---------- */
+h1, .h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+h2, .h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1.5rem 0 1rem 0;
+    color: var(--text-primary);
+    border-left: 4px solid var(--accent);
+    padding-left: 0.75rem;
+}
+
+h3, .h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem 0;
+    color: var(--text-primary);
+}
+
+/* Заголовок статьи с градиентом (остаётся цветным) */
+.article-main-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+body.dark .article-main-title {
+    background: linear-gradient(135deg, #7b8cff 0%, #9a6bff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.article-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+}
+
+/* ---------- КНОПКИ ---------- */
+.back-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.back-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* ---------- КАРТОЧКИ И БЛОКИ ---------- */
+.highlight {
+    background: var(--gradient-highlight);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.short-block, .tech-block {
+    background: var(--bg-card);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    border-left: 4px solid var(--accent);
+    color: var(--text-primary);
+}
+
+.conclusion-block {
+    background: var(--gradient-conclusion);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    color: var(--text-primary);
+}
+
+body.dark .conclusion-block {
+    color: var(--text-primary);
+}
+
+/* Арт-контейнер */
+.artwork-container {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 16px;
+    margin: 2rem 0;
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.journey-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.image-caption {
+    text-align: center;
+    font-style: italic;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* ---------- РЕКЛАМНЫЙ БЛОК ---------- */
+.ad-block {
+    background: var(--gradient-ad);
+    padding: 25px;
+    border-radius: 20px;
+    margin: 30px 0;
+    text-align: center;
+    box-shadow: 0 8px 20px var(--shadow);
+}
+
+.ad-title {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.ad-text {
+    color: #f1f5f9;
+    margin-bottom: 20px;
+}
+
+.ad-button {
+    display: inline-block;
+    background: white;
+    color: var(--accent2);
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.ad-button:hover {
+    transform: scale(1.02);
+}
+
+.ad-note {
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    margin-top: 12px;
+}
+
+/* ---------- ПРИЗЫВ К ДЕЙСТВИЮ ---------- */
+.call-to-action {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--gradient-call);
+    border-radius: 16px;
+}
+
+.call-to-action h3,
+.call-to-action p {
+    color: var(--text-primary);
+}
+
+body.dark .call-to-action h3,
+body.dark .call-to-action p {
+    color: #e2e8f0;
+}
+
+.cta-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+}
+
+.cta-btn-blue { background: #1a73e8; color: white; }
+.cta-btn-cyan { background: #00d9ff; color: #1a1a2e; }
+.cta-btn-pink { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+
+/* ---------- ПОДВАЛ ---------- */
+.site-footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+.footer-link {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* ---------- КНОПКИ УПРАВЛЕНИЯ ---------- */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    z-index: 999;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.back-to-top:hover {
+    transform: scale(1.05);
+}
+
+/* ---------- СПИСКИ ---------- */
+ul, ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin: 0.3rem 0;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* ---------- АДАПТИВ (МОБИЛЬНЫЕ УСТРОЙСТВА) ---------- */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    h1, .article-main-title {
+        font-size: 1.6rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    .cta-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-btn {
+        width: 80%;
+        text-align: center;
+    }
+    
+    .ad-button {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
+    .theme-toggle, .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
