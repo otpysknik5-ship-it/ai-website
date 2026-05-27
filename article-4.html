@@ -298,6 +298,124 @@
             .theme-toggle, .back-to-top { width: 40px; height: 40px; font-size: 1rem; }
             .back-to-top { right: 70px; }
         }
+        /* ========== ЖИВОЙ И ВЕСЁЛЫЙ СТИЛЬ ========== */
+
+/* Классные цветные блоки - как в твоих любимых статьях */
+.prompt-box, .tip-box, .highlight-box {
+    background: linear-gradient(105deg, #f3e8ff 0%, #e9d5ff 100%) !important;
+    color: #3b0764 !important;
+    border-left: 8px solid #d946ef !important;
+    border-radius: 20px !important;
+    padding: 1.5rem !important;
+    margin: 1.5rem 0 !important;
+    font-weight: 500 !important;
+}
+body.dark .prompt-box, 
+body.dark .tip-box, 
+body.dark .highlight-box {
+    background: linear-gradient(105deg, #2d0b4e 0%, #5b21b6 100%) !important;
+    color: #f3e8ff !important;
+    border-left-color: #e879f9 !important;
+}
+
+/* Сетка с карточками - понятно и свежо */
+.grid-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+}
+.grid-cards .card {
+    flex: 1 1 200px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #e9d5ff;
+}
+body.dark .grid-cards .card {
+    background: #2e1065;
+    border-color: #8b5cf6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Таблица сравнения - читаемая и стильная */
+.comparison-table {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+}
+.comparison-table th {
+    background: #f3e8ff;
+    color: #4c1d95;
+    padding: 12px;
+    font-weight: 700;
+}
+body.dark .comparison-table th {
+    background: #4c1d95;
+    color: #f3e8ff;
+}
+.comparison-table td {
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 12px;
+}
+body.dark .comparison-table td {
+    background: #1e1b4b;
+    border-bottom-color: #4c1d95;
+    color: #f1f5f9;
+}
+
+/* Кнопки - сочные и тёплые */
+.back-btn {
+    background: #d946ef;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(217,70,239,0.3);
+}
+.back-btn:hover {
+    background: #c026d3;
+    transform: scale(1.02);
+}
+.nav-btn-primary {
+    background: linear-gradient(95deg, #f97316, #ef4444);
+    font-weight: 700;
+}
+.nav-btn-secondary {
+    border: 2px solid #d946ef;
+    color: #d946ef;
+}
+
+/* Тёмная тема - не могила, а глубокий космос */
+body.dark {
+    background: #0b0f19;
+    color: #e2e8f0;
+}
+body.dark .container {
+    background: #131a2c;
+}
+body.dark h2 {
+    border-left-color: #e879f9;
+}
+
+/* Кнопки управления (справа) - такие же яркие */
+.theme-toggle, .back-to-top {
+    background: #d946ef;
+    box-shadow: 0 2px 12px rgba(217,70,239,0.4);
+}
+.theme-toggle:hover, .back-to-top:hover {
+    background: #c026d3;
+    transform: scale(1.05);
+}
+body.dark .theme-toggle {
+    background: #facc15;
+    color: #0b0f19;
+}
     </style>
 </head>
 <body>
