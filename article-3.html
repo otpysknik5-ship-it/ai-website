@@ -445,5 +445,42 @@ body.dark .back-btn:hover {
     background: #475569;
 }
 </style>
+  <style>
+    /* ЖЁСТКИЙ ФИКС — перебивает ВСЁ */
+    body.dark,
+    body.dark .container,
+    body.dark p,
+    body.dark h1,
+    body.dark h2,
+    body.dark h3,
+    body.dark li,
+    body.dark div:not(.ad-block):not(.highlight):not(.artwork-container),
+    body.dark .short-block,
+    body.dark .tech-block,
+    body.dark .conclusion-block {
+        color: #e2e8f0 !important;
+    }
+    
+    body.dark .short-block,
+    body.dark .tech-block {
+        background: #1e293b !important;
+    }
+    
+    body.dark .artwork-container {
+        background: #1e293b !important;
+    }
+    
+    body.dark .highlight {
+        background: linear-gradient(135deg, #1e293b, #334155) !important;
+    }
+    
+    body.dark .call-to-action {
+        background: linear-gradient(135deg, #1e1b4b, #2e1065) !important;
+    }
+    
+    body.dark .site-footer {
+        border-top-color: #334155 !important;
+    }
+</style>
 </body>
 </html>
