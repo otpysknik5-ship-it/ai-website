@@ -1,57 +1,173 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Midjourney:поговорим о ней! | АЙ ВЕБ ДОМ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Midjourney: поговорим о нейрохудожнике | Обзор нейросети 2026</title>
 
- <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "whobekcf2l");
-</script>
+    <!-- Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "whobekcf2l");
+    </script>
 
- <!-- === ОСНОВНОЙ TITLE === -->
-<title>Midjourney: поговорим о нейрохудожнике | Обзор нейросети 2026</title>
+    <!-- SEO -->
+    <meta name="description" content="Midjourney — нейросеть для генерации изображений. Разбираем возможности, тарифы, стили и секреты промптов. Как создавать шедевры с помощью ИИ?">
+    <meta name="keywords" content="Midjourney, нейросеть для картинок, генерация изображений ИИ, промпты Midjourney, обзор Midjourney, ИИ художник, aimihome">
+    <meta name="author" content="АЙ ВЕБ ДОМ">
+    <link rel="canonical" href="https://aimihome.ru/article-4.html">
 
-<!-- === SEO === -->
-<meta name="description" content="Midjourney — нейросеть для генерации изображений. Разбираем возможности, тарифы, стили и секреты промптов. Как создавать шедевры с помощью ИИ?">
-<meta name="keywords" content="Midjourney, нейросеть для картинок, генерация изображений ИИ, промпты Midjourney, обзор Midjourney, ИИ художник, aimihome">
-<meta name="author" content="АЙ ВЕБ ДОМ">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://aimihome.ru/article-4.html">
+    <meta property="og:title" content="Midjourney: поговорим о нейрохудожнике | Обзор и секреты">
+    <meta property="og:description" content="Midjourney — генератор картинок на основе текста. Какие тарифы, как писать промпты, что умеет версия 6. Честный обзор от aimihome.ru">
+    <meta property="og:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
+    <meta property="og:site_name" content="АЙ ВЕБ ДОМ">
+    <meta property="og:locale" content="ru_RU">
 
-<!-- Каноническая ссылка -->
-<link rel="canonical" href="https://aimihome.ru/article-4.html">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Midjourney: поговорим о нейрохудожнике">
+    <meta name="twitter:description" content="Нейросеть для создания шедевров. Обзор возможностей, тарифов и секретных промптов Midjourney.">
+    <meta name="twitter:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
 
-<!-- === Open Graph (Telegram, VK, WhatsApp) === -->
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://aimihome.ru/article-4.html">
-<meta property="og:title" content="Midjourney: поговорим о нейрохудожнике | Обзор и секреты">
-<meta property="og:description" content="Midjourney — генератор картинок на основе текста. Какие тарифы, как писать промпты, что умеет версия 6. Честный обзор от aimihome.ru">
-<meta property="og:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
-<meta property="og:site_name" content="АЙ ВЕБ ДОМ">
-<meta property="og:locale" content="ru_RU">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Midjourney: поговорим о нейрохудожнике">
-<meta name="twitter:description" content="Нейросеть для создания шедевров. Обзор возможностей, тарифов и секретных промптов Midjourney.">
-<meta name="twitter:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f7fc;
+            font-family: system-ui, -apple-system, 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            padding: 2rem 1rem;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark {
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        body.dark h2, body.dark h3, body.dark p, body.dark li, body.dark figcaption {
+            color: #e2e8f0;
+        }
+        body.dark .prompt-box, body.dark .tip-box, body.dark .highlight-box {
+            background: #1e293b !important;
+            color: #e2e8f0 !important;
+            border-left-color: #7b8cff !important;
+        }
+        body.dark .comparison-table th {
+            background: #334155;
+            color: #f1f5f9;
+        }
+        body.dark .comparison-table td {
+            background: #1e293b;
+            color: #cbd5e1;
+            border-color: #334155;
+        }
+        body.dark footer, body.dark .image-caption {
+            color: #94a3b8;
+        }
+        body.dark .back-to-top, body.dark .theme-toggle {
+            background: #334155;
+            color: white;
+        }
+        body.dark .back-to-top:hover, body.dark .theme-toggle:hover {
+            background: #475569;
+        }
+        body.dark .theme-toggle {
+            background: #facc15;
+            color: #0f172a;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+        }
+        body.dark .container {
+            background: #1e293b;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 80px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.2s;
+            border: none;
+        }
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #667eea;
+            color: white;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-to-top:hover, .theme-toggle:hover {
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .back-to-top, .theme-toggle { width: 40px; height: 40px; font-size: 1rem; }
+            .back-to-top { right: 70px; }
+            .theme-toggle { right: 20px; }
+            .container { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+        }
+
+        h1 { font-size: 1.8rem; margin-bottom: 1rem; }
+        h2 { font-size: 1.4rem; margin: 1.5rem 0 1rem; border-left: 4px solid #667eea; padding-left: 0.75rem; }
+        hr { margin: 1rem 0; }
+        .prompt-box, .tip-box, .highlight-box { background: #f7f7ff; padding: 1rem; border-left: 4px solid #8e6bef; border-radius: 6px; margin: 1rem 0; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        .comparison-table th, .comparison-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .comparison-table th { background: #f2f2f2; }
+        img { max-width: 100%; height: auto; border-radius: 8px; }
+        .image-block { text-align: center; margin: 1rem 0; }
+    </style>
 </head>
-
 <body>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4XRFCEWTD4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-4XRFCEWTD4');
-</script>
- <!-- Yandex.Metrika counter -->
+<!-- Yandex.Metrika -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -59,495 +175,146 @@
         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108200368', 'ym');
-
-    ym(108200368, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    ym(108200368, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer"});
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/108200368" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- BotHub Partner Block (Реклама) -->
-<div style="margin:20px 0;padding:15px;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);border-radius:10px;border-left:4px solid #7b68ee;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-    <span style="font-size:24px;">🤖</span>
-    <strong style="color:#1a1a2e;font-size:15px;">BotHub — доступ к ChatGPT, Midjourney, Claude</strong>
-  </div>
-  <div style="color:#555;font-size:14px;line-height:1.5;margin-bottom:10px;">
-   Доступ к ИИ без границ, без VPN, оплата российскими картами и СБП. Бесплатные ежедневные лимиты.
-      Столько всего - глаза разбегаются.👀
-  </div>
-  <a href="https://bothub.chat/?invitedBy=9hrXGbTCTq1_smgBB1nzW" target="_blank" rel="noopener sponsored" style="display:inline-block;background:linear-gradient(90deg,#7b68ee,#9370db);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-    🚀 Попробовать бесплатно
-  </a>
-  <div style="margin-top:10px;padding-top:8px;border-top:1px solid #ddd;font-size:11px;color:#888;">
-    Реклама. ООО "Ботхаб", ИНН 7801726057
-  </div>
-</div>
-<!-- /BotHub Partner Block -->
 
-    <div class="container">
-        <!-- Кнопка назад -->
-        <a href="index.html" class="back-btn">На главную</a>
-<h1>Что такое MidJourney — история, создатели и путь развития</h1>
-
-<p>MidJourney — одна из самых популярных и продвинутых нейросетей для генерации изображений. 
-Она создаёт реалистичные картины, фантастические сцены, портреты, логотипы, концепт‑арт и даже художественные шедевры, которые сложно отличить от работ живых художников.</p>
-
-<hr>
-
-<h2>1) Что такое MidJourney</h2>
-
-<p>MidJourney — это искусственный интеллект, который превращает текстовые описания (промпты) в изображения.  
-Ты пишешь, например:</p>
-
-<div class="prompt-box" style="background:#f7f7ff; padding:1rem 1.5rem; border-left:4px solid #8e6bef; border-radius:6px; margin:1rem 0;">
-    <strong>«космический корабль на фоне заката в стиле киберпанк»</strong>
-</div>
-
-<p>И нейросеть создаёт картинку, как будто её рисовал профессиональный художник.</p>
-
-<hr>
-
-<h2>2) Когда появилась MidJourney</h2>
-
-<p>MidJourney была запущена в июле 2022 года в формате закрытой беты.  
-Первые пользователи получили доступ через Discord — и это сразу стало фишкой проекта.</p>
-
-<hr>
-
-<h2>3) Кто создал MidJourney</h2>
-
-<p>Создатель MidJourney — <strong>Дэвид Хольц (David Holz)</strong>.  
-Он — не случайный человек, а опытный инженер и исследователь:</p>
-
-<ul>
-    <li>сооснователь Leap Motion (технология отслеживания движений рук)</li>
-    <li>инженер‑исследователь в области ИИ</li>
-    <li>человек, который верит, что искусство должно быть доступно каждому</li>
-</ul>
-
-<p>MidJourney — это исследовательская лаборатория, а не просто сервис.  
-Команда маленькая (10–15 человек), но это одни из самых сильных специалистов в мире.</p>
-
-<hr>
-
-<h2>4) Как развивалась MidJourney</h2>
-
-<h3>🧠 2022 — MidJourney v1–v2</h3>
-<ul>
-    <li>экспериментальные версии</li>
-    <li>уже хорошее качество</li>
-</ul>
-
-<h3>🧠 2023 — MidJourney v3</h3>
-<ul>
-    <li>резкий скачок в реализме</li>
-    <li>детализация</li>
-    <li>понимание сложных промптов</li>
-    <li>появление стилей и параметров</li>
-</ul>
-
-<h3>🧠 2024 — MidJourney v4</h3>
-<ul>
-    <li>ещё больше реализма</li>
-    <li>улучшенная композиция</li>
-    <li>новые режимы (Remix, Zoom Out)</li>
-</ul>
-
-<h3>🧠 2024 — MidJourney v5 и v5.2</h3>
-<ul>
-    <li>реалистичные руки и лица</li>
-    <li>кинематографичность</li>
-    <li>глубокая стилизация</li>
-</ul>
-
-<h3>🔥 2025 — MidJourney v6</h3>
-<ul>
-    <li>почти идеальная работа с текстом</li>
-    <li>реалистичные руки и лица</li>
-    <li>улучшенная композиция</li>
-    <li>уровень профессионального арт‑директора</li>
-</ul>
-
-<!-- Блок с картинкой -->
-<div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15); margin: 2rem 0;">
-    <img src="byl.jpg" alt="Пример изображения MidJourney v6" loading="lazy" style="width: 50%; max-width: 250px; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
-    <p style="text-align: center; font-style: italic; color: #555; margin-top: 1rem;">
-        Пример изображения, созданного MidJourney v6
-    </p>
-</div>
-
-<hr>
-
-<h2>5) Почему MidJourney стала такой популярной</h2>
-
-<ul>
-    <li>простота использования</li>
-    <li>невероятное качество</li>
-    <li>скорость генерации</li>
-    <li>огромная творческая свобода</li>
-    <li>доступность для новичков</li>
-    <li>мощный инструмент для профессионалов</li>
-</ul>
-
-<p>MidJourney стала инструментом для дизайнеров, художников, маркетологов, предпринимателей и всех, кто хочет творить.</p>
-
-         <!-- Заголовок -->
-        <h2>🎨 ИИ-генерация изображений 2025: От мультика до фотореализма</h2>
-        
-        <!-- Подзаголовок -->
-        <h3 style="margin-top: 0; color: #555; margin-bottom: 1.5rem;">
-            Как нейросети научились создавать шедевры за секунды
-        </h3>
-        
-        <!-- Оглавление -->
-        <div class="toc">
-            <strong>📌 В этой статье:</strong>
-            <ul>
-                <li><a href="#intro">Введение: революция 2025 года</a></li>
-                <li><a href="#examples">Примеры работ ИИ</a></li>
-                <li><a href="#capabilities">Универсальность нейросетей</a></li>
-                <li><a href="#pricing">Сколько стоит и с чем сравнивать</a></li>
-                <li><a href="#live">ИИ в реальной жизни</a></li>
-                <li><a href="#prompts">Бонус: 3 мощных промта</a></li>
-                <li><a href="#conclusion">Заключение</a></li>
-            </ul>
+<div class="container">
+    <!-- BotHub реклама -->
+    <div style="margin:20px 0;padding:15px;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);border-radius:10px;border-left:4px solid #7b68ee;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <span style="font-size:24px;">🤖</span>
+            <strong style="color:#1a1a2e;font-size:15px;">BotHub — доступ к ChatGPT, Midjourney, Claude</strong>
         </div>
-        
-        <!-- Основной контент -->
-        <div class="content">
-            
-            <!-- Введение -->
-            <section id="intro">
-                <h2>🔥 2025 — эра ИИ-генерации</h2>
-                <p>
-                    В 2025 году нейросети для генерации изображений достигли уровня, когда разница между 
-                    ИИ-артом и работой человека практически стёрлась. То, на что у художника ушли бы 
-                    <strong>часы или дни</strong>, теперь создаётся за <strong>секунды</strong>.
-                </p>
-                <p>
-                    Это не просто инструмент — это <strong>новый язык творчества</strong>, доступный каждому.
-                </p>
-            </section>
-            
-          <!-- Примеры работ -->
-<section id="examples">
-    <h2>🤖 Примеры работ разных ИИ-сетей</h2>
-    <p>
-        Вот два примера, которые показывают, насколько далеко продвинулись нейросети. 
-        <strong>Обрати внимание:</strong> эти изображения созданы в <strong>разных ИИ-сетях</strong>, 
-        но каждая демонстрирует впечатляющий результат!
-    </p>
-    
-    <!-- Изображение 1 -->
-    <figure class="image-block">
-        <img src="demfor-city.jpg" alt="Сказочная иллюстрация:демон в фэнтезийном лесу" style="width: 50%; border-radius: 5px; margin: 10px 0;">
-        <figcaption>🎨 ИИ-сеть #1: Сказочная иллюстрация — детализированная сцена в стиле анимационных фильмов</figcaption>
-    </figure>
-    
-    <p><strong>Что поражает на первом изображении:</strong></p>
-    <ul>
-        <li>✅ Проработка каждого элемента архитектуры</li>
-        <li>✅ Живые эмоции персонажей</li>
-        <li>✅ Богатая цветовая палитра</li>
-        <li>✅ Идеальная композиция с глубиной и перспективой</li>
-    </ul>
-    
-    <!-- Изображение 2 -->
-    <figure class="image-block">
-        <img src="bambook-city.jpg" alt="Фотореалистичный бамбуковый лес" style="width: 100%; border-radius: 10px; margin: 20px 0;">
-        <figcaption>📷 ИИ-сеть #2: Фотореалистичный пейзаж — бамбуковый лес в Японии</figcaption>
-    </figure>
-    
-    <p><strong>Что поражает на втором изображении:</strong></p>
-    <ul>
-        <li>✅ Реалистичное освещение и тени</li>
-        <li>✅ Естественные текстуры бамбука</li>
-        <li>✅ Эффект глубины резкости</li>
-        <li>✅ Атмосфера спокойствия и гармонии</li>
-    </ul>
-    
-    <div class="highlight-box" style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px;">
-        <h4 style="margin-top: 0; color: white;">💡 Что это показывает?</h4>
-        <p style="margin-bottom: 0;">
-            <strong>Разные ИИ-сети — разный подход, но одинаково впечатляющий результат!</strong><br>
-            Одна специализируется на художественных иллюстрациях, другая — на фотореализме. 
-            Но обе достигли уровня, когда сложно отличить от работы человека.
-        </p>
+        <div style="color:#555;font-size:14px;line-height:1.5;margin-bottom:10px;">
+            Доступ к ИИ без границ, без VPN, оплата российскими картами и СБП. Бесплатные ежедневные лимиты. Столько всего - глаза разбегаются.👀
+        </div>
+        <a href="https://bothub.chat/?invitedBy=9hrXGbTCTq1_smgBB1nzW" target="_blank" rel="noopener sponsored" style="display:inline-block;background:linear-gradient(90deg,#7b68ee,#9370db);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+            🚀 Попробовать бесплатно
+        </a>
+        <div style="margin-top:10px;padding-top:8px;border-top:1px solid #ddd;font-size:11px;color:#888;">
+            Реклама. ООО "Ботхаб", ИНН 7801726057
+        </div>
     </div>
-</section>
-         <!-- admitad.banner: 5ridfl6dew8a4d8b1048aa3255da32 Chad AI -->
-<a target="_blank" rel="nofollow" href="https://grfpr.com/g/5ridfl6dew8a4d8b1048aa3255da32/?i=4&erid=2bL9aMPo2e49hMef4pgVYcjfn8"><img width="600" height="90" border="0" src="https://aflink.ru/b/5ridfl6dew8a4d8b1048aa3255da32/" alt="Chad AI"/></a>
-<!-- /admitad.banner -->
-            
-           <section id="capabilities" style="margin: 1.5rem 0;">
-    <h2 style="margin-bottom: 1rem;">🎯 Универсальность современных нейросетей</h2>
+
+    <a href="index.html" class="back-btn" style="display:inline-block; margin-bottom:20px; text-decoration:none; color:#667eea;">← На главную</a>
+
+    <h1>Что такое MidJourney — история, создатели и путь развития</h1>
+    <p>MidJourney — одна из самых популярных и продвинутых нейросетей для генерации изображений. Она создаёт реалистичные картины, фантастические сцены, портреты, логотипы, концепт‑арт и даже художественные шедевры, которые сложно отличить от работ живых художников.</p>
+    <hr>
+    <h2>1) Что такое MidJourney</h2>
+    <p>MidJourney — это искусственный интеллект, который превращает текстовые описания (промпты) в изображения. Ты пишешь, например:</p>
+    <div class="prompt-box"><strong>«космический корабль на фоне заката в стиле киберпанк»</strong></div>
+    <p>И нейросеть создаёт картинку, как будто её рисовал профессиональный художник.</p>
+    <hr>
+    <h2>2) Когда появилась MidJourney</h2>
+    <p>MidJourney была запущена в июле 2022 года в формате закрытой беты. Первые пользователи получили доступ через Discord — и это сразу стало фишкой проекта.</p>
+    <hr>
+    <h2>3) Кто создал MidJourney</h2>
+    <p>Создатель MidJourney — <strong>Дэвид Хольц (David Holz)</strong>. Он — не случайный человек, а опытный инженер и исследователь:</p>
+    <ul><li>сооснователь Leap Motion (технология отслеживания движений рук)</li><li>инженер‑исследователь в области ИИ</li><li>человек, который верит, что искусство должно быть доступно каждому</li></ul>
+    <p>MidJourney — это исследовательская лаборатория, а не просто сервис. Команда маленькая (10–15 человек), но это одни из самых сильных специалистов в мире.</p>
+    <hr>
+    <h2>4) Как развивалась MidJourney</h2>
+    <h3>🧠 2022 — MidJourney v1–v2</h3><ul><li>экспериментальные версии</li><li>уже хорошее качество</li></ul>
+    <h3>🧠 2023 — MidJourney v3</h3><ul><li>резкий скачок в реализме</li><li>детализация</li><li>понимание сложных промптов</li><li>появление стилей и параметров</li></ul>
+    <h3>🧠 2024 — MidJourney v4</h3><ul><li>ещё больше реализма</li><li>улучшенная композиция</li><li>новые режимы (Remix, Zoom Out)</li></ul>
+    <h3>🧠 2024 — MidJourney v5 и v5.2</h3><ul><li>реалистичные руки и лица</li><li>кинематографичность</li><li>глубокая стилизация</li></ul>
+    <h3>🔥 2025 — MidJourney v6</h3><ul><li>почти идеальная работа с текстом</li><li>реалистичные руки и лица</li><li>улучшенная композиция</li><li>уровень профессионального арт‑директора</li></ul>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0;">
-        
-        <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px;">
-            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎬</div>
-            <h4 style="margin: 0 0 0.3rem 0;">Хочешь мультик?</h4>
-            <p style="margin: 0; font-size: 0.95rem; color: #666;">Анимационный стиль, Pixar, Disney — пожалуйста!</p>
-        </div>
-        
-        <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px;">
-            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎨</div>
-            <h4 style="margin: 0 0 0.3rem 0;">Хочешь картину?</h4>
-            <p style="margin: 0; font-size: 0.95rem; color: #666;">Масло, акварель, импрессионизм — без проблем!</p>
-        </div>
-        
-        <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px;">
-            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📸</div>
-            <h4 style="margin: 0 0 0.3rem 0;">Хочешь фото?</h4>
-            <p style="margin: 0; font-size: 0.95rem; color: #666;">Фотореализм уровня профессиональной съёмки!</p>
-        </div>
-        
-        <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px;">
-            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎮</div>
-            <h4 style="margin: 0 0 0.3rem 0;">Хочешь 3D?</h4>
-            <p style="margin: 0; font-size: 0.95rem; color: #666;">Рендеры в стиле Unreal Engine 5!</p>
-        </div>
-        
-        <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px;">
-            <div style="font-size: 2rem; margin-bottom: 0.5rem;">👾</div>
-            <h4 style="margin: 0 0 0.3rem 0;">Хочешь пиксели?</h4>
-            <p style="margin: 0; font-size: 0.95rem; color: #666;">8-bit, 16-bit ретро стиль — легко!</p>
-        </div>
-        
-        <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px;">
-            <div style="font-size: 2rem; margin-bottom: 0.5rem;">✏️</div>
-            <h4 style="margin: 0 0 0.3rem 0;">Хочешь логотип?</h4>
-            <p style="margin: 0; font-size: 0.95rem; color: #666;">Минимализм, вектор, брендинг — готово!</p>
-        </div>
-         </div>
-</section>
-            
-            <!-- Цены и сравнение -->
-            <section id="pricing">
-                <h2>💰 Сколько стоит и с чем сравнивать</h2>
-                
-                <p>
-                    Стартовый пакет популярных генераторов — <strong>от $8/месяц</strong>. 
-                    За эти деньги получаешь около 200 генераций в месяц и доступ ко всем функциям.
-                </p>
-                
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Инструмент</th>
-                            <th>Цена</th>
-                            <th>Плюсы</th>
-                            <th>Минусы</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>MidJourney</strong></td>
-                            <td>$8-60/мес</td>
-                            <td>Лучшее качество, простота</td>
-                            <td>Только через Discord</td>
-                        </tr>
-                        <tr>
-                            <td><strong>DALL-E 3</strong></td>
-                            <td>$20/мес</td>
-                            <td>Интеграция с ChatGPT</td>
-                            <td>Менее художественный</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Stable Diffusion</strong></td>
-                            <td>Бесплатно</td>
-                            <td>Полный контроль, локально</td>
-                            <td>Сложная установка</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Adobe Firefly</strong></td>
-                            <td>$4.99/мес</td>
-                            <td>Интеграция с Adobe</td>
-                            <td>Ограниченная свобода</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <p style="margin-top: 1rem; font-style: italic;">
-                    💡 <strong>Вывод:</strong> Золотая середина по соотношению цена/качество/простота.
-                </p>
-            </section>
-            
-       <!-- MidJourney в реальной жизни -->
-<section id="live">
-    <h2>🎪 MidJourney в реальной жизни</h2>
+    <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 2rem; border-radius: 12px; margin: 2rem 0; text-align:center;">
+        <img src="byl.jpg" alt="Пример изображения MidJourney v6" loading="lazy" style="width: 50%; max-width: 250px; border-radius: 8px;">
+        <p style="margin-top: 1rem;">Пример изображения, созданного MidJourney v6</p>
+    </div>
+    <hr>
+    <h2>5) Почему MidJourney стала такой популярной</h2>
+    <ul><li>простота использования</li><li>невероятное качество</li><li>скорость генерации</li><li>огромная творческая свобода</li><li>доступность для новичков</li><li>мощный инструмент для профессионалов</li></ul>
+    <p>MidJourney стала инструментом для дизайнеров, художников, маркетологов, предпринимателей и всех, кто хочет творить.</p>
+
+    <h2>🎨 ИИ-генерация изображений 2025: От мультика до фотореализма</h2>
+    <h3>Как нейросети научились создавать шедевры за секунды</h3>
     
-    <p>
-        На одной из недавних IT-выставок (кажется, это была <strong>Web Summit</strong> или <strong>CES 2025</strong>) 
-        команда <strong>MidJourney</strong> показала, что они <strong>не звездятся</strong> и остаются простыми ребятами.
-    </p>
+    <div class="toc"><strong>📌 В этой статье:</strong><ul><li><a href="#intro">Введение: революция 2025 года</a></li><li><a href="#examples">Примеры работ ИИ</a></li><li><a href="#capabilities">Универсальность нейросетей</a></li><li><a href="#pricing">Сколько стоит и с чем сравнивать</a></li><li><a href="#live">ИИ в реальной жизни</a></li><li><a href="#prompts">Бонус: 3 мощных промта</a></li><li><a href="#conclusion">Заключение</a></li></ul></div>
     
-    <div class="highlight-box">
-        <p>
-            Пока другие стенды ограничивались скучными буклетами, ребята из MidJourney раздавали:
-        </p>
-        <ul>
-            <li>🍦 <strong>Бесплатное мороженое</strong> (классика!)</li>
-            <li>🥗 <strong>Разнообразные салаты</strong> (да-да, не только сладкое!)</li>
-            <li>😊 <strong>Отличное настроение</strong> и живое общение</li>
-        </ul>
+    <div class="content">
+        <section id="intro"><h2>🔥 2025 — эра ИИ-генерации</h2><p>В 2025 году нейросети для генерации изображений достигли уровня, когда разница между ИИ-артом и работой человека практически стёрлась. То, на что у художника ушли бы <strong>часы или дни</strong>, теперь создаётся за <strong>секунды</strong>. Это не просто инструмент — это <strong>новый язык творчества</strong>, доступный каждому.</p></section>
+        
+        <section id="examples"><h2>🤖 Примеры работ разных ИИ-сетей</h2><p>Вот два примера, которые показывают, насколько далеко продвинулись нейросети. <strong>Обрати внимание:</strong> эти изображения созданы в <strong>разных ИИ-сетях</strong>, но каждая демонстрирует впечатляющий результат!</p>
+        <figure class="image-block"><img src="demfor-city.jpg" alt="Сказочная иллюстрация:демон в фэнтезийном лесу" style="width: 50%; border-radius: 5px;"><figcaption>🎨 ИИ-сеть #1: Сказочная иллюстрация — детализированная сцена в стиле анимационных фильмов</figcaption></figure>
+        <p><strong>Что поражает на первом изображении:</strong></p><ul><li>✅ Проработка каждого элемента архитектуры</li><li>✅ Живые эмоции персонажей</li><li>✅ Богатая цветовая палитра</li><li>✅ Идеальная композиция с глубиной и перспективой</li></ul>
+        <figure class="image-block"><img src="bambook-city.jpg" alt="Фотореалистичный бамбуковый лес" style="width: 100%; border-radius: 10px;"><figcaption>📷 ИИ-сеть #2: Фотореалистичный пейзаж — бамбуковый лес в Японии</figcaption></figure>
+        <p><strong>Что поражает на втором изображении:</strong></p><ul><li>✅ Реалистичное освещение и тени</li><li>✅ Естественные текстуры бамбука</li><li>✅ Эффект глубины резкости</li><li>✅ Атмосфера спокойствия и гармонии</li></ul>
+        <div class="highlight-box"><h4>💡 Что это показывает?</h4><p><strong>Разные ИИ-сети — разный подход, но одинаково впечатляющий результат!</strong><br>Одна специализируется на художественных иллюстрациях, другая — на фотореализме. Но обе достигли уровня, когда сложно отличить от работы человека.</p></div></section>
+        
+        <a target="_blank" rel="nofollow" href="https://grfpr.com/g/5ridfl6dew8a4d8b1048aa3255da32/?i=4&erid=2bL9aMPo2e49hMef4pgVYcjfn8"><img width="600" height="90" border="0" src="https://aflink.ru/b/5ridfl6dew8a4d8b1048aa3255da32/" alt="Chad AI" style="max-width:100%; height:auto;"/></a>
+        
+        <section id="capabilities"><h2>🎯 Универсальность современных нейросетей</h2><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px;"><div style="font-size: 2rem;">🎬</div><h4>Хочешь мультик?</h4><p>Анимационный стиль, Pixar, Disney — пожалуйста!</p></div>
+            <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px;"><div style="font-size: 2rem;">🎨</div><h4>Хочешь картину?</h4><p>Масло, акварель, импрессионизм — без проблем!</p></div>
+            <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px;"><div style="font-size: 2rem;">📸</div><h4>Хочешь фото?</h4><p>Фотореализм уровня профессиональной съёмки!</p></div>
+            <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px;"><div style="font-size: 2rem;">🎮</div><h4>Хочешь 3D?</h4><p>Рендеры в стиле Unreal Engine 5!</p></div>
+            <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px;"><div style="font-size: 2rem;">👾</div><h4>Хочешь пиксели?</h4><p>8-bit, 16-bit ретро стиль — легко!</p></div>
+            <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px;"><div style="font-size: 2rem;">✏️</div><h4>Хочешь логотип?</h4><p>Минимализм, вектор, брендинг — готово!</p></div>
+        </div></section>
+        
+        <section id="pricing"><h2>💰 Сколько стоит и с чем сравнивать</h2><p>Стартовый пакет популярных генераторов — <strong>от $8/месяц</strong>. За эти деньги получаешь около 200 генераций в месяц и доступ ко всем функциям.</p>
+        <table class="comparison-table"><thead><tr><th>Инструмент</th><th>Цена</th><th>Плюсы</th><th>Минусы</th></tr></thead><tbody>
+            <tr><td><strong>MidJourney</strong></td><td>$8-60/мес</td><td>Лучшее качество, простота</td><td>Только через Discord</td></tr>
+            <tr><td><strong>DALL-E 3</strong></td><td>$20/мес</td><td>Интеграция с ChatGPT</td><td>Менее художественный</td></tr>
+            <tr><td><strong>Stable Diffusion</strong></td><td>Бесплатно</td><td>Полный контроль, локально</td><td>Сложная установка</td></tr>
+            <tr><td><strong>Adobe Firefly</strong></td><td>$4.99/мес</td><td>Интеграция с Adobe</td><td>Ограниченная свобода</td></tr>
+        </tbody></table><p><strong>Вывод:</strong> Золотая середина по соотношению цена/качество/простота.</p></section>
+        
+        <section id="live"><h2>🎪 MidJourney в реальной жизни</h2><p>На одной из недавних IT-выставок команда <strong>MidJourney</strong> показала, что они <strong>не звездятся</strong> и остаются простыми ребятами. Пока другие стенды ограничивались скучными буклетами, ребята из MidJourney раздавали: бесплатное мороженое, разнообразные салаты и отличное настроение. Это показывает: коллектив MidJourney <strong>простой и земной</strong>, несмотря на мировой успех. Никакого пафоса, только творчество и технологии! 👏</p></section>
+        
+        <section id="prompts"><h2>🎁 Бонус: 3 мощных промта для новичков</h2><p>Если зарегистрируешься в любом ИИ-генераторе, попробуй эти промты:</p>
+        <div class="prompt-box"><h4>📸 Промт 1: Фотореалистичный портрет</h4><pre>professional portrait photography of a young russian entrepreneur in modern office, natural lighting, shallow depth of field, shot on Canon EOS R5, 85mm f/1.4, hyperrealistic skin texture, confident expression, minimalist background --ar 3:4</pre><p><strong>Что получится:</strong> Профессиональное фото как из журнала Forbes.</p></div>
+        <div class="prompt-box"><h4>🎮 Промт 2: Концепт-арт для игры</h4><pre>epic fantasy landscape, floating islands connected by glowing bridges, ancient ruins overgrown with bioluminescent plants, dramatic sunset with purple and orange sky, cinematic composition, concept art style, detailed environment --ar 16:9</pre><p><strong>Что получится:</strong> Космический пейзаж уровня AAA-игр.</p></div>
+        <div class="prompt-box"><h4>️ Промт 3: Логотип/брендинг</h4><pre>minimalist logo design for AI startup, geometric abstract symbol combining brain and circuit patterns, gradient blue to purple, clean modern style, vector illustration, white background, professional branding --ar 1:1</pre><p><strong>Что получится:</strong> Стильный логотип для стартапа.</p></div>
+        <div class="tip-box"><strong>💡 Совет:</strong><ul><li><code>--ar</code> — соотношение сторон (3:4, 16:9, 1:1)</li><li>Экспериментируй с деталями!</li><li>Чем точнее описание — тем лучше результат</li></ul></div></section>
+        
+        <section id="next-article"><h2>🔜 В следующей статье</h2><div class="prompt-box" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;"><h3>🎁 Готовлю подборку промтов!</h3><p>В следующем материале я поделюсь <strong>проверенными промтами</strong> для генерации: портреты, иллюстрации, архитектура, концепт-арт, логотипы. Следите за обновлениями! 🔥</p></div></section>
+        
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 16px; margin: 30px 0; text-align: center;">
+            <h3 style="color: white;">🚀 Хочешь попробовать ИИ без заморочек?</h3>
+            <p style="color: #f1f5f9;">Все нейросети в одном окне • Карты РФ • Без VPN • Первый шаг — всего 290₽</p>
+            <a href="https://grfpr.com/g/34g1j74pfv8a4d8b1048aa3255da32/?erid=2bL9aMPo2e49hMet4pgVRsMGnf&utm_source=aimihome&utm_medium=article9&utm_campaign=chad_ai" target="_blank" style="display: inline-block; background: white; color: #764ba2; font-weight: 700; padding: 14px 32px; border-radius: 50px; text-decoration: none;">💜 Попробовать Chad AI</a>
+            <p style="color: #cbd5e1;">• Реклама • Партнёрская программа</p>
+        </div>
+        
+        <section id="conclusion"><h2>🚀 Заключение</h2><p>ИИ-генерация изображений в 2025 году — это <strong>демократизация дизайна</strong>. Инструмент, который ещё вчера был доступен только избранным профессионалам, сегодня в руках у каждого.</p>
+        <div class="quote-box"><p><em>«Будущее уже здесь. И оно генерируется по запросу.»</em><br>Друзья пишите боту он мой, отвечу всем</p><a href="https://t.me/abu_quotes_bot" target="_blank">Открыть бота в Telegram</a></div>
+        <p style="text-align: center;"><strong>🎨 Твори. Экспериментируй. Вдохновляйся.</strong></p></section>
     </div>
     
-    <p>
-        Это показывает: коллектив MidJourney <strong>простой и земной</strong>, несмотря на мировой успех. 
-        Никакого пафоса, только творчество и технологии! 👏
-    </p>
-</section>
-            
-            <!-- Промты -->
-            <section id="prompts">
-                <h2>🎁 Бонус: 3 мощных промта для новичков</h2>
-                
-                <p>
-                    Если зарегистрируешься в любом ИИ-генераторе, попробуй эти промты 
-                    (скопируй и вставь в поле ввода):
-                </p>
-                
-                <div class="prompt-box">
-                    <h4>📸 Промт 1: Фотореалистичный портрет</h4>
-                    <pre><code>professional portrait photography of a young russian entrepreneur in modern office, 
-natural lighting, shallow depth of field, shot on Canon EOS R5, 85mm f/1.4, 
-hyperrealistic skin texture, confident expression, minimalist background --ar 3:4</code></pre>
-                    <p><strong>Что получится:</strong> Профессиональное фото как из журнала Forbes.</p>
-                </div>
-                
-                <div class="prompt-box">
-                    <h4>🎮 Промт 2: Концепт-арт для игры</h4>
-                    <pre><code>epic fantasy landscape, floating islands connected by glowing bridges, ancient ruins 
-overgrown with bioluminescent plants, dramatic sunset with purple and orange sky, 
-cinematic composition, concept art style, detailed environment --ar 16:9</code></pre>
-                    <p><strong>Что получится:</strong> Космический пейзаж уровня AAA-игр.</p>
-                </div>
-                
-                <div class="prompt-box">
-                    <h4>️ Промт 3: Логотип/брендинг</h4>
-                    <pre><code>minimalist logo design for AI startup, geometric abstract symbol combining brain and 
-circuit patterns, gradient blue to purple, clean modern style, vector illustration, 
-white background, professional branding --ar 1:1</code></pre>
-                    <p><strong>Что получится:</strong> Стильный логотип для стартапа.</p>
-                </div>
-                
-                <div class="tip-box">
-                    <strong>💡 Совет:</strong>
-                    <ul>
-                        <li><code>--ar</code> — соотношение сторон (3:4, 16:9, 1:1)</li>
-                        <li>Экспериментируй с деталями!</li>
-                        <li>Чем точнее описание — тем лучше результат</li>
-                    </ul>
-                </div>
-            </section>
-            <!-- Анонс следующей статьи -->
-<section id="next-article">
-    <h2>🔜 В следующей статье</h2>
+    <div style="display: flex; gap: 1rem; margin: 2rem 0;">
+        <a href="/" style="padding: 0.8rem 1.5rem; background: transparent; color: #9fa3ff; border: 2px solid #9fa3ff; border-radius: 8px; text-decoration: none;">← На главную</a>
+        <a href="article-5.html" style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; border-radius: 8px; text-decoration: none;">там👉 Узнаем Когда искусство начинает дышать →</a>
+    </div>
     
-    <div class="prompt-box" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 2rem; border-radius: 10px;">
-        <h3 style="margin-top: 0; color: white;">🎁 Готовлю подборку промтов!</h3>
-        <p>
-            В следующем материале я поделюсь <strong>проверенными промтами</strong> для генерации:
-        </p>
-        <ul style="margin-bottom: 0;">
-            <li>📸 Идеальные портреты и фотографии</li>
-            <li>🎨 Художественные иллюстрации</li>
-            <li>🏢 Архитектура и интерьеры</li>
-            <li>🎮 Концепт-арт для игр</li>
-            <li>📱 Дизайн логотипов и брендинг</li>
-        </ul>
-        <p style="margin-top: 1rem; font-style: italic;">
-            Следите за обновлениями! 🔥
-        </p>
-    </div>
-</section>
-          <!-- 🔥 РЕКЛАМА: Chad AI (Выделенный блок) -->
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 16px; margin: 30px 0; text-align: center; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4); border: 2px solid #a855f7;">
-  
-  <h3 style="color: white; margin: 0 0 10px 0; font-size: 1.3rem; font-weight: 700;">
-    🚀 Хочешь попробовать ИИ без заморочек?
-  </h3>
-  
-  <p style="color: #f1f5f9; margin: 0 0 20px 0; font-size: 1rem; line-height: 1.5;">
-    Все нейросети в одном окне • Карты РФ • Без VPN • Первый шаг — всего 290₽
-  </p>
-  
-  <a href="https://grfpr.com/g/34g1j74pfv8a4d8b1048aa3255da32/?erid=2bL9aMPo2e49hMet4pgVRsMGnf&utm_source=aimihome&utm_medium=article9&utm_campaign=chad_ai" 
-     target="_blank"
-     style="display: inline-block; background: white; color: #764ba2; font-weight: 700; font-size: 1.1rem; padding: 14px 32px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.2s, box-shadow 0.2s;"
-     onclick="trackChadClick()">
-    💜 Попробовать Chad AI
-  </a>
-  
-  <p style="color: #cbd5e1; margin: 12px 0 0 0; font-size: 0.85rem; opacity: 0.9;">
-    • Реклама • Партнёрская программа
-  </p>
-  
-</div>
-            
-            <!-- Заключение -->
-            <section id="conclusion">
-                <h2>🚀 Заключение</h2>
-                
-                <p>
-                    ИИ-генерация изображений в 2025 году — это <strong>демократизация дизайна</strong>. 
-                    Инструмент, который ещё вчера был доступен только избранным профессионалам, 
-                    сегодня в руках у каждого.
-                </p>
-                
-                <div class="quote-box">
-                    <p>
-                        <em>«Будущее уже здесь. И оно генерируется по запросу.»</em>
-                     <em>Друзья пишите боту он мой, отвечу всем</em>
-                    </p>
-                  <a href="https://t.me/abu_quotes_bot" target="_blank" rel="noopener">Открыть бота в Telegram</a>
-                </div>
-                
-                <p style="text-align: center; margin-top: 2rem;">
-                    <strong>🎨 Твори. Экспериментируй. Вдохновляйся.</strong>
-                </p>
-            </section>
-            
-        </div>
-        
-      <div style="display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2rem; max-width: 300px;">
-  
-  <!-- На главную -->
-  <a href="/" style="display: block; padding: 0.8rem 1.5rem; background: transparent; color: #9fa3ff; text-decoration: none; border: 2px solid #9fa3ff; border-radius: 8px; text-align: center; font-weight: 600; transition: all 0.3s;">
-    ← На главную
-  </a>
-  
-  <!-- Следующая статья -->
-  <a href="article-5.html" style="display: block; padding: 0.8rem 1.5rem; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 600; box-shadow: 0 4px 12px rgba(240, 147, 251, 0.3); transition: transform 0.3s;">
-  там👉 Узнаем Когда искусство начинает дышать →
-  </a>
-  
-</div>
-        
-        <!-- Футер -->
-        <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; text-align: center; color: #666;">
-            <p>AI-Навигатор © 2025</p>
-            <p>Создано с помощью ИИ для людей</p>
-        </footer>
-    </div>
-</body>
-</html>
-
-    <!-- Кнопка наверх и переключатель темы -->
-    <a href="#" class="back-to-top" id="backToTop">↑</a>
-    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
-
-    <!-- Скрипт -->
-    <script src="script.js"></script>
- <!-- ПОДВАЛ -->
-    <footer style="text-align: center; padding: 2rem 0; margin-top: 3rem; border-top: 1px solid #eee; color: #777; font-size: 0.9rem;">
+    <footer style="text-align: center; padding: 2rem 0; margin-top: 2rem; border-top: 1px solid #eee; color: #777;">
         <p>© 2026 • АЙ ВЕБ ДОМ</p>
-        <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem;">
-            Сделано с ❤️ • Автор: <a href="https://t.me/citadel_test_quote_bot" style="color: #6e8efb; text-decoration: none;">Владимир</a>
-        </p>
+        <p>Сделано с ❤️ • Автор: <a href="https://t.me/citadel_test_quote_bot" style="color: #6e8efb; text-decoration: none;">Владимир</a></p>
     </footer>
 </div>
+
+<a href="#" class="back-to-top" id="backToTop">↑</a>
+<button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
+
+<script>
+    (function() {
+        const themeBtn = document.getElementById('themeToggle');
+        const backBtn = document.getElementById('backToTop');
+        function setTheme(theme) {
+            if (theme === 'dark') { document.body.classList.add('dark'); themeBtn.innerHTML = '☀️'; }
+            else { document.body.classList.remove('dark'); themeBtn.innerHTML = '🌙'; }
+            localStorage.setItem('theme', theme);
+        }
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') setTheme('dark');
+        if (themeBtn) themeBtn.addEventListener('click', () => setTheme(document.body.classList.contains('dark') ? 'light' : 'dark'));
+        if (backBtn) backBtn.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    })();
+</script>
 </body>
 </html>
-
-
-
