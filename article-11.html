@@ -25,23 +25,24 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="stylesheet" href="/styles.css">
 
-  <style>
+ 
+      <style>
         :root {
-          --bg: #ffffff;
+          --bg: #fefce8;
           --text: #1a1a1a;
-          --card-bg: #f5f7fa;
+          --card-bg: #ffffff;
           --accent: #667eea;
           --accent2: #764ba2;
           --border: #e0e0e0;
         }
 
         body.dark {
-          --bg: #1b1b1d;
-          --text: #e2e8f0;  /* светлый, но не blinding white */
-          --card-bg: #2a2a2e;
+          --bg: #0f172a;
+          --text: #e2e8f0;
+          --card-bg: #1e293b;
           --accent: #7b8cff;
           --accent2: #9a6bff;
-          --border: #444;
+          --border: #334155;
         }
 
         body {
@@ -65,7 +66,7 @@
           margin-bottom: 1rem;
         }
 
-        /* Карточки на светлой теме */
+        /* Карточки */
         .feature-card,
         .short-block {
           padding: 1.5rem 1.8rem;
@@ -87,7 +88,7 @@
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        /* Цветные градиенты для feature-card (только фон, текст не трогаем) */
+        /* Цветные градиенты для feature-card */
         .feature-card:nth-child(1) { background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); border-left: 5px solid #667eea; }
         .feature-card:nth-child(2) { background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(239, 68, 68, 0.1)); border-left: 5px solid #ec4899; }
         .feature-card:nth-child(3) { background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1)); border-left: 5px solid #22c55e; }
@@ -97,7 +98,6 @@
         .feature-card:nth-child(7) { background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(6, 182, 212, 0.1)); border-left: 5px solid #0ea5e9; }
         .feature-card:nth-child(8) { background: linear-gradient(135deg, rgba(236, 201, 75, 0.1), rgba(250, 204, 21, 0.1)); border-left: 5px solid #ecc94b; }
 
-        /* Тёмная тема для карточек — переопределяем фон, но оставляем градиенты */
         body.dark .feature-card:nth-child(1),
         body.dark .feature-card:nth-child(2),
         body.dark .feature-card:nth-child(3),
@@ -106,7 +106,7 @@
         body.dark .feature-card:nth-child(6),
         body.dark .feature-card:nth-child(7),
         body.dark .feature-card:nth-child(8) {
-          background: rgba(255, 255, 255, 0.03);
+          background: rgba(255, 255, 255, 0.05);
         }
 
         .short-block {
@@ -123,17 +123,11 @@
           margin-bottom: 2rem;
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
           background-clip: text;
+          color: transparent;
           font-size: 2.2rem;
           font-weight: 800;
           line-height: 1.3;
-        }
-
-        body.dark .article-title {
-          background: linear-gradient(135deg, #7b8cff 0%, #9a6bff 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
         }
 
         .theme-toggle {
@@ -173,150 +167,12 @@
           z-index: 999;
         }
 
-        .sidebar-left {
-          width: 300px;
-          background-color: var(--card-bg);
-          border-radius: 12px;
-          padding: 24px 20px;
-          border: 1px solid var(--border);
-          align-self: start;
-          position: sticky;
-          top: 20px;
-        }
-
-        .previous-articles {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
-
-        .previous-articles li {
-          margin-bottom: 14px;
-        }
-
-        .previous-articles a {
-          color: var(--accent);
-          text-decoration: none;
-          line-height: 1.5;
-          transition: all 0.2s;
-        }
-
-        .previous-articles a:hover {
-          color: var(--text);
-          text-decoration: underline;
-          padding-left: 4px;
-        }
-
-        /* Стили для кнопки "Читать далее" */
-        .cta-button-next {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(90deg, #ffaa00 0%, #ff6b00 100%);
-            color: #ffffff;
-            font-size: 1.2rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 50px;
-            box-shadow: 0 5px 20px rgba(255, 107, 0, 0.5);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .cta-button-next:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(255, 107, 0, 0.7);
-            background: linear-gradient(90deg, #ffb74d 0%, #ff8c00 100%);
-        }
-
-        .cta-button-next::after {
-            content: '👉';
-            display: inline-block;
-            margin-left: 10px;
-            animation: point-right 1.5s infinite;
-        }
-
-        @keyframes point-right {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(8px); }
-        }
-
-        /* Адаптив для мобильных */
         @media (max-width: 768px) {
-            .cta-button-next {
-                width: 90%;
-                padding: 15px 20px;
-                font-size: 1.1rem;
-                text-align: center;
-            }
-            
-            .article-container {
-                padding: 1rem;
-            }
-            
-            h1, h2, h3 {
-                font-size: 1.4rem;
-                line-height: 1.3;
-                margin-bottom: 0.8rem;
-            }
-            
-            p, li, blockquote {
-                font-size: 1rem;
-                line-height: 1.6;
-                margin-bottom: 1rem;
-            }
-            
-            .feature-card,
-            .short-block {
-                padding: 1.2rem 1rem;
-                margin: 1rem 0;
-                border-radius: 10px;
-            }
-            
-            .theme-toggle {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-                top: 15px;
-                right: 15px;
-            }
-            
-            .back-to-top {
-                width: 40px;
-                height: 40px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 1rem;
-            }
-            
-            ul, ol {
-                padding-left: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            blockquote {
-                padding: 1rem 1rem 1rem 1.5rem;
-                font-size: 1rem;
-            }
-            
-            hr {
-                margin: 1.5rem 0;
-                border-top: 1px solid var(--border);
-            }
-            
-            img {
-                max-width: 100%;
-                height: auto;
-                display: block;
-                margin: 1rem auto;
-            }
-            
-            table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-                width: 100%;
-            }
+            .theme-toggle { width: 40px; height: 40px; font-size: 1.2rem; top: 15px; right: 15px; }
+            .back-to-top { width: 40px; height: 40px; bottom: 20px; right: 20px; font-size: 1rem; }
+            .feature-card, .short-block { padding: 1.2rem 1rem; margin: 1rem 0; border-radius: 10px; }
+            h1, h2, h3 { font-size: 1.4rem; line-height: 1.3; margin-bottom: 0.8rem; }
+            p, li, blockquote { font-size: 1rem; line-height: 1.6; margin-bottom: 1rem; }
         }
     </style>
 </head>
