@@ -433,6 +433,44 @@
         max-width: 350px;
     }
 }
+     .footer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    text-align: center;
+    color: #a1a1aa;
+    font-size: 13px;
+    border-top: 2px solid #fef3c7;
+    margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #f97316;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+    }
+}
 </style>
 </head>
 <body>
@@ -755,7 +793,18 @@
       setTheme(current === 'dark' ? 'light' : 'dark');
     });
   </script>
- 
+        
+ <footer class="footer">
+    <div class="footer-links">
+        <a href="https://aimihome.ru/">🏠 Главная</a>
+        <a href="https://t.me/Abuabu_5" target="_blank">📱 Telegram</a>
+        <a href="https://www.youtube.com/@АЙВЕБДОМ" target="_blank">▶️ YouTube</a>
+        <a href="mailto:saitbroai@gmail.com">✉️ saitbroai@gmail.com</a>
+    </div>
+    <div class="footer-copy">
+        ⚡ aimihome — АЙ ВЕБ ДОМ © 2026
+    </div>
+</footer>
   
 </body>
 </html>
