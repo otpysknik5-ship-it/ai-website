@@ -74,6 +74,11 @@
 
     * { box-sizing: border-box; }
 
+    html, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -82,6 +87,22 @@
       transition: background 0.3s ease, color 0.3s ease;
       line-height: 1.5;
       font-size: 0.95rem;
+    }
+
+    /* Перебиваем styles.css на главной */
+    body.home-page header.hero {
+      background: transparent !important;
+      border-radius: 0 !important;
+      color: inherit !important;
+      padding: 1.5rem 1rem 1rem !important;
+    }
+
+    body.home-page header.hero h1 {
+      color: var(--header-text) !important;
+    }
+
+    body.home-page .card h2 {
+      color: #fff !important;
     }
 
     .page { min-height: 100vh; background: var(--hero-bg); }
@@ -193,6 +214,10 @@
       margin-bottom: 3rem;
     }
 
+    .grid > * {
+      min-width: 0;
+    }
+
     .card {
       border-radius: 20px;
       padding: 20px;
@@ -277,6 +302,8 @@
         color: white;
         text-decoration: none;
         border-bottom: 1px dotted rgba(255,255,255,0.5);
+        word-break: break-word;
+        overflow-wrap: anywhere;
     }
 
     .card ul li a:hover {
@@ -319,7 +346,7 @@
 
     .article-item a {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.5rem;
       padding: 12px 16px;
       background: var(--item-bg);
@@ -332,6 +359,8 @@
       transition: all 0.2s ease;
       border: 1px solid transparent;
       height: 100%;
+      word-break: break-word;
+      overflow-wrap: anywhere;
     }
 
     [data-theme="dark"] .article-item a {
@@ -420,7 +449,7 @@
     
     .footer-links {
         gap: 10px;
-        flex-direction: row; /* Явно строкой */
+        flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
     }
@@ -428,15 +457,101 @@
     .footer-links a {
         font-size: 11px;
         padding: 4px 0;
+        white-space: normal;
     }
     
     .footer-copy {
         font-size: 9px;
     }
 }
+
+/* Главная на телефоне — одна колонка, без «портянки» */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .site-title {
+        font-size: 1.45rem !important;
+        word-break: break-word;
+        hyphens: auto;
+    }
+
+    .subtitle {
+        font-size: 0.92rem !important;
+        padding: 0 4px;
+        line-height: 1.45;
+    }
+
+    .inline-partner-link {
+        display: inline-block;
+        margin: 10px 0 0;
+    }
+
+    .content {
+        padding: 16px 12px 32px;
+    }
+
+    .card {
+        min-height: auto;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .articles-list-section {
+        padding: 1.2rem 1rem;
+    }
+
+    .start-main-btn {
+        padding: 12px 22px;
+        font-size: 0.95rem;
+        max-width: calc(100% - 24px);
+        text-align: center;
+        line-height: 1.35;
+    }
+
+    .author-wrap {
+        padding: 0 12px 1.5rem !important;
+    }
+
+    .author-card {
+        padding: 1.25rem !important;
+        border-radius: 20px !important;
+    }
+
+    .author-card h3 {
+        font-size: 1.25rem !important;
+    }
+
+    .author-social a {
+        font-size: 0.82rem !important;
+        padding: 0.45rem 0.9rem !important;
+        max-width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .site-title {
+        font-size: 1.2rem !important;
+    }
+
+    .topbar {
+        padding: 10px 12px 0;
+    }
+
+    .theme-toggle {
+        font-size: 0.8rem;
+        padding: 7px 12px;
+    }
+}
 </style>
 </head>
-<body>
+<body class="home-page">
 
      <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -517,7 +632,7 @@
                 <!-- Можно добавить сюда еще статьи, если есть -->
                 <li><a href="article-8.html" style="color: white; text-decoration: none;">🚀 HeyGen и горячие новости</a></li>
                 <li><a href="article-17.html" style="color: white; text-decoration: none;">☝️TX.AI обзор и сравнение с Bothub | Что выбрать в 2026</a></li>
-                 <li><a href="article-19.html" style=color: white; text-decoration: none;".>😁 Как я перепробовал кучу нейросетей в поисках удобного помощника
+                 <li><a href="article-19.html" style="color: white; text-decoration: none;">😁 Как я перепробовал кучу нейросетей в поисках удобного помощника</a></li>
             </ul>
           </div>
           <a href="#" class="card-link">Все инструменты →</a>
@@ -657,7 +772,7 @@
             <!-- Статья 16 -->
           <div class="article-item">
             <a href="article-16.html">
-              🤖"Почему я отказался от AI-агентов и снова пишу статьи вручную"
+              🤖 Почему я отказался от AI-агентов и снова пишу статьи вручную
             </a>
           </div>
           <!--Статья 17-->
@@ -677,13 +792,14 @@
                  Как я перепробовал кучу нейросетей в поисках удобного помощника
                 </a>
              </div>
+        </div>
       </section>
 
     </main>
       
     <!-- БЛОК ОБ АВТОРЕ (ЦЕНТРИРОВАННЫЙ) -->
-<div style="max-width: 1000px; margin: 0 auto; width: 100%;">
-    <div style="background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 32px; padding: 2rem; border: 2px solid #f97316;">
+<div class="author-wrap" style="max-width: 1000px; margin: 0 auto; width: 100%;">
+    <div class="author-card" style="background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 32px; padding: 2rem; border: 2px solid #f97316;">
         
         <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
             <div style="flex-shrink: 0; text-align: center;">
@@ -704,9 +820,9 @@
         </div>
         
         <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #334155; text-align: center;">
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-                <a href="https://t.me/Abuabu_5" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #1e293b; padding: 0.5rem 1.2rem; border-radius: 60px; color: #f97316; text-decoration: none; border: 1px solid #f97316;">📱 Telegram — @Abuabu_5</a>
-                <a href="https://www.youtube.com/@АЙВЕБДОМ" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #1e293b; padding: 0.5rem 1.2rem; border-radius: 60px; color: #f97316; text-decoration: none; border: 1px solid #f97316;">▶️ YouTube — @АЙВЕБДОМ</a>
+            <div class="author-social" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+                <a href="https://t.me/Abuabu_5" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; background: #1e293b; padding: 0.5rem 1.2rem; border-radius: 60px; color: #f97316; text-decoration: none; border: 1px solid #f97316;">📱 Telegram — @Abuabu_5</a>
+                <a href="https://www.youtube.com/@АЙВЕБДОМ" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; background: #1e293b; padding: 0.5rem 1.2rem; border-radius: 60px; color: #f97316; text-decoration: none; border: 1px solid #f97316;">▶️ YouTube — @АЙВЕБДОМ</a>
                 <a href="mailto:saitbroai@gmail.com" style="display: inline-flex; align-items: center; gap: 8px; background: #1e293b; padding: 0.5rem 1.2rem; border-radius: 60px; color: #f97316; text-decoration: none; border: 1px solid #f97316;">✉️ saitbroai@gmail.com</a>
             </div>
         </div>
