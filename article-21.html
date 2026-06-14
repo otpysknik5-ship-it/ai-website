@@ -68,7 +68,7 @@
         }
 
         body {
-            background: #eff6f6f8;
+            background: #f5f7fc;
             font-family: system-ui, -apple-system, 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: #0f172a;
@@ -120,7 +120,7 @@
         .post-card {
             max-width: 1000px;
             margin: 0 auto;
-            background: #bebff2f3;
+            background: #ffffff;
             border-radius: 32px;
             box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.15);
             overflow: hidden;
@@ -167,7 +167,7 @@
             color: #f97316;
             margin-bottom: 0.8rem;
             display: inline-block;
-            background: rgba(224, 103, 16, 0.339);
+            background: rgba(249, 115, 22, 0.1);
             padding: 0.3rem 1rem;
             border-radius: 40px;
         }
@@ -210,7 +210,7 @@
         }
 
         .lead-box {
-            background: linear-gradient(135deg, #76d1a8 0%, #f4ac78ef 100%);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             border-radius: 24px;
             padding: 1.8rem 2rem;
             margin: 1.5rem 0 2.5rem;
@@ -218,7 +218,7 @@
             border-left: 5px solid #f97316;
             font-size: 1.05rem;
             line-height: 1.7;
-            box-shadow: 0 4px 15px rgba(246, 110, 110, 0.283);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         body.dark-theme .lead-box {
@@ -437,6 +437,31 @@
             margin-bottom: 1.5rem;
         }
 
+        /* === СТИЛИ ДЛЯ КАРТИНОК В ШАГАХ === */
+        .step-image {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .step-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 0.8rem;
+        }
+
+        .step-image p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin: 0;
+            font-style: italic;
+        }
+
+        body.dark-theme .step-image p {
+            color: #94a3b8;
+        }
+
         @media (max-width: 680px) {
             .post-content {
                 padding: 1.5rem;
@@ -487,10 +512,11 @@
 <body>
 <div class="post-card">
     <!-- === ШАПКА С КАРТИНКОЙ === -->
-     <div style="flex: 1 1 300px; text-align: center;">
-    <img src="ko.png" alt="Пример генерации от CapCut" style="width: 100%; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <p>Cat,dog ансамбль "Орущие гитары", шикарное выступление в лесу под оглушительные апплодисменты</p>
-</div>
+    <div class="header-image">
+        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=400&fit=crop" alt="CapCut анимация фото">
+        <div class="header-overlay">
+            <!-- Здесь будет градиентное затемнение -->
+        </div>
     </div>
 
     <div class="post-content">
@@ -510,8 +536,8 @@
         <div class="lead-box">
             🚀 <strong>Привет, друзья!</strong> Мне очень нравится CapCut и часто использую его именно для того, чтобы оживить одну-единственную картинку. Это идеальный способ сделать красивый Reels, TikTok или сторис, когда есть только одно фото, но хочется динамики, эмоций и атмосферы.<br><br>
             Сегодня покажу свой проверенный процесс от А до Я: как загрузить картинку и сделать из неё полноценную анимированную видео-заставку с музыкой, движением, эффектами и переходами.
-            Если где то что то ошибся есть откат назад. И конечно описание на сайте и демонстрация воможностей CapCut в Ютуб вещи разные, но для общего ознакомления можно почитать
-            Я загрузил маленкий кусочек ролика.
+            Если где то что то ошибся есть откат назад. И конечно описание на сайте и демонстрация возможностей CapCut в Ютуб вещи разные, но для общего ознакомления можно почитать.
+            Я загрузил маленький кусочек ролика.
         </div>
 
         <h2>📱 Пошаговая инструкция</h2>
@@ -522,11 +548,12 @@
                 <div class="step-number">1</div>
                 <h3>Создаём новый проект</h3>
                 <p>Открываю CapCut → нажимаю <strong>«Новый проект»</strong>. Сразу выбираю формат (обычно <strong>9:16 для TikTok/Reels</strong> или <strong>16:9</strong> для YouTube).</p>
+                
+                <div class="step-image">
+                    <img src="k.png" alt="Новый проект в CapCut">
+                    <p>Друзья, закинули картинку, сразу ставим 9:16 иначе всё будет обрезано, горел на этом не один раз</p>
+                </div>
             </div>
-         <div style="flex: 1 1 300px; text-align: center;">
-    <img src="k.png" alt="Пример генерации от CapCut" style="width: 100%; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <p>Друзья , закинули картинку, сразу ставим 9:16 иначе всё будет обрезано, горел на этом не один раз</p>
-</div>
 
             <!-- ШАГ 2 -->
             <div class="step-card">
@@ -538,11 +565,13 @@
                     <strong>💡 Совет:</strong>
                     Если картинка в плохом разрешении — лучше заранее увеличить её в любом редакторе, чтобы не было пикселей при зуме.
                 </div>
+
+                <div class="step-image">
+                    <img src="ko.png" alt="Импорт картинки в CapCut">
+                    <p>Да если картинка не важно выглядит поправляем в редакторе, я говорю про разрешение, что бы не было зума</p>
+                </div>
             </div>
- <div style="flex: 1 1 300px; text-align: center;">
-    <img src="ko.png" alt="Продолжаем генерить  от CapCut" style="width: 100%; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <p>Да если картинка не важно выглядит поправляем в редакторе, я говорю про разрешение, что бы не было зума</p>
-</div>
+
             <!-- ШАГ 3 -->
             <div class="step-card">
                 <div class="step-number">3</div>
@@ -564,11 +593,13 @@
                 </div>
 
                 <p>Можно также использовать готовые пресеты анимации: <strong>Zoom In, Pan Right, Fade, Glitch</strong> и т.д.</p>
+
+                <div class="step-image">
+                    <img src="kot.png" alt="Анимация в CapCut">
+                    <p>В CapCut кстати очень много шаблонов для картинок, да я как то в платном плане был, так</p>
+                </div>
             </div>
-  <div style="flex: 1 1 300px; text-align: center;">
-    <img src="kot.png" alt="Магическая работа от CapCut" style="width: 100%; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <p> В CapCut кстати очень много шаблонов для картинок, да я как то в платном плане был, так</p>
-</div>
+
             <!-- ШАГ 4 -->
             <div class="step-card">
                 <div class="step-number">4</div>
@@ -580,11 +611,12 @@
                     <li>Glitch или Distortion для современного вайба</li>
                 </ul>
                 <p>Также использую <strong>«Коррекцию»</strong> → повышаю насыщенность, контраст и добавляю тёплый/холодный тон под настроение.</p>
+
+                <div class="step-image">
+                    <img src="koti.png" alt="Эффекты в CapCut">
+                    <p>CapCut много вариантов для выбора тона, цвета</p>
+                </div>
             </div>
-                <div style="flex: 1 1 300px; text-align: center;">
-    <img src="koti.png" alt="Пример генерации от Gav" style="width: 100%; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <p>CapCut много вариантов для выбора тона, цвета</p>
-</div>
 
             <!-- ШАГ 5 -->
             <div class="step-card">
@@ -595,10 +627,12 @@
                     <li>Обрезаю музыку точно под длину видео</li>
                     <li>Добавляю <strong>«Звуковые эффекты»</strong> (лёгкий wind, heartbeat, sparkle — в зависимости от темы)</li>
                 </ul>
-                <div style="flex: 1 1 300px; text-align: center;">
-    <img src="kotir.png" alt="Класс генерации от CapCut" style="width: 100%; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <p>Музыка , тут надо внимательно быть, но и всёравно ютуб может зарубить трек</p>
-</div>
+
+                <div class="step-image">
+                    <img src="kotir.png" alt="Музыка в CapCut">
+                    <p>Музыка, тут надо внимательно быть, но и всё равно ютуб может зарубить трек</p>
+                </div>
+                
                 <div class="tip-box">
                     <strong>🎵 Совет:</strong>
                     Убавляю громкость оригинальной музыки до 70–80%, чтобы она не забивала атмосферу.
@@ -615,25 +649,28 @@
                     <li>Использую <strong>«Маски»</strong> и <strong>«Наложения»</strong>, чтобы добавить дополнительные элементы (например, лёгкий туман или свет)</li>
                     <li>В конце применяю <strong>«Скорость»</strong> → чуть замедляю некоторые участки для большего драматического эффекта</li>
                 </ul>
+
+                <div class="step-image">
+                    <img src="kotira.png" alt="Финальные штрихи в CapCut">
+                    <p>О тут вообще вариантов, на выбор, хочешь делай быстрее, громче</p>
+                </div>
             </div>
- <div style="flex: 1 1 300px; text-align: center;">
-    <img src="kotira.png" alt="Мощная генерации от CapCut" style="width: 100%; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <p>О тут вообще вариантов, на выбор , хочешь делай быстрее, громче</p>
-</div>
+
             <!-- ШАГ 7 -->
             <div class="step-card">
                 <div class="step-number">7</div>
                 <h3>Экспорт</h3>
                 <p>Нажимаю <strong>«Экспорт»</strong> → выбираю <strong>1080p или 4K</strong> (если оригинал позволяет) и <strong>60 fps</strong> для максимальной плавности.</p>
                 <p style="margin-top: 1rem; font-weight: 700; color: #10b981; font-size: 1.1rem;">✅ Готово!</p>
+
+                <div class="step-image">
+                    <img src="kotiras.png" alt="Экспорт видео в CapCut">
+                </div>
             </div>
         </div>
-  <div style="flex: 1 1 300px; text-align: center;">
-    <img src="kotiras.png" alt="Пример генерации от CapCut" style="width: 100%; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <p></p>
-</div>
+
         <div class="info-note">
-            ️ <strong>Время:</strong> Вот так за 5–10 минут я превращаю обычное фото в вирусный контент. Главное — не переборщить с эффектами. Лучше сделать красивое мягкое движение + атмосферную музыку, чем закидать всё блестящими глитчами.
+            ⏱️ <strong>Время:</strong> Вот так за 5–10 минут я превращаю обычное фото в вирусный контент. Главное — не переборщить с эффектами. Лучше сделать красивое мягкое движение + атмосферную музыку, чем закидать всё блестящими глитчами.
         </div>
 
         <hr>
@@ -650,9 +687,8 @@
             <h3 style="color: #1e40af; margin-bottom: 1rem;">📚 Полезные материалы:</h3>
             <ul style="margin: 0;">
                 <li style="margin: 0.5rem 0;"><a href="https://www.youtube.com/@АЙВЕБДОМ" target="_blank" style="color: #2563eb; text-decoration: none; font-weight: 600;">🎬 YouTube канал АЙ ВЕБ ДОМ</a> — там выкладываю свои работы и туториалы</li>
-                
-                <li style="margin: 0.5rem 0;"><a href="https://aimihome.ru/article-8.html" style="color: #2563eb; text-decoration: none; font-weight: 600;">HeyGen: как делаются АВАТАРЫ и не только"></li>
-                <li style="margin: 0.5rem 0;"><a href="https://aimihome.ru/article-15.html" style="color: #2563eb; text-decoration: none; font-weight: 600;">Chad AI — GPT-5.5, Gemini 3.1 Pro, Claude  Perplexity все тут"</li>
+                <li style="margin: 0.5rem 0;"><a href="https://aimihome.ru/article-8.html" style="color: #2563eb; text-decoration: none; font-weight: 600;">HeyGen: как делаются АВАТАРЫ и не только</a></li>
+                <li style="margin: 0.5rem 0;"><a href="https://aimihome.ru/article-15.html" style="color: #2563eb; text-decoration: none; font-weight: 600;">Chad AI — GPT-5.5, Gemini 3.1 Pro, Claude, Perplexity все тут</a></li>
             </ul>
         </div>
 
@@ -685,7 +721,7 @@
                    onmouseout="this.style.background='white'; this.style.color='#334155'; this.style.borderColor='#e2e8f0'">
                     ← Предыдущая статья (20)
                 </a>
-                 <a href="22">🎬 Скоро: видео, картинки, промпты</a>
+                <a href="22" style="color: #3b82f6; text-decoration: none; font-weight: 600; align-self: center;">🎬 Скоро: видео, картинки, промпты</a>
                 <a href="https://aimihome.ru/" style="
                     display: inline-flex;
                     align-items: center;
