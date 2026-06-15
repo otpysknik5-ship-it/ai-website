@@ -1,0 +1,120 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import AdBanner from '../components/AdBanner.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  date?: string;
+  tags?: string[];
+}
+
+const { title, description, image, date, tags = [] } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} | АЙ ВЕБ ДОМ</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalUrl}>
+
+  <!-- OG -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonicalUrl}>
+  <meta property="og:site_name" content="АЙ ВЕБ ДОМ">
+  {image && <meta property="og:image" content={new URL(image, Astro.site).toString()}>}
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  {image && <meta name="twitter:image" content={new URL(image, Astro.site).toString()}>}
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
+
+  <style is:global>
+    /* Сохраняем стили для контента статей */
+    .article-content h2 { font-size: 1.5rem; font-weight: bold; margin: 1.5rem 0 1rem; color: white; }
+    .article-content h3 { font-size: 1.25rem; font-weight: bold; margin: 1.25rem 0 0.75rem; color: #e5e7eb; }
+    .article-content p { margin-bottom: 1rem; line-height: 1.7; color: #d1d5db; }
+    .article-content ul { list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem; color: #d1d5db; }
+    .article-content ol { list-style: decimal; margin-left: 1.5rem; margin-bottom: 1rem; color: #d1d5db; }
+    .article-content li { margin-bottom: 0.5rem; }
+    .article-content strong { color: white; }
+    .article-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .article-content th, .article-content td { border: 1px solid #374151; padding: 0.75rem; text-align: left; }
+    .article-content th { background: #1f2937; color: white; }
+    .article-content td { color: #d1d5db; }
+    .article-content img { border-radius: 0.75rem; margin: 1rem 0; max-width: 100%; height: auto; }
+    .article-content blockquote { border-left: 4px solid #6366f1; padding-left: 1rem; margin: 1rem 0; color: #9ca3af; font-style: italic; }
+    .article-content code { background: #1f2937; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: monospace; }
+    .article-content pre { background: #1f2937; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin: 1rem 0; }
+  </style>
+</head>
+<body class="bg-ai-dark text-gray-100 min-h-screen">
+  <Header />
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <article>
+      <!-- Хлебные крошки -->
+      <nav class="text-sm text-gray-500 mb-4">
+        <a href="/" class="hover:text-white">Главная</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-300">{title}</span>
+      </nav>
+
+      <!-- Заголовок -->
+      <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">{title}</h1>
+
+      <!-- Мета -->
+      <div class="flex items-center gap-4 mb-6 text-sm text-gray-400">
+        {date && <time>{date}</time>}
+        {tags.length > 0 && (
+          <div class="flex gap-2">
+            {tags.map(tag => (
+              <span class="bg-gray-800 px-2 py-1 rounded text-xs">{tag}</span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <!-- Обложка -->
+      {image && (
+        <img src={image} alt={title} class="w-full h-64 md:h-80 object-cover rounded-xl mb-8" />
+      )}
+
+      <!-- Реклама сверху -->
+      <AdBanner position="top" />
+
+      <!-- Контент -->
+      <div class="article-content">
+        <slot />
+      </div>
+
+      <!-- Реклама снизу -->
+      <AdBanner position="bottom" />
+
+      <!-- Поделиться -->
+      <div class="mt-8 pt-6 border-t border-gray-800">
+        <p class="text-gray-400 text-sm mb-3">Поделиться:</p>
+        <div class="flex gap-3">
+          <a href={`https://t.me/share/url?url=${encodeURIComponent(canonicalUrl)}`} target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600">Telegram</a>
+          <a href={`https://vk.com/share.php?url=${encodeURIComponent(canonicalUrl)}`} target="_blank" class="bg-blue-700 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-800">VK</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</body>
+</html>

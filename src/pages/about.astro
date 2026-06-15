@@ -1,0 +1,38 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const pageTitle = "Обо мне | АЙ ВЕБ ДОМ";
+const pageDescription = "Vladimir — создатель АЙ ВЕБ ДОМ. Исследую нейросети и делюсь опытом.";
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-8">Обо мне</h1>
+
+    <div class="prose prose-invert max-w-none">
+      <p class="text-xl text-gray-300 mb-6">
+        Привет! Я Vladimir — создатель блога «АЙ ВЕБ ДОМ».
+      </p>
+
+      <p class="text-gray-400 mb-4">
+        Я активно исследую мир нейросетей и искусственного интеллекта. 
+        Пробовал десятки инструментов — от Midjourney до Grok, от HeyGen до Synthesia.
+      </p>
+
+      <p class="text-gray-400 mb-4">
+        Этот сайт — моя личная лаборатория, где я делюсь:
+      </p>
+
+      <ul class="list-disc list-inside text-gray-400 mb-6 space-y-2">
+        <li>Честными обзорами нейросетей</li>
+        <li>Гайдами по генерации изображений и видео</li>
+        <li>Крутыми промптами, которые работают</li>
+        <li>Лайфхаками по заработку с ИИ</li>
+      </ul>
+
+      <p class="text-gray-400">
+        <strong class="text-white">Никакой воды — только реальный опыт.</strong>
+      </p>
+    </div>
+  </div>
+</MainLayout>

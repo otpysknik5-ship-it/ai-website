@@ -1,0 +1,36 @@
+---
+const navLinks = [
+  { href: '/', text: 'Главная' },
+  { href: '/about', text: 'Обо мне' },
+];
+---
+
+<header class="bg-ai-dark border-b border-gray-800 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3">
+      <img src="/logo.png" alt="АЙ ВЕБ ДОМ" class="h-10 w-auto" />
+      <span class="text-xl font-bold text-white">АЙ ВЕБ ДОМ</span>
+    </a>
+
+    <nav class="hidden md:flex gap-6">
+      {navLinks.map(link => (
+        <a href={link.href} class="text-gray-300 hover:text-white transition-colors">
+          {link.text}
+        </a>
+      ))}
+    </nav>
+
+    <button id="menu-toggle" class="md:hidden text-white">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<script>
+  // Мобильное меню
+  document.getElementById('menu-toggle')?.addEventListener('click', () => {
+    // Логика мобильного меню
+  });
+</script>

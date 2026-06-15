@@ -1,0 +1,16 @@
+---
+interface Props {
+  src: string;
+  caption?: string;
+}
+
+const { src, caption } = Astro.props;
+---
+
+<figure class="my-6">
+  <video controls class="w-full rounded-xl" preload="metadata">
+    <source src={src} type="video/mp4" />
+    Ваш браузер не поддерживает видео.
+  </video>
+  {caption && <figcaption class="text-center text-gray-500 text-sm mt-2">{caption}</figcaption>}
+</figure>

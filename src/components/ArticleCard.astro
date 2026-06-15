@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  slug: string;
+  date: string;
+  tags?: string[];
+}
+
+const { title, description, image, slug, date, tags = [] } = Astro.props;
+---
+
+<article class="bg-ai-card rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300 border border-gray-800">
+  <a href={`/blog/${slug}/`} class="block">
+    <img src={image} alt={title} class="w-full h-48 object-cover" loading="lazy" />
+    <div class="p-5">
+      <div class="flex gap-2 mb-3">
+        {tags.map(tag => (
+          <span class="text-xs bg-ai-accent/20 text-ai-accent px-2 py-1 rounded">{tag}</span>
+        ))}
+      </div>
+      <h3 class="text-white font-bold text-lg mb-2 line-clamp-2">{title}</h3>
+      <p class="text-gray-400 text-sm line-clamp-3 mb-3">{description}</p>
+      <time class="text-gray-500 text-xs">{date}</time>
+    </div>
+  </a>
+</article>
