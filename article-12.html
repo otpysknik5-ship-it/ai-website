@@ -69,31 +69,57 @@
 
         /* НОВЫЕ БЛОКИ ДЛЯ ЗАРАБОТКА */
         .money-block {
-            background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(16,185,129,0.1));
-            border-left: 5px solid var(--money);
+            background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(16,185,129,0.15));
+            border-left: 5px solid #22c55e;
             padding: 1.5rem 1.8rem;
             border-radius: 12px;
             margin: 1.5rem 0;
             transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .money-block {
+            background: linear-gradient(135deg, rgba(34,197,94,0.25), rgba(16,185,129,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
         .money-block h2, .money-block h3 {
-            color: var(--money);
+            color: #15803d;
+        }
+
+        body.dark-theme .money-block h2, body.dark-theme .money-block h3 {
+            color: #4ade80;
         }
 
         .journey-block {
-            background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(37,99,235,0.1));
+            background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(37,99,235,0.15));
             border-left: 5px solid #3b82f6;
             padding: 1.5rem 1.8rem;
             border-radius: 12px;
             margin: 1.5rem 0;
             transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .journey-block {
+            background: linear-gradient(135deg, rgba(59,130,246,0.25), rgba(37,99,235,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .journey-block h2, .journey-block h3 {
+            color: #1d4ed8;
+        }
+
+        body.dark-theme .journey-block h2, body.dark-theme .journey-block h3 {
+            color: #60a5fa;
         }
 
         .youtube-block {
-            background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(220,38,38,0.1));
+            background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(220,38,38,0.15));
             border-left: 5px solid #ef4444;
             padding: 1.5rem 1.8rem;
             border-radius: 12px;
@@ -101,10 +127,29 @@
             transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             text-align: center;
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .youtube-block {
+            background: linear-gradient(135deg, rgba(239,68,68,0.25), rgba(220,38,38,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
         .youtube-block h2 {
-            color: #ef4444;
+            color: #dc2626;
+        }
+
+        body.dark-theme .youtube-block h2 {
+            color: #f87171;
+        }
+
+        .youtube-block ul {
+            color: inherit;
+        }
+
+        .youtube-block li {
+            color: inherit;
         }
 
         .youtube-btn {
@@ -226,9 +271,15 @@
             }
         }
 
+        .money-block ul, .money-block li, .money-block p,
+        .journey-block ul, .journey-block li, .journey-block p,
+        .youtube-block p {
+            color: inherit;
+        }
+
         .price-tag {
             display: inline-block;
-            background: var(--money);
+            background: #22c55e;
             color: white;
             padding: 2px 8px;
             border-radius: 4px;
@@ -238,12 +289,22 @@
 
         .warning-tag {
             display: inline-block;
-            background: var(--warning);
+            background: #f97316;
             color: white;
             padding: 2px 8px;
             border-radius: 4px;
             font-weight: bold;
             font-size: 0.9rem;
+        }
+
+        body.dark-theme .price-tag {
+            background: #4ade80;
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .warning-tag {
+            background: #fb923c;
+            color: #1a1a1a;
         }
     </style>
 <base target="_blank">
