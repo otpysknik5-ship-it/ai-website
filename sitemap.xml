@@ -141,6 +141,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+    <url>
+    <loc>https://aimihome.ru/ollama-capcut.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- Новые статьи с ЧПУ -->
   <url>
