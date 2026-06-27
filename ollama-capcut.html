@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO-оптимизация -->
+    <title>Ollama + CapCut локально: как я собрал приложение на своём железе | АЙ ВЕБ ДОМ</title>
+    <meta name="description" content="Как запустить Ollama локально и собрать приложение CapCut через ИИ. Локальные нейросети, заработок с ИИ-агентами, честный опыт. Видео + рефералки.">
+    <meta name="keywords" content="Ollama локально, CapCut сборка приложения, ИИ-агент заработок, Ollama установка, локальные нейросети, заработок с ИИ 2026, AI-агент сборка">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aimihome.ru//ollama-capcut.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ollama + CapCut локально: как я собрал приложение на своём железе">
+    <meta property="og:description" content="Запускаю Ollama локально, собираю приложение через ИИ. Честный опыт заработка с нейросетями. Видео + рефералки.">
+    <meta property="og:image" content="https://aimihome.ru/ollama-capcut-og.jpg">
+    <meta property="og:url" content="https://aimihome.ru//ollama-capcut.html">
+    <meta property="og:type" content="article">
+
+    <!-- Фавиконы -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --card-bg: #f5f7fa;
+            --accent: #667eea;
+            --accent2: #764ba2;
+            --border: #e0e0e0;
+            --money: #22c55e;
+            --warning: #f97316;
+            --ollama-blue: #2563eb;
+            --ollama-dark: #1e40af;
+            --capcut-red: #ef4444;
+            --capcut-orange: #f97316;
+        }
+
+        body.dark-theme {
+            --bg: #1b1b1d;
+            --text: #ffffff;
+            --card-bg: #2a2a2e;
+            --accent: #7b8cff;
+            --accent2: #9a6bff;
+            --border: #444;
+            --money: #4ade80;
+            --warning: #fb923c;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+        }
+
+        p { font-size: 1.05rem; line-height: 1.8; color: var(--text); }
+        h2 { color: var(--text); margin-bottom: 1rem; font-size: 1.5rem; }
+        h3 { color: var(--text); margin-top: 1.5rem; margin-bottom: 0.8rem; font-size: 1.2rem; }
+
+        .feature-card {
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--ollama-blue);
+            background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(30,64,175,0.1));
+        }
+
+        body.dark-theme .feature-card {
+            background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(30,64,175,0.2));
+        }
+
+        .money-block {
+            background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(16,185,129,0.15));
+            border-left: 5px solid var(--money);
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .money-block {
+            background: linear-gradient(135deg, rgba(34,197,94,0.25), rgba(16,185,129,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .money-block h2, .money-block h3 {
+            color: #15803d;
+        }
+
+        body.dark-theme .money-block h2, body.dark-theme .money-block h3 {
+            color: #4ade80;
+        }
+
+        .journey-block {
+            background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(37,99,235,0.15));
+            border-left: 5px solid #3b82f6;
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .journey-block {
+            background: linear-gradient(135deg, rgba(59,130,246,0.25), rgba(37,99,235,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .shock-block {
+            background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(220,38,38,0.15));
+            border-left: 5px solid #ef4444;
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .shock-block {
+            background: linear-gradient(135deg, rgba(239,68,68,0.25), rgba(220,38,38,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .shock-block h2 {
+            color: #dc2626;
+        }
+
+        body.dark-theme .shock-block h2 {
+            color: #f87171;
+        }
+
+        .youtube-block {
+            background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(220,38,38,0.15));
+            border-left: 5px solid #ef4444;
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .youtube-block {
+            background: linear-gradient(135deg, rgba(239,68,68,0.25), rgba(220,38,38,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .youtube-block h2 {
+            color: #dc2626;
+        }
+
+        body.dark-theme .youtube-block h2 {
+            color: #f87171;
+        }
+
+        .youtube-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .youtube-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .short-block {
+            background: linear-gradient(135deg, rgba(236,201,75,0.15), rgba(250,204,21,0.15));
+            border-left: 5px solid #fbbf24;
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .short-block {
+            background: linear-gradient(135deg, rgba(236,201,75,0.25), rgba(250,204,21,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .article-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #ef4444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        body.dark-theme .article-title {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f87171 100%);
+            -webkit-background-clip: text;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .badge-blue { background: #2563eb; color: white; }
+        .badge-green { background: #22c55e; color: white; }
+        .badge-yellow { background: #fbbf24; color: #1a1a1a; }
+        .badge-red { background: #ef4444; color: white; }
+        .badge-purple { background: #7c3aed; color: white; }
+
+        .price-tag {
+            display: inline-block;
+            background: #22c55e;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .warning-tag {
+            display: inline-block;
+            background: #f97316;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .ref-link-inline {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .ref-link-inline:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 200px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .btn-home {
+            background-color: var(--card-bg);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-home:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-next {
+            background: linear-gradient(45deg, var(--accent), var(--accent2));
+            color: white;
+            border: none;
+        }
+
+        .btn-next:hover {
+            background: linear-gradient(45deg, var(--accent2), var(--accent));
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .nav-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 30px 10px;
+            }
+            .btn {
+                width: 100%;
+                font-size: 16px;
+                padding: 14px 20px;
+            }
+            .article-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            text-align: center;
+            color: #5a6b84;
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+            margin-top: 30px;
+        }
+
+        .footer-extra {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .footer-extra a {
+            color: #f97316;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+<base target="_blank">
+<base target="_blank">
+</head>
+
+<body>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108200368', 'ym');
+
+    ym(108200368, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108200368" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <div style="margin-bottom: 20px;">
+        <a href="index.html" style="text-decoration: none; color: #667eea; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
+            ← Вернуться на главную (АЙ ВЕБ ДОМ)
+        </a>
+    </div>
+
+    <div class="article-container">
+
+        <h1 class="article-title">Ollama + CapCut локально: как я собрал приложение на своём железе</h1>
+
+        <!-- ВИДЕО ШАПКА: ollama.mp4 -->
+        <div style="max-width: 800px; margin: 0 auto 2rem; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+            <video controls preload="metadata" poster="za-fish-preview.jpg" style="width: 100%; display: block;">
+                <source src="ollama.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео. 
+                <a href="https://www.youtube.com/@АЙВЕБДОМ" target="_blank">Смотреть на YouTube</a>
+            </video>
+            <div style="background: linear-gradient(135deg, #2563eb, #7c3aed); padding: 10px; text-align: center;">
+                <p style="color: white; margin: 0; font-weight: 700; font-size: 0.95rem;">🎬 Мой эксперимент: Ollama + CapCut на локальном железе | АЙ ВЕБ ДОМ</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <span class="badge badge-blue">Ollama</span>
+            <span class="badge badge-purple">CapCut</span>
+            <span class="badge badge-green">Локальные ИИ</span>
+            <span class="badge badge-yellow">Заработок</span>
+            <span class="badge badge-red">ИИ-агент</span>
+        </div>
+
+        <p><strong>ДРУЗЬЯ! Я В ШОКЕ ОТ ТОГО, ЧТО МОЖЕТ ИИ!</strong></p>
+
+        <p>И так я уже в других статьях говорил, что мечтаю собрать AI-агента. Я так же, как и все, мечтаю, чтобы кто-то работал за меня. Сейчас вокруг трубят: «Я сижу, а AI-агент капусту рубит». И почему-то говорят, что это им удаётся делать бесплатно. Сколько я перелопатил ИИ, кому только не написал — одно время даже с владельцем Grok пообщался по переписке.</p>
+
+        <p>Вот подружился в прошлый раз с <a href="https://syntx.ai/welcome/BCEmL6aO" target="_blank" class="ref-link-inline">Syntx.ai</a>, очень интересно было. Тема — как можно с ними заработать. Узнал много полезного. Самое примечательное, но это я с детства знал — <strong>бесплатно — сыр в мышеловке</strong>.</p>
+
+        <section class="shock-block">
+            <h2>🧀 Бесплатно — сыр в мышеловке</h2>
+            <p>Заработок на ИИ сейчас бомбовая тема. У меня заработать сейчас только на бирже маленько получается. Так не будем отвлекаться. Поэтому начал я ходить по предоплате — тут будут мои предложения, выбирайте, что зайдёт.</p>
+            <p>Пообщался, поговорил с умными людьми и ИИ, пришёл к выводу — <strong>могу собрать пол-агента</strong>. То есть будет писать статьи и код. Там уж про картинки, приложения и не мечтал. Думаю, пока хватит и этого. А то получится: 20$ заплатил, а тебе родное государство — бам, и темнота.</p>
+        </section>
+
+        <h2>🤖 Пол-агент: пишет статьи и код</h2>
+        <p>Но вот насколько мы отстали в области ИИ — это пропасть. К примеру — я. И так ближе к теме. Заработать с ИИ вам тоже хочется.</p>
+
+        <p>Прознал я таки про <strong>Ollama</strong>. Установил. Кстати, железо не ахти какое мощное — ну что там, комп до 50 тыс. руб. Начал тестить. Короче, статьи только отлетают, что не спроси. Хорошо — думаю, что бы такого задать, чтобы было ближе к тому, как заработать с ИИ.</p>
+
+        <section class="feature-card">
+            <h2>🎬 Говорю Ollama: «Накатай мне статью про заработок с приложением CapCut»</h2>
+            <p>Сижу, жду статью — <strong>бац, получаю приложение</strong>. Тут я выпал в осадок.Пердставляете выдал приложение, правда не настолько крутое как оригинал, но можно что то допилить и это локально. если вдруг запросят денег , а у меня стоит бесплатно.  Знаете что я сделал следующее. Мини терминал для торговли акциями с своими параметрами индикаторов
+                 Друзья, заходите, пробуйте. Даже для своего развития и возможности заработать с нейросетями.</p>
+            <p><strong>Ollama работает полностью локально</strong> — никаких API-ключей, никаких подписок, никаких ограничений. Твой компьютер, твои данные, твой ИИ.</p>
+        </section>
+
+        <!-- СКРИНШОТ: Ollama терминал -->
+        <div style="max-width: 700px; margin: 1.5rem auto; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+            <img src="ollama-terminal.jpg" alt="Ollama терминал — установка локальной модели" style="width: 100%; display: block;">
+            <div style="background: linear-gradient(135deg, #2563eb, #1e40af); padding: 10px; text-align: center;">
+                <p style="color: white; margin: 0; font-weight: 700; font-size: 0.95rem;">💻 Ollama в терминале — локальная установка модели</p>
+            </div>
+        </div>
+
+        <h2>⚡ Как это работает</h2>
+        <p><strong>Ollama</strong> — это инструмент для запуска больших языковых моделей (LLM) прямо на твоём компьютере. Без облака, без интернета (после установки), без платы за токены.</p>
+
+        <p>Я говорю Ollama: «Сделай мне приложение про заработок с CapCut». И она не просто пишет текст — <strong>она генерирует код, структуру, логику</strong>. Это не статья, это рабочее приложение, которое можно собрать и запустить.</p>
+
+        <p>Если ты ещё не пробовал локальные ИИ — <a href="https://grfpr.com/g/34g1j74pfv8a4d8b1048aa3255da32/?erid=2bL9aMPo2e49hMet4pgVRsMGnf&utm_source=aimihome&utm_medium=article23&utm_campaign=chad_ai" target="_blank" class="ref-link-inline">💜 Chad AI</a> — ещё один инструмент, который стоит посмотреть. Разные подходы, разные возможности.</p>
+
+        <section class="journey-block">
+            <h2>🛤️ Мой путь: от мечты к пол-агенту</h2>
+            <p>Привет, я Владимир. Скоро на пенсию, ищу дополнительный доход. Этот сайт — моя лаборатория.</p>
+            <p><strong>Что я уже сделал с Ollama:</strong></p>
+            <ul>
+                <li>✅ Установил на комп за 50 тыс. руб. — работает!</li>
+                <li>✅ Сгенерировал статьи на любую тему</li>
+                <li>✅ <strong>Собрал приложение про заработок с CapCut</strong> — код + логика</li>
+                <li>✅ Тестирую разные модели — llama3, mistral, phi</li>
+            </ul>
+            <p><strong>Что дальше:</strong></p>
+            <ol>
+                <li><strong>Неделя 1:</strong> Довожу приложение до рабочего состояния</li>
+                <li><strong>Неделя 2:</strong> Публикую на GitHub + пишу гайд</li>
+                <li><strong>Неделя 3:</strong> Монетизация через партнёрки и донаты</li>
+                <li><strong>Неделя 4:</strong> Отчитываюсь на сайте — сколько заработал</li>
+            </ol>
+            <p><span class="warning-tag">Важно</span> Я не гуру. Я в процессе. Но каждый шаг документирую — и делюсь с тобой.</p>
+        </section>
+
+        <section class="money-block">
+            <h2>💰 Сколько можно заработать с локальными ИИ: цифры</h2>
+            <p>Я пока не заработал на Ollama напрямую, но вижу пути:</p>
+
+            <h3>1. Создание и продажа приложений</h3>
+            <ul>
+                <li>Готовые приложения на базе Ollama — <span class="price-tag">$10-100</span> на Gumroad</li>
+                <li>Кастомные решения под заказ — <span class="price-tag">$50-500</span></li>
+                <li>Шаблоны и скрипты — <span class="price-tag">$5-30</span></li>
+            </ul>
+
+            <h3>2. Контент и обучение</h3>
+            <ul>
+                <li>Гайды по Ollama — <span class="price-tag">500-2000₽</span></li>
+                <li>Видео-курсы на YouTube — монетизация + партнёрки</li>
+                <li>Консультации по локальным ИИ — <span class="price-tag">1000-5000₽/час</span></li>
+            </ul>
+
+            <h3>3. Экономия = заработок</h3>
+            <ul>
+                <li>ChatGPT Plus — $20/мес, Midjourney — $10-30/мес</li>
+                <li>Ollama — <span class="price-tag">$0</span> (только электричество)</li>
+                <li>Экономия: <strong>$30-50/мес</strong> = <strong>3000-5000₽/мес</strong></li>
+            </ul>
+
+            <p><span class="warning-tag">Реальность</span> В первый месяц скорее всего <strong>0-3000₽</strong>. Во второй — <strong>3000-10000₽</strong>, если не бросать. Главное — делать и показывать.</p>
+        </section>
+
+        <h2>🛠️ Как установить Ollama</h2>
+        <p>Если хочешь повторить мой путь — вот краткая инструкция:</p>
+
+        <section class="feature-card" style="border-left: 5px solid #22c55e; background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(16,185,129,0.1));">
+            <h3>Шаг 1: Скачай Ollama</h3>
+            <p>Иди на <strong>ollama.com</strong>, скачай установщик под свою ОС (Windows, Mac, Linux).</p>
+
+            <h3>Шаг 2: Установи модель</h3>
+            <p>Открой терминал и напиши:</p>
+            <code style="display: block; background: #1a1a2e; color: #4ade80; padding: 1rem; border-radius: 8px; font-family: monospace; margin: 1rem 0;">ollama run llama3</code>
+
+            <h3>Шаг 3: Задай вопрос</h3>
+            <p>Пиши что угодно — от «Напиши статью» до «Собери мне приложение». ИИ работает локально, без интернета.</p>
+
+            <p><span class="warning-tag">Совет</span> Начни с лёгких моделей (phi, llama3:8b), если железо слабое. Потом переходи на более мощные.</p>
+        </section>
+
+        <p>Для тех, кто хочет больше инструментов в одном месте — <a href="https://bothub.chat/?invitedBy=9hrXGbTCTq1_smgBB1nzW" target="_blank" class="ref-link-inline">🤖 BotHub</a> — доступ к ChatGPT, Midjourney, Claude и другим ИИ в одном окне. Удобно, когда нужно сравнивать результаты.</p>
+
+        <section class="youtube-block">
+            <h2>📺 Все видео на канале АЙВЕБДОМ</h2>
+            <p>Этот эксперимент и другие пособия по заработку с ИИ — на моём канале.</p>
+            <a href="https://www.youtube.com/@АЙВЕБДОМ" target="_blank" class="youtube-btn">
+                🎬 Перейти на канал АЙВЕБДОМ
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                Подпишись, чтобы не пропустить новые чудеса!
+            </p>
+        </section>
+
+        <h2>🤔 Моё мнение</h2>
+        <p>Ollama — это <strong>реальный прорыв для тех, кто хочет работать с ИИ бесплатно и локально</strong>. Не нужно платить за подписки, не нужно бояться, что твои данные утекут в облако. Всё на твоём железе, всё под твоим контролем.</p>
+
+        <h3>Плюсы Ollama:</h3>
+        <ul style="color: #1a1a1a;">
+            <li>✅ <strong>Полностью бесплатно</strong> — никаких подписок</li>
+            <li>✅ <strong>Приватность</strong> — данные не уходят никуда</li>
+            <li>✅ <strong>Работает без интернета</strong> (после установки модели)</li>
+            <li>✅ <strong>Можно собирать приложения</strong> — не только тексты</li>
+            <li>✅ <strong>Открытый исходный код</strong> — сообщество растёт</li>
+        </ul>
+
+        <h3>Минусы:</h3>
+        <ul style="color: #1a1a1a;">
+            <li>❌ Требует нормального железа (но работает и на слабом)</li>
+            <li>❌ Модели менее мощные, чем GPT-4o или Claude 3.5</li>
+            <li>❌ Нужно разбираться в терминале (немного)</li>
+        </ul>
+
+        <!-- БЛОК: Перелинковка -->
+        <section class="feature-card" style="border-left: 5px solid #a855f7;">
+            <h2>🔗 Читай дальше: заработок с другими ИИ</h2>
+            <p>Если Ollama + CapCut — это одна схема, то вот другие, которые я тестирую:</p>
+            <ul>
+                <li><a href="article-22.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">→ Google Pixel ИИ-функции 2026: заработок с телефона</a> — Gemini Omni, Screen Reactions</li>
+                <li><a href="article-12.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">→ Gemini + CapCut: как зарабатываю на видео с ИИ</a> — партнёрки, монтаж, схемы</li>
+                <li><a href="article-7.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">→ HeyGen: как зарабатывают на AI-аватарах</a> — озвучка, презентации</li>
+                <li><a href="article-4.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">→ Midjourney: заработок на генерации картинок</a> — принты, иллюстрации</li>
+                <li><a href="article-13.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">→ Бесплатные ИИ в России: как обойтись без подписки</a> — экономия = заработок</li>
+            </ul>
+            <p><strong>Все статьи про заработок — в одном месте.</strong> Следи за обновлениями, я добавляю новые схемы каждую неделю.</p>
+        </section>
+
+        <!-- БЛОК: Итог -->
+        <section class="short-block">
+            <h2>🚀 Итог: Ollama — локальный ИИ, который работает</h2>
+            <p>Я в шоке от того, что может ИИ. <strong>Ollama превратил мой компьютер за 50 тыс. руб. в рабочую станцию для создания контента и приложений.</strong></p>
+            <p>Я не заработал ещё ни рубля на Ollama напрямую. Но я уже:</p>
+            <ul style="color: #f97316; font-weight: bold;">
+                <li>Установил и настроил локальный ИИ</li>
+                <li>Сгенерировал статьи и код</li>
+                <li>Собрал приложение про заработок с CapCut</li>
+                <li>Записал видео для канала АЙВЕБДОМ</li>
+                <li>Написал эту статью</li>
+            </ul>
+            <p style="color: #1a1a1a;">Это не трата времени — это фундамент.</p>
+            <p style="color: #1a1a1a;">Когда придёт первый заказ или первая монетизация — я напишу об этом честно. С цифрами. Скриншотом.</p>
+            <p style="color: #1a1a1a;">А пока — <strong style="color: #f97316;">начни свой путь с локальным ИИ</strong>. Ollama думает. Ты зарабатываешь.</p>
+        </section>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://t.me/Abuabu_5" style="display: inline-block; background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: bold;">
+                💬 Подписаться на обновления в Telegram
+            </a>
+        </div>
+
+    </div>
+
+    <!-- КНОПКИ НАВИГАЦИИ -->
+    <div class="nav-buttons">
+        <a href="https://aimihome.ru/" class="btn btn-home">← На главную</a>
+        <a href="article-24.html" class="btn btn-next">ГОТОВИТСЯ!!!</a>
+    </div>
+
+    <footer>
+        <p>© 2026 АЙ ВЕБ ДОМ. Все права защищены.</p>
+        <p>
+            Сделано с ❤️ • Автор: 
+            <a href="https://t.me/citadel_test_quote_bot" target="_blank">Владимир</a> • 
+            <a href="https://aimihome.ru">aimihome.ru</a>
+        </p>
+        <p style="font-size: 0.85rem; color: #888; margin-top: 10px;">
+            Использование материалов сайта без разрешения запрещено. 
+            При цитировании ссылка на <a href="https://aimihome.ru">aimihome.ru</a> обязательна.
+        </p>
+    </footer>
+
+    <div class="footer-extra">
+        <a href="https://t.me/Abuabu_5" class="telegram">Telegram</a>
+        <a href="https://www.youtube.com/@АЙВЕБДОМ" target="_blank">YouTube</a>
+    </div>
+
+    <script>
+        // Восстанавливаем тему при загрузке
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+
+        const themeBtn = document.getElementById("themeToggle");
+
+        themeBtn.onclick = () => {
+            document.body.classList.toggle("dark-theme");
+            themeBtn.textContent = document.body.classList.contains("dark-theme") ? "☀️" : "🌙";
+
+            if (document.body.classList.contains("dark-theme")) {
+                localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
+        };
+
+        const backToTop = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+        });
+
+        backToTop.onclick = (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
+
+</body>
+</html>
