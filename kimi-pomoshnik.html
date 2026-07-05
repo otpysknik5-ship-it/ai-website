@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO-оптимизация -->
+    <title>Как я чуть не убил свой сайт и почему важно делать всё по порядку | АЙ ВЕБ ДОМ</title>
+    <meta name="description" content="Реальная история: как я сломал DNS-записи на Cloudflare, потерял сайт aimihome.ru на 2 дня и чинил его с помощью нейросетей Kimi и Grok. Честный опыт.">
+    <meta name="keywords" content="Cloudflare Pages настройка, DNS записи ошибка, как починить сайт, нейросети помощники, Kimi AI помощник, Grok помощник, заработок с ИИ 2026">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aimihome.ru/kimi-pomoshnik.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Как я чуть не убил свой сайт и почему важно делать всё по порядку">
+    <meta property="og:description" content="Сломал DNS, потерял сайт на 2 дня, чинил с Kimi и Grok. Честная история с aimihome.ru.">
+    <meta property="og:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
+    <meta property="og:url" content="https://aimihome.ru/kimi-pomoshnik.html">
+    <meta property="og:type" content="article">
+
+    <!-- Фавиконы -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --card-bg: #f5f7fa;
+            --accent: #667eea;
+            --accent2: #764ba2;
+            --border: #e0e0e0;
+            --money: #22c55e;
+            --warning: #f97316;
+            --kimi-purple: #7c5cff;
+            --kimi-dark: #5a3fd6;
+            --grok-orange: #f97316;
+            --danger-red: #ef4444;
+        }
+
+        body.dark-theme {
+            --bg: #1b1b1d;
+            --text: #ffffff;
+            --card-bg: #2a2a2e;
+            --accent: #7b8cff;
+            --accent2: #9a6bff;
+            --border: #444;
+            --money: #4ade80;
+            --warning: #fb923c;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+        }
+
+        p { font-size: 1.05rem; line-height: 1.8; color: var(--text); }
+        h2 { color: var(--text); margin-bottom: 1rem; font-size: 1.5rem; }
+        h3 { color: var(--text); margin-top: 1.5rem; margin-bottom: 0.8rem; font-size: 1.2rem; }
+
+        .feature-card {
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--kimi-purple);
+            background: linear-gradient(135deg, rgba(124,92,255,0.1), rgba(90,63,214,0.1));
+        }
+
+        body.dark-theme .feature-card {
+            background: linear-gradient(135deg, rgba(124,92,255,0.2), rgba(90,63,214,0.2));
+        }
+
+        .money-block {
+            background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(16,185,129,0.15));
+            border-left: 5px solid var(--money);
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .money-block {
+            background: linear-gradient(135deg, rgba(34,197,94,0.25), rgba(16,185,129,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .money-block h2, .money-block h3 {
+            color: #15803d;
+        }
+
+        body.dark-theme .money-block h2, body.dark-theme .money-block h3 {
+            color: #4ade80;
+        }
+
+        .journey-block {
+            background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(37,99,235,0.15));
+            border-left: 5px solid #3b82f6;
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .journey-block {
+            background: linear-gradient(135deg, rgba(59,130,246,0.25), rgba(37,99,235,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .shock-block {
+            background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(220,38,38,0.15));
+            border-left: 5px solid #ef4444;
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .shock-block {
+            background: linear-gradient(135deg, rgba(239,68,68,0.25), rgba(220,38,38,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .shock-block h2 {
+            color: #dc2626;
+        }
+
+        body.dark-theme .shock-block h2 {
+            color: #f87171;
+        }
+
+        .youtube-block {
+            background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(220,38,38,0.15));
+            border-left: 5px solid #ef4444;
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .youtube-block {
+            background: linear-gradient(135deg, rgba(239,68,68,0.25), rgba(220,38,38,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .youtube-block h2 {
+            color: #dc2626;
+        }
+
+        body.dark-theme .youtube-block h2 {
+            color: #f87171;
+        }
+
+        .youtube-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .youtube-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .short-block {
+            background: linear-gradient(135deg, rgba(236,201,75,0.15), rgba(250,204,21,0.15));
+            border-left: 5px solid #fbbf24;
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .short-block {
+            background: linear-gradient(135deg, rgba(236,201,75,0.25), rgba(250,204,21,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .kimi-block {
+            background: linear-gradient(135deg, rgba(124,92,255,0.15), rgba(154,107,255,0.15));
+            border-left: 5px solid var(--kimi-purple);
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #1a1a1a;
+        }
+
+        body.dark-theme .kimi-block {
+            background: linear-gradient(135deg, rgba(124,92,255,0.25), rgba(154,107,255,0.25));
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .kimi-block h2, .kimi-block h3 {
+            color: var(--kimi-dark);
+        }
+
+        body.dark-theme .kimi-block h2, body.dark-theme .kimi-block h3 {
+            color: #b8a0ff;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 1rem 0 1rem 2rem;
+            border-left: 2px solid var(--border);
+            margin-left: 1rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 1.3rem;
+            width: 12px;
+            height: 12px;
+            background: var(--bg);
+            border: 2px solid var(--kimi-purple);
+            border-radius: 50%;
+        }
+
+        .timeline-item.danger::before {
+            border-color: var(--danger-red);
+        }
+
+        .timeline-item.success::before {
+            border-color: var(--money);
+        }
+
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .article-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #7c5cff 0%, #f97316 50%, #ef4444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        body.dark-theme .article-title {
+            background: linear-gradient(135deg, #b8a0ff 0%, #fb923c 50%, #f87171 100%);
+            -webkit-background-clip: text;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .badge-blue { background: #2563eb; color: white; }
+        .badge-green { background: #22c55e; color: white; }
+        .badge-yellow { background: #fbbf24; color: #1a1a1a; }
+        .badge-red { background: #ef4444; color: white; }
+        .badge-purple { background: #7c5cff; color: white; }
+        .badge-orange { background: #f97316; color: white; }
+
+        .price-tag {
+            display: inline-block;
+            background: #22c55e;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .warning-tag {
+            display: inline-block;
+            background: #f97316;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .ref-link-inline {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .ref-link-inline:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 200px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .btn-home {
+            background-color: var(--card-bg);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-home:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-next {
+            background: linear-gradient(45deg, var(--accent), var(--accent2));
+            color: white;
+            border: none;
+        }
+
+        .btn-next:hover {
+            background: linear-gradient(45deg, var(--accent2), var(--accent));
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .nav-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 30px 10px;
+            }
+            .btn {
+                width: 100%;
+                font-size: 16px;
+                padding: 14px 20px;
+            }
+            .article-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            text-align: center;
+            color: #5a6b84;
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+            margin-top: 30px;
+        }
+
+        .footer-extra {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .footer-extra a {
+            color: #f97316;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+<base target="_blank">
+<base target="_blank">
+</head>
+
+<body>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108200368', 'ym');
+
+    ym(108200368, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108200368" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <div style="margin-bottom: 20px;">
+        <a href="index.html" style="text-decoration: none; color: #667eea; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
+            ← Вернуться на главную (АЙ ВЕБ ДОМ)
+        </a>
+    </div>
+
+    <div class="article-container">
+
+        <h1 class="article-title">Как я чуть не убил свой сайт и почему важно делать всё по порядку</h1>
+
+        <!-- ВИДЕО ШАПКА: site-hinim.mp4 -->
+        <div style="max-width: 800px; margin: 0 auto 2rem; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+            <video controls preload="metadata" poster="site-hinim-preview.jpg" style="width: 100%; display: block;">
+                <source src="site-hinim.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео. 
+                <a href="https://www.youtube.com/@АЙВЕБДОМ" target="_blank">Смотреть на YouTube</a>
+            </video>
+            <div style="background: linear-gradient(135deg, #7c5cff, #f97316); padding: 10px; text-align: center;">
+                <p style="color: white; margin: 0; font-weight: 700; font-size: 0.95rem;">🎬 Как я чуть не убил сайт aimihome.ru | История с Kimi и Grok | АЙ ВЕБ ДОМ</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <span class="badge badge-purple">Kimi AI</span>
+            <span class="badge badge-orange">Grok</span>
+            <span class="badge badge-red">Cloudflare</span>
+            <span class="badge badge-blue">DNS</span>
+            <span class="badge badge-green">Реальный опыт</span>
+        </div>
+
+        <p><strong>ДРУЗЬЯ! Я В ШОКЕ ОТ ТОГО, КАК ПОМОГАЮТ НЕЙРОСЕТИ!</strong></p>
+
+        <p>Друзья, накопилось столько всего, что уже и не знаю, с чего начать. Я всегда считал себя немного «гением» в этих делах, ТАК НЕМНОЖКО, пока не открыл СТРАШНУЮ ТАЙНУ.У меня сайт, пишу тут иногда и вот начал замечать, что то не так и не то. Решил посмотреть
+            аналитику поглубше, не только "метрика яндекс", но и <cloudflare>.  И там меня ждал неприятный сюрприз.</p>
+
+        <section class="shock-block">
+            <h2>💥 24 апреля — день, когда всё пошло не так</h2>
+            <p>С 24 апреля у меня висела <strong>«мёртвая» запись для корневого домена aimihome.ru</strong>. По факту работал только www-версия. Трафик был и так небольшой, а тут ещё и HTTPS нормально не подхватывался.</p>
+            <p>Я, конечно, закусил удила и понёсся «всё фиксить». Залетел в Cloudflare, быстро удалил все старые записи и начал создавать новые.</p>
+            <p><strong>И вот это была моя главная ошибка.</strong> Оказывается, нельзя было так делать. Начинать нужно было совсем с другого — с правильного создания и настройки Cloudflare Pages.</p>
+        </section>
+
+        <h2>🌐 Мой путь: от Reg.ru к Cloudflare Pages</h2>
+
+        <p>Домен <strong>aimihome.ru</strong> у меня зарегистрирован на <strong>Reg.ru</strong> — это один из самых известных российских регистраторов. Я выбрал его в своё время, потому что он довольно лояльный, предлагает много разных вариантов для работы с доменами и сайтами. Там можно зарегистрировать домен, настроить DNS, подключить почту, есть разные тарифы на хостинг, конструкторы сайтов и другие услуги.</p>
+
+        <p>Для новичка вполне удобно — всё в одном месте, понятный интерфейс, круглосуточная поддержка. Когда я только начинал делать сайт, мне важно было, чтобы регистратор был российский и надёжный. Reg.ru в этом плане меня устраивает уже давно.</p>
+
+        <p>Сам сайт сейчас размещён на <strong>Cloudflare Pages</strong>. Раньше я использовал самый простой вариант — статические HTML-файлы на GitHub Pages. Как человек, который только разбирается в создании сайтов, я сначала искал максимально бюджетные и простые решения.</p>
+
+        <section class="feature-card" style="border-left: 5px solid #f97316; background: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(234,88,12,0.1));">
+            <h3>⚠️ Важное уточнение</h3>
+            <p>Это не реклама — это то, через что я сам прошёл.</p>
+            <p>Я мог бы написать, как это было увлекательно: по три часа с <strong>Grok</strong> искать, где этот Pages находится. Grok то знал, но мне надо было найти. А интерфейс у Cloudflare, я вам скажу, тот ещё, да если интересно маякните распишу как было дело</p>
+        </section>
+
+        <h2>🔥 Как я всё сломал</h2>
+
+        <p>Когда я накосячил от души — то есть поменял DNS-записи — вижу, вернее, <strong>не вижу сайта</strong>. Не открывается.</p>
+
+        <div style="margin: 1.5rem 0;">
+            <div class="timeline-item danger">
+                <h4>📅 День 1 — Лёгкий шок</h4>
+                <p>Сайт не открывается. Я в панике перелопачиваю все настройки, но ничего не помогает.</p>
+            </div>
+            <div class="timeline-item danger">
+                <h4>📅 День 2 — Тревога по полной</h4>
+                <p>Целый день бились, перелопатили всё и нашли: <strong>сайт не делегирован</strong>. Вот так, здрасте.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>📞 Обращение в поддержку Reg.ru</h4>
+                <p>Пришлось писать в поддержку. Они ошибку исправили, а дальше уже дело техники.</p>
+            </div>
+            <div class="timeline-item success">
+                <h4>✅ Финал — Всё работает</h4>
+                <p>Быстро всё допилили. Грок, Кими в помощь. Фу, теперь сайт открывается, вот даже статью накатал.</p>
+            </div>
+        </div>
+
+        <section class="kimi-block">
+            <h2>🤖 Kimi — мой помощник в этом хаосе</h2>
+            <p>Нейросети — это реально сила. Без <strong>Grok</strong> и <strong>Kimi</strong> я бы, скорее всего, ещё неделю мучился и возможно вообще бросил бы эту затею.</p>
+            <p><strong>Kimi</strong> — это нейросеть от Moonshot AI, и она стала для меня настоящим спасением. Вот что она делала:</p>
+            <ul>
+                <li>✅ <strong>Искала настройки</strong> — я описывал проблему простым языком, а Kimi находила нужные пункты в интерфейсе Cloudflare</li>
+                <li>✅ <strong>Объясняла, где я накосячил</strong> — разбирала мои действия шаг за шагом и показывала ошибки</li>
+                <li>✅ <strong>Вела меня шаг за шагом</strong> — от диагностики до финальной настройки DNS</li>
+                <li>✅ <strong>Писала статьи</strong> — вот эту и другие, которые ты читаешь на aimihome.ru</li>
+                <li>✅ <strong>Генерировала идеи</strong> — что написать, как оформить, какие темы актуальны</li>
+            </ul>
+            <p>Kimi не просто отвечает на вопросы — <strong>она понимает контекст</strong>. Я могу вернуться к разговору через день, и она помнит, о чём мы говорили. Это как иметь личного техподдержку, который не спит и не устаёт.</p>
+        </section>
+
+        <section class="journey-block">
+            <h2>🛤️ Мой путь: от паники к стабильности</h2>
+            <p>Привет, я Владимир. Скоро на пенсию, так то я ещё молодой, но пора подумать, ищу дополнительный доход. Этот сайт — моя лаборатория.</p>
+            <p><strong>Что произошло за эти два дня:</strong></p>
+            <ul>
+                <li>❌ Сломал DNS-записи, удалив старые записи в Cloudflare</li>
+                <li>❌ Сайт aimihome.ru перестал открываться полностью</li>
+                <li>✅ Написал в поддержку Reg.ru — они исправили делегирование</li>
+                <li>✅ С Kimi и Grok настроил всё заново правильно</li>
+                <li>✅ Сайт работает, HTTPS подхватывается корректно</li>
+                <li>✅ Написал эту статью — чтобы другие не повторяли моих ошибок</li>
+            </ul>
+            <p><span class="warning-tag">Важно</span> Я не гуру. Я в процессе. Но каждый шаг документирую — и делюсь с тобой.</p>
+        </section>
+
+        <h2>🛠️ Что я вынес из этой истории</h2>
+
+        <section class="feature-card" style="border-left: 5px solid #22c55e; background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(16,185,129,0.1));">
+            <h3>Главные уроки:</h3>
+            <p><strong>1. Не удаляй старые записи, пока не создал новые</strong></p>
+            <p>Моя ошибка — я удалил все DNS-записи в Cloudflare и начал создавать новые с нуля. Начинать нужно было с правильного создания и настройки Cloudflare Pages, а потом уже переключать DNS.</p>
+
+            <p><strong>2. Нейросети — твои лучшие друзья в кризисе</strong></p>
+            <p>Без Kimi и Grok я бы точно сдался. Они не просто дают ответы — они учат думать. Kimi объясняла, почему что-то не работает, а не просто говорила «сделай так».</p>
+
+            <p><strong>3. Поддержка Reg.ru работает</strong></p>
+            <p>Когда всё совсем плохо — пиши в поддержку. Они исправили делегирование за несколько часов. Не бойся просить помощи.</p>
+
+            <p><strong>4. Делай бэкапы всего</strong></p>
+            <p>Перед любыми изменениями в DNS — запиши, что было. Скриншоты, копии, документация. Это спасёт часы нервов.</p>
+        </section>
+
+        <section class="kimi-block">
+            <h2>💬 Как Kimi помогает мне каждый день</h2>
+            <p>Сейчас с помощью нейросетей я не только чинил сайт, но и:</p>
+            <ul>
+                <li>📝 <strong>Пишу статьи</strong> — Kimi помогает структурировать мысли, оформлять текст, добавлять SEO</li>
+                <li>💡 <strong>Генерирую идеи</strong> — что написать, какие темы актуальны, что интересно читателям</li>
+                <li>🎨 <strong>Делаю контент</strong> — описания, заголовки, мета-теги, тексты для видео</li>
+                <li>💰 <strong>Ищу способы заработка</strong> — анализирую тренды, сравниваю инструменты, считаю цифры</li>
+            </ul>
+            <p>Не нужно быть супер-программистом или платить огромные деньги фрилансерам. Достаточно понимать базовые вещи и <strong>уметь правильно спрашивать у ИИ</strong>.</p>
+            <p>У меня есть знакомые, которые восторгаются стеклянному корпусу компьютера. А я вот восторгаюсь тем, что с нейросетью можно починить мой сайт за пару- тройку часов.</p>
+            <p>Да , конечно основную работу будешь делать сам ручками, а нейросеть только интсрумент. который тебе помогает</p>
+        </section>
+
+        <h2>🚀 Не сидите в стороне</h2>
+
+        <p>Так что если вы тоже хотите запустить свой сайт, блог или проект — <strong>дерзайте</strong>. Даже если накосячите (а вы накосячите, поверьте), всегда можно исправить. Главное — не сидеть в стороне и не бояться нейросетей.</p>
+
+        <p>Они сейчас как суперсила, которую у нас пытаются отобрать. Но пока есть доступ — <strong>пользуйтесь по полной</strong>. Это реально меняет игру.</p>
+
+        <section class="youtube-block">
+            <h2>📺 Все видео на канале АЙВЕБДОМ</h2>
+            <p>Эту историю и другие пособия по заработку с ИИ — на моём канале.</p>
+            <a href="https://www.youtube.com/@АЙВЕБДОМ" target="_blank" class="youtube-btn">
+                🎬 Перейти на канал АЙВЕБДОМ
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                Подпишись, чтобы не пропустить новые чудеса!
+            </p>
+        </section>
+
+        <!-- БЛОК: Перелинковка -->
+        <section class="feature-card" style="border-left: 5px solid #a855f7;">
+            <h2>🔗 Читай дальше: другие истории и гайды</h2>
+            <p>Если эта история — про то, как не надо делать, то вот другие статьи, где я делюсь тем, что работает:</p>
+            <ul>
+                <li><a href="article-23.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">→ Ollama + CapCut локально: как я собрал приложение на своём железе</a> — локальные ИИ, заработок</li>
+                <li><a href="article-22.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">→ Google Pixel ИИ-функции 2026: заработок с телефона</a> — Gemini Omni, Screen Reactions</li>
+                <li><a href="article-12.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">→ Gemini + CapCut: как зарабатываю на видео с ИИ</a> — партнёрки, монтаж, схемы</li>
+                <li><a href="article-7.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">→ HeyGen: как зарабатывают на AI-аватарах</a> — озвучка, презентации</li>
+                <li><a href="article-4.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">→ Midjourney: заработок на генерации картинок</a> — принты, иллюстрации</li>
+            </ul>
+            <p><strong>Все статьи про заработок — в одном месте.</strong> Следи за обновлениями, я добавляю новые схемы каждую неделю.</p>
+        </section>
+
+        <!-- БЛОК: Итог -->
+        <section class="short-block">
+            <h2>🚀 Итог: экспериментируй, не бойся</h2>
+            <p>Главный вывод, который я вынес из этой истории: <strong>экспериментируйте, не бойтесь</strong>. Даже если сначала всё ломается и выглядит страшно — это нормально. Главное не сдаваться и не бояться пробовать.</p>
+            <p>Я не заработал на этой истории ни рубля напрямую. Но я уже:</p>
+            <ul style="color: #f97316; font-weight: bold;">
+                <li>Починил свой сайт aimihome.ru</li>
+                <li>Настроил Cloudflare Pages правильно</li>
+                <li>Научился работать с DNS-записями</li>
+                <li>Нашёл в Kimi надёжного помощника</li>
+                <li>Написал эту статью — чтобы помочь другим</li>
+            </ul>
+            <p style="color: #1a1a1a;">Это не трата времени — это фундамент.</p>
+            <p style="color: #1a1a1a;">Когда придёт первый заказ или первая монетизация — я напишу об этом честно. С цифрами. Скриншотом.</p>
+            <p style="color: #1a1a1a;">А пока — <strong style="color: #f97316;">начни свой путь с нейросетями</strong>. Kimi думает. Ты зарабатываешь.</p>
+        </section>
+        <!-- ========== ПАРТНЁРСКИЕ ССЫЛКИ БЛОК ========== -->
+
+<section class="feature-card" style="border-left: 5px solid #fbbf24; background: linear-gradient(135deg, rgba(251,191,36,0.1), rgba(245,158,11,0.1));">
+    <h2>🔗 Мои партнёрки — проверенные инструменты</h2>
+    <p>Инструменты, которые я сам использую и рекомендую. По ссылкам — бонусы и скидки:</p>
+    
+    <div style="display: grid; gap: 12px; margin-top: 16px;">
+        
+        <!-- Syntx.ai -->
+        <a href="https://syntx.ai/welcome/BCEmL6aO" target="_blank" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; text-decoration: none; color: var(--text); transition: all 0.2s;">
+            <span style="font-size: 1.5rem;">🤖</span>
+            <div style="flex: 1;">
+                <div style="font-weight: 700; color: var(--text);">Syntx.ai</div>
+                <div style="font-size: 0.85rem; color: var(--accent);">Доступ к ChatGPT, Midjourney, Claude и другим ИИ в одном окне</div>
+            </div>
+            <span style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Перейти →</span>
+        </a>
+
+        <!-- BotHub -->
+        <a href="https://bothub.chat/?invitedBy=9hrXGbTCTq1_smgBB1nzW" target="_blank" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; text-decoration: none; color: var(--text); transition: all 0.2s;">
+            <span style="font-size: 1.5rem;">🧠</span>
+            <div style="flex: 1;">
+                <div style="font-weight: 700; color: var(--text);">BotHub</div>
+                <div style="font-size: 0.85rem; color: var(--accent);">Нейроплатформа с Caps — один вход к куче моделей</div>
+            </div>
+            <span style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Перейти →</span>
+        </a>
+
+        <!-- Chad AI -->
+        <a href="https://grfpr.com/g/34g1j74pfv8a4d8b1048aa3255da32/?erid=2bL9aMPo2e49hMet4pgVRsMGnf&utm_source=aimihome&utm_medium=article23&utm_campaign=chad_ai" target="_blank" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; text-decoration: none; color: var(--text); transition: all 0.2s;">
+            <span style="font-size: 1.5rem;">💜</span>
+            <div style="flex: 1;">
+                <div style="font-weight: 700; color: var(--text);">Chad AI</div>
+                <div style="font-size: 0.85rem; color: var(--accent);">Простой доступ к нейросетям без сложных настроек</div>
+            </div>
+            <span style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Перейти →</span>
+        </a>
+
+    </div>
+</section>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://t.me/Abuabu_5" style="display: inline-block; background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: bold;">
+                💬 Подписаться на обновления в Telegram
+            </a>
+        </div>
+
+    </div>
+
+    <!-- КНОПКИ НАВИГАЦИИ -->
+    <div class="nav-buttons">
+        <a href="https://aimihome.ru/" class="btn btn-home">← На главную</a>
+        <a href="article-24.html" class="btn btn-next">ГОТОВИТСЯ ПРО 1000$ !!!</a>
+    </div>
+
+    <footer>
+        <p>© 2026 АЙ ВЕБ ДОМ. Все права защищены.</p>
+        <p>
+            Сделано с ❤️ • Автор: 
+            <a href="https://t.me/citadel_test_quote_bot" target="_blank">Владимир</a> • 
+            <a href="https://aimihome.ru">aimihome.ru</a>
+        </p>
+        <p style="font-size: 0.85rem; color: #888; margin-top: 10px;">
+            Использование материалов сайта без разрешения запрещено. 
+            При цитировании ссылка на <a href="https://aimihome.ru">aimihome.ru</a> обязательна.
+        </p>
+    </footer>
+
+    <div class="footer-extra">
+        <a href="https://t.me/Abuabu_5" class="telegram">Telegram</a>
+        <a href="https://www.youtube.com/@АЙВЕБДОМ" target="_blank">YouTube</a>
+    </div>
+
+    <script>
+        // Восстанавливаем тему при загрузке
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+
+        const themeBtn = document.getElementById("themeToggle");
+
+        themeBtn.onclick = () => {
+            document.body.classList.toggle("dark-theme");
+            themeBtn.textContent = document.body.classList.contains("dark-theme") ? "☀️" : "🌙";
+
+            if (document.body.classList.contains("dark-theme")) {
+                localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
+        };
+
+        const backToTop = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+        });
+
+        backToTop.onclick = (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
+
+</body>
+</html>
