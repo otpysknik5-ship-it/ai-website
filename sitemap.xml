@@ -155,6 +155,13 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+    <!-- Статья про Kimi -->
+  <url>
+    <loc>https://aimihome.ru/kimi-pomoshnik.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://aimihome.ru/kak-zarabatyvat-na-ii-s-nulya.html</loc>
     <lastmod>2026-06-22</lastmod>
