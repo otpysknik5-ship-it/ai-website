@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +13,19 @@
     <link rel="canonical" href="https://aimihome.ru/kimi-pomoshnik.html">
 
     <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://aimihome.ru/kimi-pomoshnik.html">
     <meta property="og:title" content="Как я чуть не убил свой сайт и почему важно делать всё по порядку">
     <meta property="og:description" content="Сломал DNS, потерял сайт на 2 дня, чинил с Kimi и Grok. Честная история с aimihome.ru.">
     <meta property="og:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
-    <meta property="og:url" content="https://aimihome.ru/kimi-pomoshnik.html">
-    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="АЙ ВЕБ ДОМ">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Как я чуть не убил свой сайт и почему важно делать всё по порядку">
+    <meta name="twitter:description" content="Сломал DNS, потерял сайт на 2 дня, чинил с Kimi и Grok. Честная история с aimihome.ru.">
+    <meta name="twitter:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
 
     <!-- Фавиконы -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -262,16 +270,20 @@
         .article-title {
             text-align: center;
             margin-bottom: 2rem;
+            color: #7c5cff;
             background: linear-gradient(135deg, #7c5cff 0%, #f97316 50%, #ef4444 100%);
-            -webkit-background-clip: text;background-clip: text;
+            -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 2.2rem;
             font-weight: 800;
         }
 
         body.dark-theme .article-title {
+            color: #b8a0ff;
             background: linear-gradient(135deg, #b8a0ff 0%, #fb923c 50%, #f87171 100%);
-            -webkit-background-clip: text;background-clip: text;
+            -webkit-background-clip: text;
+            background-clip: text;
         }
 
         .badge {
@@ -414,7 +426,7 @@
             font-weight: 600;
         }
     </style>
-<base target="_blank">
+    <base target="_blank">
 </head>
 
 <body>
@@ -468,8 +480,8 @@
 
         <p><strong>ДРУЗЬЯ! Я В ШОКЕ ОТ ТОГО, КАК ПОМОГАЮТ НЕЙРОСЕТИ!</strong></p>
 
-        <p>Друзья, накопилось столько всего, что уже и не знаю, с чего начать. Я всегда считал себя немного «гением» в этих делах, ТАК НЕМНОЖКО, пока не открыл СТРАШНУЮ ТАЙНУ.У меня сайт, пишу тут иногда и вот начал замечать, что то не так и не то. Решил посмотреть
-            аналитику поглубше, не только "метрика яндекс", но и <cloudflare>.  И там меня ждал неприятный сюрприз.</p>
+        <p>Друзья, накопилось столько всего, что уже и не знаю, с чего начать. Я всегда считал себя немного «гением» в этих делах, ТАК НЕМНОЖКО, пока не открыл СТРАШНУЮ ТАЙНУ. У меня сайт, пишу тут иногда и вот начал замечать, что-то не так и не то. Решил посмотреть
+            аналитику поглубже, не только "Яндекс.Метрика", но и Cloudflare. И там меня ждал неприятный сюрприз.</p>
 
         <section class="shock-block">
             <h2>💥 24 апреля — день, когда всё пошло не так</h2>
@@ -571,8 +583,8 @@
                 <li>💰 <strong>Ищу способы заработка</strong> — анализирую тренды, сравниваю инструменты, считаю цифры</li>
             </ul>
             <p>Не нужно быть супер-программистом или платить огромные деньги фрилансерам. Достаточно понимать базовые вещи и <strong>уметь правильно спрашивать у ИИ</strong>.</p>
-            <p>У меня есть знакомые, которые восторгаются стеклянному корпусу компьютера. А я вот восторгаюсь тем, что с нейросетью можно починить мой сайт за пару- тройку часов.</p>
-            <p>Да , конечно основную работу будешь делать сам ручками, а нейросеть только интсрумент. который тебе помогает</p>
+            <p>У меня есть знакомые, которые восторгаются стеклянному корпусу компьютера. А я вот восторгаюсь тем, что с нейросетью можно починить мой сайт за пару-тройку часов.</p>
+            <p>Да, конечно основную работу будешь делать сам ручками, а нейросеть только инструмент, который тебе помогает</p>
         </section>
 
         <h2>🚀 Не сидите в стороне</h2>
@@ -631,7 +643,7 @@
     <div style="display: grid; gap: 12px; margin-top: 16px;">
         
         <!-- Syntx.ai -->
-        <a href="https://syntx.ai/welcome/BCEmL6aO" target="_blank" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; text-decoration: none; color: var(--text); transition: all 0.2s;">
+        <a href="https://syntx.ai/welcome/BCEmL6aO" target="_blank" rel="nofollow sponsored" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; text-decoration: none; color: var(--text); transition: all 0.2s;">
             <span style="font-size: 1.5rem;">🤖</span>
             <div style="flex: 1;">
                 <div style="font-weight: 700; color: var(--text);">Syntx.ai</div>
@@ -641,7 +653,7 @@
         </a>
 
         <!-- BotHub -->
-        <a href="https://bothub.chat/?invitedBy=9hrXGbTCTq1_smgBB1nzW" target="_blank" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; text-decoration: none; color: var(--text); transition: all 0.2s;">
+        <a href="https://bothub.chat/?invitedBy=9hrXGbTCTq1_smgBB1nzW" target="_blank" rel="nofollow sponsored" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; text-decoration: none; color: var(--text); transition: all 0.2s;">
             <span style="font-size: 1.5rem;">🧠</span>
             <div style="flex: 1;">
                 <div style="font-weight: 700; color: var(--text);">BotHub</div>
@@ -651,7 +663,7 @@
         </a>
 
         <!-- Chad AI -->
-        <a href="https://grfpr.com/g/34g1j74pfv8a4d8b1048aa3255da32/?erid=2bL9aMPo2e49hMet4pgVRsMGnf&utm_source=aimihome&utm_medium=article23&utm_campaign=chad_ai" target="_blank" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; text-decoration: none; color: var(--text); transition: all 0.2s;">
+        <a href="https://grfpr.com/g/34g1j74pfv8a4d8b1048aa3255da32/?erid=2bL9aMPo2e49hMet4pgVRsMGnf&utm_source=aimihome&utm_medium=article23&utm_campaign=chad_ai" target="_blank" rel="nofollow sponsored" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; text-decoration: none; color: var(--text); transition: all 0.2s;">
             <span style="font-size: 1.5rem;">💜</span>
             <div style="flex: 1;">
                 <div style="font-weight: 700; color: var(--text);">Chad AI</div>
