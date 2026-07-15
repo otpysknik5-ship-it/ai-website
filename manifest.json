@@ -1,11 +1,11 @@
 {
   "name": "АЙ ВЕБ ДОМ — Заработок на ИИ",
   "short_name": "AIWebDom",
-  "description": "Гайды, обзоры и лайфхаки по нейросетям 2026",
+  "description": "Гайды по нейросетям, Midjourney, HeyGen, Grok и заработку в 2026",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#111111",
-  "theme_color": "#1a1a1a",
+  "theme_color": "#6b21ff",
   "orientation": "any",
   "icons": [
     {
