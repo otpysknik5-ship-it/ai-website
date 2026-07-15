@@ -1,6 +1,7 @@
 {
   "name": "АЙ ВЕБ ДОМ — Заработок на ИИ",
   "short_name": "AIWebDom",
+  "id": "aiwebdom",
   "description": "Гайды по нейросетям, Midjourney, HeyGen, Grok и заработку в 2026",
   "start_url": "/index.html",
   "display": "standalone",
