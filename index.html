@@ -14,10 +14,7 @@
     <meta name="msvalidate.01" content="1FFD743C1A6F156092591A4210E851EA" />
     
     <meta name="robots" content="index, follow">
-    <!-- PWA -->
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#1a1a1a">
-
+ 
 <!-- iOS Support -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -940,15 +937,7 @@
       setTheme(current === 'dark' ? 'light' : 'dark');
     });
   </script>
-    <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
-        .then(reg => console.log('✅ PWA Service Worker registered', reg))
-        .catch(err => console.log('❌ SW registration failed:', err));
-    });
-  }
-</script>
+ 
         
 </body>
 </html>
