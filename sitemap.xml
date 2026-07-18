@@ -149,8 +149,9 @@
   </url>
 
   <!-- Новые статьи с ЧПУ -->
+  <!--Статья про nigthcafe-->
   <url>
-    <loc>https://aimihome.ru/nightcafe-zarabotok-na-ai-kartinkakh.htmll</loc>
+    <loc>https://aimihome.ru/nightcafe-zarabotok-na-ai-kartinkakh.html</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
