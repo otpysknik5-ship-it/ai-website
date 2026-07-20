@@ -3,10 +3,13 @@ Allow: /
 Disallow: /private/
 Disallow: /tmp/
 
+# Карта сайта
+Sitemap: https://www.aimihome.ru/sitemap.xml
+
+# Yandex
 User-agent: Yandex
 Allow: /
 Disallow: /private/
 Disallow: /tmp/
 Crawl-delay: 1
-
-Sitemap: https://aimihome.ru/sitemap.xml
+Sitemap: https://www.aimihome.ru/sitemap.xml
