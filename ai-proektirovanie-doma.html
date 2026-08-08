@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ИИ-архитектор: как спроектировать дом за минуты | АЙ ВЕБ ДОМ</title>
+
+<meta name="description" content="Drafted.ai, Planometrica и другие ИИ-сервисы для проектирования домов. Экономия времени и денег в 2026 году.">
+<meta name="keywords" content="ИИ, проектирование дома, Drafted.ai, Planometrica, нейросети, архитектура, заработок, BIM, CAD">
+
+<meta property="og:title" content="ИИ-архитектор: как спроектировать дом за минуты">
+<meta property="og:description" content="Забудь про AutoCAD: ИИ генерирует план этажа, 3D-модель и фасад за секунды. Обзор сервисов для РФ.">
+<meta property="og:url" content="https://aimihome.ru/ai-proektirovanie-doma.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
+<meta property="og:site_name" content="АЙ ВЕБ ДОМ">
+<meta property="og:locale" content="ru_RU">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ИИ-архитектор: как спроектировать дом за минуты">
+<meta name="twitter:description" content="Забудь про AutoCAD: ИИ генерирует план этажа, 3D-модель и фасад за секунды. Обзор сервисов для РФ.">
+<meta name="twitter:image" content="https://aimihome.ru/ai-web-dom-og.jpg">
+
+<link rel="canonical" href="https://aimihome.ru/ai-proektirovanie-doma.html">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --bg-primary: #0a0a1a;
+    --bg-secondary: #12122a;
+    --bg-card: rgba(20, 20, 50, 0.7);
+    --accent-cyan: #00f0ff;
+    --accent-purple: #a855f7;
+    --accent-pink: #ec4899;
+    --accent-green: #22c55e;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border-glow: rgba(0, 240, 255, 0.2);
+    --shadow-glow: rgba(0, 240, 255, 0.1);
+  }
+
+  [data-theme="light"] {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #f1f5f9;
+    --bg-card: rgba(255, 255, 255, 0.8);
+    --accent-cyan: #0891b2;
+    --accent-purple: #7c3aed;
+    --accent-pink: #db2777;
+    --accent-green: #16a34a;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --border-glow: rgba(8, 145, 178, 0.2);
+    --shadow-glow: rgba(8, 145, 178, 0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body { 
+    font-family: 'Inter', sans-serif; 
+    line-height: 1.7; 
+    color: var(--text-primary); 
+    background: var(--bg-primary);
+    background-image: 
+      radial-gradient(ellipse at 20% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(0, 240, 255, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+    min-height: 100vh;
+    transition: background 0.5s ease, color 0.5s ease;
+  }
+
+  [data-theme="light"] body {
+    background-image: 
+      radial-gradient(ellipse at 20% 50%, rgba(124, 58, 237, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(8, 145, 178, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(219, 39, 119, 0.03) 0%, transparent 50%);
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg-primary); transition: background 0.5s ease; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple)); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink)); }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 2rem; position: relative; }
+
+  .particles {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .particle {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float 15s infinite ease-in-out;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+    25% { transform: translateY(-100px) translateX(50px); opacity: 0.6; }
+    50% { transform: translateY(-50px) translateX(-30px); opacity: 0.2; }
+    75% { transform: translateY(-150px) translateX(20px); opacity: 0.5; }
+  }
+
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--border-glow);
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 20px var(--shadow-glow);
+  }
+  .theme-toggle:hover {
+    transform: rotate(180deg) scale(1.1);
+    box-shadow: 0 0 30px var(--shadow-glow), 0 0 60px var(--shadow-glow);
+    border-color: var(--accent-cyan);
+  }
+  .theme-toggle .icon-sun { display: none; }
+  .theme-toggle .icon-moon { display: block; }
+  [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+  [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+  .back-btn { 
+    display: inline-flex; 
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-cyan); 
+    text-decoration: none; 
+    margin-bottom: 2rem; 
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-glow);
+    border-radius: 8px;
+    background: rgba(0, 240, 255, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+  .back-btn:hover { 
+    background: rgba(0, 240, 255, 0.15); 
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+    transform: translateX(-3px);
+  }
+
+  h1 { 
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem; 
+    font-weight: 700;
+    color: var(--text-primary); 
+    margin-bottom: 0.8rem; 
+    line-height: 1.3;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+  }
+  .subtitle { 
+    text-align: center; 
+    color: var(--text-secondary); 
+    font-style: italic; 
+    margin-bottom: 2.5rem; 
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  h2 { 
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem; 
+    font-weight: 700;
+    color: var(--accent-cyan); 
+    margin: 3rem 0 1.2rem; 
+    padding-bottom: 0.6rem; 
+    border-bottom: 1px solid var(--border-glow);
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  }
+  h3 { 
+    font-size: 1.15rem; 
+    color: var(--accent-purple); 
+    margin: 1.8rem 0 1rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+  p { 
+    margin-bottom: 1.2rem; 
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 1;
+  }
+
+  .toc {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glow);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 16px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.5s ease;
+  }
+  .toc::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    border-radius: 16px 16px 0 0;
+  }
+  .toc strong { 
+    color: var(--accent-cyan); 
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+  .toc ul { list-style: none; padding-left: 0; }
+  .toc li { margin: 0.5rem 0; }
+  .toc a { 
+    color: var(--text-secondary); 
+    text-decoration: none; 
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  .toc a::before {
+    content: '▸';
+    color: var(--accent-purple);
+    font-size: 0.8rem;
+  }
+  .toc a:hover { 
+    color: var(--accent-cyan); 
+    background: rgba(0, 240, 255, 0.08);
+    transform: translateX(5px);
+  }
+
+  .highlight { 
+    background: rgba(0, 240, 255, 0.05); 
+    border-left: 3px solid var(--accent-cyan); 
+    padding: 1.2rem 1.5rem; 
+    margin: 1.5rem 0; 
+    border-radius: 0 12px 12px 0;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease;
+  }
+  .highlight .emoji { font-size: 1.3rem; margin-right: 0.5rem; }
+  .highlight strong { color: var(--accent-cyan); }
+
+  .warning { 
+    background: rgba(236, 72, 153, 0.05); 
+    border-left: 3px solid var(--accent-pink); 
+    padding: 1.2rem 1.5rem; 
+    margin: 1.5rem 0; 
+    border-radius: 0 12px 12px 0;
+    position: relative;
+    z-index: 1;
+    transition: all 0.5s ease;
+  }
+  .warning strong { color: var(--accent-pink); }
+
+  ol, ul { margin-left: 1.5rem; margin-bottom: 1.2rem; position: relative; z-index: 1; }
+  li { margin-bottom: 0.6rem; color: var(--text-secondary); }
+  li strong { color: var(--text-primary); }
+
+  .tool-card { 
+    background: var(--bg-card); 
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glow);
+    border-radius: 16px; 
+    padding: 1.5rem; 
+    margin: 1.2rem 0;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  .tool-card:hover {
+    border-color: rgba(0, 240, 255, 0.4);
+    box-shadow: 0 8px 40px var(--shadow-glow), 0 0 60px var(--shadow-glow);
+    transform: translateY(-3px);
+  }
+  .tool-card h4 { 
+    color: var(--accent-cyan); 
+    margin-bottom: 0.6rem;
+    font-size: 1.1rem;
+  }
+  .tool-card p { margin-bottom: 0.5rem; }
+  .tool-card a {
+    color: var(--accent-purple);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--accent-purple);
+    transition: all 0.3s ease;
+  }
+  .tool-card a:hover {
+    color: var(--accent-cyan);
+    border-bottom-color: var(--accent-cyan);
+  }
+
+  .price-tag { 
+    background: rgba(34, 197, 94, 0.15); 
+    color: var(--accent-green); 
+    padding: 0.2rem 0.8rem; 
+    border-radius: 20px; 
+    font-weight: 600; 
+    font-size: 0.9rem;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin: 1.5rem 0; 
+    position: relative;
+    z-index: 1;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  th, td { 
+    border: 1px solid rgba(0, 240, 255, 0.1); 
+    padding: 1rem; 
+    text-align: left; 
+  }
+  th { 
+    background: rgba(0, 240, 255, 0.08); 
+    font-weight: 600; 
+    color: var(--accent-cyan);
+  }
+  td { color: var(--text-secondary); }
+  tr:nth-child(even) { background: rgba(255, 255, 255, 0.02); }
+  tr:hover { background: rgba(0, 240, 255, 0.03); }
+
+  .cta-box { 
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%); 
+    border: 1px solid var(--border-glow);
+    color: var(--text-primary); 
+    padding: 2rem; 
+    border-radius: 20px; 
+    margin: 2.5rem 0; 
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+  }
+  .cta-box h3 { 
+    color: var(--accent-cyan); 
+    margin-bottom: 0.8rem;
+    font-family: 'Orbitron', sans-serif;
+    position: relative;
+  }
+  .cta-box p { 
+    color: var(--text-secondary);
+    position: relative;
+  }
+  .cta-box a {
+    color: var(--accent-cyan);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-cyan);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .cta-box a:hover {
+    color: var(--accent-pink);
+    border-bottom-color: var(--accent-pink);
+  }
+
+  .site-footer {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, #050510 100%);
+    border-top: 1px solid var(--border-glow);
+    margin-top: 4rem;
+    padding: 3rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+  [data-theme="light"] .site-footer {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, #e2e8f0 100%);
+  }
+  .site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-purple), var(--accent-pink), transparent);
+    box-shadow: 0 0 20px var(--accent-cyan);
+  }
+  .footer-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .footer-logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .footer-tagline {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  .footer-links h4 {
+    color: var(--accent-cyan);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .footer-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+  .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .footer-links a::before {
+    content: '›';
+    color: var(--accent-purple);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+  .footer-links a:hover {
+    color: var(--accent-cyan);
+    transform: translateX(5px);
+  }
+  .footer-links a:hover::before {
+    color: var(--accent-cyan);
+  }
+  .footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .social-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--border-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    background: rgba(0, 240, 255, 0.03);
+  }
+  .social-icon:hover {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    box-shadow: 0 0 20px var(--shadow-glow);
+    transform: translateY(-3px);
+  }
+  .footer-bottom {
+    max-width: 900px;
+    margin: 2rem auto 0;
+    padding: 1.5rem 2rem 0;
+    border-top: 1px solid rgba(0, 240, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-copy {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+  .footer-copy strong {
+    color: var(--accent-cyan);
+  }
+  .footer-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .footer-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .footer-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; width: 0; height: 1px;
+    background: var(--accent-cyan);
+    transition: width 0.3s ease;
+  }
+  .footer-nav a:hover {
+    color: var(--accent-cyan);
+  }
+  .footer-nav a:hover::after {
+    width: 100%;
+  }
+  .footer-badge {
+    display: inline-block;
+    background: rgba(0, 240, 255, 0.08);
+    border: 1px solid var(--border-glow);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: var(--accent-cyan);
+    margin-top: 0.5rem;
+  }
+
+  a { color: var(--accent-purple); transition: all 0.3s ease; }
+  a:hover { color: var(--accent-cyan); }
+  strong { color: var(--text-primary); }
+
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    h1 { font-size: 1.6rem; }
+    .theme-toggle { top: 10px; right: 10px; width: 40px; height: 40px; font-size: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" title="Переключить тему">
+  <span class="icon-moon">🌙</span>
+  <span class="icon-sun">☀️</span>
+</button>
+
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', savedTheme);
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+</script>
+
+<div class="particles" id="particles"></div>
+<script>
+  const particlesContainer = document.getElementById('particles');
+  for (let i = 0; i < 30; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 15 + 's';
+    particle.style.animationDuration = (10 + Math.random() * 20) + 's';
+    const colors = ['#00f0ff', '#a855f7', '#ec4899'];
+    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+    particlesContainer.appendChild(particle);
+  }
+</script>
+
+<script>
+  (function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+  })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108200368', 'ym');
+  ym(108200368, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108200368" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<div class="container">
+<a href="index.html" class="back-btn">← На главную</a>
+
+<h1>🏠 ИИ-архитектор: как спроектировать дом за минуты</h1>
+<p class="subtitle">Drafted.ai, Planometrica и другие нейросети для проектирования — экономь время и деньги в 2026</p>
+
+<div class="toc">
+  <strong>📋 Содержание</strong>
+  <ul>
+    <li><a href="#razdel1">🚀 Почему это реально сейчас</a></li>
+    <li><a href="#razdel2">🛠️ Как работает ИИ-проектирование</a></li>
+    <li><a href="#razdel3">📊 Сравнение сервисов: западные vs российские</a></li>
+    <li><a href="#razdel4">⚖️ Плюсы и минусы ИИ-архитектора</a></li>
+    <li><a href="#razdel5">🏆 Инструкция: с чего начать в России</a></li>
+    <li><a href="#razdel6">✅ Итоговый вывод</a></li>
+  </ul>
+</div>
+
+<h2 id="razdel1">🚀 Почему это реально сейчас</h2>
+<p>Друзья давно не писал, я занимаюсь сейчас одним проектом. Маленько торгую на мосбирже и вот задумал бота организовать. Сейчас речь не об этом. Заработать с ИИ теперь можно проектируя дома — и это уже реально.</p>
+<p>Раньше, чтобы спроектировать дом, нужно было: выложить <strong>сотни тысяч рублей</strong> архитектору, месяцами мучиться в AutoCAD/ArchiCAD или брать типовой проект и мириться с компромиссами. В 2026 году всё изменилось.</p>
+<p>Сервисы на базе ИИ, такие как <a href="https://drafted.ai" target="_blank" rel="noopener">Drafted.ai →</a>, позволяют за <strong>20–40 секунд</strong> получить полноценный план этажа, 3D-модель и варианты фасада. Просто опиши, что хочешь — и ИИ сделает черновик.</p>
+
+<div class="highlight">
+  <span class="emoji">💡</span> <strong>Главная мысль:</strong> ИИ не заменяет инженера, но экономит 80% времени на этапе концепции — приходи к профи уже с готовым ТЗ.
+</div>
+<!-- === БЛОК: РЕФЕРАЛКИ / ИНСТРУМЕНТЫ ДЛЯ ЗАРАБОТКА === -->
+<style>
+  .promo-block {
+    position: relative;
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glow);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .promo-block:hover {
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 12px 48px var(--shadow-glow), 0 0 60px var(--shadow-glow);
+    transform: translateY(-3px);
+  }
+  .promo-glow {
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(168, 85, 247, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 70% 50%, rgba(0, 240, 255, 0.1) 0%, transparent 60%);
+    animation: promoPulse 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes promoPulse {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+    50% { transform: scale(1.05) rotate(2deg); opacity: 0.9; }
+  }
+  .promo-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .promo-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  }
+  .promo-text {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .promo-text strong {
+    color: var(--text-primary);
+  }
+  .promo-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .promo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(0, 240, 255, 0.15));
+    border: 1px solid var(--border-glow);
+    border-radius: 12px;
+    color: var(--accent-cyan);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+  .promo-btn:hover {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.35), rgba(0, 240, 255, 0.3));
+    border-color: var(--accent-cyan);
+    color: #fff;
+    box-shadow: 0 0 20px var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+  .promo-note {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+  @media (max-width: 600px) {
+    .promo-block { padding: 1.5rem; }
+    .promo-title { font-size: 1.2rem; }
+    .promo-links { flex-direction: column; align-items: center; }
+    .promo-btn { width: 100%; justify-content: center; }
+  }
+</style>
+
+<div class="promo-block">
+  <div class="promo-glow"></div>
+  <div class="promo-content">
+    <h3 class="promo-title">💰 Хочешь зарабатывать на проектах?</h3>
+    <p class="promo-text">
+      С этими инструментами ты сможешь подготовить <strong>обалденный, профессионально оформленный проект</strong> и впечатлить заказчика. 
+      Всё уже настроено, заходите, смотрите, выбирайте что нравится , где дешевле и дерзайте!.
+    </p>
+    <div class="promo-links">
+      <!-- 🔽 ЗАМЕНИ ССЫЛКИ НА СВОИ РЕФЕРАЛКИ -->
+      <li><a href="https://elevenlabs.io" target="_blank" rel="noopener">ElevenLabs</a></li>
+        <li><a href="https://syntx.ai/welcome/BCEmL6aO" target="_blank" rel="noopener">Syntx.ai</a></li>
+        <li><a href="https://bothub.chat/?invitedBy=9hrXGbTCTq1_smgBB1nzW" target="_blank" rel="noopener">BotHub</a></li>
+        <li><a href="https://grfpr.com/g/34g1j74pfv8a4d8b1048aa3255da32/?erid=2bL9aMPo2e49hMet4pgVRsMGnf&utm_source=aimihome&utm_medium=article9&utm_campaign=chad_ai" target="_blank" rel="noopener">Chad AI</a></li>
+    </div>
+    <p class="promo-note">⚡ Скорость + качество = довольный клиент и повторные заказы</p>
+  </div>
+</div>
+
+<h2 id="razdel2">🛠️ Как работает ИИ-проектирование</h2>
+<p>Процесс интуитивный, даже без архитектурного бэкграунда:</p>
+<ul>
+  <li><strong>Выбираешь комнаты:</strong> спальни, кухня-гостиная, гараж, кабинет и т.д.</li>
+  <li><strong>Рисуешь контур:</strong> примерную форму дома или участка.</li>
+  <li><strong>Расставляешь приоритеты:</strong> кухню ближе к гаражу, мастер-спальню подальше от детской.</li>
+  <li><strong>ИИ достраивает:</strong> коридоры, двери, окна, лестницы, кровлю — автоматически.</li>
+  <li><strong>Редактируешь:</strong> не нравится угол? Выдели мышкой → жми «Regenerate» → переделается только эта зона.</li>
+  <li><strong>Экспортируешь:</strong> в PDF, DWG или BIM — и отдаёшь строителям.</li>
+</ul>
+
+<p>Всё это <strong>бесплатно на этапе идей</strong>. Платить нужно только за полный комплект документации для стройки.</p>
+
+<h2 id="razdel3">📊 Сравнение сервисов: западные vs российские</h2>
+<p>Западные инструменты мощные, но для РФ есть нюансы: интерфейс на английском, оплата иностранными картами, слабая поддержка СНиПов и климатических норм.</p>
+
+<table>
+  <tr>
+    <th>Сервис</th>
+    <th>Плюсы</th>
+    <th>Минусы для РФ</th>
+  </tr>
+  <tr>
+    <td><strong>Drafted.ai</strong></td>
+    <td>Скорость, 3D в реальном времени, умная регенерация</td>
+    <td>Английский интерфейс, оплата картой, нет проверки по ГОСТ</td>
+  </tr>
+  <tr>
+    <td><strong>Planometrica.ru</strong></td>
+    <td>Проверка по 180+ нормативам, русский язык, оплата СБП/МИР</td>
+    <td>Меньше стилей фасадов, пока только для частных домов</td>
+  </tr>
+  <tr>
+    <td><strong>Planner 5D</strong></td>
+    <td>Удобный 3D, русификация, AI-агенты для расстановки</td>
+    <td>Базовый ИИ, сложные планировки требует ручной доработки</td>
+  </tr>
+  <tr>
+    <td><strong>ARCPLAN</strong></td>
+    <td>Детальные 2D-планы, расстановка мебели, томские разработчики</td>
+    <td>Меньше визуальных «фишек», фокус на функционал</td>
+  </tr>
+</table>
+
+<div class="tool-card">
+  <h4>🇷🇺 Planometrica — лидер для РФ</h4>
+  <p>AI-платформа именно для индивидуальных домов <span class="price-tag">Есть бесплатный тариф</span></p>
+  <p><strong>Что даёт:</strong> генерация планировок за ~25 сек, проверка по СНиПам, смета, ипотечный калькулятор. <a href="https://planometrica.ru" target="_blank" rel="noopener">Попробовать →</a></p>
+</div>
+
+<div class="tool-card">
+  <h4>🌍 Drafted.ai — для креатива и идей</h4>
+  <p>Западный инструмент с мощной визуализацией <span class="price-tag">Бесплатно на старте</span></p>
+  <p><strong>Что даёт:</strong> мгновенная 3D-визуализация, умная регенерация зон, экспорт в BIM. Идеально для концепта. <a href="https://drafted.ai" target="_blank" rel="noopener">Попробовать →</a></p>
+</div>
+
+<h2 id="razdel4">⚖️ Плюсы и минусы ИИ-архитектора</h2>
+<h3>✅ Плюсы</h3>
+<ul>
+  <li><strong>Скорость:</strong> то, на что уходили недели — теперь минуты.</li>
+  <li><strong>Итерации:</strong> быстро проверить 10–20 вариантов планировки и выбрать лучший.</li>
+  <li><strong>Доступность:</strong> человек без образования может «пощупать» будущий дом до вложений.</li>
+  <li><strong>Связка с реальностью:</strong> планы достаточно чистые, чтобы дорабатывать профи, а не начинать с нуля.</li>
+  <li> Но он убирает самый болезненный этап — «а как это вообще может выглядеть?». Теперь ты приходишь к архитектору уже с конкретным, продуманным вариантом, 
+    а не с абстрактным «хочу светлый и просторный дом». </li>
+   <li></li> Как делается можно посмотреть на DraftedAI
+, который набрал почти два миллиона просмотров, отлично это иллюстрирует: «you can design your home with AI now».
+ И да — можно.Технология ещё развивается (они только недавно выкатили V2 с более умным размещением комнат и частичной регенерацией), но направление уже понятно. Через пару лет проектирование дома будет ощущаться примерно так же, как сейчас создание презентации в Canva или написание кода с помощью Cursor.
+  Хочешь свой дом? Теперь можно сначала «нарисовать» его в ИИ, а потом уже решать, строить или нет.  </li>
+</ul>
+
+<h3>❌ Минусы</h3>
+<ul>
+  <li><strong>Не заменяет инженера:</strong> конструктив, геология, нормативы — всё ещё за человеком.</li>
+  <li><strong>Климатические нюансы:</strong> ИИ может не учесть снеговую нагрузку или толщину утеплителя для Сибири.</li>
+  <li><strong>Оплата и доступ:</strong> западные сервисы могут требовать VPN или иностранные карты.</li>
+</ul>
+
+<div class="warning">
+  <span class="emoji">⚠️</span> <strong>Важно:</strong> ИИ-план — это концепт, а не рабочая документация. Всегда показывай результат местному архитектору для проверки по нормам.
+</div>
+
+<h2 id="razdel5">🏆 Инструкция: с чего начать в России</h2>
+<p>Хочешь спроектировать дом с ИИ и не облажаться? Вот пошаговый план:</p>
+<ol>
+  <li><strong>Начни с российских сервисов:</strong> Planometrica, ARCPLAN — русский интерфейс, оплата МИР/СБП, проверка по СНиПам.</li>
+  <li><strong>Используй западные для идей:</strong> Drafted.ai отлично подходит для быстрой генерации концептов — потом отдаёшь результат местному архитектору на доработку.</li>
+  <li><strong>Закладывай климат:</strong> толщина стен, ориентация по сторонам света, снеговая нагрузка на кровлю, тамбур/котельная — это критично для РФ.</li>
+  <li><strong>Экспортируй в DWG/PDF/BIM:</strong> это универсальный язык для российских проектировщиков.</li>
+  <li><strong>Не экономь на экспертизе:</strong> ИИ экономит время на концепте, но инженер-конструктор и геодезист — обязательны перед стройкой.</li>
+</ol>
+
+<h2 id="razdel6">✅ Итоговый вывод</h2>
+<p>В 2026 году спроектировать дом своей мечты можно <strong>быстрее, дешевле и нагляднее</strong> благодаря ИИ. Российский рынок не отстаёт: появляются сервисы, которые понимают и наши нормы, и наш климат, и наши платёжные привычки.</p>
+<p>ИИ не заменит архитектора полностью, но он убирает самый болезненный этап — «а как это вообще может выглядеть?». Теперь ты приходишь к специалисту уже с конкретным, продуманным вариантом. Экономия времени и нервов — гарантирована.</p>
+
+<div class="cta-box">
+  <h3>🚀 Попробуй сам уже сегодня</h3>
+  <p>Не откладывай мечту на потом: начни с бесплатного тарифа и за 30 минут получи первый вариант дома.<br>
+  <a href="https://planometrica.ru" target="_blank" rel="noopener">Planometrica.ru — старт бесплатно →</a></p>
+</div>
+<style>
+  .blueprint-block {
+    position: relative;
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glow);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .blueprint-block:hover {
+    border-color: rgba(0, 240, 255, 0.4);
+    box-shadow: 0 12px 48px var(--shadow-glow), 0 0 60px var(--shadow-glow);
+    transform: translateY(-3px);
+  }
+  .bp-glow {
+    position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+    animation: bpPulse 8s ease-in-out infinite; pointer-events: none; z-index: 0;
+  }
+  @keyframes bpPulse { 0%,100%{opacity:0.4;transform:scale(1)} 50%{opacity:0.7;transform:scale(1.02)} }
+  
+  .bp-content { position: relative; z-index: 1; }
+  .bp-title {
+    font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 700;
+    color: var(--accent-cyan); margin-bottom: 1rem; text-align: center;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  }
+  .bp-meta {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
+    margin-bottom: 1.5rem; padding: 0.8rem; background: rgba(255,255,255,0.03);
+    border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);
+  }
+  .bp-meta-item { font-size: 0.9rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.4rem; }
+  .bp-meta-item strong { color: var(--accent-purple); }
+  
+  .bp-floors { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .bp-floor {
+    background: rgba(0, 240, 255, 0.03); border: 1px solid rgba(0, 240, 255, 0.15);
+    border-radius: 12px; padding: 1.2rem; transition: all 0.3s ease;
+  }
+  .bp-floor:hover { border-color: var(--accent-cyan); background: rgba(0, 240, 255, 0.06); }
+  .bp-floor h4 { color: var(--accent-cyan); margin-bottom: 0.8rem; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .bp-floor ul { list-style: none; padding: 0; margin: 0; }
+  .bp-floor li { margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.95rem; position: relative; padding-left: 1.2rem; }
+  .bp-floor li::before { content: '▸'; position: absolute; left: 0; color: var(--accent-purple); }
+  
+  .bp-requirements {
+    background: rgba(168, 85, 247, 0.05); border-left: 3px solid var(--accent-purple);
+    padding: 1rem 1.2rem; border-radius: 0 12px 12px 0; margin-bottom: 1.5rem;
+    color: var(--text-secondary); font-size: 0.95rem;
+  }
+  .bp-requirements strong { color: var(--text-primary); }
+  
+  .bp-offer {
+    text-align: center; padding: 1.5rem; background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(168, 85, 247, 0.05));
+    border: 1px solid var(--border-glow); border-radius: 16px;
+  }
+  .bp-offer p { color: var(--text-secondary); margin-bottom: 1rem; font-size: 1rem; line-height: 1.5; }
+  .bp-offer strong { color: var(--accent-cyan); }
+  .bp-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    color: #0a0a1a; font-weight: 700; font-size: 1rem; border-radius: 12px;
+    text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0, 240, 255, 0.3);
+  }
+  .bp-btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 8px 30px rgba(0, 240, 255, 0.5); color: #fff; }
+  
+  @media (max-width: 768px) {
+    .bp-floors { grid-template-columns: 1fr; }
+    .blueprint-block { padding: 1.5rem; }
+    .bp-title { font-size: 1.2rem; }
+    .bp-btn { width: 100%; justify-content: center; }
+  }
+</style>
+
+<div class="blueprint-block">
+  <div class="bp-glow"></div>
+  <div class="bp-content">
+    <h3 class="bp-title">🏡 Готовый промпт: Скандинавский дом 180–200 м²</h3>
+
+    <div class="bp-meta">
+      <div class="bp-meta-item">🎨 <strong>Стиль:</strong> Скандинавский / Современный</div>
+      <div class="bp-meta-item">🏢 <strong>Этажность:</strong> 2 этажа</div>
+      <div class="bp-meta-item">📐 <strong>Площадь:</strong> 180–200 м²</div>
+    </div>
+
+    <div class="bp-floors">
+      <div class="bp-floor">
+        <h4>🟢 Первый этаж</h4>
+        <ul>
+          <li>Кухня-гостиная 45–50 м² с выходом на террасу</li>
+          <li>Кабинет или гостевая спальня 12–14 м²</li>
+          <li>Санузел</li>
+          <li>Котельная</li>
+          <li>Постирочная/кладовая</li>
+          <li>Гараж на 2 машины (пристроенный)</li>
+          <li>Тёплый тамбур</li>
+        </ul>
+      </div>
+      <div class="bp-floor">
+        <h4>🔵 Второй этаж</h4>
+        <ul>
+          <li>Мастер-спальня 16–18 м² с гардеробной и санузлом</li>
+          <li>Две детские спальни по 13–14 м²</li>
+          <li>Общий санузел</li>
+          <li>Небольшой холл</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bp-requirements">
+      <strong>⚡ Ключевые требования:</strong> удобная лестница (не слишком крутая), минимум коридоров, хорошая связь кухни с террасой, тёплый тамбур.
+    </div>
+
+    <div class="bp-offer">
+      <p>🔥 <strong>Закажи сейчас</strong> — я пришлю точный, готовый промпт для Planometrica/Drafted.<br>
+      Если ИИ сгенерирует проект — получишь <strong>полностью готовую планировку</strong> в PDF/DWG.</p>
+      <a href="https://ТВОЯ_ССЫЛКА_НА_ОПЛАТУ_ИЛИ_КОНТАКТ" class="bp-btn" target="_blank" rel="noopener">📥 Забрать промпт →</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">АЙ ВЕБ ДОМ</div>
+      <div class="footer-tagline">Нейросети, заработок, будущее — в одном месте</div>
+      <span class="footer-badge">🤖 AI-Powered</span>
+      <div class="footer-social">
+        <a href="https://bothub.chat/?invitedBy=9hrXGbTCTq1_smgBB1nzW" class="social-icon" title="BotHub" target="_blank" rel="noopener">🤖</a>
+        <a href="https://www.youtube.com/@АЙВЕБДОМ" class="social-icon" title="YouTube" target="_blank" rel="noopener">▶</a>
+        <a href="#" class="social-icon" title="VK" target="_blank" rel="noopener">В</a>
+        <a href="#" class="social-icon" title="Telegram" target="_blank" rel="noopener">✈</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Разделы</h4>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="article-2.html">Аудио-нейросети</a></li>
+        <li><a href="kak-zarabatyvat-na-ii-s-nulya.html">Заработок с нуля</a></li>
+        <li><a href="Бепсплатные ИИ в России 2026 - как обойтись без подписки?"></a></li>
+        <li><a href="article-14.html">Bothub — нейроплатформа, Caps и зачем агрегатору ИИ</a></li>
+        <li><a href="article-17.html">SINTX.AI обзор и сравнение с Bothub | Что выбрать в 2026</a></li> 
+        <li><a href="article-20.html">Как я делаю рекламу для АЙ ВЕБ ДОМ с помощью Qwen и YouTube</a></li> 
+        <li><a href="article-12.html">Gemini + CapCut: Как зарабатываю с ИИ в 2026. Партнёрки, видео, мой путь</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Инструменты</h4>
+      <ul>
+        <li><a href="https://elevenlabs.io" target="_blank" rel="noopener">ElevenLabs</a></li>
+        <li><a href="https://syntx.ai/welcome/BCEmL6aO" target="_blank" rel="noopener">Syntx.ai</a></li>
+        <li><a href="https://bothub.chat/?invitedBy=9hrXGbTCTq1_smgBB1nzW" target="_blank" rel="noopener">BotHub</a></li>
+        <li><a href="https://grfpr.com/g/34g1j74pfv8a4d8b1048aa3255da32/?erid=2bL9aMPo2e49hMet4pgVRsMGnf&utm_source=aimihome&utm_medium=article9&utm_campaign=chad_ai" target="_blank" rel="noopener">Chad AI</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">
+      © 2026 <strong>АЙ ВЕБ ДОМ</strong>. Все права защищены. Копирование без согласия запрещено.
+    </div>
+    <div class="footer-nav">
+      <a href="index.html">← На главную</a>
+      <a href="ai-proektirovanie-doma.html">Следующая статья →</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
